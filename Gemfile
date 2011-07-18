@@ -22,9 +22,9 @@ group :test do
   gem 'autotest-growl'
   gem 'machinist' #cucumber blueprint
   gem 'faker' #rspec fake models
-  gem 'launchy'
+  gem 'launchy' #cross plataform application helper
   gem 'rcov'
-  gem 'pickle'
-  gem 'spork',  '0.9.0.rc6' #run cucumber and rspec fast
+  gem 'pickle' #generate steps for new models of your blueprints, visit pages
+  gem 'spork',  '0.9.0.rc9' #run cucumber and rspec fast
 end
 

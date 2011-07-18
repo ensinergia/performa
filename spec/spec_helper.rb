@@ -32,6 +32,7 @@ Spork.prefork do
     # examples within a transaction, remove the following line or assign false
     # instead of true.
     config.use_transactional_fixtures = true
+    config.include Webrat::Matchers, :type => :views
   end
   raise "Spec helper loaded TWICE.  Make sure you always require it using the exact same path at the top of your specs (usually with File.expand_path, this is easy)." if defined?(LOADED_SPEC_HELPER)
 
