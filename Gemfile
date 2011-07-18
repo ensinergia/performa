@@ -8,6 +8,7 @@ gem "haml"
 gem "compass"
 
 gem "devise"
+gem "cancan"
 
 # Test environment
 group :test do

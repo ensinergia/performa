@@ -37,6 +37,7 @@ GEM
       ZenTest
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    cancan (1.6.5)
     capybara (1.0.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -159,6 +160,7 @@ DEPENDENCIES
   autotest
   autotest-growl
   autotest-rails
+  cancan
   capybara
   compass
   cucumber-rails
