@@ -10,6 +10,8 @@ gem "compass"
 gem "devise"
 gem "cancan"
 
+gem 'jquery-rails'
+
 # Test environment
 group :test do
   gem 'capybara'#, :git => "git://github.com/jnicklas/capybara.git"

@@ -78,6 +78,9 @@ GEM
       json (>= 1.4.6)
     haml (3.1.2)
     i18n (0.5.0)
+    jquery-rails (1.0.12)
+      railties (~> 3.0)
+      thor (~> 0.14)
     json (1.5.3)
     json_pure (1.5.3)
     launchy (2.0.3)
@@ -169,6 +172,7 @@ DEPENDENCIES
   faker
   gherkin
   haml
+  jquery-rails
   launchy
   machinist
   mysql
