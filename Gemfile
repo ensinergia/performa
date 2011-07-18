@@ -24,6 +24,6 @@ group :test do
   gem 'launchy'
   gem 'rcov'
   gem 'pickle'
-  gem 'spork' #run cucumber and rspec fast
+  gem 'spork',  '0.9.0.rc6' #run cucumber and rspec fast
 end
 
