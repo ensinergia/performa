@@ -12,11 +12,12 @@ gem "devise"
 group :test do
   gem 'capybara'#, :git => "git://github.com/jnicklas/capybara.git"
   gem 'database_cleaner'
-  gem 'rspec-rails', "~>2.1.0"
+  gem 'rspec-rails', "~>2.3.0"
   gem 'cucumber-rails'
   gem 'gherkin'
   gem 'webrat' 
   gem 'autotest'
+  gem 'ZenTest', "~> 4.4.2"
   gem 'autotest-rails'
   gem 'autotest-growl'
   gem 'machinist' #cucumber blueprint

@@ -1,0 +1,8 @@
+require 'autotest/growl'
+
+Autotest.add_hook :initialize do |at|
+  %w{.git vendor tmp development.log test.log rerun.txt solr public db app/stylesheets coverage kettle .DS_Store config features}.each do |exception|
+    at.add_exception(exception)
+  end
+end
+
