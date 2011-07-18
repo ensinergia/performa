@@ -18,12 +18,12 @@ group :test do
   gem 'webrat' 
   gem 'autotest'
   gem 'autotest-rails'
-  gem 'machinist'
-  gem 'faker'
   gem 'autotest-growl'
+  gem 'machinist' #cucumber blueprint
+  gem 'faker' #rspec fake models
   gem 'launchy'
   gem 'rcov'
   gem 'pickle'
-  gem 'spork'
+  gem 'spork' #run cucumber and rspec fast
 end
 
