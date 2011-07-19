@@ -6,12 +6,17 @@
   = stylesheet_link_tag 'print.css', :media => 'print'
   /[if lt IE 8]
     = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
-  %body
-    %p.notice
-      = notice
-    %p.error
-      = alert
-    %p.success
-      = notice
-
-
+  %body.bp.two-col
+    #container
+      %header
+        %h1 Awesome App Heade
+      #content
+        %p.notice
+          = notice
+        %p.error
+          = alert
+        %p.success
+          = notice
+        = yield
+      %footer
+        %h3 Awesome App Footer

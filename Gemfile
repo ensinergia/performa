@@ -5,6 +5,7 @@ gem 'rake', '0.8.7'
 gem 'mysql'
 
 gem "haml"
+gem "haml-rails"
 gem "compass"
 
 gem "devise"
