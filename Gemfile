@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
 gem 'rake', '0.8.7'
+gem 'rails', '3.0.9'
+
 gem 'mysql'
 
 gem "haml"
@@ -17,7 +18,7 @@ gem 'jquery-rails'
 group :test do
   gem 'capybara'#, :git => "git://github.com/jnicklas/capybara.git"
   gem 'database_cleaner'
-  gem 'rspec-rails', "~>2.3.0"
+  gem "rspec-rails", "~> 2.4"
   gem 'cucumber-rails'
   gem 'gherkin'
   gem 'webrat' 
@@ -25,10 +26,9 @@ group :test do
   gem 'ZenTest', "~> 4.4.2"
   gem 'autotest-rails'
   gem 'autotest-growl'
-  gem 'machinist' #cucumber blueprint
+  gem 'machinist', :git=> "https://github.com/notahat/machinist.git", :branch => "1.0-maintenance"
   gem 'faker' #rspec fake models
   gem 'launchy' #cross plataform application helper
-  gem 'rcov'
   gem 'pickle' #generate steps for new models of your blueprints, visit pages
   gem 'spork',  '0.9.0.rc9' #run cucumber and rspec fast
 end

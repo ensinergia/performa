@@ -13,6 +13,15 @@ Spork.prefork do
   require 'capybara/rails'
   require 'capybara/cucumber'
   require 'capybara/session'
+  # Add webrat
+  require "webrat"
+  Webrat.configure do |config|
+    config.mode = :rails
+  end
+
+  # Comment out the next line if you’re not using RSpec’s matchers (should / should_not) in your steps.
+  require 'cucumber/rails/rspec'
+
   # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
   # order to ease the transition to Capybara we set the default here. If you'd
   # prefer to use XPath just remove this line and adjust any selectors in your
