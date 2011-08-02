@@ -1,6 +1,16 @@
+require 'autotest/fsevent'
 require 'autotest/growl'
 
 Autotest.add_hook :initialize do |at|
+  at.add_mapping(%r%^spec/acceptance/.*_spec.rb$%, true) { |filename, _|
+    filename
+  }
+
+  at.add_mapping(%r%^app/(models|controllers|helpers|lib)/.*rb$%, true) {
+    at.files_matching %r%^spec/acceptance/.*_spec.rb$%
+  }
+
+
   %w{.git vendor tmp development.log test.log rerun.txt solr public db app/stylesheets coverage kettle .DS_Store config features}.each do |exception|
     at.add_exception(exception)
   end
