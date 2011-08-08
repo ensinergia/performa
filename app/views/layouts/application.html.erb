@@ -9,15 +9,15 @@
   		<%= csrf_meta_tag %>
 	</head>
 	<body>
-		<div id="header">
+		<header>
 			<% if user_signed_in? %>
 				<%= render :partial => 'layouts/header_context' %>
 			<% else %>
 				<h1>Performa</h1>
 			<% end %>
-		</div>
+		</header>
 		
-		<div class="on-3 columns">
+		<div class="main-content on-3 columns">
 			<div class="column fixed" style="width: 200px">
 				<br/>
 			</div>

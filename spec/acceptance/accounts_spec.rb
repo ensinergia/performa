@@ -11,7 +11,7 @@ feature "Handling of accounts in Performa" do
   describe "Registration" do
     
     before(:each) do
-      url = @host + new_user_registration_url(:subdomain => false).gsub('http://www.example.com', '')
+      url = @host + new_user_registration_path
       visit url
     end
     
@@ -191,8 +191,10 @@ feature "Handling of accounts in Performa" do
       end
       
       it "should let me visit the 'my account info' section" do
-        click_link I18n.t('views.accounts.sections.my_account.title')
-              
+        within(".account_menu") do
+          click_link I18n.t('views.accounts.sections.my_account.title')
+        end
+            
         #check domain by URL
         current_url.should == @host + account_info_path
         current_path.should == account_info_path

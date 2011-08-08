@@ -1,6 +1,8 @@
 # Be sure to restart your server when you modify this file.
 
-GestionDesempeno::Application.config.session_store :cookie_store, :key => '_gestion_desempeno_session', :domain => ".lvh.me"
+domain = Rails.env == "test" ? ".lvh.me" : "sharpplan.com"
+
+GestionDesempeno::Application.config.session_store :cookie_store, :key => '_gestion_desempeno_session', :domain => domain
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information

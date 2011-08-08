@@ -1,0 +1,15 @@
+<div class="header-contents content on-2 columns">
+	<div class="centered title-container">
+		<p><%= t('views.header.app_name') %></p>
+	</div>
+	
+	<div class="action-menu content on-2 columns">
+		<div class="column fixed">
+			<b><%= current_user.full_name %></b> | <%= task_number_for(current_user) %>
+		</div>
+		<div class="column fixed right-placed">
+			<b><%= link_to t('views.header.controls.my_account'), accounts_path %></b>&nbsp;|&nbsp;
+			<%= link_to t('views.header.controls.logout'), destroy_user_session_url %>
+		</div>
+	</div>
+</div>	

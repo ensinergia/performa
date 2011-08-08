@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     ""
   end
 
+  def full_name
+    "#{name} #{last_name}"
+  end
+
   private
   def set_company
     return if company_name.blank?
