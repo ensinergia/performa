@@ -28,16 +28,22 @@ module GestionDesempeno
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = "es-MX"
 
     # JavaScript files you want as :defaults (application.js is always included).
     config.action_view.javascript_expansions[:defaults] = %w(jquery.min jquery-ui.min rails)
+    config.action_view.stylesheet_expansions[:defaults] = %w(elastic elastic.print main)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    config.generators do |g|
+      g.test_framework :rspec
+      g.fixture_replacement :factory_girl
+    end
     
     # for Spork on test env
     if Rails.env.test?

@@ -1,0 +1,42 @@
+	<div class="box rounded-10 with-shadow" style="width: 550px;">
+		<div class="title-bar rounded-10-top">
+			<h2><%= I18n.t('views.registrations.title') %></h2>
+		</div>
+				
+		<div class="inside-box">
+			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+				<%= devise_error_messages! %>
+
+				<div class="field-set label-large grey-colored rounded-5 with-inner-shadow">
+
+					<div><%= f.label :name %>:</div><%= f.text_field :name %>
+
+					<div><%= f.label :last_name %>:</div><%= f.text_field :last_name %>
+
+					<div><%= f.label :company_name %>:</div><%= f.text_field :company_name %>
+
+					<div>*<%= f.label :email %>:</div><%= f.email_field :email %>
+
+				  <div>*<%= f.label :password %>:</div>
+					<%= f.password_field :password, :size => 15 %>
+
+				  <div>*<%= f.label :password_confirmation %>:</div>
+					<%= f.password_field :password_confirmation, :size => 15 %>
+				</div>
+				<br/>
+				<p class="disclaimer"><%= I18n.t('views.registrations.disclaimer') %><br/><%= link_to I18n.t('views.registrations.service_terms'), '' %></p>
+
+				<div class="centered"><%= f.submit  I18n.t('views.registrations.controls.register'), :class => "button orange as-link" %></div>
+			<% end %>
+		</div>
+	</div>
+
+<%= content_for :message do %>
+	<div class="help">
+		<div class="title">
+			<p><%= I18n.t('views.help.title') %></p>
+		</div>
+		
+		<p><%= I18n.t('views.registrations.help_description')  %></p>
+	</div>
+<% end %>

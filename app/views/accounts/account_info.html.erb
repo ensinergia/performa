@@ -1,0 +1,58 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	
+	<%= render :partial => 'main_title' %>
+	<%= render :partial => 'menu' %>
+	
+	<div class="inside-box">
+
+		<h1><%= I18n.t('views.accounts.sections.my_account.title') %></h1>
+
+		<div class="unit on-2 columns">
+			<div class="column fixed" style="width: 50%">
+
+				<%= form_for(@user, :url => registration_path(:user), :html => { :method => :put }) do |f| %>
+				  <div class="field-set label-small grey-colored rounded-5 with-inner-shadow">
+
+						<div><%= f.label :login %>: </div>
+					  <%= f.text_field :login, :size => 20 %>
+
+						<div><%= f.label :password %>: </div>
+					  <%= f.password_field :password, :size => 20 %>
+
+					  <div><%= f.label :password_confirmation %>: </div>
+					  <%= f.password_field :password_confirmation, :size => 20 %>
+
+					</div>
+
+				  <div class="right-placed form-controls">
+						<%= link_to I18n.t('views.accounts.sections.my_account.controls.cancel'), '' %>
+						<%= f.submit I18n.t('views.accounts.sections.my_account.controls.edit'), :class => "button orange as-link" %>
+					</div>
+				<% end %>
+			</div>
+			<div class="column fixed" style="width: 50%">
+				<%= form_for(@user, :url => registration_path(:user), :html => { :method => :put }) do |f| %>
+					<div class="field-set label-small" style="text-align: right">
+						<div><label>Permisos:</label></div>
+						<input id="user_permissions" type="text" size="20" name="user[permissions]">
+						<!-- field :persmissions -->
+						<%= f.submit I18n.t('views.accounts.sections.my_account.controls.finish_account'), :class => "button green as-link" %>
+				  	
+					</div>
+
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<%= content_for :message do %>
+	<div class="help">
+		<div class="title">
+			<p><%= I18n.t('views.help.title') %></p>
+		</div>
+		
+		<p class="subtitle"><%= I18n.t('views.accounts.sections.my_account.title') %></p>
+		
+		<p><%= I18n.t('views.accounts.sections.my_account.help_description')  %></p>
+	</div>
+<% end %>

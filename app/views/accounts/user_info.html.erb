@@ -1,0 +1,71 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	
+	<%= render :partial => 'main_title' %>
+	<%= render :partial => 'menu' %>
+	
+	<div class="inside-box">
+		<h1><%= I18n.t('views.accounts.sections.my_info.title') %></h1>
+
+		<div class="unit on-2 columns">
+
+			<div class="photo-placeholder centered column fixed" style="width: 30%">
+				<!-- Image link -->
+				<%= link_to I18n.t('views.accounts.sections.my_info.controls.change_photo'), '' %>
+			</div>
+
+			<div class="column fixed" style="width: 70%">
+				<%= form_for(@user, :url => registration_path(:user), :html => { :method => :put }) do |f| %>
+
+					<div class="field-set label-large">
+
+						<div><%= f.label :name %></div>
+					  <%= f.text_field :name %>
+
+						<div><%= f.label :last_name %></div>
+					  <%= f.text_field :last_name %>
+
+					  <div><%= f.label :email %></div>
+					  <%= f.email_field :email, :size => 26 %>
+
+					  <div><%= f.label :company_name %></div>
+					  <%= f.text_field :company_name, :disabled => true %>
+
+					  <div><%= f.label :area %> </div>
+					  <%= f.text_field :area, :disabled => true %>
+
+					  <div><%= f.label :position %></div>
+					  <%= f.text_field :position, :disabled => true %>
+
+						<div><label>Rol</label></div>
+
+						<!-- field :role -->
+						<% if 0 ==2 %>
+					  <div><%= f.label :role %> </div>
+					  <%= f.text_field :role %>
+						<% end %>
+						<input id="user_role" type="text" size="30" name="user[role]" disabled="disabled">
+						<div class="right-placed form-controls">
+					  	<%= link_to I18n.t('views.accounts.sections.my_info.controls.cancel'), '' %>&nbsp;
+							<%= f.submit I18n.t('views.accounts.sections.my_info.controls.save'), :class => "button orange as-link" %>
+						</div>
+					</div>
+
+
+
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%= content_for :message do %>
+	<div class="help">
+		<div class="title">
+			<p><%= I18n.t('views.help.title') %></p>
+		</div>
+		
+		<p class="subtitle"><%= I18n.t('views.accounts.sections.my_info.title') %></p>
+		
+		<p><%= I18n.t('views.accounts.sections.my_info.help_description')  %></p>
+	</div>
+<% end %>

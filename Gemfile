@@ -4,12 +4,8 @@ gem 'rake'
 gem 'rails', '3.0.9'
 
 gem 'pg'
-	
-gem "haml"
-gem "haml-rails"
-gem "compass"
 
-gem "devise"
+gem "devise", ">= 1.4.2"
 gem "cancan"
 
 gem 'jquery-rails'

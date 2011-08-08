@@ -10,6 +10,13 @@ Autotest.add_hook :initialize do |at|
     at.files_matching %r%^spec/acceptance/.*_spec.rb$%
   }
 
+  at.add_mapping(%r%^app/config/routes.rb$%, true) {
+    at.files_matching %r%^spec/routing/.*_routing.rb$%
+  }
+
+  at.add_mapping(%r{^lib/.*\.rb$}) {|f, _|
+    Dir['spec/**/*.rb']
+  }
 
   %w{.git vendor tmp development.log test.log rerun.txt solr public db app/stylesheets coverage kettle .DS_Store config features}.each do |exception|
     at.add_exception(exception)

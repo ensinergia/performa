@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  		<title>Oficina de Gestion de desempeño</title>
+  		
+			<%= stylesheet_link_tag :defaults, 'layout', 'login' %>  		
+			<%= javascript_include_tag :defaults %>
+
+  		<%= csrf_meta_tag %>
+	</head>
+	<body>
+		<div id="header">
+			<% if user_signed_in? %>
+				<%= render :partial => 'layouts/header_context' %>
+			<% else %>
+				<h1>Performa</h1>
+			<% end %>
+		</div>
+		
+		<div class="on-3 columns">
+			<div class="column fixed" style="width: 200px">
+				<br/>
+			</div>
+				
+			<div class="column fixed" style="width: 800px">
+				<%= yield %>		
+			</div>
+				
+			<div class="column elastic" style="width: 250px">
+				<%= yield :message %>
+			</div>
+
+		</div>
+	</body>
+</html>

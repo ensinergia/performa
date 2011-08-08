@@ -55,6 +55,7 @@ Spork.prefork do
     
     # For Spork
     ActiveSupport::Dependencies.clear
+    
   end
 
 end
@@ -65,11 +66,8 @@ Spork.each_run do
   load "#{Rails.root}/config/routes.rb" 
   
   Dir["#{Rails.root}/app/**/*.rb"].each { |f| load f }
-  FactoryGirl.factories.clear
-  FactoryGirl.definition_file_paths = Dir[File.join(Rails.root, "spec", "factories")]
-  FactoryGirl.find_definitions.each do |location|
-    Dir["#{location}/**/*.rb"].each { |file| load file }
-  end
+  
+  require 'factory_girl_rails'
 end
 
 # --- Instructions ---

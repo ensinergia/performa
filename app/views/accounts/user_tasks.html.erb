@@ -1,0 +1,33 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	
+	<%= render :partial => 'main_title' %>
+	<%= render :partial => 'menu' %>
+	
+	<div class="tasks">
+		<table>
+			<tr>
+				<th><%= I18n.t('views.accounts.sections.my_tasks.table.task_column_name') %></th>
+				<th><%= Task.human_attribute_name(:priority) %></th>
+			</tr>
+			<% @user.tasks.each_with_index do |t, i| %>
+				<tr class="<%= i.odd? ? "odd" : "even" %>">
+					<td><%= t.description %></td>
+					<td><%= I18n.t("views.accounts.sections.my_tasks.priority.#{t.priority}")  %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+	
+</div>
+
+<%= content_for :message do %>
+	<div class="help">
+		<div class="title">
+			<p><%= I18n.t('views.help.title') %></p>
+		</div>
+		
+		<p class="subtitle"><%= I18n.t('views.accounts.sections.my_tasks.title') %></p>
+		
+		<p><%= I18n.t('views.accounts.sections.my_tasks.help_description')  %></p>
+	</div>
+<% end %>
