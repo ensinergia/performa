@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :area do
-      string ""
-      integer ""
+      name ""
+      company_id ""
     end
 end

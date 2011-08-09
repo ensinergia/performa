@@ -6,6 +6,10 @@
 	<div class="action-menu content on-2 columns">
 		<div class="column fixed">
 			<b><%= current_user.full_name %></b> | <%= task_number_for(current_user) %>
+			<br>
+			<%= form_tag '' do %>
+				<%= select_tag "area_selector", options_from_collection_for_select(current_user.company.areas, "id", "name") %>
+			<% end %>
 		</div>
 		<div class="column fixed right-placed">
 			<b><%= link_to t('views.header.controls.my_account'), accounts_path %></b>&nbsp;|&nbsp;

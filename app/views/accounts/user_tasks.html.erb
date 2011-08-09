@@ -1,6 +1,6 @@
 <div class="box rounded-10 with-shadow with-mid-width">
 	
-	<%= render :partial => 'main_title' %>
+	<%= render :partial => 'shared/main_title', :locals => {:title => I18n.t('views.accounts.title') } %>
 	<%= render :partial => 'menu' %>
 	
 	<div class="tasks">

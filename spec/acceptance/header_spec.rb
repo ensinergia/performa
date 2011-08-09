@@ -10,6 +10,7 @@ feature "Header:" do
   describe "Given I am logged in" do
     before(:each) do
       @user = Factory(:user, :tasks => [Factory(:task)])
+      
       login_as(@user)
       @host_sub = @host.gsub('lvh.me', 'ievolutioned.lvh.me')
       visit @host_sub + panorama_path
@@ -21,6 +22,7 @@ feature "Header:" do
         page.should have_content(@user.full_name)
         find_link(I18n.t('views.header.controls.my_account'))
         find_link(I18n.t('views.header.controls.logout'))
+        find_field("area_selector").text.should == I18n.t('views.areas.default')
         page.should have_content(I18n.t('views.header.pending_tasks', :count => @user.tasks.count))
       end
     end
@@ -49,8 +51,9 @@ feature "Header:" do
       visit @host.gsub('lvh.me', 'ievolutioned.lvh.me') + panorama_path
     end
     
-    it "should not allow me to visit" do
-      current_path.should == new_user_session_path
+    it "the header should not be shown" do
+      page.should_not have_css('.header-contents')
     end
+    
   end
 end

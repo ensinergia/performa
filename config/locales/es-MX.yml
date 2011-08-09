@@ -240,7 +240,10 @@ es-MX:
 
       full_messages:
         format: "%{attribute} %{message}" 
+    
   views:
+    areas:
+      default: "Dirección General"
     header:
       app_name: "Performa"
       pending_tasks: 
@@ -290,3 +293,21 @@ es-MX:
     login:
       controls:
         login: "Iniciar" 
+    menu:
+      panorama: "Panorama"
+      creed: "Credo"
+      foda: "FODA"
+      expectations: "Expectativas"
+      objectives: "Objetivos Estratégicos" 
+      programmes: "Programas"
+      people: "Personas"
+    panorama:
+      title: "Bienvenido a Performa"
+      description: "En esta pantalla verás el panorama general ..."
+      actions:
+        add_creed: "Agregar Credo"
+        add_foda: "Agregar FODA"
+        add_expectations: "Agregar Expectativas"
+        add_objectives: "Agregar Objetivos Estratégicos"
+        add_programmes: "Agregar Programas"
+        add_areas_and_people: "Agregar Áreas y Personas"
