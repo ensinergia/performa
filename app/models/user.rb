@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     @company_name 
   end
   
-  def domain
+  def subdomain
     return company_name.downcase if company_name
     ""
   end

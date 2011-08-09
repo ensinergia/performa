@@ -1,6 +1,6 @@
 module SubdomainGuards
   def valid_subdomain?
-    !current_user.nil?  && request.subdomain == current_user.domain
+    !current_user.nil?  && request.subdomain == current_user.subdomain
   end
   
   def verify_subdomain

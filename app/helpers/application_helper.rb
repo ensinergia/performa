@@ -1,6 +1,6 @@
 module ApplicationHelper
   def with_current_subdomain
-    {:subdomain => (@user|| current_user).domain}
+    {:subdomain => (@user|| current_user).subdomain}
   end
   
   def task_number_for(user)

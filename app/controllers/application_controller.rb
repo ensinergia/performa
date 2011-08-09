@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include UrlHelper
   
   def after_sign_in_path_for(resource)
-    panorama_url(:subdomain => current_user.domain)
+    panorama_url(:subdomain => current_user.subdomain)
   end
   
   def after_sign_out_path_for(resource)

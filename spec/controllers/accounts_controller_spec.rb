@@ -12,7 +12,7 @@ describe AccountsController do
     before(:each) do
       @user = Factory(:user)
       sign_in :user, @user
-      @request.host = "#{@user.domain}.test.host"
+      @request.host = "#{@user.subdomain}.test.host"
     end
     
     it "should assign a user on #account_info method" do

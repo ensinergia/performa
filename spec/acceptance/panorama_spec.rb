@@ -11,12 +11,13 @@ feature "Panorama landing page:" do
     before(:each) do
       @user = Factory(:user)
       login_as(@user)
+      @sub_host = @host.gsub('lvh.me', "#{@user.subdomain}.lvh.me")
       visit @host + panorama_path
     end
     
     describe "and I have yet company related info tasks to do" do
       it "should allow me to visit" do
-        current_url.should == @host + panorama_path
+        current_url.should == @sub_host + panorama_path
         current_path.should == panorama_path
 
         within(".menu") do
