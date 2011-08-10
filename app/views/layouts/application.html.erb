@@ -18,6 +18,9 @@
 		</header>
 		
 		<div class="main-content on-3 columns">
+			
+			<%= render(:partial => 'shared/main_menu') if user_signed_in? %>
+			
 			<div class="column fixed" style="width: 200px">
 				<br/>
 			</div>

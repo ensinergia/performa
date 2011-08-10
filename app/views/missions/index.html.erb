@@ -1,0 +1,19 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	
+	<div class="title-bar rounded-10-top">
+		<ul>
+			<li><%= link_to t('views.creed.vision') %></li>
+			<li><%= link_to t('views.creed.mission') %></li>
+			<li><%= link_to t('views.creed.battle_cry') %></li>
+		</ul>
+	</div>	
+	
+	<div class="inside-box">
+		<!-- Image space -->
+		<h1><%= t('views.creed.first_view.title') %></h1>
+		
+		<p><%= t('views.creed.first_view.description') %></p>
+		
+		<%= button_to t('views.creed.first_view.controls.add_vision'), missions_url(with_current_subdomain), :method => :get, :class => "button orange as-link" %>
+	</div>
+</div>

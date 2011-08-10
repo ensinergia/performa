@@ -8,3 +8,11 @@ Factory.define :user do |u|
   u.password_confirmation "performa"
   u.email "silvanito@ievolutioned.com"
 end
+
+Factory.define :user_no_company_name, :class => "User" do |u|
+  u.name "Fulano"
+  u.last_name "Pérez"
+  u.password "performa"
+  u.password_confirmation "performa"
+  u.email "fulano@ievolutioned.com"
+end

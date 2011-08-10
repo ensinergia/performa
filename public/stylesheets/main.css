@@ -214,11 +214,11 @@ input:focus, textarea:focus {
 .header-contents {
 	background-color: #483A07;
 	width: 100%;
-	height: 60px;
+	height: 70px;
 }
 
 .header-contents .title-container { 
-	padding-top: 10px;
+	padding-top: 15px;
 	height: 100px;
 	width: 50%;
 }

@@ -9,8 +9,9 @@ describe User do
     end
 
     it "should not be possible to save a user with company_name set to 'iEvolutioned'" do
-      @user = Factory.build(:user, :company_name => "iEvolutioned")
-      @user.valid?.should be_false
+      @user = Factory.build(:user, :company_name => @company.name)
+      @user.save
+      @user.errors.should_not be_empty
     end
     
   end

@@ -13,6 +13,8 @@ GestionDesempeno::Application.routes.draw do
     match '/accounts/info' => 'accounts#account_info', :as => 'account_info', :via => :get
     match '/accounts/user_tasks' => 'accounts#user_tasks', :as => 'user_tasks', :via => :get
     match '/panorama' => 'panoramas#index'
+    
+    resources :missions, :only => [:index]
   end  
   
   match '/panorama', :to => redirect('/users/sign_in'), :via => :get

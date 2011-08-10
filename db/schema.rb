@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20110805164249) do
     t.string   "name"
     t.string   "last_name"
     t.integer  "company_id"
+    t.integer  "area_id"
     t.integer  "position_id"
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false

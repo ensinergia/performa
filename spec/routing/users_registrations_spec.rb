@@ -8,7 +8,7 @@ describe Users::RegistrationsController do
       { :get => "http://example.com/users/sign_up" }.should route_to(:controller => "users/registrations", :action => "new")
     end
     
-    it "should not match /users/sign_up with #new action" do
+    it "should not match /users/sign_up with #new action when subdomain is provided" do
       { :get => "http://foo.example.com/users/sign_up" }.should_not be_routable
     end
     

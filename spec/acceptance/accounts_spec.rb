@@ -82,6 +82,7 @@ feature "Handling of accounts in Performa" do
         current_url.should == n_host + panorama_path
         
         current_path.should == panorama_path
+        
       end
     end
     
@@ -153,6 +154,16 @@ feature "Handling of accounts in Performa" do
 
         current_path.should == accounts_path
         
+        within(".menu") do
+          find_link I18n.t('views.menu.panorama')
+          find_link I18n.t('views.menu.creed')
+          find_link I18n.t('views.menu.foda')
+          find_link I18n.t('views.menu.expectations')
+          find_link I18n.t('views.menu.objectives')
+          find_link I18n.t('views.menu.programmes')
+          find_link I18n.t('views.menu.people')
+        end
+        
         page.should have_content I18n.t('views.accounts.title')
         
         within(".account_menu") do
@@ -195,6 +206,16 @@ feature "Handling of accounts in Performa" do
           click_link I18n.t('views.accounts.sections.my_account.title')
         end
             
+        within(".menu") do
+          find_link I18n.t('views.menu.panorama')
+          find_link I18n.t('views.menu.creed')
+          find_link I18n.t('views.menu.foda')
+          find_link I18n.t('views.menu.expectations')
+          find_link I18n.t('views.menu.objectives')
+          find_link I18n.t('views.menu.programmes')
+          find_link I18n.t('views.menu.people')
+        end  
+          
         #check domain by URL
         current_url.should == @host + account_info_path
         current_path.should == account_info_path
@@ -244,6 +265,16 @@ feature "Handling of accounts in Performa" do
       
           page.should have_content I18n.t('views.accounts.title')
         
+          within(".menu") do
+            find_link I18n.t('views.menu.panorama')
+            find_link I18n.t('views.menu.creed')
+            find_link I18n.t('views.menu.foda')
+            find_link I18n.t('views.menu.expectations')
+            find_link I18n.t('views.menu.objectives')
+            find_link I18n.t('views.menu.programmes')
+            find_link I18n.t('views.menu.people')
+          end
+          
           within(".account_menu") do
             find_link I18n.t('views.accounts.sections.my_info.title')
             find_link I18n.t('views.accounts.sections.my_account.title')

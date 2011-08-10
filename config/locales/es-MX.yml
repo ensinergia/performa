@@ -311,3 +311,25 @@ es-MX:
         add_objectives: "Agregar Objetivos Estratégicos"
         add_programmes: "Agregar Programas"
         add_areas_and_people: "Agregar Áreas y Personas"
+    creed:
+        vision: "Visión"
+        mission: "Misión"
+        battle_cry: "Grito de guerra" 
+        first_view: 
+            title: "¿Listo para Agregar la Visión?"
+            description: "Esta es la descripción previa a la inserción de una visión nueva"
+            controls: 
+                add_vision: "Agregar Visión"
+        new_vision:
+            title: "Agregando una nueva Visión"
+            notify_to: "* Notificar de este Evento a:"
+            controls:
+                all_selector: "Toda la "
+                cancel: "Cancelar"
+                save: "Guardar"
+        help:
+            vision:
+                description: "Una descripción simple para una visión"
+            notifications:
+                title: "*Notificaciones"    
+                description: "Notificaciones"

@@ -39,6 +39,11 @@ feature "Panorama landing page:" do
         find_link I18n.t('views.panorama.actions.add_objectives')
         find_link I18n.t('views.panorama.actions.add_programmes')
         find_link I18n.t('views.panorama.actions.add_areas_and_people')
+        
+        click_link I18n.t('views.menu.panorama')
+        
+        current_url.should == @sub_host + panorama_path
+        current_path.should == panorama_path
       end
     end
   end
