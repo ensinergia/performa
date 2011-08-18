@@ -1,0 +1,11 @@
+<% if object.errors.any? %>
+  <div id="error_explanation" class="radio-5">
+    <h2><%= message_error %></h2>
+
+    <ul>
+    <% object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -2,6 +2,12 @@
 
 FactoryGirl.define do
   factory :company do
-      name "iEvolutioned"
+    name "iEvolutioned"
+  end
+  
+  factory :company_sequenced, :class => :company do
+    sequence :name do |n|
+      "Company {n}"
     end
+  end
 end

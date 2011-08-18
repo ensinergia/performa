@@ -17,6 +17,9 @@
 			<% end %>
 		</header>
 		
+		<p id="notice" class="flash centered"><%= notice %></p>
+    <p id="alert" class="flash centered"><%= alert %></p>
+		
 		<div class="main-content on-3 columns">
 			
 			<%= render(:partial => 'shared/main_menu') if user_signed_in? %>

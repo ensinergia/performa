@@ -14,7 +14,11 @@ GestionDesempeno::Application.routes.draw do
     match '/accounts/user_tasks' => 'accounts#user_tasks', :as => 'user_tasks', :via => :get
     match '/panorama' => 'panoramas#index'
     
-    resources :missions, :only => [:index]
+    
+    namespace(:creed) do
+      resources :visions, :only => [:index, :new, :create, :show, :edit, :update]      
+    end
+    
   end  
   
   match '/panorama', :to => redirect('/users/sign_in'), :via => :get

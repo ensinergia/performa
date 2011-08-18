@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110805164249) do
+ActiveRecord::Schema.define(:version => 20110812152717) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -26,9 +26,7 @@ ActiveRecord::Schema.define(:version => 20110805164249) do
   end
 
   create_table "positions", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
   end
 
   create_table "tasks", :force => true do |t|
@@ -62,5 +60,14 @@ ActiveRecord::Schema.define(:version => 20110805164249) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "visions", :force => true do |t|
+    t.string   "description"
+    t.boolean  "current"
+    t.integer  "company_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

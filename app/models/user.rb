@@ -29,7 +29,12 @@ class User < ActiveRecord::Base
 
   private
   def set_company
+    return unless company.nil?
     return if company_name.blank?
+    return unless Company.find_by_name(company_name).nil?
+
     self.company = Company.new({:name => company_name})
+    # also add user to company default's area
+    self.area = self.company.areas.first
   end
 end

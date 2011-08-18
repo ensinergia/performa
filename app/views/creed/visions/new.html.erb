@@ -1,0 +1,32 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	
+	<%= render 'creed/shared/menu' %>	
+	
+	<div class="inside-box">
+		<!-- Image space -->
+		<div class="title-bar">
+			<h1><%= t('views.creed.new_vision.title') %></h1>
+		</div>
+		
+		<%= form_for([:creed, @vision]) do |f| %>
+			<%= render :partial => 'form', 
+							 	 :locals => {:f => f, :commit_changes_legend => t('views.creed.new_vision.controls.save') } %>
+		<% end %>
+		</div>
+</div>
+
+<%= content_for :message do %>
+	<div class="help">
+		<div class="title">
+			<p><%= I18n.t('views.help.title') %></p>
+		</div>
+		
+		<p class="subtitle"><%= I18n.t('views.creed.vision') %></p>
+		
+		<p><%= I18n.t('views.creed.help.vision.description')  %></p>
+		
+		<p class="subtitle"><%= I18n.t('views.creed.help.notifications.title') %></p>
+		
+		<p><%= I18n.t('views.creed.help.notifications.description')  %></p>
+	</div>
+<% end %>

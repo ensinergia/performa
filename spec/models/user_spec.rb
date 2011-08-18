@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
 
-  describe "given it exists the company 'iEvolutioned'" do
+  describe ": Given it exists the company 'iEvolutioned'" do
 
     before(:each) do
       @company = Factory(:company)
@@ -16,11 +16,19 @@ describe User do
     
   end
   
-  describe "given it doesn't exists a company called 'iEvolutioned'" do
+  describe ": Given it doesn't exists a company called 'iEvolutioned'" do
     
-    it "should then create it and associate it with the user whose company_name is set to 'iEvolutioned'" do
+    before(:each) do
       @user = Factory.create(:user, :company_name => "iEvolutioned")
+    end
+    
+    it "should create a company and associate it with a user with the same company_name" do
       @user.company.name.should == 'iEvolutioned'
+    end
+    
+    it "should add the user to the default area in the recently created company" do
+      @user.area.should_not be_nil
+      @user.area.name.should == I18n.t('views.areas.default')
     end
     
   end

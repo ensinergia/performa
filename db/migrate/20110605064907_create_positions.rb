@@ -2,8 +2,6 @@ class CreatePositions < ActiveRecord::Migration
   def self.up
     create_table :positions do |t|
       t.string :name
-
-      t.timestamps
     end
   end
 

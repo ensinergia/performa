@@ -1,0 +1,23 @@
+
+<%= render :partial => 'shared/errors', 
+					 :locals => {:message_error => t('views.creed.most_views.form_errors'), :object => @vision} %>
+
+<%= f.text_area :description %>
+
+<p class="title"><%=t 'views.creed.most_views.notify_to' %></p>
+
+<%= all_selector_for_area_for(current_user) %>
+<%= check_box_tag 'select[everyone]' %><br/>
+
+<!-- Refactorizar este bloque -->
+<% current_user.area.users.each do |user| %>
+	<% if current_user != user %>
+		<%= label_tag user.name %>
+		<%= check_box_tag "users[#{user.id}]" %>
+		<br/>
+	<% end %>
+<% end %>
+
+<%= link_to t('views.creed.most_views.controls.cancel'), '' %>
+<%= f.submit commit_changes_legend, :class => "button orange as-link" %>
+

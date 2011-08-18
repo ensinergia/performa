@@ -225,7 +225,9 @@ es-MX:
         password_confirmation: "Confirmar contraseña"
         position: "Posición"
         area: "Área"
-        role: "Rol"        
+        role: "Rol"
+      vision:
+        description: "Descripción"        
     errors:
       template:
         header:
@@ -314,22 +316,42 @@ es-MX:
     creed:
         vision: "Visión"
         mission: "Misión"
-        battle_cry: "Grito de guerra" 
+        battle_cry: "Grito de guerra"
+        
+        most_views:
+          notify_to: "* Notificar de este Evento a:"
+          form_errors: "Encontramos problemas al intentar guardar este formulario"
+          controls: 
+            all_selector: "Toda la "
+            cancel: "Cancelar"
+          
+         
         first_view: 
-            title: "¿Listo para Agregar la Visión?"
-            description: "Esta es la descripción previa a la inserción de una visión nueva"
-            controls: 
-                add_vision: "Agregar Visión"
+          title: "¿Listo para Agregar la Visión?"
+          description: "Esta es la descripción previa a la inserción de una visión nueva"
+          controls: 
+              add_vision: "Agregar Visión"
         new_vision:
-            title: "Agregando una nueva Visión"
-            notify_to: "* Notificar de este Evento a:"
-            controls:
-                all_selector: "Toda la "
-                cancel: "Cancelar"
-                save: "Guardar"
+          title: "Agregando una nueva Visión"
+          controls:
+            save: "Guardar"
+        edit_vision:
+          title: "Modificando la Visión"
+          controls:
+            save: "Guardar cambios"
+        show_vision:
+          registered_by: "por"
+          controls:
+            make_a_comment: "Haz un comentario sobre esta Visión"
+            edit: "Modificar"
+        create_vision:
+          successful_save: "Nueva visión guardada correctamente"      
+        update_vision:
+          successful_save: "Cambios a la visión correctamente guardados"
         help:
             vision:
                 description: "Una descripción simple para una visión"
             notifications:
                 title: "*Notificaciones"    
-                description: "Notificaciones"
+                description: "Una descripción simple para notificaciones"
+                description_extra: "Una descripción simple extra para notificaciones"

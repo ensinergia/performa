@@ -1,0 +1,40 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	
+	<%= render 'creed/shared/menu' %>	
+	
+	<div class="inside-box">
+		<!-- Image space -->
+		<div class="title-bar">
+		<p>
+			<%=t 'views.creed.vision' %>&nbsp;
+			<%=t 'views.creed.show_vision.registered_by' %>&nbsp;
+			<%= @vision.user.name %>&nbsp;
+			<%=l @vision.updated_at, :format => :short %>
+			<%= button_to t('views.creed.show_vision.controls.edit'), 
+				edit_creed_vision_path(@vision), :method => :get,
+				:class => "button orange as-link" %>
+		</p>
+		</div>
+		
+		<p><%= @vision.description %></p>
+		
+		<%= link_to t('views.creed.show_vision.controls.make_a_comment'), '' %>
+	</div>
+</div>
+
+<%= content_for :message do %>
+	<div class="help">
+		<div class="title">
+			<p><%= I18n.t('views.help.title') %></p>
+		</div>
+		
+		<p class="subtitle"><%=t 'views.creed.vision' %></p>
+		
+		<p><%=t 'views.creed.help.vision.description'  %></p>
+		
+		<p class="subtitle"><%=t 'views.creed.help.notifications.title' %></p>
+		
+		<p><%=t 'views.creed.help.notifications.description'  %></p>
+		<p><%=t 'views.creed.help.notifications.description_extra'  %></p>
+	</div>
+<% end %>
