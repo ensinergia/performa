@@ -1,0 +1,7 @@
+if($('div#comment-<%= @comment.id %>').siblings().length == 0) {
+	$('div#comments .links').html('<%= generate_links_for(@comment.commentable_type, 0) %>').hide().fadeIn('slow');
+} else {
+	$('div#comments .links .number').html($('div#comment-<%= @comment.id %>').siblings().length);
+}
+
+$('div#comment-<%= @comment.id %>').fadeOut('slow').delay(2000).remove();

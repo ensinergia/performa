@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :last_name, :email, :password, :password_confirmation, :remember_me, :company_name
 
   has_many :tasks
+  has_many :comments
   belongs_to :area
   belongs_to :company
   belongs_to :position

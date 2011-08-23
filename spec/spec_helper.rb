@@ -26,14 +26,17 @@ Spork.prefork do
     # config.mock_with :flexmock
     # config.mock_with :rr
     config.mock_with :rspec
-
+    
+    config.include Warden::Test::Helpers, :type => :acceptance
+    config.after(:each, :type => :acceptance) { Warden.test_reset! }
+    
     # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
     #config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
     # If you're not using ActiveRecord, or you'd prefer not to run each of your
     # examples within a transaction, remove the following line or assign false
     # instead of true.
-    config.use_transactional_fixtures = true
+    config.use_transactional_fixtures = false
     
     config.before(:suite) do
       DatabaseCleaner.strategy = :truncation
@@ -51,13 +54,15 @@ Spork.prefork do
     Capybara.register_driver :selenium do |app|
       Capybara::Selenium::Driver.new(app, :browser => :firefox)
     end
-    Capybara.ignore_hidden_elements = true
+    Capybara.ignore_hidden_elements = false
     
     # For Spork
     ActiveSupport::Dependencies.clear
     
   end
-
+  
+  Capybara.run_server = true
+  Capybara.server_port = 9887
 end
 
 Spork.each_run do

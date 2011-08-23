@@ -18,7 +18,11 @@
 		
 		<p><%= @vision.description %></p>
 		
-		<%= link_to t('views.creed.show_vision.controls.make_a_comment'), '' %>
+		<%= render :partial => 'comments/index', :locals => { :comments => @vision.comments } %>
+
+		<div id="new-comment-for-commentable" class="hidden">
+			<%= render :partial => 'comments/new', :locals => {:commentable => @vision} %>
+		</div>
 	</div>
 </div>
 

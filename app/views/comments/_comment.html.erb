@@ -1,0 +1,11 @@
+<div id="comment-<%= comment.id %>">
+	
+	<span class="author"><%= comment.user.name %></span>
+	<span class="date"><%=l comment.created_at, :format => :short %></span>
+	<span class="content"><%= comment.content %></span>
+	
+	<% if comment.user == current_user %>
+		<%= button_to t('views.creed.comments.controls.delete'), comment, :method => :delete, 
+				:remote => true, :confirm => t('views.creed.comments.delete_comment.confirm'), :class => 'delete-comment' %>
+	<% end %>
+</div>

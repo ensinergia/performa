@@ -325,7 +325,21 @@ es-MX:
             all_selector: "Toda la "
             cancel: "Cancelar"
           
-         
+        comments:
+          leave_a_comment: "Deja un comentario"
+          delete_comment:
+            confirm: "¿Eliminar comentario?"
+          add_comment:
+            successful_save: "Comentario agregado exitosamente"
+            unsuccessful_save: "No se pudo agregar el comentario"
+          controls:
+            add_a_file: "Adjuntar un archivo a este comentario"
+            cancel: "Cancelar"
+            add: "Agregar"
+            see: "Ver comentarios"
+            comment: "Comentar"
+            delete: "Eliminar"
+            
         first_view: 
           title: "¿Listo para Agregar la Visión?"
           description: "Esta es la descripción previa a la inserción de una visión nueva"

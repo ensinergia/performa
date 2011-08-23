@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(:version => 20110812152717) do
     t.datetime "updated_at"
   end
 
+  create_table "comments", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "companies", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"

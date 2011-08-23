@@ -5,7 +5,6 @@ feature "Creed section:" do
   before(:each) do    
     @host = "http://lvh.me"
     Capybara.app_host = @host
-    
     @user = Factory(:user)
     @sub_host = @host.gsub('lvh.me', "#{@user.subdomain}.lvh.me")
     login_as(@user)    
@@ -130,7 +129,7 @@ feature "Creed section:" do
   
   describe "Given I have already registered a vision" do
     before(:each) do
-      visit @host + panorama_path
+      visit @sub_host + panorama_path
       @vision = Factory(:vision, :company => @user.company, :user => @user)
     end
     

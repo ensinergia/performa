@@ -1,0 +1,10 @@
+<h2><%=t 'views.creed.comments.leave_a_comment' %></h2>
+<%= form_for(Comment.new, :remote => true) do |f| %>
+	<%= f.text_area 'content' %>
+	<%= f.hidden_field 'commentable_id', :value => commentable.id %>
+	<%= f.hidden_field 'commentable_type', :value => commentable.class.to_s %>
+	<%= link_to t('views.creed.comments.controls.add_a_file') %>
+	
+	<%= link_to t('views.creed.comments.controls.cancel'), 'javascript:void();' %>
+	<%= f.submit t('views.creed.comments.controls.add') %>
+<% end %>

@@ -125,6 +125,7 @@ input:focus, textarea:focus {
   color: #7E1803;
 }
 
+.hidden { display:none }
 
 /** Styles for specific global controls **/
 

@@ -31,7 +31,7 @@ module GestionDesempeno
     config.i18n.default_locale = "es-MX"
 
     # JavaScript files you want as :defaults (application.js is always included).
-    config.action_view.javascript_expansions[:defaults] = %w(jquery.min jquery-ui.min rails)
+    config.action_view.javascript_expansions[:defaults] = %w(jquery.min jquery_ujs rails)
     config.action_view.stylesheet_expansions[:defaults] = %w(elastic elastic.print main)
 
     # Configure the default encoding used in templates for Ruby 1.9.
