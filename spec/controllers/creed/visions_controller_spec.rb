@@ -112,7 +112,7 @@ describe Creed::VisionsController do
   describe "GET #show action" do
     
     it "should assign an existant vision to @vision" do
-      Vision.stub(:find).with("2").and_return { Factory.stub(:vision) }
+      Vision.stub(:find).and_return { Factory.stub(:vision) }
       get :show, :id => "2"
       assigns(:vision).should_not be_nil
     end

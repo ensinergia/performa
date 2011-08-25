@@ -4,9 +4,13 @@ gem 'rake'
 gem 'rails', '3.0.9'
 
 gem 'pg'
-
+gem 'heroku'
 gem "devise", ">= 1.4.2"
 gem "cancan"
+
+gem 'remotipart', '~> 0.4'
+gem 'carrierwave'
+gem 'fog'
 
 gem 'jquery-rails'
 

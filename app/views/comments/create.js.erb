@@ -1,16 +1,16 @@
-// Clear form data
-<% if @comment.errors.empty? %>
-	$('div#new-comment-for-commentable form')[0].reset();
-	$('div#new-comment-for-commentable').addClass('hidden');
-	$('#comments .messages').html('<%= escape_javascript(render :partial => "after_add_msj", :locals => {:success => true}) %>').hide().fadeIn('slow');
-	$('#comments .list').append('<%= escape_javascript(render :partial => "comment", :locals => {:comment => @comment}) %>').removeClass('hidden');
+<%= remotipart_response do %>
+	<% if @comment.errors.empty? %>
+		$('div#new-comment-for-commentable form')[0].reset();
+		$('div#new-comment-for-commentable').addClass('hidden');
+		$('#comments .messages').html('<%= escape_javascript(render :partial => "after_add_msj", :locals => {:success => true}) %>').hide().fadeIn('slow');
+		$('#comments .list').append('<%= escape_javascript(render :partial => "comment", :locals => {:comment => @comment}) %>').removeClass('hidden');
 	
-	if($('div#comment-<%= @comment.id %>').siblings().length == 0) {
-		$('div#comments .links').html('<%= generate_links_for(@comment.commentable_type, 1) %>').hide().fadeIn('slow');
-	} else {
-		$('div#comments .links .number').html($('div#comment-<%= @comment.id %>').siblings().length);
-	}
-	
-<% else %>
-	$('#comments .messages').html('<%= escape_javascript(render :partial => "after_add_msj", :locals => {:success => false}) %>').hide().fadeIn('slow');
+		if($('div#comment-<%= @comment.id %>').siblings().length == 0) {
+			$('div#comments .links').html('<%= generate_links_for(@comment.commentable_type, 1) %>').hide().fadeIn('slow');
+		} else {
+			$('div#comments .links .number').html($('div#comment-<%= @comment.id %>').siblings().length);
+		}
+	<% else %>
+		$('#comments .messages').html('<%= escape_javascript(render :partial => "after_add_msj", :locals => {:success => false}) %>').hide().fadeIn('slow');
+	<% end %>
 <% end %>

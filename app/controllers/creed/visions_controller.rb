@@ -30,7 +30,7 @@ class Creed::VisionsController < ActionController::Base
   end
   
   def show
-    @vision = Vision.find(params[:id])
+    @vision = Vision.find(params[:id], :include => {:comments => [:attachments]})
   end
   
   def edit

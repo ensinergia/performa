@@ -326,6 +326,7 @@ es-MX:
             cancel: "Cancelar"
           
         comments:
+          attachments: 'Archivos adjuntos:'
           leave_a_comment: "Deja un comentario"
           delete_comment:
             confirm: "¿Eliminar comentario?"

@@ -7,6 +7,7 @@ class CommentsController < ActionController::Base
   
   def create
     @comment = Comment.new(params[:comment].merge(:user_id => current_user.id))
+    @comment.set_attachments(params[:uploads]) unless params[:uploads].blank?
     @comment.save
     
     respond_to do |format|

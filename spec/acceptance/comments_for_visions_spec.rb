@@ -14,6 +14,7 @@ feature "Comments for visions:", :js => true do
 
     login_as(@user)
   end
+
   
   describe "Given there exists a vision for a given company" do
      
@@ -24,7 +25,7 @@ feature "Comments for visions:", :js => true do
     
     describe "and no comments" do
     
-      it "should let me add a new one" do       
+      it "should let me add a new one given content is provided" do       
         page.evaluate_script("$('div#new-comment-for-commentable').hasClass('hidden');").should be_true
         
         within('.links') do
@@ -55,7 +56,7 @@ feature "Comments for visions:", :js => true do
         end
       end
       
-      it "should NOT let me add a new one" do
+      it "should NOT let me add a new one given no content is provided" do
         
         within('.links') do
           click_link I18n.t('views.creed.show_vision.controls.make_a_comment')
@@ -74,7 +75,71 @@ feature "Comments for visions:", :js => true do
         end
       end
       
-      it "should let me add an adjoint file to a new comment and then download it"
+      describe "including" do
+      
+        before(:each) do
+          Fog.mock!
+          Fog.credentials_path = Rails.root.join('config/fog_credentials.yml')
+          connection = Fog::Storage.new(:provider => 'AWS')
+          connection.directories.create(:key => 'ensinergia')
+        end
+      
+        it "one attachment should let me add a new comment" do
+        
+          within('.links') do
+            click_link I18n.t('views.creed.show_vision.controls.make_a_comment')
+          end
+        
+          fill_in 'comment_content', :with => 'A comment about vision with an attachment'
+        
+          page.evaluate_script("$('div#upload-area').hasClass('hidden');").should be_true
+          click_link I18n.t('views.creed.comments.controls.add_a_file')
+          page.evaluate_script("$('div#upload-area').hasClass('hidden');").should be_false
+        
+          attach_file('uploads_0', File.join(Rails.root,"spec", "helper_assets","example.html"))
+          click_button I18n.t('views.creed.comments.controls.add')
+          sleep 5
+          should_have_comment(Comment.first, @user, with_delete_controls, with_attachments(['example.html']))
+        
+          page.should have_content I18n.t('views.creed.comments.add_comment.successful_save')
+        
+          within('.links') do
+            page.should have_content(1)
+            find_link I18n.t('views.creed.comments.controls.see')
+            find_link I18n.t('views.creed.comments.controls.comment')
+          end
+        end
+        
+        it "two attachments should let me add a new comment" do
+        
+          within('.links') do
+            click_link I18n.t('views.creed.show_vision.controls.make_a_comment')
+          end
+        
+          fill_in 'comment_content', :with => 'A comment about vision with an attachment'
+        
+          page.evaluate_script("$('div#upload-area').hasClass('hidden');").should be_true
+          click_link I18n.t('views.creed.comments.controls.add_a_file')
+          page.evaluate_script("$('div#upload-area').hasClass('hidden');").should be_false
+        
+          attach_file('uploads_0', File.join(Rails.root,"spec", "helper_assets","example.html"))
+          attach_file('uploads_1', File.join(Rails.root,"spec", "helper_assets","example_.html"))
+          click_button I18n.t('views.creed.comments.controls.add')
+          
+          sleep 5
+          should_have_comment(Comment.first, @user, with_delete_controls, with_attachments(['example.html']))
+          should_have_comment(Comment.first, @user, with_delete_controls, with_attachments(['example_.html']))
+        
+          page.should have_content I18n.t('views.creed.comments.add_comment.successful_save')
+        
+          within('.links') do
+            page.should have_content(1)
+            find_link I18n.t('views.creed.comments.controls.see')
+            find_link I18n.t('views.creed.comments.controls.comment')
+          end
+        end
+        
+      end
       
     end
     
@@ -104,7 +169,7 @@ feature "Comments for visions:", :js => true do
     describe "and two comments: 'A' written by me, 'B' not written by me" do
       
       before(:each) do
-        @comment_A = Factory(:comment, :content => 'My comment', :commentable => @vision, :user => @user)
+        @comment_A = Factory(:comment, :content => 'My comment', :commentable => @vision, :user => @user, :attachments => [Factory(:attachment)])
         @comment_B = Factory(:comment, :content => 'A comment not mine', 
                              :commentable => @vision, 
                              :user => Factory(:user_no_company_name, :area => @user.area, :company => @user.company))
@@ -121,7 +186,7 @@ feature "Comments for visions:", :js => true do
         click_link I18n.t('views.creed.comments.controls.see')
         
         should_have_comment(@comment_A, @user)
-        should_have_comment(@comment_B, @comment_B.user, false)
+        should_have_comment(@comment_B, @comment_B.user, without_delete_controls)
       end
       
       it "should let me add a new one" do
@@ -135,6 +200,8 @@ feature "Comments for visions:", :js => true do
       end
       
       it "should let me delete comment 'A'" do
+        attachmnt_file_url = @comment_A.attachments.first.content
+        
         click_link I18n.t('views.creed.comments.controls.see')
         
         within("#comment-#{@comment_A.id}") do
@@ -148,6 +215,9 @@ feature "Comments for visions:", :js => true do
         end
         
         page.should have_no_css("#comment-##{@comment_A.id}")
+
+        visit "#{attachmnt_file_url}"
+        page.should have_content('AccessDenied')
       end
       
       it "should NOT have delete button for comment 'B'" do
@@ -158,6 +228,36 @@ feature "Comments for visions:", :js => true do
         end
       end
             
+    end
+    
+    it "should show me the new comment form and allow me to not commit it" do
+      page.evaluate_script("$('div#new-comment-for-commentable').hasClass('hidden');").should be_true
+      
+      within('.links') do
+        click_link I18n.t('views.creed.show_vision.controls.make_a_comment')
+      end
+      
+      fill_in 'comment_content', :with => 'A comment about vision with an attachment'
+      
+      click_link I18n.t('views.creed.comments.controls.add_a_file')
+      
+      attach_file('uploads_0', File.join(Rails.root,"spec", "helper_assets","example.html"))
+      attach_file('uploads_1', File.join(Rails.root,"spec", "helper_assets","example_.html"))
+      
+      click_link I18n.t('views.creed.comments.controls.cancel')
+      
+      page.evaluate_script("$('div#new-comment-for-commentable').hasClass('hidden');").should be_true
+      
+      within('.links') do
+        click_link I18n.t('views.creed.show_vision.controls.make_a_comment')
+      end
+      
+      find_field('comment_content').value.should be_blank
+      
+      click_link I18n.t('views.creed.comments.controls.add_a_file')
+      page.evaluate_script("$('div#new-comment-for-commentable #upload-area').children(':input').length;").should == 1
+      
+      page.evaluate_script("$('div#new-comment-for-commentable').hasClass('hidden');").should be_false
     end
     
   end

@@ -2,8 +2,14 @@
 	
 	<span class="author"><%= comment.user.name %></span>
 	<span class="date"><%=l comment.created_at, :format => :short %></span>
-	<span class="content"><%= comment.content %></span>
+	<% unless comment.attachments.empty? %>
+		<span class="attachments"><%=t 'views.creed.comments.attachments' %></span>
+		<% comment.attachments.each do |a| %>
+			<%= link_to a.content_identifier, "#{a.content}" %>
+		<% end %>
+	<% end %>
 	
+	<div class="content"><%= comment.content %></div>
 	<% if comment.user == current_user %>
 		<%= button_to t('views.creed.comments.controls.delete'), comment, :method => :delete, 
 				:remote => true, :confirm => t('views.creed.comments.delete_comment.confirm'), :class => 'delete-comment' %>
