@@ -7,10 +7,14 @@ class Company < ActiveRecord::Base
   
   validates_uniqueness_of :name
   
-  after_initialize :register_default_area, :on => :create
+  after_initialize :get_default_area, :on => :create
   
   private
-  def register_default_area
+  def get_default_area
+    self.areas.first(:conditions => {:name => I18n.t('views.areas.default')}) || build_default_area
+  end
+  
+  def build_default_area
     self.areas.build(:name => I18n.t('views.areas.default'))   
   end
   

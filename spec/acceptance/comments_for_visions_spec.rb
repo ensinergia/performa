@@ -200,6 +200,11 @@ feature "Comments for visions:", :js => true do
       end
       
       it "should let me delete comment 'A'" do
+        Fog.mock!
+        Fog.credentials_path = Rails.root.join('config/fog_credentials.yml')
+        connection = Fog::Storage.new(:provider => 'AWS')
+        connection.directories.create(:key => 'ensinergia')
+        
         attachmnt_file_url = @comment_A.attachments.first.content
         
         click_link I18n.t('views.creed.comments.controls.see')
