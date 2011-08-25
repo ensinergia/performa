@@ -75,6 +75,11 @@ feature "Creed section:" do
         page.should have_content I18n.t('views.creed.help.notifications.title')      
         page.should have_content I18n.t('views.creed.help.notifications.description')      
       end
+      
+      click_link I18n.t('views.creed.most_views.controls.cancel')
+      
+      current_url.should == @sub_host + creed_visions_path
+      current_path.should == creed_visions_path
     end
         
     it "should allow me to register a new vision from the new vision form" do
