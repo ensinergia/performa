@@ -27,4 +27,26 @@ $(document).ready(function() {
 			});
 		}
 		
+		if($.exists('.hide-parent-div')) {
+			$('.hide-parent-div').live('click', function() {
+				var divToShow = $(this).closest('div');
+				$(divToShow).addClass('hidden');
+				$(divToShow).children('form')[0].reset();
+			});
+		}
+		
+		if($(".inline-analysis-value").length) {
+			
+			var id = $(".inline-analysis-value").parent().attr('id').split('-')[1];
+			
+			$(".inline-analysis-value").editable('/swot/analyses/'+id+'.js', {
+				method : "PUT",
+				indicator : 'Guardando...',
+				tooltip : 'Click para modificar',
+				submit : 'Guardar',
+				cancel : 'Cancelar',
+				name : 'analysis[content]'
+			});
+		}
+
 });

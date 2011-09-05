@@ -48,9 +48,8 @@ describe CommentsController do
       @comment = Factory(:comment, :user => @user, :commentable => Factory(:vision_with_assoc))
     end
     
-    it "should assign the remaining comments to @comments " do
-      Comment.should_receive(:find).with('1') { @comment }
-      @comment.should_receive(:destroy)
+    it "should destroy comment" do
+      Comment.should_receive(:find_and_destroy).with('1') { @comment }
       delete :destroy, :id => '1'
       assigns(:comment).should == @comment
     end

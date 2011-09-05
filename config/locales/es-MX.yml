@@ -244,6 +244,13 @@ es-MX:
         format: "%{attribute} %{message}" 
     
   views:
+    
+    common:
+      help:
+        title: "Ayuda"
+      controls:
+        back: "Atrás"
+    
     areas:
       default: "Dirección General"
     header:
@@ -253,9 +260,7 @@ es-MX:
         one: "tarea pendiente"
       controls:
         logout: "Salir"
-        my_account: "Mi cuenta"
-    help:
-      title: "Ayuda"      
+        my_account: "Mi cuenta" 
     accounts:
       title: "Mi cuenta"
       sections: 
@@ -298,7 +303,7 @@ es-MX:
     menu:
       panorama: "Panorama"
       creed: "Credo"
-      foda: "FODA"
+      swot: "FODA"
       expectations: "Expectativas"
       objectives: "Objetivos Estratégicos" 
       programmes: "Programas"
@@ -308,65 +313,122 @@ es-MX:
       description: "En esta pantalla verás el panorama general ..."
       actions:
         add_creed: "Agregar Credo"
-        add_foda: "Agregar FODA"
+        add_swot: "Agregar FODA"
         add_expectations: "Agregar Expectativas"
         add_objectives: "Agregar Objetivos Estratégicos"
         add_programmes: "Agregar Programas"
         add_areas_and_people: "Agregar Áreas y Personas"
-    creed:
-        vision: "Visión"
-        mission: "Misión"
-        battle_cry: "Grito de guerra"
+    comments:
+      commenting: "Comentando"
+      attachments: 'Archivos adjuntos:'
+      leave_a_comment: "Deja un comentario"
+      message:
+        connector: "por"
+      delete_comment:
+        confirm: "¿Eliminar comentario?"
+      add_comment:
+        successful_save: "Comentario agregado exitosamente"
+        unsuccessful_save: "No se pudo agregar el comentario"
+      controls:
+        add_a_file: "Adjuntar un archivo a este comentario"
+        cancel: "Cancelar"
+        add: "Agregar"
+        see: "Ver comentarios"
+        make_a_comment: "Haz un comentario"
+        comment: "Comentar"
+        delete: "Eliminar"    
         
-        most_views:
-          notify_to: "* Notificar de este Evento a:"
-          form_errors: "Encontramos problemas al intentar guardar este formulario"
-          controls: 
-            all_selector: "Toda la "
-            cancel: "Cancelar"
-          
-        comments:
-          attachments: 'Archivos adjuntos:'
-          leave_a_comment: "Deja un comentario"
-          delete_comment:
-            confirm: "¿Eliminar comentario?"
-          add_comment:
-            successful_save: "Comentario agregado exitosamente"
-            unsuccessful_save: "No se pudo agregar el comentario"
-          controls:
-            add_a_file: "Adjuntar un archivo a este comentario"
-            cancel: "Cancelar"
-            add: "Agregar"
-            see: "Ver comentarios"
-            comment: "Comentar"
-            delete: "Eliminar"
+  
+    swot:
+      external_analysis: "Análisis Externo"
+      internal_analysis: "Análisis Interno"
+      first_view:
+        title: "¿Listo para Agregar Fortalezas y Debilidades?"
+        description: "Esta es la descripción cuando no hay ninguna fortaleza o debilidad registrada"
+        controls:
+          start: "Iniciar"
+      internal_view:
+        strengths:
+          add:
+            successful_save: "Fortaleza guardada correctamente"
+          delete:
+            confirmation: "¿Eliminar realmente esta fortaleza?"
+        weaknesses:
+          add:
+            successful_save: "Debilidad guardada correctamente"
+          delete:
+            confirmation: "¿Eliminar realmente esta debilidad?"
+        help: 
+          subtitle_one: "Análisis Interno"
+          description_one: "Ayuda contextual para Análisis Interno"
+          subtitle_two: "Notificaciones"
+          description_two: "Notificaciones para eventos de Análisis Interno"
+      external_view:
+        opportunities: 
+          add:
+            successful_save: "Oportunidad guardada correctamente"
+          delete:
+            confirmation: "¿Eliminar realmente esta oportunidad?"
+        risks:
+          add:
+            successful_save: "Riesgo guardado correctamente"
+          delete:
+            confirmation: "¿Eliminar realmente este riesgo?"
+        help: 
+          title: "Análisis Externo"
+      shared_views:
+        strengths: "Fortalezas"
+        weaknesses: "Debilidades"
+        opportunities: "Oportunidades"
+        risks: "Riesgos"
+        add: 
+          unsuccessful_save: "No fue posible guardar este elemento de análisis"
+        controls: 
+          add: "Agregar"
+          add_weakness: "Agregar una Debilidad"
+          add_strength: "Agregar una Fortaleza"
+          add_risk: "Agregar un Riesgo"
+          add_opportunity: "Agregar una Oportunidad"
+          comment: "Comentar"
+          cancel: "Cancelar"
+          save: "Guardar"
+    creed:
+      vision: "Visión"
+      mission: "Misión"
+      battle_cry: "Grito de guerra"
+        
+      most_views:
+        notify_to: "* Notificar de este Evento a:"
+        form_errors: "Encontramos problemas al intentar guardar este formulario"
+        controls: 
+          all_selector: "Toda la "
+          cancel: "Cancelar"
             
-        first_view: 
-          title: "¿Listo para Agregar la Visión?"
-          description: "Esta es la descripción previa a la inserción de una visión nueva"
-          controls: 
-              add_vision: "Agregar Visión"
-        new_vision:
-          title: "Agregando una nueva Visión"
-          controls:
-            save: "Guardar"
-        edit_vision:
-          title: "Modificando la Visión"
-          controls:
-            save: "Guardar cambios"
-        show_vision:
-          registered_by: "por"
-          controls:
-            make_a_comment: "Haz un comentario sobre esta Visión"
-            edit: "Modificar"
-        create_vision:
-          successful_save: "Nueva visión guardada correctamente"      
-        update_vision:
-          successful_save: "Cambios a la visión correctamente guardados"
-        help:
-            vision:
-                description: "Una descripción simple para una visión"
-            notifications:
-                title: "*Notificaciones"    
-                description: "Una descripción simple para notificaciones"
-                description_extra: "Una descripción simple extra para notificaciones"
+      first_view: 
+        title: "¿Listo para Agregar la Visión?"
+        description: "Esta es la descripción previa a la inserción de una visión nueva"
+        controls: 
+            add_vision: "Agregar Visión"
+      new_vision:
+        title: "Agregando una nueva Visión"
+        controls:
+          save: "Guardar"
+      edit_vision:
+        title: "Modificando la Visión"
+        controls:
+           save: "Guardar cambios"
+      show_vision:
+        controls:
+          make_a_comment: "Haz un comentario sobre esta Visión"
+          edit: "Modificar"
+      create_vision:
+        successful_save: "Nueva visión guardada correctamente"      
+      update_vision:
+        successful_save: "Cambios a la visión correctamente guardados"
+      help:
+          vision:
+            description: "Una descripción simple para una visión"
+          notifications:
+            title: "*Notificaciones"    
+            description: "Una descripción simple para notificaciones"
+            description_extra: "Una descripción simple extra para notificaciones"

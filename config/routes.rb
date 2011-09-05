@@ -20,6 +20,18 @@ GestionDesempeno::Application.routes.draw do
       resources :visions, :only => [:index, :new, :create, :show, :edit, :update]      
     end
     
+    namespace(:swot) do
+      resources :analyses, :only => [:index, :new, :create, :destroy, :update] do
+        
+        resources :comments, :only => [:index]
+        
+        collection do
+          match '/external' => 'analyses#externals', :as => 'external', :via => :get
+          match '/internal' => 'analyses#internals', :as => 'internal', :via => :get
+        end
+      end
+    end
+    
   end  
   
   match '/panorama', :to => redirect('/users/sign_in'), :via => :get

@@ -12,4 +12,13 @@ module ApplicationHelper
   def all_selector_for_area_for(user)
     "#{label_tag t('views.creed.most_views.controls.all_selector')} #{user.area.name}".html_safe
   end
+  
+  def record_info_for(record)
+    "#{t('views.comments.message.connector')} #{record.user.name} / #{l(record.updated_at, :format => :short)}"
+  end
+  
+  def render_links_for_comments_number(comment_number)
+    render :partial => "comments/links", :locals => {:comments => comment_number}
+  end
+  
 end

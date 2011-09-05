@@ -19,7 +19,7 @@ feature "Handling of accounts in Performa" do
       page.should have_content "Performa"
       
       page.should have_content I18n.t('views.registrations.title')
-      page.should have_content I18n.t('views.help.title')
+      page.should have_content I18n.t('views.common.help.title')
       page.should have_content I18n.t('views.registrations.help_description')      
       page.should have_content I18n.t('views.registrations.disclaimer')
       page.should have_content I18n.t('views.registrations.service_terms')
@@ -157,7 +157,7 @@ feature "Handling of accounts in Performa" do
         within(".menu") do
           find_link I18n.t('views.menu.panorama')
           find_link I18n.t('views.menu.creed')
-          find_link I18n.t('views.menu.foda')
+          find_link I18n.t('views.menu.swot')
           find_link I18n.t('views.menu.expectations')
           find_link I18n.t('views.menu.objectives')
           find_link I18n.t('views.menu.programmes')
@@ -194,7 +194,7 @@ feature "Handling of accounts in Performa" do
         find_button I18n.t('views.accounts.sections.my_info.controls.save')
         
         within(".help") do
-          page.should have_content I18n.t('views.help.title')
+          page.should have_content I18n.t('views.common.help.title')
           page.should have_content I18n.t('views.accounts.sections.my_info.title')      
           page.should have_content I18n.t('views.accounts.sections.my_info.help_description')      
         end
@@ -209,7 +209,7 @@ feature "Handling of accounts in Performa" do
         within(".menu") do
           find_link I18n.t('views.menu.panorama')
           find_link I18n.t('views.menu.creed')
-          find_link I18n.t('views.menu.foda')
+          find_link I18n.t('views.menu.swot')
           find_link I18n.t('views.menu.expectations')
           find_link I18n.t('views.menu.objectives')
           find_link I18n.t('views.menu.programmes')
@@ -243,7 +243,7 @@ feature "Handling of accounts in Performa" do
         find_button I18n.t('views.accounts.sections.my_account.controls.finish_account')
         
         within(".help") do
-          page.should have_content I18n.t('views.help.title')
+          page.should have_content I18n.t('views.common.help.title')
           page.should have_content I18n.t('views.accounts.sections.my_account.title')      
           page.should have_content I18n.t('views.accounts.sections.my_account.help_description')      
         end
@@ -268,7 +268,7 @@ feature "Handling of accounts in Performa" do
           within(".menu") do
             find_link I18n.t('views.menu.panorama')
             find_link I18n.t('views.menu.creed')
-            find_link I18n.t('views.menu.foda')
+            find_link I18n.t('views.menu.swot')
             find_link I18n.t('views.menu.expectations')
             find_link I18n.t('views.menu.objectives')
             find_link I18n.t('views.menu.programmes')
@@ -290,7 +290,7 @@ feature "Handling of accounts in Performa" do
           end
           
           within(".help") do
-            page.should have_content I18n.t('views.help.title')
+            page.should have_content I18n.t('views.common.help.title')
             page.should have_content I18n.t('views.accounts.sections.my_tasks.title')      
             page.should have_content I18n.t('views.accounts.sections.my_tasks.help_description')      
           end

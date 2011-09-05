@@ -1,4 +1,3 @@
-require 'subdomain_guards'
 class Creed::VisionsController < ActionController::Base
   include SubdomainGuards
   layout 'application'

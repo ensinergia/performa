@@ -1,0 +1,43 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	
+	<%= render 'swot/shared/menu' %>	
+	
+	<%= link_to t('views.common.controls.back'), @analysis.is_internal? ? internal_swot_analyses_path : external_swot_analyses_path %>
+	
+	<div class="inside-box">
+
+		<div class="title-bar">
+		<p>
+			<%=t 'views.comments.commenting' %>&nbsp;-&nbsp;
+			<%= @analysis.content %>&nbsp;
+		</p>
+		</div>
+		
+		<%= record_info_for(@analysis) %>
+		
+		<%= render :partial => 'comments/index', :locals => { :comments => @analysis.comments } %>
+		
+		<div id="new-comment-for-commentable" class="hidden">
+			<%= render :partial => 'comments/new', :locals => {:commentable => @analysis} %>
+		</div>
+		
+	</div>
+	
+	
+</div>
+
+<%= content_for :message do %>
+	<div class="help">
+		<div class="title">
+			<p><%=t 'views.common.help.title' %></p>
+		</div>
+		
+		<p class="subtitle"><%=t 'views.swot.internal_view.help.subtitle_one' %></p>
+		
+		<p><%=t 'views.swot.internal_view.help.description_one'  %></p>
+		
+		<p class="subtitle"><%=t 'views.swot.internal_view.help.subtitle_two' %></p>
+		
+		<p><%=t 'views.swot.internal_view.help.description_two'  %></p>
+	</div>
+<% end %>

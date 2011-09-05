@@ -1,7 +1,0 @@
-<% if comments == 0 %>
-	<%= link_to t('views.creed.show_vision.controls.make_a_comment'), 'javascript:void(0);', :class => 'show-div', :id => 'new-comment-for-commentable' %>
-<% else %>
-	<span class="number"><%= comments %></span>
-	<%= link_to t('views.creed.comments.controls.see'), 'javascript:void(0);', :class => 'show-div', :id => 'c-list' %>
-	<%= link_to t('views.creed.comments.controls.comment'), 'javascript:void(0);', :class => 'show-div', :id => 'new-comment-for-commentable' %>
-<% end %>

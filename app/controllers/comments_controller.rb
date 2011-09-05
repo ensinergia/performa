@@ -16,8 +16,7 @@ class CommentsController < ActionController::Base
   end
   
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
+    @comment = Comment.find_and_destroy(params[:id])
     
     respond_to do |format|
       format.js

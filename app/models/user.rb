@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   has_many :tasks
   has_many :comments
+  has_many :analysis
+  
   belongs_to :area
   belongs_to :company
   belongs_to :position

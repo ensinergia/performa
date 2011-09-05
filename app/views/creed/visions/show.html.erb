@@ -7,9 +7,7 @@
 		<div class="title-bar">
 		<p>
 			<%=t 'views.creed.vision' %>&nbsp;
-			<%=t 'views.creed.show_vision.registered_by' %>&nbsp;
-			<%= @vision.user.name %>&nbsp;
-			<%=l @vision.updated_at, :format => :short %>
+			<%= record_info_for(@vision) %>
 			<%= button_to t('views.creed.show_vision.controls.edit'), 
 				edit_creed_vision_path(@vision), :method => :get,
 				:class => "button orange as-link" %>
@@ -29,7 +27,7 @@
 <%= content_for :message do %>
 	<div class="help">
 		<div class="title">
-			<p><%= I18n.t('views.help.title') %></p>
+			<p><%= I18n.t('views.common.help.title') %></p>
 		</div>
 		
 		<p class="subtitle"><%=t 'views.creed.vision' %></p>

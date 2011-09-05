@@ -23,7 +23,7 @@ feature "Panorama landing page:" do
         within(".menu") do
           find_link I18n.t('views.menu.panorama')
           find_link I18n.t('views.menu.creed')
-          find_link I18n.t('views.menu.foda')
+          find_link I18n.t('views.menu.swot')
           find_link I18n.t('views.menu.expectations')
           find_link I18n.t('views.menu.objectives')
           find_link I18n.t('views.menu.programmes')
@@ -34,7 +34,7 @@ feature "Panorama landing page:" do
         page.should have_content I18n.t('views.panorama.description')
       
         find_link I18n.t('views.panorama.actions.add_creed')
-        find_link I18n.t('views.panorama.actions.add_foda')
+        find_link I18n.t('views.panorama.actions.add_swot')
         find_link I18n.t('views.panorama.actions.add_expectations')
         find_link I18n.t('views.panorama.actions.add_objectives')
         find_link I18n.t('views.panorama.actions.add_programmes')
@@ -45,6 +45,21 @@ feature "Panorama landing page:" do
         current_url.should == @sub_host + panorama_path
         current_path.should == panorama_path
       end
+      
+      it "should allow me to visit the creed page" do
+        click_link I18n.t('views.panorama.actions.add_creed')
+        current_url.should == @sub_host + creed_visions_path
+        current_path.should == creed_visions_path
+        
+      end
+      
+      it "should allow me to visit the swot page" do
+        click_link I18n.t('views.panorama.actions.add_swot')
+        current_url.should == @sub_host + swot_analyses_path
+        current_path.should == swot_analyses_path
+        
+      end
+      
     end
   end
   

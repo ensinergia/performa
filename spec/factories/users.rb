@@ -18,3 +18,15 @@ Factory.define :user_no_company_name, :class => "User" do |u|
     "fulano#{n}@ievolutioned.com"
   end
 end
+
+Factory.define :user_no_company_name_other_area, :class => "User" do |u|
+  u.name "Perengano"
+  u.last_name "Pérez"
+  u.password "performa"
+  u.password_confirmation "performa"
+  u.company { Factory(:company_sequenced) }
+  u.area { Factory(:area, :name => "Another", :company => company) }
+  u.sequence :email do |n|
+    "perengano#{n}@ievolutioned.com"
+  end
+end

@@ -1,7 +1,7 @@
 <div id="comments">
 	<div class="messages"></div>
 	<div class="links">
-		<%= render :partial => 'links', :locals => { :comments => @vision.comments.size } %>
+		<%= render_links_for_comments_number comments.size %>
 	</div>
 	<div id="c-list" class="list hidden">
 		<%= render :partial => 'comments/comment', :collection => comments %>

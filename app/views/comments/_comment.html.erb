@@ -3,7 +3,7 @@
 	<span class="author"><%= comment.user.name %></span>
 	<span class="date"><%=l comment.created_at, :format => :short %></span>
 	<% unless comment.attachments.empty? %>
-		<span class="attachments"><%=t 'views.creed.comments.attachments' %></span>
+		<span class="attachments"><%=t 'views.comments.attachments' %></span>
 		<% comment.attachments.each do |a| %>
 			<%= link_to a.content_identifier, "#{a.content}" %>
 		<% end %>
@@ -11,7 +11,7 @@
 	
 	<div class="content"><%= comment.content %></div>
 	<% if comment.user == current_user %>
-		<%= button_to t('views.creed.comments.controls.delete'), comment, :method => :delete, 
-				:remote => true, :confirm => t('views.creed.comments.delete_comment.confirm'), :class => 'delete-comment' %>
+		<%= button_to t('views.comments.controls.delete'), comment, :method => :delete, 
+				:remote => true, :confirm => t('views.comments.delete_comment.confirm'), :class => 'delete-comment' %>
 	<% end %>
 </div>
