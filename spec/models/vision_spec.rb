@@ -39,7 +39,6 @@ describe Vision do
       it "should assign the company and user to it and make it a current candidate" do
         @new_vision.user.should == @vision.user
         @new_vision.company.should == @vision.user.company
-        @new_vision.current.should be_true
       end
       
     end
@@ -59,7 +58,6 @@ describe Vision do
       it "should assign the company and user to it and make it a current candidate" do
         @new_vision.user.should == @user
         @new_vision.company.should == @user.company
-        @new_vision.current.should be_true
       end
       
     end

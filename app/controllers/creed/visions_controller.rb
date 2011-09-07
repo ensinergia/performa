@@ -37,12 +37,9 @@ class Creed::VisionsController < ActionController::Base
   end
   
   def update
-    @vision = Vision.new_or_update_with_user(params[:id], params[:vision], current_user)
+    @vision = Vision.find(params[:id])
     
-    successful_save_update= false
-    successful_save_update= @vision.new_record? ? @vision.save : @vision.update_attributes(params[:vision])
-    
-    if successful_save_update
+    if @vision.update_attributes(params[:vision])
       @vision.notify_to(params[:users])
       redirect_to creed_visions_path, :notice => I18n.t('views.creed.update_vision.successful_save')
     else

@@ -134,83 +134,35 @@ describe Creed::VisionsController do
   
   describe "PUT #update action" do
     
-    describe "when existent record is returned from model main call" do
+    describe "when description is not empty" do
       
       before(:each) do
         @vision = Factory(:vision_with_assoc)
         
-        Vision.stub(:new_or_update_with_user).with("1", 
-                   {"description" => @vision.description}, @user).and_return { @vision }
+        Vision.stub(:find).with("1").and_return { @vision }
       end
       
       it "should update it's attributes" do
         @vision.should_receive(:update_attributes).and_return(true)
         @vision.should_receive(:notify_to)
         
-        put :update, :id => "1", :vision => { :description => @vision.description }
+        put :update, :id => "1", :vision => { :description => 'a description' }
         assigns(:vision).should == @vision
       end
       
       it "should redirect to index action" do
-        put :update, :id => "1", :vision => { :description => @vision.description }
+        put :update, :id => "1", :vision => { :description => 'a description' }
         response.should redirect_to(creed_visions_path)
         flash[:notice].should == I18n.t('views.creed.update_vision.successful_save')
       end
       
     end
     
-      
-    describe "when new record is returned from model main call AND given description is not empty" do
-    
-      before(:each) do
-        @vision = Factory.build(:vision_with_assoc, :description => "A new description from same user")
-        Vision.stub(:new_or_update_with_user).and_return { @vision }
-      end
-    
-      it "should get saved" do
-        @vision.should_receive(:save).and_return(true)
-        @vision.should_receive(:notify_to)
-      
-        put :update, :id => "1", :vision => { :description => "A new description from same user" }
-        assigns(:vision).should == @vision
-      end
-    
-      it "should redirect to index action" do
-        put :update, :id => "1", :vision => { :description => "A new description from same user" }
-        response.should redirect_to(creed_visions_path)
-        flash[:notice].should == I18n.t('views.creed.update_vision.successful_save')
-      end
-      
-    end
-    
-    describe "when new record is returned from model main call AND given description is NOT empty" do
-    
-      before(:each) do
-        @vision = Factory.build(:vision_with_assoc, :description => "A new description from same user")
-        Vision.stub(:new_or_update_with_user).and_return { @vision }
-      end
-    
-      it "should get saved" do
-        @vision.should_receive(:save).and_return(true)
-        @vision.should_receive(:notify_to)
-      
-        put :update, :id => "1", :vision => { :description => "A new description from same user" }
-        assigns(:vision).should == @vision
-      end
-    
-      it "should redirect to index action" do
-        put :update, :id => "1", :vision => { :description => "A new description from same user" }
-        response.should redirect_to(creed_visions_path)
-        flash[:notice].should == I18n.t('views.creed.update_vision.successful_save')
-      end
-      
-    end
-    
-    describe "when new record is returned from model main call AND given description is empty" do
+    describe "when description is empty" do
     
       before(:each) do
         @vision = Factory.build(:vision_with_assoc, :description => "")
-        Vision.stub(:new_or_update_with_user).and_return { @vision }
+        Vision.stub(:find).and_return { @vision }
       end
     
       it "should NOT get saved" do

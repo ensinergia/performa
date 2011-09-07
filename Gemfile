@@ -7,6 +7,7 @@ gem 'pg'
 gem 'heroku'
 gem "devise", ">= 1.4.2"
 gem "cancan"
+gem 'paper_trail', '~> 2'
 
 gem 'remotipart', '~> 0.4'
 gem 'carrierwave'

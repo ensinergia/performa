@@ -1,6 +1,6 @@
 class Company < ActiveRecord::Base
   
-  has_one :vision, :conditions => { :current => true }
+  has_one :vision
   
   has_many :users
   has_many :areas
