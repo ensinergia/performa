@@ -290,7 +290,7 @@ es-MX:
   
     registrations:
       title: "Estas a 60 segundos de tu nueva cuenta en Performa"
-      help_description: "La cuenta de email que utilices será tu cuenta de USUARIO en nuestro sistema, y será donde recibas notificaciones de actualizaciones en tu cuenta. Utiliza una Contraseña segura conformada por mayúsculas, minúsculas y números, evitando caracteres especiales. Procura repetir correctamente tu Contraseña."
+      help_description: "Para acceder al sistema es necesario crear una cuenta. Crear una cuenta en enSinergia es muy fácil, solo se requiere tu cuenta de e-mail.\n\nLa cuenta e-mail que utilices será tu USUARIO y será la cuenta de correo en la que recibirás notificaciones de actualizaciones en tu cuenta.\n\nTe recomendamos utilizar una Contraseña segura conformada por mayúsculas, minúsculas y números, evitando caracteres especiales.\n\nAsegúrate de repetir correctamente tu Contraseña."
       disclaimer: "Al hacer click en \"Crear mi Cuenta\" estás de acuerdo con los"
       service_terms: "Terminos de Servicio"
     
@@ -406,7 +406,7 @@ es-MX:
             
       first_view: 
         title: "¿Listo para Agregar la Visión?"
-        description: "Esta es la descripción previa a la inserción de una visión nueva"
+        description: "La definición del Planteamiento Estratégico arranca con una dirección clara y precisa del rumbo estratégico de la Organización. Esta dirección se plantea a través de la Visión. \n\nLa Visión describe lo que la organización espera alcanzar dentro de un período de tiempo determinado.Un enunciado breve que expresa el estado futuro deseado de una manera realista y posible de alcanzar."
         controls: 
             add_vision: "Agregar Visión"
       new_vision:

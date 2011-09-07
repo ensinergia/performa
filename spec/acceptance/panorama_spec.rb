@@ -74,4 +74,6 @@ feature "Panorama landing page:" do
       current_path.should == new_user_session_path
     end
   end
+  
+  it "should show me the terms of service"
 end

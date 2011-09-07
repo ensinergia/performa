@@ -25,7 +25,7 @@ feature "Creed section:" do
       find_link I18n.t('views.creed.battle_cry')
       
       page.should have_content I18n.t('views.creed.first_view.title')
-      page.should have_content I18n.t('views.creed.first_view.description')
+      page.should have_content ignoring_new_lines(I18n.t('views.creed.first_view.description'))
       
       find_button I18n.t('views.creed.first_view.controls.add_vision')
     end

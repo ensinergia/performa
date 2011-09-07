@@ -21,4 +21,7 @@ module ApplicationHelper
     render :partial => "comments/links", :locals => {:comments => comment_number}
   end
   
+  def line_break(string)
+    string.gsub("\n", '<br/>').html_safe
+  end
 end

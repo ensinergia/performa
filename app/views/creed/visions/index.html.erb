@@ -6,7 +6,7 @@
 		<!-- Image space -->
 		<h1><%= t('views.creed.first_view.title') %></h1>
 		
-		<p><%= t('views.creed.first_view.description') %></p>
+		<p><%=line_break t('views.creed.first_view.description') %></p>
 		
 		<%= button_to t('views.creed.first_view.controls.add_vision'), 
 					  new_creed_vision_url(with_current_subdomain), 

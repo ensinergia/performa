@@ -53,6 +53,10 @@ module HelperMethods
   def should_contain_record_info_for(comment)
     page.should have_content("#{I18n.t('views.comments.message.connector')} #{comment.user.name} / #{I18n.l(comment.updated_at, :format => :short)}")
   end
+  
+  def ignoring_new_lines(string)
+    string.gsub("\n", '').html_safe
+  end
 end
 
 RSpec.configuration.include(HelperMethods)

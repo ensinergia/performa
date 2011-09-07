@@ -20,7 +20,7 @@ feature "Handling of accounts in Performa" do
       
       page.should have_content I18n.t('views.registrations.title')
       page.should have_content I18n.t('views.common.help.title')
-      page.should have_content I18n.t('views.registrations.help_description')      
+      page.should have_content ignoring_new_lines(I18n.t('views.registrations.help_description'))      
       page.should have_content I18n.t('views.registrations.disclaimer')
       page.should have_content I18n.t('views.registrations.service_terms')
       

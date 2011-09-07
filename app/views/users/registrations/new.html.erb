@@ -1,6 +1,6 @@
 	<div class="box rounded-10 with-shadow" style="width: 550px;">
 		<div class="title-bar rounded-10-top">
-			<h2><%= I18n.t('views.registrations.title') %></h2>
+			<h2><%= t('views.registrations.title') %></h2>
 		</div>
 				
 		<div class="inside-box">
@@ -24,9 +24,9 @@
 					<%= f.password_field :password_confirmation, :size => 15 %>
 				</div>
 				<br/>
-				<p class="disclaimer"><%= I18n.t('views.registrations.disclaimer') %><br/><%= link_to I18n.t('views.registrations.service_terms'), '' %></p>
+				<p class="disclaimer"><%=line_break t('views.registrations.disclaimer') %><br/><%= link_to t('views.registrations.service_terms'), '' %></p>
 
-				<div class="centered"><%= f.submit  I18n.t('views.registrations.controls.register'), :class => "button orange as-link" %></div>
+				<div class="centered"><%= f.submit  t('views.registrations.controls.register'), :class => "button orange as-link" %></div>
 			<% end %>
 		</div>
 	</div>
@@ -34,9 +34,9 @@
 <%= content_for :message do %>
 	<div class="help">
 		<div class="title">
-			<p><%= I18n.t('views.common.help.title') %></p>
+			<p><%= t('views.common.help.title') %></p>
 		</div>
 		
-		<p><%= I18n.t('views.registrations.help_description')  %></p>
+		<p><%=line_break t('views.registrations.help_description')  %></p>
 	</div>
 <% end %>
