@@ -1,0 +1,19 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	<%= render :partial => 'creed/shared/new_creed', :locals => {:creed => @war_cry} %>
+</div>
+
+<%= content_for :message do %>
+	<div class="help">
+		<div class="title">
+			<p><%= I18n.t('views.common.help.title') %></p>
+		</div>
+		
+		<p class="subtitle"><%= I18n.t('views.creed.war_cry_description') %></p>
+		
+		<p><%= I18n.t('views.creed.help.war_cry_description.description')  %></p>
+		
+		<p class="subtitle"><%= I18n.t('views.creed.help.notifications.title') %></p>
+		
+		<p><%= I18n.t('views.creed.help.notifications.description')  %></p>
+	</div>
+<% end %>

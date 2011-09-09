@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/acceptance_helper'
 include Warden::Test::Helpers
 
-feature "Creed section:" do
+feature "Creed section (Missions):" do
   before(:each) do    
     @host = "http://lvh.me"
     Capybara.app_host = @host
@@ -23,7 +23,7 @@ feature "Creed section:" do
       current_path.should == creed_missions_path
       
       find_link I18n.t('views.creed.vision')
-      find_link I18n.t('views.creed.battle_cry')
+      find_link I18n.t('views.creed.war_cry_description')
       
       page.should have_content I18n.t('views.creed.first_mission.title')
       page.should have_content ignoring_new_lines(I18n.t('views.creed.first_mission.description'))
@@ -48,7 +48,7 @@ feature "Creed section:" do
    
       find_link I18n.t('views.creed.vision')
       find_link I18n.t('views.creed.mission')
-      find_link I18n.t('views.creed.battle_cry')
+      find_link I18n.t('views.creed.war_cry_description')
       
       page.should have_content I18n.t('views.creed.new_mission.title')
       page.should have_content I18n.t('views.creed.most_views.notify_to')
@@ -135,7 +135,7 @@ feature "Creed section:" do
       
       find_link I18n.t('views.creed.mission')
       find_link I18n.t('views.creed.mission')
-      find_link I18n.t('views.creed.battle_cry')
+      find_link I18n.t('views.creed.war_cry_description')
       
       within('.title-bar p') do
         page.should have_content "#{I18n.t('views.creed.mission')}" 

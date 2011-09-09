@@ -7,7 +7,7 @@
 		<%=t "views.creed.#{creed.class.to_s.downcase}" %>&nbsp;
 		<%= record_info_for(creed) %>
 		<%= button_to t("views.creed.show_#{creed.class.to_s.downcase}.controls.edit"), 
-			eval("edit_creed_#{creed.class.to_s.downcase}_path(creed)"), :method => :get,
+			eval("edit_creed_#{creed.class.to_s.underscore.downcase}_path(creed)"), :method => :get,
 			:class => "button orange as-link" %>
 	</p>
 	</div>

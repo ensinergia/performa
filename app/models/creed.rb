@@ -25,7 +25,7 @@ class Creed < ActiveRecord::Base
   end
     
   def self.get_current(company)
-    eval("company.#{self.to_s.downcase}.versions.last.item") unless eval("company.#{self.to_s.downcase}").nil?
+    eval("company.#{self.to_s.underscore.downcase}.versions.last.item") unless eval("company.#{self.to_s.underscore.downcase}").nil?
   end
   
   def notify_to(users)

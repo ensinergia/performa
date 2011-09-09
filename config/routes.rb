@@ -18,7 +18,8 @@ GestionDesempeno::Application.routes.draw do
     
     namespace(:creed) do
       resources :visions, :only => [:index, :new, :create, :show, :edit, :update]  
-      resources :missions, :only => [:index, :new, :create, :show, :edit, :update]    
+      resources :missions, :only => [:index, :new, :create, :show, :edit, :update] 
+      resources :war_cries, :only => [:index, :new, :create, :show, :edit, :update] 
     end
     
     namespace(:swot) do

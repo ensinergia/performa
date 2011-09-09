@@ -1,7 +1,9 @@
 class Company < ActiveRecord::Base
   
+  has_one :creed
   has_one :vision
   has_one :mission
+  has_one :war_cry
   
   has_many :users
   has_many :areas

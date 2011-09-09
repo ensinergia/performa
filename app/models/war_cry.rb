@@ -1,0 +1,3 @@
+class WarCry < Creed
+
+end
