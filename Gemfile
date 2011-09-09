@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem 'fog'
 
 gem 'jquery-rails'
+gem 'store_base_sti_class_for_3_0'
 
 # Test environment
 group :test do

@@ -403,8 +403,28 @@ es-MX:
         controls: 
           all_selector: "Toda la "
           cancel: "Cancelar"
-            
-      first_view: 
+      
+      first_mission:
+        title: "¿Listo para Agregar la Misión?"
+        description: "El texto descriptivo para la misión"
+        controls:
+          add_mission: "Agregar Misión"
+      new_mission:
+        title: "Agregando una nueva Misión"
+        controls: 
+          save: "Guardar"    
+      create_mission:
+        successful_save: "Nueva misión guardada correctamente"
+      edit_mission:
+        title: "Modificando la Misión"
+        controls:
+          save: "Guardar cambios"
+      show_mission:
+        controls:
+          make_a_comment: "Haz un comentario sobre esta Misión"
+          edit: "Modificar"
+      
+      first_vision: 
         title: "¿Listo para Agregar la Visión?"
         description: "La definición del Planteamiento Estratégico arranca con una dirección clara y precisa del rumbo estratégico de la Organización. Esta dirección se plantea a través de la Visión. \n\nLa Visión describe lo que la organización espera alcanzar dentro de un período de tiempo determinado.Un enunciado breve que expresa el estado futuro deseado de una manera realista y posible de alcanzar."
         controls: 
@@ -426,6 +446,8 @@ es-MX:
       update_vision:
         successful_save: "Cambios a la visión correctamente guardados"
       help:
+          mission: 
+            description: "Una descripción simple para una misión"
           vision:
             description: "Una descripción simple para una visión"
           notifications:

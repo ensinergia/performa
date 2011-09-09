@@ -200,7 +200,7 @@ feature "Comments for visions:", :js => true do
       end
       
       it "should let me delete comment 'A'" do        
-        attachmnt_file_url = @comment_A.attachments.first.content
+        attachment_file_url = @comment_A.attachments.first.content
         
         click_link I18n.t('views.comments.controls.see')
         
@@ -216,7 +216,7 @@ feature "Comments for visions:", :js => true do
         
         page.should have_no_css("#comment-##{@comment_A.id}")
 
-        visit "#{attachmnt_file_url}"
+        visit "#{attachment_file_url}"
         page.should have_content('AccessDenied')
       end
       

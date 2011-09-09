@@ -1,5 +1,5 @@
 <div class="box rounded-10 with-shadow with-mid-width">
-	<%= render :partial => 'creed/shared/show_creed', :locals => {:creed => @vision} %>
+	<%= render :partial => 'creed/shared/show_creed', :locals => {:creed => @mission} %>
 </div>
 
 <%= content_for :message do %>
@@ -8,9 +8,9 @@
 			<p><%= I18n.t('views.common.help.title') %></p>
 		</div>
 		
-		<p class="subtitle"><%=t 'views.creed.vision' %></p>
+		<p class="subtitle"><%=t 'views.creed.mission' %></p>
 		
-		<p><%=t 'views.creed.help.vision.description'  %></p>
+		<p><%=t 'views.creed.help.mission.description'  %></p>
 		
 		<p class="subtitle"><%=t 'views.creed.help.notifications.title' %></p>
 		

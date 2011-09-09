@@ -24,10 +24,10 @@ feature "Creed section:" do
       find_link I18n.t('views.creed.mission')
       find_link I18n.t('views.creed.battle_cry')
       
-      page.should have_content I18n.t('views.creed.first_view.title')
-      page.should have_content ignoring_new_lines(I18n.t('views.creed.first_view.description'))
+      page.should have_content I18n.t('views.creed.first_vision.title')
+      page.should have_content ignoring_new_lines(I18n.t('views.creed.first_vision.description'))
       
-      find_button I18n.t('views.creed.first_view.controls.add_vision')
+      find_button I18n.t('views.creed.first_vision.controls.add_vision')
     end
   end
   
@@ -40,7 +40,7 @@ feature "Creed section:" do
     
     it "should take me to the new vision form when I click the add vision button" do
       visit @sub_host + creed_visions_path
-      click_button I18n.t('views.creed.first_view.controls.add_vision')
+      click_button I18n.t('views.creed.first_vision.controls.add_vision')
       
       current_url.should == @sub_host + new_creed_vision_path
       current_path.should == new_creed_vision_path

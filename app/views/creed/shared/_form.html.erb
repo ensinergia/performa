@@ -1,0 +1,11 @@
+
+<%= render :partial => 'shared/errors', 
+					 :locals => {:message_error => t('views.creed.most_views.form_errors'), :object => creed} %>
+
+<%= f.text_area :description %>
+
+<%= render 'shared/notifications' %>
+
+<%= link_to t('views.creed.most_views.controls.cancel'), eval("creed_#{creed.class.to_s.downcase.pluralize}_url") %>
+<%= f.submit commit_changes_legend, :class => "button orange as-link" %>
+

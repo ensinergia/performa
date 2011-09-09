@@ -1,0 +1,3 @@
+class Mission < Creed
+
+end

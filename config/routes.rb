@@ -17,7 +17,8 @@ GestionDesempeno::Application.routes.draw do
     resources :comments, :only => [:create, :destroy]
     
     namespace(:creed) do
-      resources :visions, :only => [:index, :new, :create, :show, :edit, :update]      
+      resources :visions, :only => [:index, :new, :create, :show, :edit, :update]  
+      resources :missions, :only => [:index, :new, :create, :show, :edit, :update]    
     end
     
     namespace(:swot) do

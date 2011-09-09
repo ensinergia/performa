@@ -1,0 +1,13 @@
+<%= render 'creed/shared/menu' %>	
+
+<div class="inside-box">
+	<!-- Image space -->
+	<div class="title-bar">
+		<h1><%= t("views.creed.new_#{creed.class.to_s.downcase}.title") %></h1>
+	</div>
+	
+	<%= form_for([:creed, creed]) do |f| %>
+		<%= render :partial => 'creed/shared/form', 
+						 	 :locals => {:f => f, :commit_changes_legend => t("views.creed.new_#{creed.class.to_s.downcase}.controls.save") , :creed => creed} %>
+	<% end %>
+</div>

@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(:version => 20110829180014) do
     t.datetime "updated_at"
   end
 
+  create_table "creeds", :force => true do |t|
+    t.string   "description"
+    t.integer  "company_id"
+    t.integer  "user_id"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "positions", :force => true do |t|
     t.string "name"
   end
@@ -103,13 +112,5 @@ ActiveRecord::Schema.define(:version => 20110829180014) do
   end
 
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
-
-  create_table "visions", :force => true do |t|
-    t.string   "description"
-    t.integer  "company_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

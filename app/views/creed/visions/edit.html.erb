@@ -1,18 +1,5 @@
 <div class="box rounded-10 with-shadow with-mid-width">
-	
-	<%= render 'creed/shared/menu' %>	
-	
-	<div class="inside-box">
-		<!-- Image space -->
-		<div class="title-bar">
-			<h1><%= t('views.creed.edit_vision.title') %></h1>
-		</div>
-		
-		<%= form_for([:creed, @vision], :html => { :method => :put }) do |f| %>
-			<%= render :partial => 'form', 
-							 	 :locals => {:f => f, :commit_changes_legend => t('views.creed.edit_vision.controls.save') } %>
-		<% end %>
-	</div>
+	<%= render :partial => 'creed/shared/edit_creed', :locals => {:creed => @vision} %>
 </div>
 
 <%= content_for :message do %>

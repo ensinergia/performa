@@ -1,6 +1,7 @@
 class Company < ActiveRecord::Base
   
   has_one :vision
+  has_one :mission
   
   has_many :users
   has_many :areas
