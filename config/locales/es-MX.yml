@@ -304,7 +304,7 @@ es-MX:
       panorama: "Panorama"
       creed: "Credo"
       swot: "FODA"
-      expectations: "Expectativas"
+      strategic_lines: "Líneas Estratégicas"
       objectives: "Objetivos Estratégicos" 
       programmes: "Programas"
       people: "Personas"
@@ -314,7 +314,7 @@ es-MX:
       actions:
         add_creed: "Agregar Credo"
         add_swot: "Agregar FODA"
-        add_expectations: "Agregar Expectativas"
+        add_strategic_lines: "Agregar Líneas Estratégicas"
         add_objectives: "Agregar Objetivos Estratégicos"
         add_programmes: "Agregar Programas"
         add_areas_and_people: "Agregar Áreas y Personas"
@@ -338,12 +338,17 @@ es-MX:
         comment: "Comentar"
         delete: "Eliminar"    
         
-  
+    strategic_lines:
+      first_view:
+        title: "¿Listo para agregar la primer Línea Estratégica?"
+        description: "Esta es la descripción para una nueva línea estratégica"
+        controls:
+          start: "Agregar"      
     swot:
       external_analysis: "Análisis Externo"
       internal_analysis: "Análisis Interno"
       first_view:
-        title: "¿Listo para Agregar Fortalezas y Debilidades?"
+        title: "¿Listo para agregar Fortalezas y Debilidades?"
         description: "Esta es la descripción cuando no hay ninguna fortaleza o debilidad registrada"
         controls:
           start: "Iniciar"
@@ -405,7 +410,7 @@ es-MX:
           cancel: "Cancelar"
       
       first_war_cry_description:
-        title: "¿Listo para Agregar el Grito de Guerra?"
+        title: "¿Listo para agregar el Grito de Guerra?"
         description: "El texto descriptivo para el grito de guerra"
         controls:
           add_war_cry_description: "Agregar Grito de Guerra"

@@ -24,7 +24,7 @@ feature "Panorama landing page:" do
           find_link I18n.t('views.menu.panorama')
           find_link I18n.t('views.menu.creed')
           find_link I18n.t('views.menu.swot')
-          find_link I18n.t('views.menu.expectations')
+          find_link I18n.t('views.menu.strategic_lines')
           find_link I18n.t('views.menu.objectives')
           find_link I18n.t('views.menu.programmes')
           find_link I18n.t('views.menu.people')
@@ -35,7 +35,7 @@ feature "Panorama landing page:" do
       
         find_link I18n.t('views.panorama.actions.add_creed')
         find_link I18n.t('views.panorama.actions.add_swot')
-        find_link I18n.t('views.panorama.actions.add_expectations')
+        find_link I18n.t('views.panorama.actions.add_strategic_lines')
         find_link I18n.t('views.panorama.actions.add_objectives')
         find_link I18n.t('views.panorama.actions.add_programmes')
         find_link I18n.t('views.panorama.actions.add_areas_and_people')

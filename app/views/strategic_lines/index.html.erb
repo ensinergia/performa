@@ -1,0 +1,15 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	
+	<%= render 'swot/shared/menu' %>	
+	
+	<div class="inside-box">
+		<!-- Image space -->
+		<h1><%= t('views.strategic_lines.first_view.title') %></h1>
+		
+		<p><%= t('views.strategic_lines.first_view.description') %></p>
+		
+		<%= button_to t('views.strategic_lines.first_view.controls.start'), 
+					  strategic_lines_url(with_current_subdomain), 
+					  :method => :get, :class => "button orange as-link" %>
+	</div>
+</div>
