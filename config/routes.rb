@@ -16,7 +16,7 @@ GestionDesempeno::Application.routes.draw do
     
     resources :comments, :only => [:create, :destroy]
     
-    resources :strategic_lines, :only => [:index]
+    resources :strategic_lines, :only => [:index, :destroy, :edit, :update, :create, :new]
     
     namespace(:creed) do
       resources :visions, :only => [:index, :new, :create, :show, :edit, :update]  

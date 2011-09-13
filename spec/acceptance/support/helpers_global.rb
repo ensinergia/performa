@@ -54,6 +54,31 @@ module HelperMethods
     page.should have_content("#{I18n.t('views.comments.message.connector')} #{comment.user.name} / #{I18n.l(comment.updated_at, :format => :short)}")
   end
   
+  def should_contain_record_links_with(modifiable=true, comments_num=0)
+    if comments_num==0
+      find_link I18n.t('views.comments.controls.make_a_comment')
+    else
+      find_link I18n.t('views.comments.controls.comment')
+      find_link I18n.t('views.comments.controls.see')
+    end
+    
+    find(:xpath, "//input[contains(@class, 'delete')]")
+  
+    find(:xpath, "//a[contains(@class, 'modify')]") if modifiable
+  end
+  
+  def and_no_comments
+    0
+  end
+  
+  def and_some_comments
+    1
+  end
+  
+  def editability_set_to(mod)
+    mod
+  end
+  
   def ignoring_new_lines(string)
     string.gsub("\n", '').html_safe
   end

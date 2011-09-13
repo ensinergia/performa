@@ -339,11 +339,34 @@ es-MX:
         delete: "Eliminar"    
         
     strategic_lines:
-      first_view:
-        title: "¿Listo para agregar la primer Línea Estratégica?"
-        description: "Esta es la descripción para una nueva línea estratégica"
+      messages:
+        save:
+          successful: "Línea Estratégica agregada correctamente"
+        update: 
+          successful: "Línea Estratégica actualizada correctamente"
+        delete:
+          confirm: "¿Estas seguro de querer eliminar ésta línea estratégica?"
+      index:
+        empty:
+          title: "¿Listo para agregar la primer Línea Estratégica?"
+          description: "Esta es la descripción para una nueva línea estratégica"
+          controls:
+            start: "Agregar"      
+        not_empty:
+          title: "Líneas Estratégicas"
+          controls:
+            add: "Agregar una Línea Estratégica"
+      new:
+        title: "Agregando una Línea Estratégica"
         controls:
-          start: "Agregar"      
+          cancel: "Cancelar"
+          save: "Guardar"
+      edit:
+        title: "Modificando Línea Estratégica"
+        last_updated: "Última actualización"
+        controls:
+          cancel: "Cancelar"
+          save: "Guardar cambios"
     swot:
       external_analysis: "Análisis Externo"
       internal_analysis: "Análisis Interno"

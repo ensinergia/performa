@@ -197,7 +197,6 @@ feature "Creed section (Visions):" do
       
       page.should have_content I18n.t('views.creed.edit_vision.title')
       
-      page.should have_content I18n.t('views.creed.most_views.form_errors')
     end
   
   end

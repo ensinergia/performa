@@ -196,7 +196,6 @@ feature "Creed section (War Cries):" do
       
       page.should have_content I18n.t('views.creed.edit_war_cry_description.title')
       
-      page.should have_content I18n.t('views.creed.most_views.form_errors')
     end
   
   end
