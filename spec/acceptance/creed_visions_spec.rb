@@ -20,9 +20,9 @@ feature "Creed section (Visions):" do
       current_url.should == @sub_host + creed_visions_path
       current_path.should == creed_visions_path
       
-      find_link I18n.t('views.creed.vision')
-      find_link I18n.t('views.creed.mission')
-      find_link I18n.t('views.creed.war_cry_description')
+      find_link I18n.t('activerecord.models.vision')
+      find_link I18n.t('activerecord.models.mission')
+      find_link I18n.t('activerecord.models.war_cry')
       
       page.should have_content I18n.t('views.creed.first_vision.title')
       page.should have_content ignoring_new_lines(I18n.t('views.creed.first_vision.description'))
@@ -45,9 +45,9 @@ feature "Creed section (Visions):" do
       current_url.should == @sub_host + new_creed_vision_path
       current_path.should == new_creed_vision_path
    
-      find_link I18n.t('views.creed.vision')
-      find_link I18n.t('views.creed.mission')
-      find_link I18n.t('views.creed.war_cry_description')
+      find_link I18n.t('activerecord.models.vision')
+      find_link I18n.t('activerecord.models.mission')
+      find_link I18n.t('activerecord.models.war_cry')
       
       page.should have_content I18n.t('views.creed.new_vision.title')
       page.should have_content I18n.t('views.creed.most_views.notify_to')
@@ -61,7 +61,7 @@ feature "Creed section (Visions):" do
       
       within(".help") do
         page.should have_content I18n.t('views.common.help.title')
-        page.should have_content I18n.t('views.creed.vision')      
+        page.should have_content I18n.t('activerecord.models.vision')      
         page.should have_content I18n.t('views.creed.help.vision.description')    
         page.should have_content I18n.t('views.creed.help.notifications.title')      
         page.should have_content I18n.t('views.creed.help.notifications.description')      
@@ -80,7 +80,7 @@ feature "Creed section (Visions):" do
       
       click_button I18n.t('views.creed.new_vision.controls.save')
       
-      page.should have_content I18n.t('views.creed.create_vision.successful_save')
+      page.should have_content I18n.t('views.common.messages.save.successful', :model => I18n.t('activerecord.models.vision'), :genre => "a")
       
       registered_vision = Vision.first
       
@@ -88,7 +88,7 @@ feature "Creed section (Visions):" do
       current_path.should == creed_visions_path
     
       within('.title-bar p') do
-        page.should have_content I18n.t('views.creed.vision') 
+        page.should have_content I18n.t('activerecord.models.vision') 
         page.should have_content registered_vision.user.name
         page.should have_content I18n.l(registered_vision.updated_at, :format => :short)
       end
@@ -101,7 +101,7 @@ feature "Creed section (Visions):" do
       
       within(".help") do
         page.should have_content I18n.t('views.common.help.title')
-        page.should have_content I18n.t('views.creed.vision')      
+        page.should have_content I18n.t('activerecord.models.vision')      
         page.should have_content I18n.t('views.creed.help.vision.description')    
         page.should have_content I18n.t('views.creed.help.notifications.title')      
         page.should have_content I18n.t('views.creed.help.notifications.description')      
@@ -132,12 +132,12 @@ feature "Creed section (Visions):" do
     it "should show it to me instead of the index view shown when no vision is registered" do
       visit @sub_host + creed_visions_path
       
-      find_link I18n.t('views.creed.vision')
-      find_link I18n.t('views.creed.mission')
-      find_link I18n.t('views.creed.war_cry_description')
+      find_link I18n.t('activerecord.models.vision')
+      find_link I18n.t('activerecord.models.mission')
+      find_link I18n.t('activerecord.models.war_cry')
       
       within('.title-bar p') do
-        page.should have_content "#{I18n.t('views.creed.vision')}" 
+        page.should have_content "#{I18n.t('activerecord.models.vision')}" 
         page.should have_content @vision.user.name
         page.should have_content I18n.l(@vision.updated_at, :format => :short)
       end
@@ -172,7 +172,7 @@ feature "Creed section (Visions):" do
       
       click_button I18n.t('views.creed.edit_vision.controls.save')
       
-      page.should have_content I18n.t('views.creed.update_vision.successful_save')
+      page.should have_content I18n.t('views.common.messages.update.successful', :model => I18n.t('activerecord.models.vision'), :genre => "a")
       
       current_url.should == @sub_host + creed_visions_path
       current_path.should == creed_visions_path

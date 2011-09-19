@@ -12,6 +12,8 @@
 	<div class="content"><%= comment.content %></div>
 	<% if comment.user == current_user %>
 		<%= button_to t('views.comments.controls.delete'), comment, :method => :delete, 
-				:remote => true, :confirm => t('views.comments.delete_comment.confirm'), :class => 'delete-comment' %>
+				:remote => true, 
+				:confirm => t('views.common.messages.delete.confirm', :model => t('activerecord.models.comment'), :connector => "éste"), 
+				:class => 'delete-comment' %>
 	<% end %>
 </div>

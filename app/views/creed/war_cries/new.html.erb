@@ -5,15 +5,15 @@
 <%= content_for :message do %>
 	<div class="help">
 		<div class="title">
-			<p><%= I18n.t('views.common.help.title') %></p>
+			<p><%= t('views.common.help.title') %></p>
 		</div>
 		
-		<p class="subtitle"><%= I18n.t('views.creed.war_cry_description') %></p>
+		<p class="subtitle"><%= t('activerecord.models.war_cry') %></p>
 		
-		<p><%= I18n.t('views.creed.help.war_cry_description.description')  %></p>
+		<p><%= t('views.creed.help.war_cry_description.description')  %></p>
 		
-		<p class="subtitle"><%= I18n.t('views.creed.help.notifications.title') %></p>
+		<p class="subtitle"><%= t('views.creed.help.notifications.title') %></p>
 		
-		<p><%= I18n.t('views.creed.help.notifications.description')  %></p>
+		<p><%= t('views.creed.help.notifications.description')  %></p>
 	</div>
 <% end %>

@@ -17,13 +17,13 @@ feature "Creed section (Missions):" do
     
     it "should take me to the mission sub-section when I click the creed link menu item and then the mission link" do
       click_link I18n.t('views.menu.creed')
-      click_link I18n.t('views.creed.mission')
+      click_link I18n.t('activerecord.models.mission')
       
       current_url.should == @sub_host + creed_missions_path
       current_path.should == creed_missions_path
       
-      find_link I18n.t('views.creed.vision')
-      find_link I18n.t('views.creed.war_cry_description')
+      find_link I18n.t('activerecord.models.vision')
+      find_link I18n.t('activerecord.models.war_cry')
       
       page.should have_content I18n.t('views.creed.first_mission.title')
       page.should have_content ignoring_new_lines(I18n.t('views.creed.first_mission.description'))
@@ -46,9 +46,9 @@ feature "Creed section (Missions):" do
       current_url.should == @sub_host + new_creed_mission_path
       current_path.should == new_creed_mission_path
    
-      find_link I18n.t('views.creed.vision')
-      find_link I18n.t('views.creed.mission')
-      find_link I18n.t('views.creed.war_cry_description')
+      find_link I18n.t('activerecord.models.vision')
+      find_link I18n.t('activerecord.models.mission')
+      find_link I18n.t('activerecord.models.war_cry')
       
       page.should have_content I18n.t('views.creed.new_mission.title')
       page.should have_content I18n.t('views.creed.most_views.notify_to')
@@ -62,7 +62,7 @@ feature "Creed section (Missions):" do
       
       within(".help") do
         page.should have_content I18n.t('views.common.help.title')
-        page.should have_content I18n.t('views.creed.mission')      
+        page.should have_content I18n.t('activerecord.models.mission')      
         page.should have_content I18n.t('views.creed.help.mission.description')    
         page.should have_content I18n.t('views.creed.help.notifications.title')      
         page.should have_content I18n.t('views.creed.help.notifications.description')      
@@ -81,7 +81,7 @@ feature "Creed section (Missions):" do
       
       click_button I18n.t('views.creed.new_mission.controls.save')
       
-      page.should have_content I18n.t('views.creed.create_mission.successful_save')
+      page.should have_content I18n.t('views.common.messages.save.successful', :model => I18n.t('activerecord.models.mission'), :genre => "a")
       
       registered_mission = Mission.first
       
@@ -89,7 +89,7 @@ feature "Creed section (Missions):" do
       current_path.should == creed_missions_path
     
       within('.title-bar p') do
-        page.should have_content I18n.t('views.creed.mission') 
+        page.should have_content I18n.t('activerecord.models.mission') 
         page.should have_content registered_mission.user.name
         page.should have_content I18n.l(registered_mission.updated_at, :format => :short)
       end
@@ -102,7 +102,7 @@ feature "Creed section (Missions):" do
       
       within(".help") do
         page.should have_content I18n.t('views.common.help.title')
-        page.should have_content I18n.t('views.creed.mission')      
+        page.should have_content I18n.t('activerecord.models.mission')      
         page.should have_content I18n.t('views.creed.help.mission.description')    
         page.should have_content I18n.t('views.creed.help.notifications.title')      
         page.should have_content I18n.t('views.creed.help.notifications.description')      
@@ -133,12 +133,12 @@ feature "Creed section (Missions):" do
     it "should show it to me instead of the index view shown when no mission is registered" do
       visit @sub_host + creed_missions_path
       
-      find_link I18n.t('views.creed.mission')
-      find_link I18n.t('views.creed.mission')
-      find_link I18n.t('views.creed.war_cry_description')
+      find_link I18n.t('activerecord.models.vision')
+      find_link I18n.t('activerecord.models.mission')
+      find_link I18n.t('activerecord.models.war_cry')
       
       within('.title-bar p') do
-        page.should have_content "#{I18n.t('views.creed.mission')}" 
+        page.should have_content "#{I18n.t('activerecord.models.mission')}" 
         page.should have_content @mission.user.name
         page.should have_content I18n.l(@mission.updated_at, :format => :short)
       end
@@ -173,7 +173,7 @@ feature "Creed section (Missions):" do
       
       click_button I18n.t('views.creed.edit_mission.controls.save')
       
-      page.should have_content I18n.t('views.creed.update_mission.successful_save')
+      page.should have_content I18n.t('views.common.messages.update.successful', :model => I18n.t('activerecord.models.mission'), :genre => "a")
       
       current_url.should == @sub_host + creed_missions_path
       current_path.should == creed_missions_path

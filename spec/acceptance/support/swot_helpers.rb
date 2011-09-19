@@ -18,8 +18,8 @@ module SwotHelperMethods
     current_url.should == @sub_host + swot_analysis_comments_path(analysis)
     current_path.should == swot_analysis_comments_path(analysis)
   
-    find_link I18n.t('views.swot.internal_analysis')
-    find_link I18n.t('views.swot.external_analysis')
+    find_link I18n.t('views.swot.internals.title')
+    find_link I18n.t('views.swot.externals.title')
   
     find_link I18n.t('views.common.controls.back')
   

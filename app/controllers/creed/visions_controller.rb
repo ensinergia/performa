@@ -22,7 +22,7 @@ class Creed::VisionsController < ActionController::Base
     
     if @vision.save
       @vision.notify_to(params[:users])
-      redirect_to creed_visions_path, :notice => I18n.t('views.creed.create_vision.successful_save')
+      redirect_to creed_visions_path, :notice => I18n.t('views.common.messages.save.successful', :model => I18n.t('activerecord.models.vision'), :genre => "a")
     else
       render(:action => 'new')
     end
@@ -41,7 +41,7 @@ class Creed::VisionsController < ActionController::Base
     
     if @vision.update_attributes(params[:vision])
       @vision.notify_to(params[:users])
-      redirect_to creed_visions_path, :notice => I18n.t('views.creed.update_vision.successful_save')
+      redirect_to creed_visions_path, :notice => I18n.t('views.common.messages.update.successful', :model => I18n.t('activerecord.models.vision'), :genre => "a")
     else
       render(:action => 'edit')
     end

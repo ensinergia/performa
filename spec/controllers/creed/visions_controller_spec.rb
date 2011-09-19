@@ -89,7 +89,7 @@ describe Creed::VisionsController do
       it "should set a flash message" do
         Vision.stub(:new_with_user).and_return { @vision }
         post :create
-        flash[:notice].should == I18n.t('views.creed.create_vision.successful_save')
+        flash[:notice].should == I18n.t('views.common.messages.save.successful', :model => I18n.t('activerecord.models.vision'), :genre => "a")
       end
       
     end
@@ -153,7 +153,7 @@ describe Creed::VisionsController do
       it "should redirect to index action" do
         put :update, :id => "1", :vision => { :description => 'a description' }
         response.should redirect_to(creed_visions_path)
-        flash[:notice].should == I18n.t('views.creed.update_vision.successful_save')
+        flash[:notice].should == I18n.t('views.common.messages.update.successful', :model => I18n.t('activerecord.models.vision'), :genre => "a")
       end
       
     end

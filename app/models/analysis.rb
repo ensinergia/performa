@@ -43,11 +43,4 @@ class Analysis < ActiveRecord::Base
     analysis
   end
   
-  def kind_humanized
-    return "weaknesses" if weakness?
-    return "strengths" if strength?
-    return "risks" if risk?
-    return "opportunities" if opportunity?
-  end
-  
 end

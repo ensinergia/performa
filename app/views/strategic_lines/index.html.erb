@@ -16,7 +16,7 @@
 					</div>
 					
 					<%= button_to 'Eliminar', sl, :method => :delete, 
-												  :confirm => t('views.strategic_lines.messages.delete.confirm'), 
+												  :confirm => t('views.common.messages.delete.confirm', :connector => "ésta", :model => t('activerecord.models.strategic_line')), 
 												  :class => 'delete' %>
 					<%= link_to 'Modificar', edit_strategic_line_path(sl), :class => 'modify' %>
 				</div>

@@ -31,8 +31,8 @@ feature "SWOT internal features" do
         current_url.should == @sub_host + swot_analyses_path
         current_path.should == swot_analyses_path
       
-        find_link I18n.t('views.swot.internal_analysis')
-        find_link I18n.t('views.swot.external_analysis')
+        find_link I18n.t('views.swot.internals.title')
+        find_link I18n.t('views.swot.externals.title')
       
         page.should have_content I18n.t('views.swot.first_view.title')
         page.should have_content I18n.t('views.swot.first_view.description')
@@ -63,8 +63,8 @@ feature "SWOT internal features" do
         current_url.should == @sub_host + swot_analyses_path
         current_path.should == swot_analyses_path
         
-        find_link I18n.t('views.swot.internal_analysis')
-        find_link I18n.t('views.swot.external_analysis')
+        find_link I18n.t('views.swot.internals.title')
+        find_link I18n.t('views.swot.externals.title')
         
         within(".weaknesses") do
           page.should have_content I18n.t('views.swot.shared_views.weaknesses')
@@ -135,8 +135,8 @@ feature "SWOT internal features" do
         current_url.should == @sub_host + swot_analyses_path
         current_path.should == swot_analyses_path
         
-        find_link I18n.t('views.swot.internal_analysis')
-        find_link I18n.t('views.swot.external_analysis')
+        find_link I18n.t('views.swot.internals.title')
+        find_link I18n.t('views.swot.externals.title')
         
         within(".strengths") do
           page.should have_content I18n.t('views.swot.shared_views.strengths')
@@ -205,8 +205,8 @@ feature "SWOT internal features" do
       
         it "should allow me to add a weakness to the SWOT" do
         
-          find_link I18n.t('views.swot.internal_analysis')
-          find_link I18n.t('views.swot.external_analysis')
+          find_link I18n.t('views.swot.internals.title')
+          find_link I18n.t('views.swot.externals.title')
         
           within(".weaknesses") do
             page.evaluate_script("$('div#new-weakness').hasClass('hidden');").should be_true
@@ -224,7 +224,7 @@ feature "SWOT internal features" do
           current_url.should == @sub_host + internal_swot_analyses_path
           current_path.should == internal_swot_analyses_path
 
-          page.should have_content I18n.t('views.swot.internal_view.weaknesses.add.successful_save')
+          page.should have_content I18n.t('views.common.messages.save.successful', :model => "Debilidad", :genre => "a")
           page.should have_content 'Burocracia'
           page.should have_content @strength.content
         end
@@ -248,8 +248,8 @@ feature "SWOT internal features" do
         
         it "should allow me to add a strength to the SWOT" do
         
-          find_link I18n.t('views.swot.internal_analysis')
-          find_link I18n.t('views.swot.external_analysis')
+          find_link I18n.t('views.swot.internals.title')
+          find_link I18n.t('views.swot.externals.title')
         
           within(".strengths") do
             page.evaluate_script("$('div#new-strength').hasClass('hidden');").should be_true
@@ -267,7 +267,7 @@ feature "SWOT internal features" do
           current_url.should == @sub_host + internal_swot_analyses_path
           current_path.should == internal_swot_analyses_path
 
-          page.should have_content I18n.t('views.swot.internal_view.strengths.add.successful_save')
+          page.should have_content I18n.t('views.common.messages.save.successful', :model => "Fortaleza", :genre => "a")
           page.should have_content 'Tecnología'
           page.should have_content @strength.content
         end

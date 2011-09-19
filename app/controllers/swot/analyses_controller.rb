@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'subdomain_guards'
 class Swot::AnalysesController < ActionController::Base
   include AnalysisControllerHelper
@@ -26,14 +27,10 @@ class Swot::AnalysesController < ActionController::Base
   def create
     @analysis=Analysis.new_with_user(params[:analysis], current_user)
     
-    if @analysis.save
-      notice = flash_message_for(@analysis)
-      
-      redirect_to(internal_swot_analyses_path, :notice => notice) && return if @analysis.is_internal?
-      redirect_to(external_swot_analyses_path, :notice => notice)
-    else 
-      redirect_to(internal_swot_analyses_path, :alert => I18n.t('views.swot.shared_views.add.unsuccessful_save')) && return if @analysis.is_internal?
-      redirect_to(external_swot_analyses_path, :alert => I18n.t('views.swot.shared_views.add.unsuccessful_save'))
+    if @analysis.save      
+      redirect_to(url_for_analysis(@analysis), :notice => flash_notice_for(@analysis, :on_save)) 
+    else       
+      redirect_to(url_for_analysis(@analysis), :alert => flash_alert_for(@analysis, :on_save))
     end
   end
   
@@ -47,11 +44,12 @@ class Swot::AnalysesController < ActionController::Base
   end
   
   def destroy
-    @analysis = tmp_analysis =Analysis.find(params[:id])
+    @analysis = Analysis.find(params[:id])
+    analysis_was_internal = @analysis.is_internal?
     @analysis.destroy
     
     
-    tmp_analysis.is_internal? ?  redirect_to(internal_swot_analyses_path) : redirect_to(external_swot_analyses_path)
+    analysis_was_internal ?  redirect_to(internal_swot_analyses_path) : redirect_to(external_swot_analyses_path)
   end
   
   private

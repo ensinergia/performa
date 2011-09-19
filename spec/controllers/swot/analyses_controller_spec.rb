@@ -81,7 +81,7 @@ describe Swot::AnalysesController do
       
       before(:each) do
         @analysis.stub(:save).and_return(true)
-        @params = {"content" => 'not empty', "kind" => '1'}
+        @params = {"content" => 'not empty', "kind" => Analysis.strength}
       end
       
       it "should save a new analysis" do
@@ -106,12 +106,12 @@ describe Swot::AnalysesController do
       
       before(:each) do
         @analysis.stub(:save).and_return(false)
-        @params = {"content" => '', "kind" => '3'}
+        @params = {"content" => '', "kind" => Analysis.strength}
       end
       
       it "should render a flash alert" do
         post :create, :analysis => @params
-        flash[:alert].should == I18n.t('views.swot.shared_views.add.unsuccessful_save')
+        flash[:alert].should == I18n.t("views.common.messages.save.unsuccessful", :model => "Fortaleza", :connector => "ésta")
       end
       
     end
@@ -154,12 +154,12 @@ describe Swot::AnalysesController do
       
       before(:each) do
         @analysis.stub(:save).and_return(false)
-        @params = {"content" => '', "kind" => '3'}
+        @params = {"content" => '', "kind" => Analysis.opportunity}
       end
       
       it "should render a flash alert" do
         post :create, :analysis => @params
-        flash[:alert].should == I18n.t('views.swot.shared_views.add.unsuccessful_save')
+        flash[:alert].should == I18n.t("views.common.messages.save.unsuccessful", :model => "Oportunidad", :connector => "ésta")
       end
       
     end

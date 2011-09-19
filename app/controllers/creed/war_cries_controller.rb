@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Creed::WarCriesController < ActionController::Base
   include SubdomainGuards
   layout 'application'
@@ -22,7 +23,7 @@ class Creed::WarCriesController < ActionController::Base
     
     if @war_cry.save
       @war_cry.notify_to(params[:users])
-      redirect_to creed_war_cries_path, :notice => I18n.t('views.creed.create_war_cry_description.successful_save')
+      redirect_to creed_war_cries_path, :notice => I18n.t('views.common.messages.save.successful', :model => I18n.t('activerecord.models.war_cry'), :genre => "o")
     else
       render(:action => 'new')
     end
@@ -41,7 +42,7 @@ class Creed::WarCriesController < ActionController::Base
     
     if @war_cry.update_attributes(params[:war_cry])
       @war_cry.notify_to(params[:users])
-      redirect_to creed_war_cries_path, :notice => I18n.t('views.creed.update_war_cry_description.successful_save')
+      redirect_to creed_war_cries_path, :notice => I18n.t('views.common.messages.update.successful', :model => I18n.t('activerecord.models.war_cry'), :genre => "o")
     else
       render(:action => 'edit')
     end

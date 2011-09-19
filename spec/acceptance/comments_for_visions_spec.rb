@@ -41,7 +41,7 @@ feature "Comments for visions:", :js => true do
         find_link I18n.t('views.comments.controls.cancel')
         click_button I18n.t('views.comments.controls.add')
         
-        page.should have_content I18n.t('views.comments.add_comment.successful_save')
+        page.should have_content I18n.t('views.common.messages.save.successful', :model => I18n.t('activerecord.models.comment'), :genre => 'o')
         
         page.evaluate_script("$('div#new-comment-for-commentable').hasClass('hidden');").should be_true
         
@@ -68,7 +68,7 @@ feature "Comments for visions:", :js => true do
         find_link I18n.t('views.comments.controls.cancel')
         click_button I18n.t('views.comments.controls.add')
         
-        page.should have_content I18n.t('views.comments.add_comment.unsuccessful_save')
+        page.should have_content I18n.t('views.common.messages.save.unsuccessful', :model => I18n.t('activerecord.models.comment'), :connector => 'éste')
         
         within('.links') do
           find_link I18n.t('views.comments.controls.make_a_comment')
@@ -101,7 +101,7 @@ feature "Comments for visions:", :js => true do
           sleep 5
           should_have_comment(Comment.first, @user, with_delete_controls, with_attachments(['example.html']))
         
-          page.should have_content I18n.t('views.comments.add_comment.successful_save')
+          page.should have_content I18n.t('views.common.messages.save.successful', :model => I18n.t('activerecord.models.comment'), :genre => 'o')
         
           within('.links') do
             page.should have_content(1)
@@ -130,7 +130,7 @@ feature "Comments for visions:", :js => true do
           should_have_comment(Comment.first, @user, with_delete_controls, with_attachments(['example.html']))
           should_have_comment(Comment.first, @user, with_delete_controls, with_attachments(['example_.html']))
         
-          page.should have_content I18n.t('views.comments.add_comment.successful_save')
+          page.should have_content I18n.t('views.common.messages.save.successful', :model => I18n.t('activerecord.models.comment'), :genre => 'o')
         
           within('.links') do
             page.should have_content(1)

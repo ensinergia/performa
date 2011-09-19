@@ -89,7 +89,7 @@ describe Creed::MissionsController do
       it "should set a flash message" do
         Mission.stub(:new_with_user).and_return { @mission }
         post :create
-        flash[:notice].should == I18n.t('views.creed.create_mission.successful_save')
+        flash[:notice].should == I18n.t('views.common.messages.save.successful', :model => I18n.t('activerecord.models.mission'), :genre => "a")
       end
       
     end
@@ -153,7 +153,7 @@ describe Creed::MissionsController do
       it "should redirect to index action" do
         put :update, :id => "1", :mission => { :description => 'a description' }
         response.should redirect_to(creed_missions_path)
-        flash[:notice].should == I18n.t('views.creed.update_mission.successful_save')
+        flash[:notice].should == I18n.t('views.common.messages.update.successful', :model => I18n.t('activerecord.models.mission'), :genre => "a")
       end
       
     end

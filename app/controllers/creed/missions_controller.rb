@@ -22,7 +22,7 @@ class Creed::MissionsController < ActionController::Base
     
     if @mission.save
       @mission.notify_to(params[:users])
-      redirect_to creed_missions_path, :notice => I18n.t('views.creed.create_mission.successful_save')
+      redirect_to creed_missions_path, :notice => I18n.t('views.common.messages.save.successful', :model => I18n.t('activerecord.models.mission'), :genre => "a")
     else
       render(:action => 'new')
     end
@@ -41,7 +41,7 @@ class Creed::MissionsController < ActionController::Base
     
     if @mission.update_attributes(params[:mission])
       @mission.notify_to(params[:users])
-      redirect_to creed_missions_path, :notice => I18n.t('views.creed.update_mission.successful_save')
+      redirect_to creed_missions_path, :notice => I18n.t('views.common.messages.update.successful', :model => I18n.t('activerecord.models.mission'), :genre => "a")
     else
       render(:action => 'edit')
     end

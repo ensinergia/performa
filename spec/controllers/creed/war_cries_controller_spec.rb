@@ -89,7 +89,7 @@ describe Creed::WarCriesController do
       it "should set a flash message" do
         WarCry.stub(:new_with_user).and_return { @war_cry }
         post :create
-        flash[:notice].should == I18n.t('views.creed.create_war_cry_description.successful_save')
+        flash[:notice].should == I18n.t('views.common.messages.save.successful', :model => I18n.t('activerecord.models.war_cry'), :genre => "o")
       end
       
     end
@@ -153,7 +153,7 @@ describe Creed::WarCriesController do
       it "should redirect to index action" do
         put :update, :id => "1", :war_cry => { :description => 'a description' }
         response.should redirect_to(creed_war_cries_path)
-        flash[:notice].should == I18n.t('views.creed.update_war_cry_description.successful_save')
+        flash[:notice].should == I18n.t('views.common.messages.update.successful', :model => I18n.t('activerecord.models.war_cry'), :genre => "o")
       end
       
     end

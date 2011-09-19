@@ -17,13 +17,13 @@ feature "Creed section (War Cries):" do
     
     it "should take me to the war cry sub-section when I click the creed link menu item and then the war cry link" do
       click_link I18n.t('views.menu.creed')
-      click_link I18n.t('views.creed.war_cry_description')
+      click_link I18n.t('activerecord.models.war_cry')
       
       current_url.should == @sub_host + creed_war_cries_path
       current_path.should == creed_war_cries_path
       
-      find_link I18n.t('views.creed.vision')
-      find_link I18n.t('views.creed.war_cry_description')
+      find_link I18n.t('activerecord.models.vision')
+      find_link I18n.t('activerecord.models.war_cry')
       
       page.should have_content I18n.t('views.creed.first_war_cry_description.title')
       page.should have_content ignoring_new_lines(I18n.t('views.creed.first_war_cry_description.description'))
@@ -47,7 +47,7 @@ feature "Creed section (War Cries):" do
       current_path.should == new_creed_war_cry_path
    
       find_link I18n.t('views.creed.vision')
-      find_link I18n.t('views.creed.war_cry_description')
+      find_link I18n.t('activerecord.models.war_cry')
       
       page.should have_content I18n.t('views.creed.new_war_cry_description.title')
       page.should have_content I18n.t('views.creed.most_views.notify_to')
@@ -61,7 +61,7 @@ feature "Creed section (War Cries):" do
       
       within(".help") do
         page.should have_content I18n.t('views.common.help.title')
-        page.should have_content I18n.t('views.creed.war_cry_description')      
+        page.should have_content I18n.t('activerecord.models.war_cry')      
         page.should have_content I18n.t('views.creed.help.war_cry_description.description')    
         page.should have_content I18n.t('views.creed.help.notifications.title')      
         page.should have_content I18n.t('views.creed.help.notifications.description')      
@@ -80,7 +80,7 @@ feature "Creed section (War Cries):" do
       
       click_button I18n.t('views.creed.new_war_cry_description.controls.save')
       
-      page.should have_content I18n.t('views.creed.create_war_cry_description.successful_save')
+      page.should have_content I18n.t('views.common.messages.save.successful', :model => I18n.t('activerecord.models.war_cry'), :genre => "o")
       
       registered_war_cry = WarCry.first
       
@@ -88,7 +88,7 @@ feature "Creed section (War Cries):" do
       current_path.should == creed_war_cries_path
     
       within('.title-bar p') do
-        page.should have_content I18n.t('views.creed.war_cry_description') 
+        page.should have_content I18n.t('activerecord.models.war_cry') 
         page.should have_content registered_war_cry.user.name
         page.should have_content I18n.l(registered_war_cry.updated_at, :format => :short)
       end
@@ -101,7 +101,7 @@ feature "Creed section (War Cries):" do
       
       within(".help") do
         page.should have_content I18n.t('views.common.help.title')
-        page.should have_content I18n.t('views.creed.war_cry_description')      
+        page.should have_content I18n.t('activerecord.models.war_cry')      
         page.should have_content I18n.t('views.creed.help.war_cry_description.description')    
         page.should have_content I18n.t('views.creed.help.notifications.title')      
         page.should have_content I18n.t('views.creed.help.notifications.description')      
@@ -132,11 +132,10 @@ feature "Creed section (War Cries):" do
     it "should show it to me instead of the index view shown when no war cry is registered" do
       visit @sub_host + creed_war_cries_path
       
-      find_link I18n.t('views.creed.war_cry_description')
-      find_link I18n.t('views.creed.war_cry_description')
+      find_link I18n.t('activerecord.models.war_cry')
       
       within('.title-bar p') do
-        page.should have_content "#{I18n.t('views.creed.war_cry_description')}" 
+        page.should have_content "#{I18n.t('activerecord.models.war_cry')}" 
         page.should have_content @war_cry_description.user.name
         page.should have_content I18n.l(@war_cry_description.updated_at, :format => :short)
       end
@@ -171,7 +170,7 @@ feature "Creed section (War Cries):" do
       
       click_button I18n.t('views.creed.edit_war_cry_description.controls.save')
       
-      page.should have_content I18n.t('views.creed.update_war_cry_description.successful_save')
+      page.should have_content I18n.t('views.common.messages.update.successful', :model => I18n.t('activerecord.models.war_cry'), :genre => "o")
       
       current_url.should == @sub_host + creed_war_cries_path
       current_path.should == creed_war_cries_path

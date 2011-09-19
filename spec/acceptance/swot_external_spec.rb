@@ -34,8 +34,8 @@ feature "SWOT external features" do
         current_url.should == @sub_host + swot_analyses_path
         current_path.should == swot_analyses_path
         
-        find_link I18n.t('views.swot.internal_analysis')
-        click_link I18n.t('views.swot.external_analysis')
+        find_link I18n.t('views.swot.internals.title')
+        click_link I18n.t('views.swot.externals.title')
         
         current_url.should == @sub_host + external_swot_analyses_path
         current_path.should == external_swot_analyses_path
@@ -109,8 +109,8 @@ feature "SWOT external features" do
         current_url.should == @sub_host + swot_analyses_path
         current_path.should == swot_analyses_path
         
-        find_link I18n.t('views.swot.internal_analysis')
-        click_link I18n.t('views.swot.external_analysis')
+        find_link I18n.t('views.swot.internals.title')
+        click_link I18n.t('views.swot.externals.title')
         
         within(".risks") do
           page.should have_content I18n.t('views.swot.shared_views.risks')
@@ -179,8 +179,8 @@ feature "SWOT external features" do
       
         it "should allow me to add an opportunity to the SWOT" do
         
-          find_link I18n.t('views.swot.internal_analysis')
-          click_link I18n.t('views.swot.external_analysis')
+          find_link I18n.t('views.swot.internals.title')
+          click_link I18n.t('views.swot.externals.title')
         
           within(".opportunities") do
             page.evaluate_script("$('div#new-opportunity').hasClass('hidden');").should be_true
@@ -198,13 +198,13 @@ feature "SWOT external features" do
           current_url.should == @sub_host + external_swot_analyses_path
           current_path.should == external_swot_analyses_path
 
-          page.should have_content I18n.t('views.swot.external_view.opportunities.add.successful_save')
+          page.should have_content I18n.t('views.common.messages.save.successful', :model => "Oportunidad", :genre => "a")
           page.should have_content 'Young market'
           page.should have_content @risk.content
         end
         
         it "should show the form for adding a new opportunity but also should allow me to hide it" do
-          click_link I18n.t('views.swot.external_analysis')
+          click_link I18n.t('views.swot.externals.title')
           
           within(".opportunities") do
             page.evaluate_script("$('div#new-opportunity').hasClass('hidden');").should be_true
@@ -223,8 +223,8 @@ feature "SWOT external features" do
         
         it "should allow me to add a risk to the SWOT" do
         
-          find_link I18n.t('views.swot.internal_analysis')
-          click_link I18n.t('views.swot.external_analysis')
+          find_link I18n.t('views.swot.internals.title')
+          click_link I18n.t('views.swot.externals.title')
         
           within(".risks") do
             page.evaluate_script("$('div#new-risk').hasClass('hidden');").should be_true
@@ -242,13 +242,13 @@ feature "SWOT external features" do
           current_url.should == @sub_host + external_swot_analyses_path
           current_path.should == external_swot_analyses_path
 
-          page.should have_content I18n.t('views.swot.external_view.risks.add.successful_save')
+          page.should have_content I18n.t('views.common.messages.save.successful', :model => "Riesgo", :genre => "o")
           page.should have_content 'Technology not ready yet'
           page.should have_content @risk.content
         end
         
         it "should show the form for adding a new risk but also should allow me to hide it" do
-          click_link I18n.t('views.swot.external_analysis')
+          click_link I18n.t('views.swot.externals.title')
           
           within(".risks") do
             page.evaluate_script("$('div#new-risk').hasClass('hidden');").should be_true

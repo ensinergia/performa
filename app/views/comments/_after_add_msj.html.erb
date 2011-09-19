@@ -1,5 +1,5 @@
 <% if success %>
-	<p class="notice"><%=t 'views.comments.add_comment.successful_save' %></p>
+	<p class="notice"><%=t 'views.common.messages.save.successful', :model => t('activerecord.models.comment'), :genre => 'o' %></p>
 <% else %>
-	<p class="alert"><%=t 'views.comments.add_comment.unsuccessful_save' %></p>
+	<p class="alert"><%=t 'views.common.messages.save.unsuccessful', :model => t('activerecord.models.comment'), :connector => 'éste' %></p>
 <% end %>

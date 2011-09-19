@@ -214,6 +214,11 @@ es-MX:
   activerecord:
     models:
       user: Usuario
+      comment: Comentario
+      strategic_line: "Línea Estratégica"
+      war_cry: "Grito de guerra"
+      mission: "Misión"
+      vision: "Visión"
     attributes:
       user:
         name: "Nombre"
@@ -250,7 +255,15 @@ es-MX:
         title: "Ayuda"
       controls:
         back: "Atrás"
-    
+      messages:
+        save:
+          successful: "%{model} agregad%{genre} correctamente"
+          unsuccessful: "No fue posible guardar %{connector} %{model}"
+        update: 
+          successful: "%{model} actualizad%{genre} correctamente"
+        delete:
+          confirm: "¿Estas seguro de querer eliminar %{connector} %{model}?"
+  
     areas:
       default: "Dirección General"
     header:
@@ -324,11 +337,6 @@ es-MX:
       leave_a_comment: "Deja un comentario"
       message:
         connector: "por"
-      delete_comment:
-        confirm: "¿Eliminar comentario?"
-      add_comment:
-        successful_save: "Comentario agregado exitosamente"
-        unsuccessful_save: "No se pudo agregar el comentario"
       controls:
         add_a_file: "Adjuntar un archivo a este comentario"
         cancel: "Cancelar"
@@ -339,13 +347,6 @@ es-MX:
         delete: "Eliminar"    
         
     strategic_lines:
-      messages:
-        save:
-          successful: "Línea Estratégica agregada correctamente"
-        update: 
-          successful: "Línea Estratégica actualizada correctamente"
-        delete:
-          confirm: "¿Estas seguro de querer eliminar ésta línea estratégica?"
       index:
         empty:
           title: "¿Listo para agregar la primer Línea Estratégica?"
@@ -368,40 +369,28 @@ es-MX:
           cancel: "Cancelar"
           save: "Guardar cambios"
     swot:
-      external_analysis: "Análisis Externo"
-      internal_analysis: "Análisis Interno"
+      externals: 
+        title: "Análisis Externo"
+        types:
+          opportunity: "Oportunidad"
+          risk: "Riesgo"
+      internals:
+        title: "Análisis Interno"
+        types:
+          weakness: "Debilidad"
+          strength: "Fortaleza"
       first_view:
         title: "¿Listo para agregar Fortalezas y Debilidades?"
         description: "Esta es la descripción cuando no hay ninguna fortaleza o debilidad registrada"
         controls:
           start: "Iniciar"
       internal_view:
-        strengths:
-          add:
-            successful_save: "Fortaleza guardada correctamente"
-          delete:
-            confirmation: "¿Eliminar realmente esta fortaleza?"
-        weaknesses:
-          add:
-            successful_save: "Debilidad guardada correctamente"
-          delete:
-            confirmation: "¿Eliminar realmente esta debilidad?"
         help: 
           subtitle_one: "Análisis Interno"
           description_one: "Ayuda contextual para Análisis Interno"
           subtitle_two: "Notificaciones"
           description_two: "Notificaciones para eventos de Análisis Interno"
       external_view:
-        opportunities: 
-          add:
-            successful_save: "Oportunidad guardada correctamente"
-          delete:
-            confirmation: "¿Eliminar realmente esta oportunidad?"
-        risks:
-          add:
-            successful_save: "Riesgo guardado correctamente"
-          delete:
-            confirmation: "¿Eliminar realmente este riesgo?"
         help: 
           title: "Análisis Externo"
       shared_views:
@@ -409,8 +398,6 @@ es-MX:
         weaknesses: "Debilidades"
         opportunities: "Oportunidades"
         risks: "Riesgos"
-        add: 
-          unsuccessful_save: "No fue posible guardar este elemento de análisis"
         controls: 
           add: "Agregar"
           add_weakness: "Agregar una Debilidad"
@@ -421,9 +408,6 @@ es-MX:
           cancel: "Cancelar"
           save: "Guardar"
     creed:
-      vision: "Visión"
-      mission: "Misión"
-      war_cry_description: "Grito de guerra"
         
       most_views:
         notify_to: "* Notificar de este Evento a:"
@@ -441,8 +425,6 @@ es-MX:
         title: "Agregando un nuevo Grito de Guerra"
         controls: 
           save: "Guardar"    
-      create_war_cry_description:
-        successful_save: "Nuevo grito de guerra agregado correctamente"
       edit_war_cry_description:
         title: "Modificando el Grito de Guerra"
         controls:
@@ -451,8 +433,6 @@ es-MX:
         controls:
           make_a_comment: "Haz un comentario sobre este Grito de Guerra"
           edit: "Modificar"
-      update_war_cry_description:
-        successful_save: "Cambios al grito de guerra correctamente guardados"
       
       first_mission:
         title: "¿Listo para Agregar la Misión?"
@@ -463,8 +443,6 @@ es-MX:
         title: "Agregando una nueva Misión"
         controls: 
           save: "Guardar"    
-      create_mission:
-        successful_save: "Nueva misión guardada correctamente"
       edit_mission:
         title: "Modificando la Misión"
         controls:
@@ -473,9 +451,7 @@ es-MX:
         controls:
           make_a_comment: "Haz un comentario sobre esta Misión"
           edit: "Modificar"
-      update_mission:
-        successful_save: "Cambios a la misión correctamente guardados"
-        
+          
       first_vision: 
         title: "¿Listo para Agregar la Visión?"
         description: "La definición del Planteamiento Estratégico arranca con una dirección clara y precisa del rumbo estratégico de la Organización. Esta dirección se plantea a través de la Visión. \n\nLa Visión describe lo que la organización espera alcanzar dentro de un período de tiempo determinado.Un enunciado breve que expresa el estado futuro deseado de una manera realista y posible de alcanzar."
@@ -492,11 +468,7 @@ es-MX:
       show_vision:
         controls:
           make_a_comment: "Haz un comentario sobre esta Visión"
-          edit: "Modificar"
-      create_vision:
-        successful_save: "Nueva visión guardada correctamente"      
-      update_vision:
-        successful_save: "Cambios a la visión correctamente guardados"
+          edit: "Modificar"    
       help:
           mission: 
             description: "Una descripción simple para una misión"

@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'subdomain_guards'
 class StrategicLinesController < ActionController::Base
   include StrategicLinesControllerHelper
@@ -25,7 +26,7 @@ class StrategicLinesController < ActionController::Base
     
     if @strategic_line.save
       @strategic_line.notify_to(params[:users])
-      redirect_to strategic_lines_path, :notice => I18n.t('views.strategic_lines.messages.save.successful')
+      redirect_to strategic_lines_path, :notice => I18n.t('views.common.messages.save.successful', :model => "Líneas Estratégicas", :genre => "a")
     else
       render :action => 'new'
     end
@@ -37,7 +38,7 @@ class StrategicLinesController < ActionController::Base
     if @strategic_line.update_attributes(params[:strategic_line])
       @strategic_line.notify_to(params[:users])
       
-      redirect_to strategic_lines_path, :notice => I18n.t('views.strategic_lines.messages.update.successful')
+      redirect_to strategic_lines_path, :notice => I18n.t('views.common.messages.update.successful', :model => "Líneas Estratégicas", :genre => "a")
     else
       render :action => 'edit'
     end

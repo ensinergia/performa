@@ -1,12 +1,7 @@
 <p id="analysis-<%= analysis.id %>">
 	<span class="inline-analysis-value"><%= analysis.content %></span>
 	<%= link_to analysis.comments.count, swot_analysis_comments_url(analysis), :class => 'comment'  %>
-	<% if analysis.is_internal? %>
-		<%= button_to 'Eliminar', [:swot, analysis], :method => :delete, 
-						:confirm => t("views.swot.internal_view.#{analysis.kind_humanized}.delete.confirmation"), :class => 'delete' %>
-	<% else %>
-		<%= button_to 'Eliminar', [:swot, analysis], :method => :delete, 
-						:confirm => t("views.swot.external_view.#{analysis.kind_humanized}.delete.confirmation"), :class => 'delete' %>
-	<% end %>
+	
+	<%= button_to('Eliminar', [:swot, analysis], :method => :delete, :confirm => delete_confirmation_for(analysis), :class => 'delete' ) %>
 
 </p>
