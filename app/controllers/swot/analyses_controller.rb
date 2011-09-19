@@ -15,8 +15,8 @@ class Swot::AnalysesController < ActionController::Base
   
   def externals
     externals = Swot.get_externals_for(current_company)
-    @risks = externals[:risks] || []
-    @opportunities = externals[:opportunities] || []
+    @risks, @opportunities = (externals[:risks] || []), (externals[:opportunities] || [])
+
     render :template => 'swot/external_analyses'
   end
   

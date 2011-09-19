@@ -10,7 +10,7 @@
 2.  Encapsulate notify_to to a module and mixin it with models 
 3.  Start thinking about a pack of specs for Notification to users involving views and logic code. Implementation is missing 
 3.  Make more specs for comments with commentable models; that is not yet covered (at least not for a generic model of a model)
-4.  Refactor analysis_controller#create 
+4.  [Done] **Refactor analysis_controller#create** 
 5.  Encapsulate new_with_user method to a module
 6.  Change all get buttons to links (i.e swot#index) as it should be
 7.  Improve modularity of comments event more. One partial for new/edit comments functionality in any model
