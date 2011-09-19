@@ -27,7 +27,7 @@ feature "Creed section (Visions):" do
       page.should have_content I18n.t('views.creed.first_vision.title')
       page.should have_content ignoring_new_lines(I18n.t('views.creed.first_vision.description'))
       
-      find_button I18n.t('views.creed.first_vision.controls.add_vision')
+      find_link I18n.t('views.creed.first_vision.controls.add_vision')
     end
   end
   
@@ -40,7 +40,7 @@ feature "Creed section (Visions):" do
     
     it "should take me to the new vision form when I click the add vision button" do
       visit @sub_host + creed_visions_path
-      click_button I18n.t('views.creed.first_vision.controls.add_vision')
+      click_on I18n.t('views.creed.first_vision.controls.add_vision')
       
       current_url.should == @sub_host + new_creed_vision_path
       current_path.should == new_creed_vision_path
@@ -97,7 +97,7 @@ feature "Creed section (Visions):" do
       
       find_link I18n.t('views.comments.controls.make_a_comment')
       
-      find_button I18n.t('views.creed.show_vision.controls.edit')
+      find_link I18n.t('views.creed.show_vision.controls.edit')
       
       within(".help") do
         page.should have_content I18n.t('views.common.help.title')
@@ -146,13 +146,13 @@ feature "Creed section (Visions):" do
       
       find_link I18n.t('views.comments.controls.make_a_comment')
       
-      find_button I18n.t('views.creed.show_vision.controls.edit')
+      find_link I18n.t('views.creed.show_vision.controls.edit')
     end
   
     it "should let me change it" do
       visit @sub_host + creed_visions_path
 
-      click_button I18n.t('views.creed.show_vision.controls.edit')
+      click_on I18n.t('views.creed.show_vision.controls.edit')
 
       current_url.should == @sub_host + edit_creed_vision_path(@vision)
       current_path.should == edit_creed_vision_path(@vision)
@@ -184,7 +184,7 @@ feature "Creed section (Visions):" do
     it "should NOT let me change it if I leave the description field empty" do
       visit @sub_host + creed_visions_path
       
-      click_button I18n.t('views.creed.show_vision.controls.edit')
+      click_on I18n.t('views.creed.show_vision.controls.edit')
       
       fill_in 'vision_description', :with => ''
       

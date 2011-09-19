@@ -8,8 +8,8 @@
 		
 		<p><%=line_break t('views.creed.first_war_cry_description.description') %></p>
 		
-		<%= button_to t('views.creed.first_war_cry_description.controls.add_war_cry_description'), 
+		<%= link_to t('views.creed.first_war_cry_description.controls.add_war_cry_description'), 
 					  new_creed_war_cry_url(with_current_subdomain), 
-					  :method => :get, :class => "button orange as-link" %>
+					  :method => :get, :class => "button orange" %>
 	</div>
 </div>

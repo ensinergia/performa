@@ -37,11 +37,11 @@ feature "SWOT internal features" do
         page.should have_content I18n.t('views.swot.first_view.title')
         page.should have_content I18n.t('views.swot.first_view.description')
       
-        find_button I18n.t('views.swot.first_view.controls.start')
+        find_link I18n.t('views.swot.first_view.controls.start')
       end
       
       it "should send me to the internal analyses page when I click the start button" do
-        click_button I18n.t('views.swot.first_view.controls.start')
+        click_on I18n.t('views.swot.first_view.controls.start')
         
         current_url.should == @sub_host + internal_swot_analyses_path
         current_path.should == internal_swot_analyses_path

@@ -8,9 +8,9 @@
 		
 		<p><%= t('views.swot.first_view.description') %></p>
 		
-		<%= button_to t('views.swot.first_view.controls.start'), 
+		<%= link_to t('views.swot.first_view.controls.start'), 
 					  internal_swot_analyses_url(with_current_subdomain), 
-					  :method => :get, :class => "button orange as-link" %>
+					  :method => :get, :class => "button orange" %>
 	</div>
 </div>
 

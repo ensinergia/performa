@@ -60,6 +60,13 @@ feature "Panorama landing page:" do
         
       end
       
+      it "should allow me to visit the strategic lines page" do
+        click_link I18n.t('views.panorama.actions.add_strategic_lines')
+        current_url.should == @sub_host + strategic_lines_path
+        current_path.should == strategic_lines_path
+        
+      end
+      
     end
   end
   
