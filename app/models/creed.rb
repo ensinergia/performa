@@ -1,4 +1,6 @@
 class Creed < ActiveRecord::Base
+  include Shared
+  extend Shared::ClassMethods
   
   has_many :comments, :as => :commentable
   
@@ -21,7 +23,7 @@ class Creed < ActiveRecord::Base
   end
   
   def self.new_with_user(params, user)
-    self.new(params.merge(:user => user, :company => user.company))
+    initialize_with_user(params, user)
   end
     
   def self.get_current(company)

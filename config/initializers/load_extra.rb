@@ -1,0 +1,1 @@
+require Rails.root.join("app/models/modules/shared.rb")

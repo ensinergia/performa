@@ -1,4 +1,6 @@
 class StrategicLine < ActiveRecord::Base
+  include Shared
+  extend Shared::ClassMethods
   
   has_many :comments, :as => :commentable
   
@@ -16,6 +18,6 @@ class StrategicLine < ActiveRecord::Base
   end
   
   def self.new_with_user(params, user)
-    self.new(params.merge(:user => user, :company => user.company))
+    initialize_with_user(params, user)
   end
 end
