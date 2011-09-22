@@ -1,0 +1,11 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	
+	<div class="inside-box">
+		<!-- Image space -->
+		<h1><%= t('views.strategic_objectives.index.empty.title') %></h1>
+		
+		<p><%= t('views.strategic_objectives.index.empty.description') %></p>
+		
+		<%= link_to t('views.strategic_objectives.index.empty.controls.start'), new_strategic_objective_url(with_current_subdomain), :class => "button orange" %>
+	</div>
+</div>

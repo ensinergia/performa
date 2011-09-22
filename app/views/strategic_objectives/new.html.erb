@@ -1,0 +1,28 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	
+	<div class="inside-box">
+		<!-- Image space -->
+		<h1><%= t('views.strategic_objectives.new.title') %></h1>
+		
+		<%= form_for @strategic_objective do |f| %>
+			<%= f.text_field :content %><br/>
+			
+			<%= render 'shared/notifications' %>
+				
+			<%= f.submit t('views.strategic_objectives.new.controls.save') %>
+			<%= link_to t('views.strategic_objectives.new.controls.cancel'), strategic_objectives_path %>
+		<% end %>		
+			
+	</div>
+</div>
+
+<%= content_for :message do %>
+	<div class="help">
+		<div class="title">
+			<p><%= I18n.t('views.common.help.title') %></p>
+		</div>
+		
+		<p class="subtitle"><%=t 'views.menu.strategic_objectives' %></p>
+
+	</div>
+<% end %>

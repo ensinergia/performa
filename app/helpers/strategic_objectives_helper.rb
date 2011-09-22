@@ -1,0 +1,3 @@
+module StrategicObjectivesHelper
+  include UserAssociationsHelper
+end

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :analysis
   has_many :strategic_lines
+  has_many :strategic_objectives
   
   belongs_to :area
   belongs_to :company
