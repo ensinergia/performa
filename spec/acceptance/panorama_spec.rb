@@ -31,8 +31,11 @@ feature "Panorama landing page:" do
         end
       
         page.should have_content I18n.t('views.panorama.title')
-        page.should have_content I18n.t('views.panorama.description')
-      
+        
+        first_content, last_content = I18n.t('views.panorama.description').split(" ")
+        page.should have_content first_content
+        page.should have_content last_content
+        
         find_link I18n.t('views.panorama.actions.add_creed')
         find_link I18n.t('views.panorama.actions.add_swot')
         find_link I18n.t('views.panorama.actions.add_strategic_lines')

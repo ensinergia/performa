@@ -61,7 +61,7 @@ feature "Creed section (Missions):" do
       find_button I18n.t('views.creed.new_mission.controls.save')
       
       within(".help") do
-        page.should have_content I18n.t('views.common.help.title')
+        page.should have_content I18n.t('views.help.title')
         page.should have_content I18n.t('activerecord.models.mission')      
         page.should have_content I18n.t('views.creed.help.mission.description')    
         page.should have_content I18n.t('views.creed.help.notifications.title')      
@@ -101,7 +101,7 @@ feature "Creed section (Missions):" do
       find_link I18n.t('views.creed.show_mission.controls.edit')
       
       within(".help") do
-        page.should have_content I18n.t('views.common.help.title')
+        page.should have_content I18n.t('views.help.title')
         page.should have_content I18n.t('activerecord.models.mission')      
         page.should have_content I18n.t('views.creed.help.mission.description')    
         page.should have_content I18n.t('views.creed.help.notifications.title')      

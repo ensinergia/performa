@@ -17,4 +17,5 @@
 8.  Standardize comment view links to helper functions (improve existent ones) as well as spec helper functions that test this views
 9.  DRY to a before_filter some controller actions (creed controlers)
 10. [Done] **Restructure locales organization for more semantic locale files** 
-
+11. Change CREED to DIRECTION
+12. Extend ContextualLegend model and controllers to handle editing contextual information for member views (show and edit actions)

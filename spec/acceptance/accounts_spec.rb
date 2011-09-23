@@ -11,15 +11,15 @@ feature "Handling of accounts in Performa" do
   describe "Registration" do
     
     before(:each) do
-      url = @host + new_user_registration_path
-      visit url
+      visit @host + new_user_registration_path
+
     end
     
     it "should let me register given I provide valid values" do
       page.should have_content "Performa"
       
       page.should have_content I18n.t('views.registrations.title')
-      page.should have_content I18n.t('views.common.help.title')
+      page.should have_content I18n.t('views.help.title')
       page.should have_content ignoring_new_lines(I18n.t('views.registrations.help_description'))      
       page.should have_content I18n.t('views.registrations.disclaimer')
       page.should have_content I18n.t('views.registrations.service_terms')
@@ -194,7 +194,7 @@ feature "Handling of accounts in Performa" do
         find_button I18n.t('views.accounts.sections.my_info.controls.save')
         
         within(".help") do
-          page.should have_content I18n.t('views.common.help.title')
+          page.should have_content I18n.t('views.help.title')
           page.should have_content I18n.t('views.accounts.sections.my_info.title')      
           page.should have_content I18n.t('views.accounts.sections.my_info.help_description')      
         end
@@ -243,7 +243,7 @@ feature "Handling of accounts in Performa" do
         find_button I18n.t('views.accounts.sections.my_account.controls.finish_account')
         
         within(".help") do
-          page.should have_content I18n.t('views.common.help.title')
+          page.should have_content I18n.t('views.help.title')
           page.should have_content I18n.t('views.accounts.sections.my_account.title')      
           page.should have_content I18n.t('views.accounts.sections.my_account.help_description')      
         end
@@ -290,7 +290,7 @@ feature "Handling of accounts in Performa" do
           end
           
           within(".help") do
-            page.should have_content I18n.t('views.common.help.title')
+            page.should have_content I18n.t('views.help.title')
             page.should have_content I18n.t('views.accounts.sections.my_tasks.title')      
             page.should have_content I18n.t('views.accounts.sections.my_tasks.help_description')      
           end

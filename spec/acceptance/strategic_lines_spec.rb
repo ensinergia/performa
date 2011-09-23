@@ -67,7 +67,7 @@ feature "Strategic Lines:", :js => true do
         
 
         within(".help") do
-          page.should have_content I18n.t('views.common.help.title')
+          page.should have_content I18n.t('views.help.title')
           page.should have_content I18n.t('views.menu.strategic_lines')
         end
         

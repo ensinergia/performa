@@ -49,4 +49,8 @@ $(document).ready(function() {
 			});
 		}
 
+		if($("#contextual-show-action-form").length) {
+			$("#contextual-show-action-form").submit();
+		}
+
 });

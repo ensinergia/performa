@@ -60,7 +60,7 @@ feature "Creed section (War Cries):" do
       find_button I18n.t('views.creed.new_war_cry_description.controls.save')
       
       within(".help") do
-        page.should have_content I18n.t('views.common.help.title')
+        page.should have_content I18n.t('views.help.title')
         page.should have_content I18n.t('activerecord.models.war_cry')      
         page.should have_content I18n.t('views.creed.help.war_cry_description.description')    
         page.should have_content I18n.t('views.creed.help.notifications.title')      
@@ -100,7 +100,7 @@ feature "Creed section (War Cries):" do
       find_button I18n.t('views.creed.show_war_cry_description.controls.edit')
       
       within(".help") do
-        page.should have_content I18n.t('views.common.help.title')
+        page.should have_content I18n.t('views.help.title')
         page.should have_content I18n.t('activerecord.models.war_cry')      
         page.should have_content I18n.t('views.creed.help.war_cry_description.description')    
         page.should have_content I18n.t('views.creed.help.notifications.title')      

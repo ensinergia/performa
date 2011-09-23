@@ -219,6 +219,7 @@ es-MX:
       war_cry: "Grito de guerra"
       mission: "Misión"
       vision: "Visión"
+      contextual_legend: "Información Contextual"
     attributes:
       user:
         name: "Nombre"
@@ -251,8 +252,6 @@ es-MX:
   views:
     
     common:
-      help:
-        title: "Ayuda"
       controls:
         back: "Atrás"
       messages:
@@ -323,7 +322,7 @@ es-MX:
       people: "Personas"
     panorama:
       title: "Bienvenido a Performa"
-      description: "En esta pantalla verás el panorama general ..."
+      description: "En esta pantalla verás el panorama general de toda tu empresa. \n\n Pero antes de que puedas ver actividad, tienes tareas pendientes por hacer."
       actions:
         add_creed: "Agregar Credo"
         add_swot: "Agregar FODA"
@@ -331,6 +330,26 @@ es-MX:
         add_objectives: "Agregar Objetivos Estratégicos"
         add_programmes: "Agregar Programas"
         add_areas_and_people: "Agregar Áreas y Personas"
+    help:
+      title: "Ayuda"
+      shared:
+        editor:
+          legend: "Editor"
+        previewer:
+          legend: "Vista Previa"
+        controls:
+          save: "Guardar"
+      new:
+        title: "Agregando información contextual"
+      edit:
+        title: "Modificando información contextual"
+      show:
+        empty:
+          legend: "No hay información contextual que mostrar"
+        controls:
+          add: "Agregar nueva"
+          edit: "Cambiar"
+        
     comments:
       commenting: "Comentando"
       attachments: 'Archivos adjuntos:'

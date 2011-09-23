@@ -82,6 +82,7 @@ module HelperMethods
   def ignoring_new_lines(string)
     string.gsub("\n", '').html_safe
   end
+  
 end
 
 RSpec.configuration.include(HelperMethods)

@@ -61,14 +61,14 @@ h1 {
 	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
 }
 
-ul { 
+ul.items-inlined { 
 	list-style: none;
 	margin: 2px;
 	padding: 0;
-	text-align: right;
+	text-align: center;
 }
 
-ul li { 
+ul.items-inlined li { 
 	display: inline-block;
 	margin-right: 15px;
 }

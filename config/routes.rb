@@ -18,6 +18,12 @@ GestionDesempeno::Application.routes.draw do
     
     resources :strategic_lines, :only => [:index, :destroy, :edit, :update, :create, :new]
     
+    match 'contextual_legends/show' => 'contextual_legends#show', :via => :post
+    
+    namespace(:admin) do
+      resources :contextual_legends, :only => [:index, :create, :new, :edit, :update]
+    end
+    
     namespace(:creed) do
       resources :visions, :only => [:index, :new, :create, :show, :edit, :update]  
       resources :missions, :only => [:index, :new, :create, :show, :edit, :update] 

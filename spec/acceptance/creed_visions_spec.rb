@@ -60,7 +60,7 @@ feature "Creed section (Visions):" do
       find_button I18n.t('views.creed.new_vision.controls.save')
       
       within(".help") do
-        page.should have_content I18n.t('views.common.help.title')
+        page.should have_content I18n.t('views.help.title')
         page.should have_content I18n.t('activerecord.models.vision')      
         page.should have_content I18n.t('views.creed.help.vision.description')    
         page.should have_content I18n.t('views.creed.help.notifications.title')      
@@ -100,7 +100,7 @@ feature "Creed section (Visions):" do
       find_link I18n.t('views.creed.show_vision.controls.edit')
       
       within(".help") do
-        page.should have_content I18n.t('views.common.help.title')
+        page.should have_content I18n.t('views.help.title')
         page.should have_content I18n.t('activerecord.models.vision')      
         page.should have_content I18n.t('views.creed.help.vision.description')    
         page.should have_content I18n.t('views.creed.help.notifications.title')      

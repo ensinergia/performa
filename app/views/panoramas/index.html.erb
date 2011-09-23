@@ -2,7 +2,7 @@
 	<%= render :partial => 'shared/main_title', :locals => {:title => I18n.t('views.panorama.title') } %>
 	
 	<div class="inside-box">
-		<p><%= t('views.panorama.description') %></p>
+		<p><%= line_break t('views.panorama.description') %></p>
 		
 		<p><%= link_to t('views.panorama.actions.add_creed'), creed_visions_url(with_current_subdomain) %></p>
 		<p><%= link_to t('views.panorama.actions.add_swot'), swot_analyses_url(with_current_subdomain) %></p>

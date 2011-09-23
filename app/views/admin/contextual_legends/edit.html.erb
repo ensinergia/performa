@@ -1,0 +1,16 @@
+<h1><%=t 'views.help.edit.title' %></h1>
+
+<%= form_for [:admin, @contextual_legend], :method => :put do |c| %>
+	<div class="in-editor">
+		<h2><%=t 'views.help.shared.editor.legend' %></h2>
+	
+		<div id="wmd-editor" class="wmd-panel">
+			<div id="wmd-button-bar"></div>
+			<%= c.text_area :content, :class => 'wmd-input' %>
+		</div>
+	
+		<%= c.submit t('views.help.shared.controls.save') %>
+	</div>
+<% end %>
+
+<%= render :partial => 'contextual_legend_previewer' %>

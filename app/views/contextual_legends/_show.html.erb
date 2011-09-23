@@ -1,0 +1,9 @@
+<% if @contextual_legend.nil? %>
+	<%= t 'views.help.show.empty.legend' %>
+	<br/><br/>
+	<%= link_to t('views.help.show.controls.add'), new_admin_contextual_legend_path, :class => "button orange" %>
+<% else %>
+	<%= BlueCloth.new(@contextual_legend.content).to_html.html_safe %>
+	<br/><br/>
+	<%= link_to t('views.help.show.controls.edit'), edit_admin_contextual_legend_path(@contextual_legend), :class => "button orange" %>
+<% end %>

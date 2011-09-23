@@ -30,9 +30,7 @@ describe Swot do
         externals[:opportunities].should_not include(@s)
         externals[:risks].should_not include(@w)
       end
-  
-      it "should clone this record before updating it"
-  
+    
     end
   end
   
