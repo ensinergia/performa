@@ -4,23 +4,7 @@
 		<!-- Image space -->
 		<h1><%= t('views.strategic_objectives.index.not_empty.title') %></h1>
 		
-		<% @strategic_objectives.each do |sl| %>
-				<div id="sl-<%= sl.id %>">
-					<%= sl.content %>
-					<%= record_info_for(sl) %>
-					
-					<%= render :partial => 'comments/index', :locals => { :comments => sl.comments } %>
-					
-					<div id="new-comment-for-commentable" class="hidden">
-						<%= render :partial => 'comments/new', :locals => {:commentable => sl} %>
-					</div>
-					
-					<%= button_to 'Eliminar', sl, :method => :delete, 
-												  :confirm => t('views.common.messages.delete.confirm', :connector => "ésta", :model => t('activerecord.models.strategic_objective')), 
-												  :class => 'delete' %>
-					<%= link_to 'Modificar', edit_strategic_objective_path(sl), :class => 'modify' %>
-				</div>
-		<% end %>		
+		<%= render @strategic_objectives %>
 			
 		<%= link_to t('views.strategic_objectives.index.not_empty.controls.add'), new_strategic_objective_path, :class => "button orange" %>
 	</div>
