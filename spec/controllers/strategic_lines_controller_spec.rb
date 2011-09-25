@@ -129,6 +129,7 @@ describe StrategicLinesController do
     end
     
     it "should redirect to index action" do
+      StrategicLine.should_receive(:find).with('1') { @strategic_line }
       delete :destroy, :id => '1'
       response.should redirect_to(strategic_lines_path)
     end
