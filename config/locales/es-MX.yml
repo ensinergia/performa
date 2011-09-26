@@ -391,7 +391,7 @@ es-MX:
           title: "¿Listo para agregar el primer Objetivo Estratégico?"
           description: "Esta es la descripción para un nuevo objetivo estratégico"
           controls:
-            start: "Agregar Objectivo"
+            start: "Agregar Objetivo"
         not_empty:
           title: "Objetivos Estratégicos"
           controls:
