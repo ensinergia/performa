@@ -94,7 +94,7 @@ describe StrategicLinesController do
       it "should set a flash message" do
         StrategicLine.stub(:new_with_user).and_return { @strategic_line }
         post :create
-        flash[:notice].should == I18n.t('views.common.messages.save.successful', :model => "Líneas Estratégicas", :genre => "a")
+        flash[:notice].should == I18n.t('views.common.messages.save.successful', :model => "Líneas Estratégicas", :genre => "as")
       end
       
     end
@@ -129,6 +129,7 @@ describe StrategicLinesController do
     end
     
     it "should redirect to index action" do
+      StrategicLine.should_receive(:find).with('1') { @strategic_line }
       delete :destroy, :id => '1'
       response.should redirect_to(strategic_lines_path)
     end
@@ -170,7 +171,7 @@ describe StrategicLinesController do
       it "should redirect to index action" do
         put :update, :id => "1", :strategic_line => { :content => 'some contents' }
         response.should redirect_to(strategic_lines_path)
-        flash[:notice].should == I18n.t('views.common.messages.update.successful', :model => "Líneas Estratégicas", :genre => "a")
+        flash[:notice].should == I18n.t('views.common.messages.update.successful', :model => "Líneas Estratégicas", :genre => "as")
       end
       
     end

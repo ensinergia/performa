@@ -8,6 +8,7 @@ class Company < ActiveRecord::Base
   has_many :users
   has_many :areas
   has_many :strategic_lines
+  has_many :strategic_objectives
   has_one :swot
   
   validates_uniqueness_of :name

@@ -24,6 +24,7 @@ describe Swot::CommentsController do
     end
     
     it "should render the index template" do
+      Analysis.should_receive(:find).with('1', an_instance_of(Hash)) { @analysis }
       get :index, :analysis_id => '1'
       response.should render_template('index')
     end

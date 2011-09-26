@@ -107,18 +107,24 @@ feature "SWOT internal features" do
         
         within("#analysis-#{@weakness.id}") do
           find(:xpath, "//span[contains(@class, 'inline-analysis-value')]").click
-          
-          click_on('Cancelar')
-          page.should have_content(@weakness.content)
-          
-          find(:xpath, "//span[contains(@class, 'inline-analysis-value')]").click
           fill_in('analysis[content]', :with => 'Burocracy')
           click_on('Guardar')
           page.should have_content('Burocracy')
           page.should_not have_content(@weakness.content)
         end
       end
-      
+
+      it "should allow me to modify the weakness (cancel)", :js => true do
+        visit @sub_host + swot_analyses_path
+
+        within("#analysis-#{@weakness.id}") do
+          find(:xpath, "//span[contains(@class, 'inline-analysis-value')]").click
+
+          click_on('Cancelar')
+          page.should have_content(@weakness.content)
+        end
+      end
+
     end
     
     describe "and one strength is registered" do
@@ -180,15 +186,20 @@ feature "SWOT internal features" do
         
         within("#analysis-#{@strength.id}") do
           find(:xpath, "//span[contains(@class, 'inline-analysis-value')]").click
-          
-          click_on('Cancelar')
-          page.should have_content(@strength.content)
-          
-          find(:xpath, "//span[contains(@class, 'inline-analysis-value')]").click
           fill_in('analysis[content]', :with => 'Eficiency')
           click_on('Guardar')
           page.should have_content('Eficiency')
           page.should_not have_content(@strength.content)
+        end
+      end
+
+      it "sho$uld allow me to modify the strength (cancel)", :js => true do
+        visit @sub_host + swot_analyses_path
+
+        within("#analysis-#{@strength.id}") do
+          find(:xpath, "//span[contains(@class, 'inline-analysis-value')]").click
+          click_on('Cancelar')
+          page.should have_content(@strength.content)
         end
       end
       

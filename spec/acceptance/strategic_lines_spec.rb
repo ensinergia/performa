@@ -104,7 +104,7 @@ feature "Strategic Lines:", :js => true do
         current_url.should == @sub_host + strategic_lines_path
         current_path.should == strategic_lines_path
         
-        page.should have_content I18n.t('views.common.messages.update.successful', :model => "Líneas Estratégicas", :genre => "a")
+        page.should have_content I18n.t('views.common.messages.update.successful', :model => "Líneas Estratégicas", :genre => "as")
         updated_strategic_line = StrategicLine.first
         
         within("#sl-#{updated_strategic_line.id}") do
@@ -133,7 +133,7 @@ feature "Strategic Lines:", :js => true do
         should_contain_record_info_for(@sl)
         click_on I18n.t('views.strategic_lines.edit.controls.save')
         
-        page.should_not have_content I18n.t('views.common.messages.update.successful', :model => "Líneas Estratégicas", :genre => "a")
+        page.should_not have_content I18n.t('views.common.messages.update.successful', :model => "Líneas Estratégicas", :genre => "as")
         
         page.evaluate_script("$('.errors').is(':empty');").should be_false
         
@@ -179,7 +179,7 @@ feature "Strategic Lines:", :js => true do
           current_url.should == @sub_host + strategic_lines_path
           current_path.should == strategic_lines_path
           
-          page.should have_content I18n.t('views.common.messages.save.successful', :model => "Líneas Estratégicas", :genre => "a")
+          page.should have_content I18n.t('views.common.messages.save.successful', :model => "Líneas Estratégicas", :genre => "as")
           new_strategic_line = StrategicLine.last
           
           within("#sl-#{new_strategic_line.id}") do
@@ -205,7 +205,7 @@ feature "Strategic Lines:", :js => true do
           current_url.should == @sub_host + strategic_lines_path
           current_path.should == strategic_lines_path
 
-          page.should_not have_content I18n.t('views.common.messages.save.successful', :model => "Líneas Estratégicas", :genre => "a")
+          page.should_not have_content I18n.t('views.common.messages.save.successful', :model => "Líneas Estratégicas", :genre => "as")
 
           page.evaluate_script("$('.errors').is(':empty');").should be_false
           

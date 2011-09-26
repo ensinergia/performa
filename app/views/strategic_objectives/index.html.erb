@@ -1,0 +1,22 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	
+	<div class="inside-box">
+		<!-- Image space -->
+		<h1><%= t('views.strategic_objectives.index.not_empty.title') %></h1>
+		
+		<%= render @strategic_objectives %>
+			
+		<%= link_to t('views.strategic_objectives.index.not_empty.controls.add'), new_strategic_objective_path, :class => "button orange" %>
+	</div>
+</div>
+
+<%= content_for :message do %>
+	<div class="help">
+		<div class="title">
+			<p><%= I18n.t('views.common.help.title') %></p>
+		</div>
+		
+		<p class="subtitle"><%=t 'views.menu.objectives' %></p>
+
+	</div>
+<% end %>

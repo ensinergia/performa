@@ -17,6 +17,8 @@ GestionDesempeno::Application.routes.draw do
     resources :comments, :only => [:create, :destroy]
     
     resources :strategic_lines, :only => [:index, :destroy, :edit, :update, :create, :new]
+    resources :strategic_objectives, :except => :show
+
     
     match 'contextual_legends/show' => 'contextual_legends#show', :via => :post
     

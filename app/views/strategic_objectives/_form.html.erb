@@ -1,0 +1,29 @@
+<%= form_for(@strategic_objective) do |f| %>
+  <% if @strategic_objective.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@strategic_objective.errors.count, "error") %> prohibited this strategic_objective from being saved:</h2>
+
+      <ul>
+      <% @strategic_objective.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :company_id %><br />
+    <%= f.text_field :company_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

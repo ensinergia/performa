@@ -1,5 +1,3 @@
-#encoding: utf-8
-# Spanish as spoken in Mexico (es-MX) translations for Rails
 # by Edgar J. Suárez (edgar.js@gmail.com)
 # Fixed currency format (Can't convert string to symbol)
 # by Ivan Torres (mexpolk@gmail.com)
@@ -371,7 +369,7 @@ es-MX:
           title: "¿Listo para agregar la primer Línea Estratégica?"
           description: "Esta es la descripción para una nueva línea estratégica"
           controls:
-            start: "Agregar"      
+            start: "Agregar"
         not_empty:
           title: "Líneas Estratégicas"
           controls:
@@ -383,6 +381,28 @@ es-MX:
           save: "Guardar"
       edit:
         title: "Modificando Línea Estratégica"
+        last_updated: "Última actualización"
+        controls:
+          cancel: "Cancelar"
+          save: "Guardar cambios"
+    strategic_objectives:
+      index:
+        empty:
+          title: "¿Listo para agregar el primer Objetivo Estratégico?"
+          description: "Esta es la descripción para un nuevo objetivo estratégico"
+          controls:
+            start: "Agregar Objectivo"
+        not_empty:
+          title: "Objetivos Estratégicos"
+          controls:
+            add: "Agregar un Objetivo Estratégico"
+      new:
+        title: "Agregando un Objetivo Estratégico"
+        controls:
+          cancel: "Cancelar"
+          save: "Guardar"
+      edit:
+        title: "Modificando Objetivo Estratégico"
         last_updated: "Última actualización"
         controls:
           cancel: "Cancelar"

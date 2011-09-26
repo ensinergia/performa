@@ -81,11 +81,6 @@ feature "SWOT external features" do
         
         within("#analysis-#{@opportunity.id}") do
           find(:xpath, "//span[contains(@class, 'inline-analysis-value')]").click
-          
-          click_on('Cancelar')
-          page.should have_content(@opportunity.content)
-          
-          find(:xpath, "//span[contains(@class, 'inline-analysis-value')]").click
           fill_in('analysis[content]', :with => 'Burocracy')
           click_on('Guardar')
           page.should have_content('Burocracy')
@@ -93,6 +88,15 @@ feature "SWOT external features" do
         end
       end
       
+      it "should allow me to modify the opportunity (cancel)", :js => true do
+        visit @sub_host + external_swot_analyses_path
+        
+        within("#analysis-#{@opportunity.id}") do
+          find(:xpath, "//span[contains(@class, 'inline-analysis-value')]").click
+          click_on('Cancelar')
+          page.should have_content(@opportunity.content)
+        end
+      end
     end
     
     describe "and one risk is registered" do
@@ -137,6 +141,7 @@ feature "SWOT external features" do
         
         visit @sub_host + external_swot_analyses_path
         
+
         within("#analysis-#{@risk.id}") do
           find(:xpath, "//input[contains(@class, 'delete')]").click
         end
@@ -154,15 +159,20 @@ feature "SWOT external features" do
         
         within("#analysis-#{@risk.id}") do
           find(:xpath, "//span[contains(@class, 'inline-analysis-value')]").click
-          
-          click_on('Cancelar')
-          page.should have_content(@risk.content)
-          
-          find(:xpath, "//span[contains(@class, 'inline-analysis-value')]").click
           fill_in('analysis[content]', :with => 'New competitors')
           click_on('Guardar')
           page.should have_content('New competitors')
           page.should_not have_content(@risk.content)
+        end
+      end
+      it "should allow me to modify the risk (cancel)", :js => true do
+        visit @sub_host + external_swot_analyses_path
+        
+        within("#analysis-#{@risk.id}") do
+          find(:xpath, "//span[contains(@class, 'inline-analysis-value')]").click
+          
+          click_on('Cancelar')
+          page.should have_content(@risk.content)
         end
       end
       
