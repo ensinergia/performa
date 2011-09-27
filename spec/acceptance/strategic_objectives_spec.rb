@@ -4,13 +4,32 @@ require "#{File.dirname(__FILE__)}/support/strategic_objectives_helpers.rb"
 
 include Warden::Test::Helpers
 
+#feature "Strategic Objectives List:", :js => true do
+  #before(:each) do
+    #@host = "http://lvh.me:#{Capybara.server_port}"
+    #@user = Factory(:user)
+
+    #@sub_host = @host.gsub('lvh.me', "#{@user.subdomain}.lvh.me")
+
+    #Capybara.app_host = @sub_host
+    #Capybara.default_host = @sub_host
+
+    #login_as(@user)
+  #end
+
+  #describe "Given I am on the landing page" do
+    #visit @sub_host + panorama_path
+  #end
+#end
+
+
 feature "Strategic Objectives:", :js => true do
-  before(:each) do        
+  before(:each) do
     @host = "http://lvh.me:#{Capybara.server_port}"
     @user = Factory(:user)
-    
+
     @sub_host = @host.gsub('lvh.me', "#{@user.subdomain}.lvh.me")
-    
+
     Capybara.app_host = @sub_host
     Capybara.default_host = @sub_host
 
@@ -18,29 +37,51 @@ feature "Strategic Objectives:", :js => true do
   end
 
   describe "Given I am on the landing page" do
-    
+
     before(:each) do
       visit @sub_host + panorama_path
     end
-    
+
     describe "and there is no strategic objective registered" do
-      
+
       it "should show me the first section welcome page when clicking 'Strategic Objectives' on main menu" do
-        
+
         click_link I18n.t('views.menu.objectives')
         should_have_initial_welcome_page_contents
-        
+
       end
-      
+
       it "should send me to the new strategic objective form after clicking the add new button" do
         click_link I18n.t('views.menu.objectives')
-        
+
         click_on I18n.t('views.strategic_objectives.index.empty.controls.start')
-        
+
         current_url.should == @sub_host + new_strategic_objective_path
         current_path.should == new_strategic_objective_path
+
+        page.should have_content I18n.t('views.strategic_objectives.new.title')
+        fill_in 'strategic_objective_content', :with => 'Foo Objective'
+
+
+        page.should have_content I18n.t('views.strategic_objectives.new.strategic_lines')
+
+        click_on I18n.t('views.strategic_objectives.new.controls.save')
+
+        current_url.should == @sub_host + strategic_objectives_path
+
+        page.should have_content I18n.t('views.common.messages.save.successful', :model => "Objetivos Estratégicos", :genre => "os")
+        new_strategic_objective = StrategicObjective.first
+
+
+        within("#sl-#{new_strategic_objective.id}") do
+          page.should have_content 'Foo Objective'
+          should_contain_record_info_for(new_strategic_objective)
+
+          should_contain_record_links_with editability_set_to(true), and_no_comments
+        end
+
       end
-      
+
     end
     
     describe "and there is one strategic objective registered" do

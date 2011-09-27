@@ -398,6 +398,7 @@ es-MX:
             add: "Agregar un Objetivo Estratégico"
       new:
         title: "Agregando un Objetivo Estratégico"
+        strategic_lines: "Linea(s) Estratégica(s) a la que contribuye:"
         controls:
           cancel: "Cancelar"
           save: "Guardar"
