@@ -25,8 +25,7 @@ feature "Creed section (Visions):" do
       find_link I18n.t('activerecord.models.war_cry')
       
       page.should have_content I18n.t('views.creed.first_vision.title')
-      page.should have_content ignoring_new_lines(I18n.t('views.creed.first_vision.description'))
-      
+            
       find_link I18n.t('views.creed.first_vision.controls.add_vision')
     end
   end
@@ -60,11 +59,7 @@ feature "Creed section (Visions):" do
       find_button I18n.t('views.creed.new_vision.controls.save')
       
       within(".help") do
-        page.should have_content I18n.t('views.help.title')
-        page.should have_content I18n.t('activerecord.models.vision')      
-        page.should have_content I18n.t('views.creed.help.vision.description')    
-        page.should have_content I18n.t('views.creed.help.notifications.title')      
-        page.should have_content I18n.t('views.creed.help.notifications.description')      
+        page.should have_content I18n.t('views.help.title') 
       end
       
       click_link I18n.t('views.creed.most_views.controls.cancel')
@@ -100,12 +95,7 @@ feature "Creed section (Visions):" do
       find_link I18n.t('views.creed.show_vision.controls.edit')
       
       within(".help") do
-        page.should have_content I18n.t('views.help.title')
-        page.should have_content I18n.t('activerecord.models.vision')      
-        page.should have_content I18n.t('views.creed.help.vision.description')    
-        page.should have_content I18n.t('views.creed.help.notifications.title')      
-        page.should have_content I18n.t('views.creed.help.notifications.description')      
-        page.should have_content I18n.t('views.creed.help.notifications.description_extra')      
+        page.should have_content I18n.t('views.help.title') 
       end
     end
     

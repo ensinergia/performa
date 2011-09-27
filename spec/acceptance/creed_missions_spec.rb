@@ -26,7 +26,6 @@ feature "Creed section (Missions):" do
       find_link I18n.t('activerecord.models.war_cry')
       
       page.should have_content I18n.t('views.creed.first_mission.title')
-      page.should have_content ignoring_new_lines(I18n.t('views.creed.first_mission.description'))
       
       find_link I18n.t('views.creed.first_mission.controls.add_mission')
     end
@@ -61,11 +60,7 @@ feature "Creed section (Missions):" do
       find_button I18n.t('views.creed.new_mission.controls.save')
       
       within(".help") do
-        page.should have_content I18n.t('views.help.title')
-        page.should have_content I18n.t('activerecord.models.mission')      
-        page.should have_content I18n.t('views.creed.help.mission.description')    
-        page.should have_content I18n.t('views.creed.help.notifications.title')      
-        page.should have_content I18n.t('views.creed.help.notifications.description')      
+        page.should have_content I18n.t('views.help.title') 
       end
       
       click_link I18n.t('views.creed.most_views.controls.cancel')

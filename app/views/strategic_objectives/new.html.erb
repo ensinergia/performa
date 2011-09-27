@@ -16,13 +16,6 @@
 	</div>
 </div>
 
-<%= content_for :message do %>
-	<div class="help">
-		<div class="title">
-			<p><%= I18n.t('views.common.help.title') %></p>
-		</div>
-		
-		<p class="subtitle"><%=t 'views.menu.strategic_objectives' %></p>
-
-	</div>
+<%= content_for :contextual_legend do %>
+	<%= render 'contextual_legends/contextual_legend' %>
 <% end %>

@@ -4,11 +4,15 @@
 	
 	<div class="inside-box">
 		<!-- Image space -->
-		<h1><%= t('views.creed.first_war_cry_description.title') %></h1>
+		<h1><%= t('views.creed.first_warcry.title') %></h1>
 		
-		<p><%=line_break t('views.creed.first_war_cry_description.description') %></p>
-		
-		<%= link_to t('views.creed.first_war_cry_description.controls.add_war_cry_description'), 
+		<div class="contextual">
+			<%= form_tag contextual_legends_show_path, :remote => true, :id => "contextual-show-action-form" do %>
+				<%= hidden_field_tag :route, "#{request.env['PATH_INFO']}#empty" %>
+			<% end %>
+		</div>
+				
+		<%= link_to t('views.creed.first_warcry.controls.add'), 
 					  new_creed_war_cry_url(with_current_subdomain), 
 					  :method => :get, :class => "button orange" %>
 	</div>

@@ -422,7 +422,7 @@ es-MX:
         title: "¿Listo para agregar Fortalezas y Debilidades?"
         description: "Esta es la descripción cuando no hay ninguna fortaleza o debilidad registrada"
         controls:
-          start: "Iniciar"
+          start: "Agregar Fortalezas y Debilidades"
       internal_view:
         help: 
           subtitle_one: "Análisis Interno"
@@ -455,20 +455,20 @@ es-MX:
           all_selector: "Toda la "
           cancel: "Cancelar"
       
-      first_war_cry_description:
+      first_warcry:
         title: "¿Listo para agregar el Grito de Guerra?"
         description: "El texto descriptivo para el grito de guerra"
         controls:
-          add_war_cry_description: "Agregar Grito de Guerra"
-      new_war_cry_description:
+          add: "Agregar Grito de Guerra"
+      new_warcry:
         title: "Agregando un nuevo Grito de Guerra"
         controls: 
           save: "Guardar"    
-      edit_war_cry_description:
+      edit_warcry:
         title: "Modificando el Grito de Guerra"
         controls:
           save: "Guardar cambios"
-      show_war_cry_description:
+      show_warcry:
         controls:
           make_a_comment: "Haz un comentario sobre este Grito de Guerra"
           edit: "Modificar"

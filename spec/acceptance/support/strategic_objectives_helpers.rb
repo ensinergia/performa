@@ -5,7 +5,6 @@ module StrategicObjectivesHelperMethods
     current_path.should == strategic_objectives_path
 
     page.should have_content I18n.t('views.strategic_objectives.index.empty.title')
-    page.should have_content I18n.t('views.strategic_objectives.index.empty.description')
 
     find_link I18n.t('views.strategic_objectives.index.empty.controls.start')
   end

@@ -53,10 +53,6 @@ feature "SWOT external features" do
         
         within(".help") do
           page.should have_content I18n.t('views.help.title')
-          page.should have_content I18n.t('views.swot.internal_view.help.subtitle_one')   
-          page.should have_content I18n.t('views.swot.internal_view.help.description_one')      
-          page.should have_content I18n.t('views.swot.internal_view.help.subtitle_two')   
-          page.should have_content I18n.t('views.swot.internal_view.help.description_two')
         end
       end
       
@@ -129,10 +125,6 @@ feature "SWOT external features" do
         
         within(".help") do
           page.should have_content I18n.t('views.help.title')
-          page.should have_content I18n.t('views.swot.internal_view.help.subtitle_one')   
-          page.should have_content I18n.t('views.swot.internal_view.help.description_one')      
-          page.should have_content I18n.t('views.swot.internal_view.help.subtitle_two')   
-          page.should have_content I18n.t('views.swot.internal_view.help.description_two')
         end
         
       end

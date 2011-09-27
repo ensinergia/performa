@@ -35,7 +35,6 @@ feature "SWOT internal features" do
         find_link I18n.t('views.swot.externals.title')
       
         page.should have_content I18n.t('views.swot.first_view.title')
-        page.should have_content I18n.t('views.swot.first_view.description')
       
         find_link I18n.t('views.swot.first_view.controls.start')
       end
@@ -79,10 +78,6 @@ feature "SWOT internal features" do
         
         within(".help") do
           page.should have_content I18n.t('views.help.title')
-          page.should have_content I18n.t('views.swot.internal_view.help.subtitle_one')   
-          page.should have_content I18n.t('views.swot.internal_view.help.description_one')      
-          page.should have_content I18n.t('views.swot.internal_view.help.subtitle_two')   
-          page.should have_content I18n.t('views.swot.internal_view.help.description_two')
         end
       end
       
@@ -157,10 +152,6 @@ feature "SWOT internal features" do
         
         within(".help") do
           page.should have_content I18n.t('views.help.title')
-          page.should have_content I18n.t('views.swot.internal_view.help.subtitle_one')   
-          page.should have_content I18n.t('views.swot.internal_view.help.description_one')      
-          page.should have_content I18n.t('views.swot.internal_view.help.subtitle_two')   
-          page.should have_content I18n.t('views.swot.internal_view.help.description_two')
         end
         
       end

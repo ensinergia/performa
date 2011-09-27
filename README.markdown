@@ -18,4 +18,5 @@
 9.  DRY to a before_filter some controller actions (creed controlers)
 10. [Done] **Restructure locales organization for more semantic locale files** 
 11. Change CREED to DIRECTION
-12. Extend ContextualLegend model and controllers to handle editing contextual information for member views (show and edit actions)
+12. Extend ContextualLegend to handle editing contextual information for member views (show and edit actions)
+13. Extend ContextualLegend to work with ajax-changing context 

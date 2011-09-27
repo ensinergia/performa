@@ -31,7 +31,7 @@ feature "Comments for visions:", :js => true do
         within('.links') do
           click_link I18n.t('views.comments.controls.make_a_comment')
         end
-        
+      
         page.evaluate_script("$('div#new-comment-for-commentable').hasClass('hidden');").should be_false
         
         page.should have_content(I18n.t('views.comments.leave_a_comment'))
@@ -51,8 +51,6 @@ feature "Comments for visions:", :js => true do
         
         within('.links') do
           page.should have_content(1)
-          find_link I18n.t('views.comments.controls.see')
-          find_link I18n.t('views.comments.controls.comment')
         end
       end
       
