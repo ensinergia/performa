@@ -4,9 +4,10 @@ class StrategicObjectivesController < ActionController::Base
   include SubdomainGuards
   include UserAssociationsHelper
   layout 'application'
-  
+
   before_filter :verify_subdomain
-  
+  before_filter :strategic_lines, :only => [:new, :edit]
+
   def index
     @strategic_objectives = StrategicObjective.get_all_for(current_company)
 
@@ -24,27 +25,29 @@ class StrategicObjectivesController < ActionController::Base
 
   def create
     @strategic_objective = StrategicObjective.new_with_user(params[:strategic_objective], current_user)
-    
+
     if @strategic_objective.save
       @strategic_objective.notify_to(params[:users])
       redirect_to strategic_objectives_path, :notice => I18n.t('views.common.messages.save.successful', :model => "Objetivos Estratégicos", :genre => "os")
     else
+      strategic_lines
       render :action => 'new'
     end
   end
 
   def update
     @strategic_objective = StrategicObjective.find(params[:id])
-    
+
     if @strategic_objective.update_attributes(params[:strategic_objective])
       @strategic_objective.notify_to(params[:users])
-      
+
       redirect_to strategic_objectives_path, :notice => I18n.t('views.common.messages.update.successful', :model => "Objetivos Estratégicos", :genre => "os")
     else
+      strategic_lines
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @strategic_objective = StrategicObjective.find(params[:id])
     @strategic_objective.destroy
@@ -52,5 +55,9 @@ class StrategicObjectivesController < ActionController::Base
     respond_to do |format|
       format.html { redirect_to(strategic_objectives_url) }
     end
+  end
+
+  def strategic_lines
+    @strategic_lines = current_company.strategic_lines
   end
 end
