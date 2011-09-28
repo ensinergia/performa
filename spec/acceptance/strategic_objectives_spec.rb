@@ -4,25 +4,6 @@ require "#{File.dirname(__FILE__)}/support/strategic_objectives_helpers.rb"
 
 include Warden::Test::Helpers
 
-#feature "Strategic Objectives List:", :js => true do
-  #before(:each) do
-    #@host = "http://lvh.me:#{Capybara.server_port}"
-    #@user = Factory(:user)
-
-    #@sub_host = @host.gsub('lvh.me', "#{@user.subdomain}.lvh.me")
-
-    #Capybara.app_host = @sub_host
-    #Capybara.default_host = @sub_host
-
-    #login_as(@user)
-  #end
-
-  #describe "Given I am on the landing page" do
-    #visit @sub_host + panorama_path
-  #end
-#end
-
-
 feature "Strategic Objectives:", :js => true do
   before(:each) do
     @host = "http://lvh.me:#{Capybara.server_port}"
