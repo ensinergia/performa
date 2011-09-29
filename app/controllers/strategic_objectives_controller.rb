@@ -9,7 +9,7 @@ class StrategicObjectivesController < ActionController::Base
   before_filter :strategic_lines, :only => [:new, :edit]
 
   def index
-    @strategic_objectives = StrategicObjective.get_all_for(current_company)
+    @strategic_objectives = current_company.strategic_objectives
 
     @strategic_objectives.blank? ? render('index_welcome') : render('index')
   end
