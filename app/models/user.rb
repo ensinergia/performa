@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
     return if company_name.blank?
     return unless Company.find_by_name(company_name).nil?
 
+    self.position = Position.new({:name => I18n.t('views.people.default_position_owner')})
     self.company = Company.new({:name => company_name})
     # also add user to company default's area
     self.area = self.company.areas.first

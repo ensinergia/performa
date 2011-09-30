@@ -14,12 +14,18 @@ describe User do
       @user.errors.should_not be_empty
     end
     
+    it "should set a user position to 'User' when company is existant" do
+      @user =  Factory.build(:user, :company_name => @company.name)
+      @user.save
+      @user.position.name.should == I18n.t('views.people.default_position')
+    end
+    
   end
   
-  it "should set a user position to the default value if not specified" do
+  it "should set a user position to 'Owner' when company is new" do
     @user =  Factory.build(:user)
     @user.save
-    @user.position.name.should == I18n.t('views.people.default_position')
+    @user.position.name.should == I18n.t('views.people.default_position_owner')
   end
   
   describe ": Given it doesn't exists a company called 'iEvolutioned'" do

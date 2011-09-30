@@ -455,6 +455,7 @@ es-MX:
           save: "Guardar"
     people:
       default_position: "Usuario"
+      default_position_owner: "Dueño"
       empty:
         title: "¿Listo para agregar Áreas y Personas a tu Proyecto?"
         controls:

@@ -9,7 +9,7 @@ feature "PEOPLE AND AREAS features:" do
   before(:each) do    
     @host = "http://lvh.me:#{Capybara.server_port}"
     Capybara.app_host = @host
-    @user = Factory(:user, :position => Factory(:position, :name => "Director"))
+    @user = Factory(:user)
     @sub_host = @host.gsub('lvh.me', "#{@user.subdomain}.lvh.me")
     login_as(@user)    
   end
@@ -53,7 +53,7 @@ feature "PEOPLE AND AREAS features:" do
         find(:xpath, "//a[contains(@class, 'modify')]")
 
         within("#person-#{@user.id}") do
-          should_have_person_view_with(:name => @user.name, :email => @user.email, :position => @user.position.name)
+          should_have_person_view_with(:name => @user.name, :email => @user.email, :position => I18n.t('views.people.default_position_owner'))
         end
         find(:xpath, "//a[contains(@class, 'add')]")
       end
