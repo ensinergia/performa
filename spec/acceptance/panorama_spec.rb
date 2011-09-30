@@ -70,6 +70,20 @@ feature "Panorama landing page:" do
         
       end
       
+      it "should allow me to visit the strategic objectives page" do
+        click_link I18n.t('views.panorama.actions.add_objectives')
+        current_url.should == @sub_host + strategic_objectives_path
+        current_path.should == strategic_objectives_path
+        
+      end
+      
+      it "should allow me to visit the people page" do
+        click_link I18n.t('views.panorama.actions.add_areas_and_people')
+        current_url.should == @sub_host + people_path
+        current_path.should == people_path
+        
+      end
+      
     end
   end
   

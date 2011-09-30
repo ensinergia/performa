@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   validates_associated :company
   validates_presence_of :company
   
+  
   attr_accessor :company_name
 
   def company_name

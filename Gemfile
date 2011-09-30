@@ -18,6 +18,7 @@ gem 'bluecloth'
 
 gem 'jquery-rails'
 gem 'store_base_sti_class_for_3_0'
+gem 'nested_form'
 
 # Test environment
 group :test, :development do

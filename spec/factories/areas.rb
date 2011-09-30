@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :area do
-      name ""
-      company_id ""
-    end
+    name ""
+    company_id ""
+  end
 end

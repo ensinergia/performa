@@ -1,0 +1,9 @@
+<%= a.fields_for :functions do |r| %>
+
+   <div class="field">
+       <%= r.text_field :content, :size => 100, :id => "function-content" %>
+   </div>
+  
+   <span class="descartar"><%= r.link_to_remove t('views.people.new.controls.discard_function') %></span>
+	<br/><br/>
+<% end %>

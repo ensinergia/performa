@@ -5,6 +5,10 @@
 		<h1><%= t('views.strategic_lines.new.title') %></h1>
 		
 		<%= form_for @strategic_line do |f| %>
+			<div class="errors">
+				<%= render :partial => 'shared/errors', 
+							 		 :locals => {:message_error => t('views.creed.most_views.form_errors'), :object => @strategic_line} %>
+			</div>
 			<%= f.text_field :content %><br/>
 			
 			<%= render 'shared/notifications' %>

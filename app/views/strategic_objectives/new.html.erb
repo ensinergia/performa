@@ -1,9 +1,11 @@
 <div class="box rounded-10 with-shadow with-mid-width">
 
   <div class="inside-box">
+	
     <!-- Image space -->
     <h1><%= t('views.strategic_objectives.new.title') %></h1>
-
+		<%= render :partial => 'shared/errors', 
+						 :locals => {:message_error => t('views.creed.most_views.form_errors'), :object => @strategic_objective} %>
     <%= form_for @strategic_objective do |f| %>
       <%= f.text_field :content %><br/>
 

@@ -6,6 +6,8 @@
 		<h1><%= t('views.strategic_objectives.edit.title') %></h1>
 		
 		<%= form_for @strategic_objective, :html => { :method => :put } do |f| %>
+			<%= render :partial => 'shared/errors', 
+							 :locals => {:message_error => t('views.creed.most_views.form_errors'), :object => @strategic_objective} %>
 			<%= f.text_field :content %><br/>
 			<span class="updated-pragma">Última actualización : <%= record_info_for(@strategic_objective) %></span>
 			

@@ -230,6 +230,12 @@ es-MX:
         position: "Posición"
         area: "Área"
         role: "Rol"
+      strategic_line:
+        content: "Contenido"
+      strategic_objective:
+        content: "Contenido"
+      person:
+        name: "Nombre"
       vision:
         description: "Descripción"        
     errors:
@@ -447,8 +453,25 @@ es-MX:
           comment: "Comentar"
           cancel: "Cancelar"
           save: "Guardar"
-    creed:
-        
+    people:
+      empty:
+        title: "¿Listo para agregar Áreas y Personas a tu Proyecto?"
+        controls:
+          add: "Agregar Personas"
+      non_empty:
+        title: "Todas las Áreas y Personas en %{company}"
+        controls:
+          add_area: "Agregar Área"
+      new:
+        title: "Agregar Área Nueva"
+        functions: "Funciones"
+        controls:
+          add_function: "Agregar Función"
+          cancel: "Cancelar"
+          add: "Agregar"
+          discard_function: "Descartar Función"
+          save: "Guardar"
+    creed:    
       most_views:
         notify_to: "* Notificar de este Evento a:"
         form_errors: "Encontramos problemas al intentar guardar este formulario"
@@ -458,7 +481,6 @@ es-MX:
       
       first_warcry:
         title: "¿Listo para agregar el Grito de Guerra?"
-        description: "El texto descriptivo para el grito de guerra"
         controls:
           add: "Agregar Grito de Guerra"
       new_warcry:
