@@ -1,6 +1,6 @@
 <div id="person-<%= user.id %>">
 	<b><%= user.name %></b>
 	<%= link_to user.email, 'javascript:void(0);' %>
-	<%= user.position.nil? ? t('not_set') : user.position.name %>
+	<%= user.position.name %>
 	<%= link_to '', edit_person_path(user), :class => "modify" %>
 </div>

@@ -16,6 +16,12 @@ describe User do
     
   end
   
+  it "should set a user position to the default value if not specified" do
+    @user =  Factory.build(:user)
+    @user.save
+    @user.position.name.should == I18n.t('views.people.default_position')
+  end
+  
   describe ": Given it doesn't exists a company called 'iEvolutioned'" do
     
     before(:each) do

@@ -454,6 +454,7 @@ es-MX:
           cancel: "Cancelar"
           save: "Guardar"
     people:
+      default_position: "Usuario"
       empty:
         title: "¿Listo para agregar Áreas y Personas a tu Proyecto?"
         controls:

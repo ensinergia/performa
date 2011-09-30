@@ -20,3 +20,4 @@
 11. Change CREED to DIRECTION
 12. Extend ContextualLegend to handle editing contextual information for member views (show and edit actions)
 13. Extend ContextualLegend to work with ajax-changing context 
+14. Only admin users can change the contextual legends

@@ -12,10 +12,11 @@ class User < ActiveRecord::Base
   belongs_to :company
   belongs_to :position
   before_validation :set_company, :on => :create
+  before_validation :set_position, :on => :create
   
   validates_associated :company
   validates_presence_of :company
-  
+  validates_presence_of :position
   
   attr_accessor :company_name
 
@@ -42,5 +43,11 @@ class User < ActiveRecord::Base
     self.company = Company.new({:name => company_name})
     # also add user to company default's area
     self.area = self.company.areas.first
+  end
+  
+  def set_position
+    return unless position.nil?
+
+    self.position = Position.new({:name => I18n.t('views.people.default_position')})
   end
 end
