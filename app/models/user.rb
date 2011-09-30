@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   before_validation :set_company, :on => :create
   before_validation :set_position, :on => :create
   
-  validates_associated :company
+  validates_associated :company, :message => I18n.t('errors.messages.invalid_due_chars')
   validates_presence_of :company
   validates_presence_of :position
   
@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   end
   
   def subdomain
-    return company_name.downcase if company_name
+    return company_name.downcase.gsub(" ", "") if company_name
     ""
   end
 

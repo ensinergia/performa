@@ -7,7 +7,7 @@ FactoryGirl.define do
   
   factory :company_sequenced, :class => :company do
     sequence :name do |n|
-      "Company {n}"
+      "Company #{n}"
     end
   end
 end

@@ -185,7 +185,8 @@ es-MX:
       messages: &errors_messages
         inclusion: "no está incluído en la lista"
         exclusion: "está reservado"
-        invalid: "es inválido"
+        invalid: "no es válido"
+        invalid_due_chars: "no es válido. No debe tener caracteres especiales"
         confirmation: "no coincide con la confirmación"
         blank: "no puede estar en blanco"
         empty: "no puede estar vacío"
