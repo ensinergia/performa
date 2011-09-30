@@ -1,6 +1,5 @@
 class StrategicObjective < ActiveRecord::Base
   include Shared
-  extend Shared::ClassMethods
 
   has_many :comments, :as => :commentable
 
