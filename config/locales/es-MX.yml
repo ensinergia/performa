@@ -405,6 +405,7 @@ es-MX:
       edit:
         title: "Modificando Objetivo Estratégico"
         last_updated: "Última actualización"
+        strategic_lines: "Expectativas a cubrir:"
         controls:
           cancel: "Cancelar"
           save: "Guardar cambios"
