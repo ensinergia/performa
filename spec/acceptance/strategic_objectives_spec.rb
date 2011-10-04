@@ -74,9 +74,11 @@ feature "Strategic Objectives:", :js => true do
       
       it "should show me the first section page with one strategic objective when clicking 'Strategic objectives' on main menu" do
         
-        within(".inside-box") do
+        within(".title-bar") do
           page.should have_content I18n.t('views.menu.objectives')
-        
+        end
+
+        within(".inside-box") do
           within("#sl-#{@sl.id}") do
             page.should have_content @sl.content
             should_contain_record_info_for(@sl)
