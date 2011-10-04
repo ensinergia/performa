@@ -135,12 +135,19 @@ input:focus, textarea:focus {
 .title-bar {
 	background-color:#A7C933;
 	padding: 2px 30px;
+  height: 40px;
 }
 
 .title-bar h2 {
 	font-size: 19px;
 	color: white;
 	text-shadow:0 0 3px black;
+  float:left;
+  margin: 0.8em 0em;
+}
+.title-bar a.back {
+  float: right;
+  margin: 1em 0em;
 }
 
 .box {
@@ -318,20 +325,6 @@ ul.menu{
   color:#fff;
   text-decoration:none;
 } 
-
-h1.subtitle {
-  margin: 0px;
-  padding: 10px;
-  background-color: #bbbf44;
-  color: #ffffff;
-  /* CSS 3 elements */
-  webkit-border-top-right-radius:0.50em;
-  -webkit-border-top-left-radius:0.50em;
-  -moz-border-radius-topright:0.50em;
-  -moz-border-radius-topleft:0.50em;
-  border-top-right-radius:0.50em;
-  border-top-left-radius:0.50em;
-}
 
 .form-box{
   padding: 10px;

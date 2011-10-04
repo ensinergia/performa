@@ -1,6 +1,8 @@
-<%= link_to 'Back', strategic_objectives_path %>
 <div class="box rounded-10 with-shadow with-mid-width">
-  <h1 class="subtitle"><%= t('views.strategic_objectives.edit.title') %></h1>
+  <div class="title-bar rounded-10-top">
+    <h2><%= t('views.strategic_objectives.edit.title') %></h2>
+    <%= link_to 'Back', strategic_objectives_path, :class => "back" %>
+  </div>
 
   <div class="inside-box">
 
