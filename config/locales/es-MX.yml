@@ -185,7 +185,8 @@ es-MX:
       messages: &errors_messages
         inclusion: "no está incluído en la lista"
         exclusion: "está reservado"
-        invalid: "es inválido"
+        invalid: "no es válido"
+        invalid_due_chars: "no es válido. No debe tener caracteres especiales"
         confirmation: "no coincide con la confirmación"
         blank: "no puede estar en blanco"
         empty: "no puede estar vacío"
@@ -230,6 +231,12 @@ es-MX:
         position: "Posición"
         area: "Área"
         role: "Rol"
+      strategic_line:
+        content: "Contenido"
+      strategic_objective:
+        content: "Contenido"
+      person:
+        name: "Nombre"
       vision:
         description: "Descripción"        
     errors:
@@ -448,8 +455,27 @@ es-MX:
           comment: "Comentar"
           cancel: "Cancelar"
           save: "Guardar"
-    creed:
-        
+    people:
+      default_position: "Usuario"
+      default_position_owner: "Dueño"
+      empty:
+        title: "¿Listo para agregar Áreas y Personas a tu Proyecto?"
+        controls:
+          add: "Agregar Personas"
+      non_empty:
+        title: "Todas las Áreas y Personas en %{company}"
+        controls:
+          add_area: "Agregar Área"
+      new:
+        title: "Agregar Área Nueva"
+        functions: "Funciones"
+        controls:
+          add_function: "Agregar Función"
+          cancel: "Cancelar"
+          add: "Agregar"
+          discard_function: "Descartar Función"
+          save: "Guardar"
+    creed:    
       most_views:
         notify_to: "* Notificar de este Evento a:"
         form_errors: "Encontramos problemas al intentar guardar este formulario"
@@ -459,7 +485,6 @@ es-MX:
       
       first_warcry:
         title: "¿Listo para agregar el Grito de Guerra?"
-        description: "El texto descriptivo para el grito de guerra"
         controls:
           add: "Agregar Grito de Guerra"
       new_warcry:

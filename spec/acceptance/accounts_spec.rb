@@ -57,6 +57,26 @@ feature "Handling of accounts in Performa" do
       
     end
     
+    it "should not let me register given I provided a bad formatted company name" do
+      page.should have_content "Performa"
+      
+      fill_in("user_name", :with => 'Silvano')
+      fill_in("user_last_name", :with => 'Barba' )
+      fill_in("user_company_name", :with => 'I-evolutioned' )
+      fill_in("user_email", :with => 'silvano@ievolutioned.com' )
+      fill_in("user_password", :with => 'performa' )
+      fill_in("user_password_confirmation", :with => 'performa' )
+      
+      click_on I18n.t('views.registrations.controls.register')
+      
+      #check domain by URL
+      current_url.should == @host + user_registration_path
+      
+      current_path.should == user_registration_path
+      
+      page.should have_content "#{User.human_attribute_name(:company)} #{I18n.t('errors.messages.invalid_due_chars')}"
+    end
+    
   end
   
   describe "Login" do

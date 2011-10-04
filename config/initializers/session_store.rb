@@ -1,6 +1,6 @@
 # Be sure to restart your server when you modify this file.
 
-domain = Rails.env == "production" ? "sharpplan.com" : ".lvh.me"
+domain = Rails.env == "production" ? "ensinergia.net" : ".lvh.me"
 
 GestionDesempeno::Application.config.session_store :cookie_store, :key => '_gestion_desempeno_session', :domain => domain
 

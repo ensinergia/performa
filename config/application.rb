@@ -32,7 +32,7 @@ module GestionDesempeno
 
     # JavaScript files you want as :defaults (application.js is always included).
     config.action_view.javascript_expansions[:defaults] = %w(jquery.min jquery_ujs rails)
-    config.action_view.javascript_expansions[:others] = %w(jquery.form jquery.remotipart jquery.jeditable showdown wmd)
+    config.action_view.javascript_expansions[:others] = %w(jquery.form jquery.remotipart jquery.jeditable showdown wmd nested_form)
     config.action_view.stylesheet_expansions[:defaults] = %w(elastic elastic.print wmd main)
 
     # Configure the default encoding used in templates for Ruby 1.9.
