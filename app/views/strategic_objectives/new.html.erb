@@ -1,26 +1,28 @@
 <div class="box rounded-10 with-shadow with-mid-width">
+  <h1 class="subtitle "><%= t('views.strategic_objectives.new.title') %></h1>
 
   <div class="inside-box">
-    <!-- Image space -->
-    <h1><%= t('views.strategic_objectives.new.title') %></h1>
+    <div class="form-box">
+      <%= form_for @strategic_objective do |f| %>
+        <%= f.text_area :content %><br/>
 
-    <%= form_for @strategic_objective do |f| %>
-      <%= f.text_field :content %><br/>
+        <h2><%= t('views.strategic_objectives.new.strategic_lines') %></h2>
+        <ul>
+          <% @strategic_lines.each do |strategic_line| %>
+            <li>
+              <%= check_box_tag "strategic_objective[strategic_line_ids][]", strategic_line.id, strategic_objective_include_strategic_line?(f.object, strategic_line) -%>
+              <%= label_tag "strategic_objective_strategic_line_ids_", strategic_line.content -%>
+            </li>
+          <% end %>
+        </ul>
 
-      <h1><%= t('views.strategic_objectives.new.strategic_lines') %></h1>
-      <ul>
-        <% @strategic_lines.each do |strategic_line| %>
-          <li>
-            <%= check_box_tag "strategic_objective[strategic_line_ids][]", strategic_line.id, strategic_objective_include_strategic_line?(f.object, strategic_line) -%>
-            <%= label_tag "strategic_objective_strategic_line_ids_", strategic_line.content -%>
-          </li>
-        <% end %>
-      </ul>
-
+      </div>
       <%= render 'shared/notifications' %>
 
-      <%= f.submit t('views.strategic_objectives.new.controls.save') %>
-      <%= link_to t('views.strategic_objectives.new.controls.cancel'), strategic_objectives_path %>
+      <div class="actions">
+        <%= link_to t('views.strategic_objectives.new.controls.cancel'), strategic_objectives_path, :class => "button gray" %>
+        <%= f.submit t('views.strategic_objectives.new.controls.save'), :class => "button orange" %>
+      </div>
     <% end %>		
 
   </div>
@@ -28,5 +30,5 @@
 
 
 <%= content_for :contextual_legend do %>
-	<%= render 'contextual_legends/contextual_legend' %>
+  <%= render 'contextual_legends/contextual_legend' %>
 <% end %>

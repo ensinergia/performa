@@ -79,6 +79,9 @@ ul.items-inlined li {
 .green.button, .green.button:visited	{ background-color: rgba(131,205,17,1); }
 .green.button:hover				{ background-color: rgba(131,205,17,0.8); }
 
+.gray.button, .gray.button:visited	{ background-color: rgba(143, 143, 143, 1); }
+.gray.button:hover				{ background-color: rgba(194,191,184, 0.8); }
+
 .as-link {
 	border:none;
 }
@@ -316,3 +319,35 @@ ul.menu{
   text-decoration:none;
 } 
 
+h1.subtitle {
+  margin: 0px;
+  padding: 10px;
+  background-color: #bbbf44;
+  color: #ffffff;
+  /* CSS 3 elements */
+  webkit-border-top-right-radius:0.50em;
+  -webkit-border-top-left-radius:0.50em;
+  -moz-border-radius-topright:0.50em;
+  -moz-border-radius-topleft:0.50em;
+  border-top-right-radius:0.50em;
+  border-top-left-radius:0.50em;
+}
+
+.form-box{
+  padding: 10px;
+  background-color: #eaebc9;
+}
+
+.notification-box{
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #f2f2f2;
+
+}
+
+.actions{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 180px;
+}
