@@ -52,9 +52,11 @@ feature "Strategic Lines:", :js => true do
       
       it "should show me the first section page with one strategic line when clicking 'Strategic Lines' on main menu" do
         
-        within(".inside-box") do
+        within(".title-bar") do
           page.should have_content I18n.t('views.menu.strategic_lines')
-        
+        end
+
+        within(".inside-box") do
           within("#sl-#{@sl.id}") do
             page.should have_content @sl.content
             should_contain_record_info_for(@sl)

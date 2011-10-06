@@ -1,9 +1,9 @@
 <div class="box rounded-10 with-shadow with-mid-width">
+  <div class="title-bar rounded-10-top">
+		<h2><%= t('views.strategic_lines.index.not_empty.title') %></h2>
+  </div>
 	
 	<div class="inside-box">
-		<!-- Image space -->
-		<h1><%= t('views.strategic_lines.index.not_empty.title') %></h1>
-		
 		<% @strategic_lines.each do |sl| %>
 				<div id="sl-<%= sl.id %>">
 					<%= sl.content %>
