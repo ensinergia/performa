@@ -16,5 +16,9 @@ class PeopleController < ApplicationController
       render('index')
     end
   end
-  
+
+  def bulk_update_admin
+    User.change_role_for(params[:users])
+    redirect_to(areas_admin_path, :notice => I18n.t('views.people.admin.messages.successful_update'))
+  end
 end

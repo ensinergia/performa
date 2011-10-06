@@ -7,6 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.integer :company_id
       t.integer :area_id
       t.integer :position_id
+      t.integer :role_id
       t.database_authenticatable :null => false
       t.recoverable
       t.rememberable

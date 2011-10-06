@@ -183,6 +183,7 @@ es-MX:
       format: "%{attribute} %{message}"
 
       messages: &errors_messages
+        taken: "ya ha sido tomado"
         inclusion: "no está incluído en la lista"
         exclusion: "está reservado"
         invalid: "no es válido"
@@ -247,7 +248,6 @@ es-MX:
         body: "Revise que los siguientes campos sean válidos:"
 
       messages:
-        taken: "ya ha sido tomado"
         record_invalid: "La validación falló: %{errors}"
         <<: *errors_messages
 
@@ -454,6 +454,27 @@ es-MX:
           comment: "Comentar"
           cancel: "Cancelar"
           save: "Guardar"
+    area:
+      shared:
+        functions: "Funciones"
+        controls: 
+          cancel: "Cancelar"
+      index:
+        controls:
+          admin_list: "Ir a Lista de Administrador"
+      new:
+        title: "Agregar Área Nueva"
+        controls:
+          add_function: "Agregar Función"
+          cancel: "Cancelar"
+          add: "Agregar"
+          discard_function: "Descartar Función"
+          save: "Guardar"
+      edit:
+        title: "Editando %{area}"
+        controls:
+          save: "Guardar cambios"      
+    
     people:
       default_position: "Usuario"
       default_position_owner: "Dueño"
@@ -465,15 +486,15 @@ es-MX:
         title: "Todas las Áreas y Personas en %{company}"
         controls:
           add_area: "Agregar Área"
-      new:
-        title: "Agregar Área Nueva"
-        functions: "Funciones"
-        controls:
-          add_function: "Agregar Función"
+      admin:
+        title: "Lista de Administrador"
+        note: "NOTA: La configuración de Administrador le da acceso a todas las áreas"
+        controls: 
+          close: "Cerrar"
           cancel: "Cancelar"
-          add: "Agregar"
-          discard_function: "Descartar Función"
-          save: "Guardar"
+          save: "Guardar cambios"
+        messages:
+          successful_update: "Los cambios en los permisos fueron aplicados correctamente"
     creed:    
       most_views:
         notify_to: "* Notificar de este Evento a:"

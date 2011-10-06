@@ -264,3 +264,7 @@ input:focus, textarea:focus {
 .main-content {
 	padding: 5em 1em 5em 1em;
 }
+
+.is-admin {
+	font-weight: bold;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930063414) do
+ActiveRecord::Schema.define(:version => 20111067182747) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20110930063414) do
   create_table "areas", :force => true do |t|
     t.string   "name"
     t.integer  "company_id"
+    t.boolean  "is_root_area"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -80,6 +82,12 @@ ActiveRecord::Schema.define(:version => 20110930063414) do
     t.string "name"
   end
 
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "strategic_line_strategic_objectives", :force => true do |t|
     t.integer "strategic_line_id"
     t.integer "strategic_objective_id"
@@ -122,6 +130,7 @@ ActiveRecord::Schema.define(:version => 20110930063414) do
     t.integer  "company_id"
     t.integer  "area_id"
     t.integer  "position_id"
+    t.integer  "role_id"
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"

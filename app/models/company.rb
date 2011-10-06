@@ -18,11 +18,11 @@ class Company < ActiveRecord::Base
   
   private
   def get_default_area
-    self.areas.first(:conditions => {:name => I18n.t('views.areas.default')}) || build_default_area
+    self.areas.first(:conditions => {:name => I18n.t('views.areas.default'), :is_root_area => true}) || build_default_area
   end
   
   def build_default_area
-    self.areas.build(:name => I18n.t('views.areas.default'))   
+    self.areas.build(:name => I18n.t('views.areas.default'), :is_root_area => true)   
   end
   
 end

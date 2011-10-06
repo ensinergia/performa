@@ -5,22 +5,11 @@
 		<div class="title-bar">
 			<p><%=t 'views.people.non_empty.title', :company => current_user.company.name %></p>
 			
-			<%= link_to t('views.people.non_empty.controls.add_area'), new_area_path, :class => "button orange" %>
+			<%= link_to t('views.people.non_empty.controls.add_area'), new_area_url, :class => "button orange" %>
 		</div>
 		
 		<% @areas.each do |area| %>
-			<div id="area-<%= area.id %>">
-				<div class="area-title">
-					<%= area.name %>
-					<%= link_to '', '', :class => "modify" %>
-				</div>
-				
-				<% area.users.each do |user| %>
-					<%= render user %>
-				<% end %>
-				
-				<%= link_to '', new_person_path, :class => "add" %>
-			</div>
+			<%= render area %>
 		<% end %>			
 			
 	</div>

@@ -8,6 +8,7 @@ describe Company do
   
   it "should save a default area after create" do
     @company.areas.first.name.should_not be_nil
+    @company.areas.first.is_root_area.should be_true
   end
   
   it "should not save a default area after update" do

@@ -1,0 +1,46 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	
+	<div class="inside-box">
+
+		<div class="title-bar">
+			<p><%=t 'views.people.non_empty.title', :company => current_user.company.name %></p>
+			
+			<%= link_to t('views.people.non_empty.controls.add_area'), new_area_url, :class => "button orange" %>
+		</div>
+		
+		<div class="subtitle-bar">
+			<%=t 'views.people.admin.title' %>
+			<%= link_to t('views.people.admin.controls.close'), people_url %>
+		</div>
+		<%=t 'views.people.admin.note' %>
+		
+		<%= form_tag bulk_update_admin_url, :method => :put do %>
+		
+			<% @people.each do |person| %>
+				
+				<%= select_tag "users[#{person.id}]", options_from_collection_for_select(Role.all, 'id', 'name', person.role.id) %>
+				
+				<span class="<%= person.role?(:admin) ? "is-admin" : "is-not-admin" %>"><%= person.name %></span>
+				
+			<% end %>
+			<%= link_to t('views.people.admin.controls.cancel'), people_url %>
+			<%= submit_tag t('views.people.admin.controls.save') %>
+		<% end %>
+	</div>
+</div>
+
+<%= content_for :contextual_legend do %>
+
+	<div class="help">
+		<div class="title">
+			<p><%=t 'views.help.title' %></p>
+		</div>
+
+		<div class="contextual">
+			<%= form_tag contextual_legends_show_path, :remote => true, :id => "contextual-show-action-form" do %>
+				<%= hidden_field_tag :route, "#{request.env['PATH_INFO']}" %>
+			<% end %>
+		</div>
+	</div>
+
+<% end %>

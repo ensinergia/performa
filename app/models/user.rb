@@ -2,13 +2,16 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   attr_accessible :name, :last_name, :email, :password, :password_confirmation, :remember_me, :company_name
 
+  # Refactor this horrible thing
+  has_many :areas
+  belongs_to :area
+  
   has_many :tasks
   has_many :comments
   has_many :analysis
   has_many :strategic_lines
   has_many :strategic_objectives
-  
-  belongs_to :area
+
   belongs_to :company
   belongs_to :position
   before_validation :set_company, :on => :create
@@ -19,6 +22,20 @@ class User < ActiveRecord::Base
   validates_presence_of :position
   
   attr_accessor :company_name
+
+  belongs_to :role
+
+
+  def self.change_role_for(users)
+    users.each_key do |key|
+      user=self.find(key)
+      user.update_attribute(:role_id, users[key]) if user.role != users[key]
+    end
+  end
+
+  def role?(role_name)
+    return self.role.try(:name) == role_name.to_s
+  end
 
   def company_name
     return self.company.name unless self.company.nil?
@@ -51,4 +68,5 @@ class User < ActiveRecord::Base
 
     self.position = Position.new({:name => I18n.t('views.people.default_position')})
   end
+  
 end

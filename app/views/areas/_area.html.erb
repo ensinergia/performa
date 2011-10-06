@@ -1,0 +1,13 @@
+<div id="area-<%= area.id %>">
+	<div class="area-title">
+		<%= area.name %>
+		<%= link_to(t('views.area.index.controls.admin_list'), areas_admin_url) if area.is_root? %>
+		<%= link_to 'Editar', edit_area_path(area), :id => "modify" %>
+	</div>
+	<%=  %>
+	<% area.users.each do |user| %>
+		<%= render user %>
+	<% end %>
+	
+	<%= link_to '', new_person_path, :class => "add" %>
+</div>
