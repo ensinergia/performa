@@ -14,7 +14,7 @@
 			</div>
 
 			<div class="column fixed" style="width: 70%">
-				<%= form_for(@user, :url => registration_path(:user), :html => { :method => :put }) do |f| %>
+				<%= form_for(@user, :url => account_path(@user), :html => { :method => :put }) do |f| %>
 
 					<div class="field-set label-large">
 
@@ -31,10 +31,10 @@
 					  <%= f.text_field :company_name, :disabled => true %>
 
 					  <div><%= f.label :area %> </div>
-					  <%= f.text_field :area, :disabled => true %>
+					  <%= f.text_field :area, :value => @user.area.name,:disabled => true %>
 
 					  <div><%= f.label :position %></div>
-					  <%= f.text_field :position, :disabled => true %>
+					  <%= f.text_field :position, :value => @user.position.name, :disabled => true %>
 
 						<div><label>Rol</label></div>
 
@@ -59,13 +59,5 @@
 </div>
 
 <%= content_for :contextual_legend do %>
-	<div class="help">
-		<div class="title">
-			<p><%= I18n.t('views.help.title') %></p>
-		</div>
-		
-		<p class="subtitle"><%= I18n.t('views.accounts.sections.my_info.title') %></p>
-		
-		<p><%= I18n.t('views.accounts.sections.my_info.help_description')  %></p>
-	</div>
+		<%= render 'contextual_legends/contextual_legend' %>
 <% end %>

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base  
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
-  attr_accessible :name, :last_name, :email, :password, :password_confirmation, :remember_me, :company_name
+  attr_accessible :name, :login, :last_name, :email, :password, :password_confirmation, :remember_me, :company_name
 
   # Refactor this horrible thing
   has_many :areas

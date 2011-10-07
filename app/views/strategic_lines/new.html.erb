@@ -1,23 +1,23 @@
 <div class="box rounded-10 with-shadow with-mid-width">
-	
-	<div class="inside-box">
-		<!-- Image space -->
-		<h1><%= t('views.strategic_lines.new.title') %></h1>
-		
-		<%= form_for @strategic_line do |f| %>
-			<div class="errors">
-				<%= render :partial => 'shared/errors', 
-							 		 :locals => {:message_error => t('views.creed.most_views.form_errors'), :object => @strategic_line} %>
-			</div>
-			<%= f.text_field :content %><br/>
-			
-			<%= render 'shared/notifications' %>
-				
-			<%= f.submit t('views.strategic_lines.new.controls.save') %>
-			<%= link_to t('views.strategic_lines.new.controls.cancel'), strategic_lines_path %>
-		<% end %>		
-			
-	</div>
+  <div class="title-bar rounded-10-top">
+    <h2><%= t('views.strategic_lines.new.title') %></h2>
+  </div>
+
+  <div class="inside-box">
+    <div class="form-box">
+      <%= form_for @strategic_line do |f| %>
+        <%= f.text_area :content %><br/>
+
+
+      </div>
+      <%= render 'shared/notifications' %>
+
+      <div class="actions" style="width:180px">
+        <%= link_to t('views.strategic_lines.new.controls.cancel'), strategic_lines_path, :class => "button gray" %>
+        <%= f.submit t('views.strategic_lines.new.controls.save'), :class => "button orange" %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= content_for :contextual_legend do %>

@@ -10,7 +10,7 @@
 		<div class="unit on-2 columns">
 			<div class="column fixed" style="width: 50%">
 
-				<%= form_for(@user, :url => registration_path(:user), :html => { :method => :put }) do |f| %>
+				<%= form_for(@user, :url => account_path(@user), :html => { :method => :put }) do |f| %>
 				  <div class="field-set label-small grey-colored rounded-5 with-inner-shadow">
 
 						<div><%= f.label :login %>: </div>
@@ -47,13 +47,5 @@
 </div>
 
 <%= content_for :contextual_legend do %>
-	<div class="help">
-		<div class="title">
-			<p><%= I18n.t('views.help.title') %></p>
-		</div>
-		
-		<p class="subtitle"><%= I18n.t('views.accounts.sections.my_account.title') %></p>
-		
-		<p><%= I18n.t('views.accounts.sections.my_account.help_description')  %></p>
-	</div>
+		<%= render 'contextual_legends/contextual_legend' %>
 <% end %>

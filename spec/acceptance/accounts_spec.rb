@@ -171,7 +171,6 @@ feature "Handling of accounts in Performa" do
         
         #check domain by URL
         current_url.should == @host + accounts_path
-
         current_path.should == accounts_path
         
         within(".menu") do
@@ -215,10 +214,37 @@ feature "Handling of accounts in Performa" do
         
         within(".help") do
           page.should have_content I18n.t('views.help.title')
-          page.should have_content I18n.t('views.accounts.sections.my_info.title')      
-          page.should have_content I18n.t('views.accounts.sections.my_info.help_description')      
         end
         
+      end
+      
+      it "should let me change the info in 'my info' section" do
+        
+        current_url.should == @host + accounts_path
+        current_path.should == accounts_path
+        
+        find_field("user_company_name").value.should == @user.company_name
+        find_field("user_area").value.should == @user.area.name
+        find_field("user_position").value.should == @user.position.name
+        
+        fill_in 'user_email', :with => 'myemail@example.com'
+        fill_in 'user_name', :with => 'My Example Name'
+        fill_in 'user_last_name', :with => 'With Last Name Examples'
+
+        click_on I18n.t('views.accounts.sections.my_info.controls.save')
+    
+        current_url.should == @host + accounts_path
+        current_path.should == accounts_path
+    
+        page.should have_content I18n.t('views.common.messages.update.successful', :model => "Cuenta", :genre => "a")
+    
+        find_field("user_email").value.should == "myemail@example.com"
+        find_field("user_name").value.should == "My Example Name"
+        find_field("user_last_name").value.should == "With Last Name Examples"
+    
+        within(".help") do
+          page.should have_content I18n.t('views.help.title')  
+        end
       end
       
       it "should let me visit the 'my account info' section" do
@@ -263,12 +289,31 @@ feature "Handling of accounts in Performa" do
         find_button I18n.t('views.accounts.sections.my_account.controls.finish_account')
         
         within(".help") do
-          page.should have_content I18n.t('views.help.title')
-          page.should have_content I18n.t('views.accounts.sections.my_account.title')      
-          page.should have_content I18n.t('views.accounts.sections.my_account.help_description')      
+          page.should have_content I18n.t('views.help.title')  
+        end
+      end
+      
+      it "should let me change the info in 'my account info' section" do
+        within(".account_menu") do
+          click_link I18n.t('views.accounts.sections.my_account.title')
         end
         
+        fill_in 'user_login', :with => 'mylogin.example'
+        fill_in 'user_password', :with => 'mypassword'
+        fill_in 'user_password_confirmation', :with => 'mypassword'
+
+        click_on I18n.t('views.accounts.sections.my_account.controls.edit')
+    
+        page.should have_content I18n.t('views.common.messages.update.successful', :model => "Cuenta", :genre => "a")
+    
+        User.last.login.should == "mylogin.example"
+    
+        within(".help") do
+          page.should have_content I18n.t('views.help.title')  
+        end
       end
+      
+      it "should let me close my account"
       
       describe "given there are is a task assigned to me" do
       
@@ -310,9 +355,7 @@ feature "Handling of accounts in Performa" do
           end
           
           within(".help") do
-            page.should have_content I18n.t('views.help.title')
-            page.should have_content I18n.t('views.accounts.sections.my_tasks.title')      
-            page.should have_content I18n.t('views.accounts.sections.my_tasks.help_description')      
+            page.should have_content I18n.t('views.help.title')   
           end
           
         end

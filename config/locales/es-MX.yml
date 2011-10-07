@@ -265,6 +265,7 @@ es-MX:
           unsuccessful: "No fue posible guardar %{connector} %{model}"
         update: 
           successful: "%{model} actualizad%{genre} correctamente"
+          unsuccessful: "No fue posible aplicar los cambios a %{model}"
         delete:
           confirm: "¿Estas seguro de querer eliminar %{connector} %{model}?"
   
@@ -412,6 +413,7 @@ es-MX:
       edit:
         title: "Modificando Objetivo Estratégico"
         last_updated: "Última actualización"
+        strategic_lines: "Expectativas a cubrir:"
         controls:
           cancel: "Cancelar"
           save: "Guardar cambios"
