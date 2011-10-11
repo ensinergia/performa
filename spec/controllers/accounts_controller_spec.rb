@@ -33,27 +33,22 @@ describe AccountsController do
   
   describe "PUT #update action" do
     
+    before(:each) do
+      request.env["HTTP_REFERER"] = 'some.url.com'
+    end
+    
     describe "on successful update" do
      
       before(:each) do
-        @user.stub(:update_attributes).and_return(true)
-        request.env["HTTP_REFERER"] = 'some.url.com'
+        subject.current_user.stub(:update_attributes).and_return(true)
       end
-     
-      it "should save an strategic line, assign it to @strategic_line and send notifications" do
-        User.stub(:find).and_return { @user }
-        put :update, :id => '1', :user => { 'some' => 'atrrs' }
-        assigns(:user).should == @user
-      end 
       
       it "should redirect to account info action" do
-        User.stub(:find).and_return { @user }
         put :update, :id => '1'
         response.should be_redirect
       end
       
       it "should set a flash message" do
-        User.stub(:find).and_return { @user }
         put :update, :id => '1'
         flash[:notice].should == I18n.t('views.common.messages.update.successful', :model => "Cuenta", :genre => "a")
       end
@@ -63,13 +58,13 @@ describe AccountsController do
     describe "on unsuccessful update" do
       
       before(:each) do
-        @user.stub(:update_attributes).and_return(false)
+        subject.current_user.stub(:update_attributes).and_return(false)
       end
       
       it "should render the edit action" do
         User.stub(:find).and_return { @user }
         put :update, :id => '1'
-        response.should_not be_redirect
+        response.should render_template('user_info')
       end
       
     end
