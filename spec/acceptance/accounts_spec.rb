@@ -174,13 +174,13 @@ feature "Handling of accounts in Performa" do
         current_path.should == accounts_path
         
         within(".menu") do
-          find_link I18n.t('views.menu.panorama')
-          find_link I18n.t('views.menu.creed')
-          find_link I18n.t('views.menu.swot')
-          find_link I18n.t('views.menu.strategic_lines')
-          find_link I18n.t('views.menu.objectives')
-          find_link I18n.t('views.menu.programmes')
-          find_link I18n.t('views.menu.people')
+          find_link "panorama-menu"
+          find_link "direction-menu"
+          find_link "swot-menu"
+          find_link "strategic-lines-menu"
+          find_link "strategic-objectives-menu"
+          find_link "programs-menu"
+          find_link "people-menu"
         end
         
         page.should have_content I18n.t('views.accounts.title')
@@ -253,13 +253,13 @@ feature "Handling of accounts in Performa" do
         end
             
         within(".menu") do
-          find_link I18n.t('views.menu.panorama')
-          find_link I18n.t('views.menu.creed')
-          find_link I18n.t('views.menu.swot')
-          find_link I18n.t('views.menu.strategic_lines')
-          find_link I18n.t('views.menu.objectives')
-          find_link I18n.t('views.menu.programmes')
-          find_link I18n.t('views.menu.people')
+          find_link "panorama-menu"
+          find_link "direction-menu"
+          find_link "swot-menu"
+          find_link "strategic-lines-menu"
+          find_link "strategic-objectives-menu"
+          find_link "programs-menu"
+          find_link "people-menu"
         end  
           
         #check domain by URL
@@ -331,13 +331,13 @@ feature "Handling of accounts in Performa" do
           page.should have_content I18n.t('views.accounts.title')
         
           within(".menu") do
-            find_link I18n.t('views.menu.panorama')
-            find_link I18n.t('views.menu.creed')
-            find_link I18n.t('views.menu.swot')
-            find_link I18n.t('views.menu.strategic_lines')
-            find_link I18n.t('views.menu.objectives')
-            find_link I18n.t('views.menu.programmes')
-            find_link I18n.t('views.menu.people')
+            find_link "panorama-menu"
+            find_link "direction-menu"
+            find_link "swot-menu"
+            find_link "strategic-lines-menu"
+            find_link "strategic-objectives-menu"
+            find_link "programs-menu"
+            find_link "people-menu"
           end
           
           within(".account_menu") do

@@ -16,8 +16,10 @@ feature "Creed section (Missions):" do
     end
     
     it "should take me to the mission sub-section when I click the creed link menu item and then the mission link" do
-      click_link I18n.t('views.menu.creed')
-      click_link I18n.t('activerecord.models.mission')
+
+      click_link "direction-menu"
+
+      click_on I18n.t('activerecord.models.mission')
       
       current_url.should == @sub_host + creed_missions_path
       current_path.should == creed_missions_path

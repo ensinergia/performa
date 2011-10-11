@@ -17,7 +17,7 @@ feature "PEOPLE AND AREAS features:" do
   it "should be possible to visit the people area from the main page" do
     visit @sub_host + panorama_path
     
-    click_link I18n.t('views.menu.people')
+    click_link "people-menu"
     
     current_url.should == @sub_host + people_path
     current_path.should == people_path

@@ -16,7 +16,8 @@ feature "Creed section (Visions):" do
     end
     
     it "should take me to the vision sub-section when I click the creed link menu item" do
-      click_link I18n.t('views.menu.creed')
+      click_link "direction-menu"
+
       current_url.should == @sub_host + creed_visions_path
       current_path.should == creed_visions_path
       

@@ -21,13 +21,13 @@ feature "Panorama landing page:" do
         current_path.should == panorama_path
 
         within(".menu") do
-          find_link I18n.t('views.menu.panorama')
-          find_link I18n.t('views.menu.creed')
-          find_link I18n.t('views.menu.swot')
-          find_link I18n.t('views.menu.strategic_lines')
-          find_link I18n.t('views.menu.objectives')
-          find_link I18n.t('views.menu.programmes')
-          find_link I18n.t('views.menu.people')
+          find_link "panorama-menu"
+          find_link "direction-menu"
+          find_link "swot-menu"
+          find_link "strategic-lines-menu"
+          find_link "strategic-objectives-menu"
+          find_link "programs-menu"
+          find_link "people-menu"
         end
       
         page.should have_content I18n.t('views.panorama.title')
@@ -43,7 +43,7 @@ feature "Panorama landing page:" do
         find_link I18n.t('views.panorama.actions.add_programmes')
         find_link I18n.t('views.panorama.actions.add_areas_and_people')
         
-        click_link I18n.t('views.menu.panorama')
+        click_link "panorama-menu"
         
         current_url.should == @sub_host + panorama_path
         current_path.should == panorama_path

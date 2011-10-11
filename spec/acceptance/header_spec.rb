@@ -18,7 +18,6 @@ feature "Header:" do
     
     it "should allow me to see the header and it's contents" do
       within(".header-contents") do
-        page.should have_content(I18n.t('views.header.app_name'))
         page.should have_content(@user.full_name)
         find_link(I18n.t('views.header.controls.my_account'))
         find_link(I18n.t('views.header.controls.logout'))

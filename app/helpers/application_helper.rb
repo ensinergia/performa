@@ -6,7 +6,7 @@ module ApplicationHelper
   def task_number_for(user)
     task_count = current_user.tasks.count
     text = task_count == 1 ? t('views.header.pending_tasks.one') : t('views.header.pending_tasks.other')
-    "<b>#{link_to task_count, '' }</b> #{text}".html_safe
+    "#{link_to task_count, '' } <span>#{text}</span>".html_safe
   end
   
   def all_selector_for_area_for(user)

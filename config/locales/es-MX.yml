@@ -279,6 +279,10 @@ es-MX:
       controls:
         logout: "Salir"
         my_account: "Mi cuenta" 
+        help: "Ayuda"
+        support: "Soporte"
+        preparation: "Preparación"
+        reports: "Reportes"
     accounts:
       title: "Mi cuenta"
       sections: 
