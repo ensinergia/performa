@@ -29,6 +29,12 @@ class AccountsController < ActionController::Base
     end
   end
   
+  def destroy
+    sign_out(current_user)
+    current_user.destroy
+    redirect_to root_path, :alert => I18n.t('devise.registrations.destroyed')
+  end
+  
   private 
   def logged_in_user_to_action
     @user = current_user

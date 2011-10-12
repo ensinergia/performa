@@ -16,10 +16,10 @@ describe User do
     
     it "should make the user with user permissions"
     
-    it "should set a user position to 'User' when company is existant" do
-      @user =  Factory.build(:user, :company_name => @company.name)
+    it "should set a user position to other than 'owner' when company is existant" do
+      @user =  Factory.build(:user_no_company_name, :company_name => @company.name)
       @user.save
-      @user.position.name.should == I18n.t('views.people.default_position')
+      @user.is_owner?.should be_false
     end
     
     describe ": Given two users: one admin and the other not" do
@@ -39,10 +39,10 @@ describe User do
     
   end
   
-  it "should set a user position to 'Owner' when company is new" do
+  it "should set a user position to 'owner' when company is new" do
     @user =  Factory.build(:user)
     @user.save
-    @user.position.name.should == I18n.t('views.people.default_position_owner')
+    @user.is_owner?.should be_true
   end
   
   describe ": Given it doesn't exists a company called 'iEvolutioned'" do
@@ -62,5 +62,7 @@ describe User do
       @user.area.name.should == I18n.t('views.areas.default')
     end
   end
+
+  it "should set a user role to xxx on create"
 
 end

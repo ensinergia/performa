@@ -71,4 +71,19 @@ describe AccountsController do
 
   end
   
+  describe "DELETE #destroy action" do
+    
+    it "should delete the current logged-in user" do
+      subject.current_user.should_receive(:destroy)
+      delete :destroy
+    end
+    
+    it "should redirect and set an alert" do
+      delete :destroy
+      response.should be_redirect
+      flash[:alert].should == I18n.t('devise.registrations.destroyed')
+    end
+    
+  end
+  
 end

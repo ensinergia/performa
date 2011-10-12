@@ -6,7 +6,7 @@ class Company < ActiveRecord::Base
   has_one :war_cry
   
   has_many :users
-  has_many :areas
+  has_many :areas, :dependent => :destroy
   has_many :strategic_lines
   has_many :strategic_objectives
   has_one :swot
@@ -15,6 +15,10 @@ class Company < ActiveRecord::Base
   validates_format_of :name, :with => /^[a-zA-Z0-9_[:space:]]*$/
   
   after_initialize :get_default_area, :on => :create
+  
+  def has_only_one_owner?
+    self.users.includes(:position).count(:conditions => ["positions.name = '#{Position.owner}'"]) == 1
+  end
   
   private
   def get_default_area

@@ -12,10 +12,11 @@ GestionDesempeno::Application.routes.draw do
     match '/accounts/user_info' => 'accounts#user_info', :as => 'user_info', :via => :get
     match '/accounts/account_info' => 'accounts#account_info', :as => 'account_info', :via => :get
     match '/accounts/user_tasks' => 'accounts#user_tasks', :as => 'user_tasks', :via => :get
+    match '/accounts/destroy_current' => 'accounts#destroy', :as => 'destroy_account', :via => :delete
+    
     match '/panorama' => 'panoramas#index'
     
     resources :comments, :only => [:create, :destroy]
-    
     resources :strategic_lines, :only => [:index, :destroy, :edit, :update, :create, :new]
     resources :strategic_objectives, :except => :show
 

@@ -12,7 +12,7 @@ feature "Handling of accounts in Performa" do
     
     before(:each) do
       visit @host + new_user_registration_path
-
+      Factory(:position, :name => Position.owner)
     end
     
     it "should let me register given I provide valid values" do
@@ -156,14 +156,19 @@ feature "Handling of accounts in Performa" do
   describe "Reviewing of account information when logged in" do
     
     before(:each) do
-      @user = Factory(:user)
+      @host = "http://lvh.me:#{Capybara.server_port}"
+      @user = Factory(:user, :position => Factory(:position, :name => Position.owner))
+
+      @host = @host.gsub('lvh.me', "#{@user.subdomain}.lvh.me")
+
+      Capybara.app_host = @host
+      Capybara.default_host = @host
       login_as(@user)
     end
     
     describe "given I go to my account section" do
       
       before(:each) do
-        @host = @host.gsub('lvh.me', 'ievolutioned.lvh.me')
         visit @host + accounts_path
       end
       
@@ -283,10 +288,9 @@ feature "Handling of accounts in Performa" do
         find_link I18n.t('views.accounts.sections.my_account.controls.cancel')
         find_button I18n.t('views.accounts.sections.my_account.controls.edit')
         
-        # ATTENTION
-        #find_field("user_permissions")
+        find_field("user_position")
         
-        find_button I18n.t('views.accounts.sections.my_account.controls.finish_account')
+        find_link I18n.t('views.accounts.sections.my_account.controls.finish_account')
         
         within(".help") do
           page.should have_content I18n.t('views.help.title')  
@@ -313,9 +317,58 @@ feature "Handling of accounts in Performa" do
         end
       end
       
-      it "should let me close my account"
+      describe "given I a recently got registered", :js => true do
       
-      describe "given there are is a task assigned to me" do
+        before(:each) do
+          @no_owner_user = Factory(:user_no_company_name, :company => @user.company, :area => @user.area)
+          login_as(@no_owner_user)
+        end
+      
+        it "should let me close my account" do
+          visit @host + accounts_path
+          
+          within(".account_menu") do
+            click_link I18n.t('views.accounts.sections.my_account.title')
+          end
+        
+          click_on I18n.t('views.accounts.sections.my_account.controls.finish_account')
+        
+          page.driver.browser.switch_to.alert.accept
+        
+          current_url.should == @host + root_path
+          current_path.should == root_path
+        
+          page.should have_content I18n.t('devise.registrations.destroyed')
+          
+          Company.first.should == @no_owner_user.company
+          Area.first.should == @no_owner_user.area
+          User.count.should be(1)
+          User.last.should == @user
+        end
+        
+      end
+      
+      it "should let me close my account and thus should also close my company data given I am the owner", :js => true do
+        within(".account_menu") do
+          click_link I18n.t('views.accounts.sections.my_account.title')
+        end
+      
+        click_on I18n.t('views.accounts.sections.my_account.controls.finish_account')
+      
+        page.driver.browser.switch_to.alert.accept
+      
+        current_url.should == @host + root_path
+        current_path.should == root_path
+        
+        page.should have_content I18n.t('devise.registrations.destroyed')
+        
+        Company.first.should be_nil
+        Area.first.should be_nil
+        User.count.should be(0)
+        User.last.should be_nil
+      end
+      
+      describe "given there is a task assigned to me" do
       
         before(:each) do
           @task = Factory(:task, :description => "Some complex task", :priority => Task.high_priority, :user_id => @user.id)

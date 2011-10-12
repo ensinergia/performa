@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
 
   belongs_to :role
 
+  before_destroy :destroy_company
 
   def self.change_role_for(users)
     users.each_key do |key|
@@ -51,13 +52,18 @@ class User < ActiveRecord::Base
     "#{name} #{last_name}"
   end
 
+  def is_owner?
+    return false if self.position.nil?
+    self.position.name == Position.owner
+  end
+
   private
   def set_company
     return unless company.nil?
     return if company_name.blank?
     return unless Company.find_by_name(company_name).nil?
 
-    self.position = Position.new({:name => I18n.t('views.people.default_position_owner')})
+    self.position = Position.get_owner
     self.company = Company.new({:name => company_name})
     # also add user to company default's area
     self.area = self.company.areas.first
@@ -66,7 +72,10 @@ class User < ActiveRecord::Base
   def set_position
     return unless position.nil?
 
-    self.position = Position.new({:name => I18n.t('views.people.default_position')})
+    self.position = Position.get_owner
   end
   
+  def destroy_company
+    self.company.destroy if self.company.has_only_one_owner? && self.is_owner?
+  end
 end

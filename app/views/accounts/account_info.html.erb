@@ -31,16 +31,16 @@
 				<% end %>
 			</div>
 			<div class="column fixed" style="width: 50%">
-				<%= form_for(@user, :url => registration_path(:user), :html => { :method => :put }) do |f| %>
-					<div class="field-set label-small" style="text-align: right">
-						<div><label>Permisos:</label></div>
-						<input id="user_permissions" type="text" size="20" name="user[permissions]">
-						<!-- field :persmissions -->
-						<%= f.submit I18n.t('views.accounts.sections.my_account.controls.finish_account'), :class => "button green as-link" %>
-				  	
-					</div>
+		
+				<div class="field-set label-small" style="text-align: right">
+					<div><label>Permisos:</label></div>
+					<%= text_field_tag :user_position, @user.position.name, :disabled => true %>
+						
+					<% confirmation = @user.company.has_only_one_owner? ? I18n.t('devise.registrations.confirm_destruction_owner') : I18n.t('devise.registrations.confirm_destruction') %>	
+					<%= link_to I18n.t('views.accounts.sections.my_account.controls.finish_account'), 
+										  destroy_account_path, :confirm => confirmation, :method => :delete, :class => "button green as-link" %>
+				</div>
 
-				<% end %>
 			</div>
 		</div>
 	</div>
