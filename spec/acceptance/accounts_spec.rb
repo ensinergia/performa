@@ -12,7 +12,7 @@ feature "Handling of accounts in Performa" do
     
     before(:each) do
       visit @host + new_user_registration_path
-
+      Factory(:position, :name => Position.owner)
     end
     
     it "should let me register given I provide valid values" do
@@ -156,14 +156,19 @@ feature "Handling of accounts in Performa" do
   describe "Reviewing of account information when logged in" do
     
     before(:each) do
-      @user = Factory(:user)
+      @host = "http://lvh.me:#{Capybara.server_port}"
+      @user = Factory(:user, :position => Factory(:position, :name => Position.owner))
+
+      @host = @host.gsub('lvh.me', "#{@user.subdomain}.lvh.me")
+
+      Capybara.app_host = @host
+      Capybara.default_host = @host
       login_as(@user)
     end
     
     describe "given I go to my account section" do
       
       before(:each) do
-        @host = @host.gsub('lvh.me', 'ievolutioned.lvh.me')
         visit @host + accounts_path
       end
       
@@ -171,7 +176,6 @@ feature "Handling of accounts in Performa" do
         
         #check domain by URL
         current_url.should == @host + accounts_path
-
         current_path.should == accounts_path
         
         within(".menu") do
@@ -215,10 +219,38 @@ feature "Handling of accounts in Performa" do
         
         within(".help") do
           page.should have_content I18n.t('views.help.title')
-          page.should have_content I18n.t('views.accounts.sections.my_info.title')      
-          page.should have_content I18n.t('views.accounts.sections.my_info.help_description')      
         end
         
+      end
+      
+      it "should let me change the info in 'my info' section" do
+        
+        current_url.should == @host + accounts_path
+        current_path.should == accounts_path
+        
+        find_field("user_company_name").value.should == @user.company_name
+        find_field("user_area").value.should == @user.area.name
+        find_field("user_position").value.should == I18n.t("views.positions.#{@user.position.name}")
+        find_field("role").value.should ==  I18n.t("views.roles.#{@user.position.role_equivalence}")
+        
+        fill_in 'user_email', :with => 'myemail@example.com'
+        fill_in 'user_name', :with => 'My Example Name'
+        fill_in 'user_last_name', :with => 'With Last Name Examples'
+
+        click_on I18n.t('views.accounts.sections.my_info.controls.save')
+    
+        current_url.should == @host + accounts_path
+        current_path.should == accounts_path
+    
+        page.should have_content I18n.t('views.common.messages.update.successful', :model => "Cuenta", :genre => "a")
+    
+        find_field("user_email").value.should == "myemail@example.com"
+        find_field("user_name").value.should == "My Example Name"
+        find_field("user_last_name").value.should == "With Last Name Examples"
+    
+        within(".help") do
+          page.should have_content I18n.t('views.help.title')  
+        end
       end
       
       it "should let me visit the 'my account info' section" do
@@ -257,20 +289,87 @@ feature "Handling of accounts in Performa" do
         find_link I18n.t('views.accounts.sections.my_account.controls.cancel')
         find_button I18n.t('views.accounts.sections.my_account.controls.edit')
         
-        # ATTENTION
-        #find_field("user_permissions")
+        find_field("user_position")
         
-        find_button I18n.t('views.accounts.sections.my_account.controls.finish_account')
+        find_link I18n.t('views.accounts.sections.my_account.controls.finish_account')
         
         within(".help") do
-          page.should have_content I18n.t('views.help.title')
-          page.should have_content I18n.t('views.accounts.sections.my_account.title')      
-          page.should have_content I18n.t('views.accounts.sections.my_account.help_description')      
+          page.should have_content I18n.t('views.help.title')  
+        end
+      end
+      
+      it "should let me change the info in 'my account info' section" do
+        within(".account_menu") do
+          click_link I18n.t('views.accounts.sections.my_account.title')
+        end
+        
+        fill_in 'user_login', :with => 'mylogin.example'
+        fill_in 'user_password', :with => 'mypassword'
+        fill_in 'user_password_confirmation', :with => 'mypassword'
+
+        click_on I18n.t('views.accounts.sections.my_account.controls.edit')
+    
+        page.should have_content I18n.t('views.common.messages.update.successful', :model => "Cuenta", :genre => "a")
+    
+        User.last.login.should == "mylogin.example"
+    
+        within(".help") do
+          page.should have_content I18n.t('views.help.title')  
+        end
+      end
+      
+      describe "given I a recently got registered", :js => true do
+      
+        before(:each) do
+          @no_owner_user = Factory(:user_no_company_name, :company => @user.company, :area => @user.area)
+          login_as(@no_owner_user)
+        end
+      
+        it "should let me close my account" do
+          visit @host + accounts_path
+          
+          within(".account_menu") do
+            click_link I18n.t('views.accounts.sections.my_account.title')
+          end
+        
+          click_on I18n.t('views.accounts.sections.my_account.controls.finish_account')
+        
+          page.driver.browser.switch_to.alert.accept
+        
+          current_url.should == @host + root_path
+          current_path.should == root_path
+        
+          page.should have_content I18n.t('devise.registrations.destroyed')
+          
+          Company.first.should == @no_owner_user.company
+          Area.first.should == @no_owner_user.area
+          User.count.should be(1)
+          User.last.should == @user
         end
         
       end
       
-      describe "given there are is a task assigned to me" do
+      it "should let me close my account and thus should also close my company data given I am the owner", :js => true do
+        within(".account_menu") do
+          click_link I18n.t('views.accounts.sections.my_account.title')
+        end
+      
+        click_on I18n.t('views.accounts.sections.my_account.controls.finish_account')
+      
+        page.driver.browser.switch_to.alert.accept
+      
+        current_url.should == @host + root_path
+        current_path.should == root_path
+        
+        page.should have_content I18n.t('devise.registrations.destroyed')
+        
+        Company.first.should be_nil
+        Area.first.should be_nil
+        User.count.should be(0)
+        User.last.should be_nil
+      end
+      
+      describe "given there is a task assigned to me" do
       
         before(:each) do
           @task = Factory(:task, :description => "Some complex task", :priority => Task.high_priority, :user_id => @user.id)
@@ -310,9 +409,7 @@ feature "Handling of accounts in Performa" do
           end
           
           within(".help") do
-            page.should have_content I18n.t('views.help.title')
-            page.should have_content I18n.t('views.accounts.sections.my_tasks.title')      
-            page.should have_content I18n.t('views.accounts.sections.my_tasks.help_description')      
+            page.should have_content I18n.t('views.help.title')   
           end
           
         end

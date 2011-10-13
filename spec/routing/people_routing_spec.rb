@@ -18,14 +18,22 @@ describe PeopleController do
     
     it "should match /people/new with #new action when subdomain is provided" do
       { :get => "http://foo.example.com/people/new" }.should route_to(:controller => "people", :action => "new")      
-    end
-
+    end 
+    
     it "should not match /people/1/edit with #edit action when subdomain is not given" do
       { :get => "http://example.com/people/1/edit" }.should_not be_routable
     end
     
     it "should match /people/1/edit with #edit action when subdomain is provided" do
       { :get => "http://foo.example.com/people/1/edit" }.should route_to(:controller => "people", :action => "edit", :id => "1")      
-    end    
+    end
+    
+    it "should not match /people/bulk_update_admin with #update action when subdomain is not given" do
+      { :put => "http://example.com/people/bulk_update_admin" }.should_not be_routable
+    end
+    
+    it "should match /people/bulk_update_admin with #update action when subdomain is provided" do
+      { :put => "http://foo.example.com/people/bulk_update_admin" }.should route_to(:controller => "people", :action => "bulk_update_admin")      
+    end
   end
 end

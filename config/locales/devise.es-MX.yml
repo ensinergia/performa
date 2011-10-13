@@ -42,6 +42,8 @@ es-MX:
       inactive_signed_up: 'Tu cuenta fue creada. Sin embargo, no podemos iniciar tu sesión porque tu cuenta está %{reason}.'
       updated: 'Tu cuenta fue actualizada.'
       destroyed: 'Fue grato tenerte con nosotros. Tu cuenta fue cancelada.'
+      confirm_destruction: "¿Deseas realmente darte de baja del sistema?"
+      confirm_destruction_owner: "¿Deseas realmente darte de baja del sistema junto con los datos de tu compañia?"
     unlocks:
       link: "¿No recibiste instrucciones para desbloquear?"
       send_instructions: 'Vas a recibir instrucciones para desbloquear tu cuenta en unos pocos minutos.'

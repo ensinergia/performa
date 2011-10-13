@@ -9,7 +9,7 @@ describe PeopleController do
     @request.host = "#{@user.subdomain}.test.host"
   end
   
-  describe "GET index" do
+  describe "GET #index" do
     
     describe "with non existant areas" do
     
@@ -59,4 +59,15 @@ describe PeopleController do
       end
     end
   end
+  
+  describe "PUT #bulk_update_admin" do
+    
+    it "should invoke update permission method and then render admin action" do
+      User.should_receive(:change_role_for)
+      put :bulk_update_admin, :users => { '1' => '2'}
+      response.should be_redirect
+    end
+    
+  end
+  
 end

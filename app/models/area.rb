@@ -1,7 +1,10 @@
 class Area < ActiveRecord::Base
-  belongs_to :company
-  has_many :users
   has_many :functions
+
+  belongs_to :user
+  has_many :users
+  belongs_to :company
+  
   accepts_nested_attributes_for :functions, :allow_destroy => true
   
   validates_presence_of :name
@@ -15,5 +18,9 @@ class Area < ActiveRecord::Base
   end
   
   def notify_to(users)
+  end
+  
+  def is_root?
+    is_root_area
   end
 end

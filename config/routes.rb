@@ -8,19 +8,23 @@ GestionDesempeno::Application.routes.draw do
   devise_for :users, :skip => :registrations
   
   constraints(Subdomain) do
-    resources :accounts, :only => [:index]
+    resources :accounts, :only => [:index, :update]
     match '/accounts/user_info' => 'accounts#user_info', :as => 'user_info', :via => :get
-    match '/accounts/info' => 'accounts#account_info', :as => 'account_info', :via => :get
+    match '/accounts/account_info' => 'accounts#account_info', :as => 'account_info', :via => :get
     match '/accounts/user_tasks' => 'accounts#user_tasks', :as => 'user_tasks', :via => :get
+    match '/accounts/destroy_current' => 'accounts#destroy', :as => 'destroy_account', :via => :delete
+    
     match '/panorama' => 'panoramas#index'
     
     resources :comments, :only => [:create, :destroy]
-    
     resources :strategic_lines, :only => [:index, :destroy, :edit, :update, :create, :new]
     resources :strategic_objectives, :except => :show
 
+    match '/people/bulk_update_admin' => 'people#bulk_update_admin', :as => 'bulk_update_admin', :via => :put
     resources :people, :only => [:index, :new, :edit]
-    resources :areas, :only => [:index, :new, :create]
+    
+    match '/areas/admin' => 'areas#admin', :as => 'areas_admin', :via => :get
+    resources :areas, :only => [:index, :new, :create, :edit, :update]
     
     match 'contextual_legends/show' => 'contextual_legends#show', :via => :post
     

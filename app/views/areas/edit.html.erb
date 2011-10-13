@@ -6,12 +6,12 @@
 			<p><%=t 'views.people.non_empty.title', :company => current_user.company.name %></p>
 		</div>
 		
-		<%= nested_form_for @area do |a| %>
-			<h1><%=t 'views.area.new.title' %></h1>
+		<%= nested_form_for @area, :method => :put do |a| %>
+			<h1><%=t 'views.area.edit.title', :area => @area.name %></h1>
 			
 			<%= render :partial => 'form', :locals => {:a => a} %>
 			
-			<%= a.submit t('views.area.new.controls.save') %>
+			<%= a.submit t('views.area.edit.controls.save') %>
 		<% end %>
 		
 	</div>

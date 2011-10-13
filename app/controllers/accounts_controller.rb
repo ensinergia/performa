@@ -20,6 +20,21 @@ class AccountsController < ActionController::Base
   def user_tasks
   end
   
+  def update
+    if current_user.update_attributes(params[:user])
+      sign_in(current_user, :bypass => true)
+      redirect_to :back, :notice => I18n.t('views.common.messages.update.successful', :model => "Cuenta", :genre => "a")
+    else
+      render :action => :user_info
+    end
+  end
+  
+  def destroy
+    sign_out(current_user)
+    current_user.destroy
+    redirect_to root_path, :alert => I18n.t('devise.registrations.destroyed')
+  end
+  
   private 
   def logged_in_user_to_action
     @user = current_user

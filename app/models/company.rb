@@ -6,7 +6,7 @@ class Company < ActiveRecord::Base
   has_one :war_cry
   
   has_many :users
-  has_many :areas
+  has_many :areas, :dependent => :destroy
   has_many :strategic_lines
   has_many :strategic_objectives
   has_one :swot
@@ -16,13 +16,17 @@ class Company < ActiveRecord::Base
   
   after_initialize :get_default_area, :on => :create
   
+  def has_only_one_owner?
+    self.users.includes(:position).count(:conditions => ["positions.name = '#{Position.owner}'"]) == 1
+  end
+  
   private
   def get_default_area
-    self.areas.first(:conditions => {:name => I18n.t('views.areas.default')}) || build_default_area
+    self.areas.first(:conditions => {:name => I18n.t('views.areas.default'), :is_root_area => true}) || build_default_area
   end
   
   def build_default_area
-    self.areas.build(:name => I18n.t('views.areas.default'))   
+    self.areas.build(:name => I18n.t('views.areas.default'), :is_root_area => true)   
   end
   
 end

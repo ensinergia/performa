@@ -11,5 +11,16 @@ require 'spec_helper'
 #   end
 # end
 describe AreasHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  before(:each) do
+    @owner_p = Factory(:owner_position)
+    @user_p = Factory(:user_position)
+    @other_p = Factory(:position, :name => "newbie")
+    
+    @user = Factory.build(:user, :position => @owner_p)
+  end
+  
+  it "should translate the available set of positions, leaving the undefined untranslated" do
+    translated_permissions_for_select_for(@user).should == "<option value=\"1\" selected=\"selected\">#{I18n.t("views.positions.#{@owner_p.name}")}</option>\n<option value=\"2\">#{I18n.t("views.positions.#{@user_p.name}")}</option>\n<option value=\"3\">Newbie</option>"
+  end
 end

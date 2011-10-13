@@ -7,6 +7,7 @@ Factory.define :user do |u|
   u.password "performa"
   u.password_confirmation "performa"
   u.email "silvanito@ievolutioned.com"
+  u.position { Factory(:position, :name => Position.owner) }
 end
 
 Factory.define :user_no_company_name, :class => "User" do |u|
@@ -17,6 +18,7 @@ Factory.define :user_no_company_name, :class => "User" do |u|
   u.sequence :email do |n|
     "fulano#{n}@ievolutioned.com"
   end
+  u.position { Factory(:position, :name => Position.employee) }
 end
 
 Factory.define :user_no_company_name_other_area, :class => "User" do |u|
@@ -29,4 +31,5 @@ Factory.define :user_no_company_name_other_area, :class => "User" do |u|
   u.sequence :email do |n|
     "perengano#{n}@ievolutioned.com"
   end
+  u.position { Factory(:position, :name => Position.employee) }
 end

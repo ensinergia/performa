@@ -275,6 +275,10 @@ input:focus, textarea:focus {
 	padding: 5em 1em 5em 1em;
 }
 
+.is-admin {
+	font-weight: bold;
+}
+
 #menu-content{
   position: absolute;
   left: 0;

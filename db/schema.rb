@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20110930063414) do
   create_table "areas", :force => true do |t|
     t.string   "name"
     t.integer  "company_id"
+    t.boolean  "is_root_area"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,7 +79,8 @@ ActiveRecord::Schema.define(:version => 20110930063414) do
   end
 
   create_table "positions", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "role_equivalence"
   end
 
   create_table "strategic_line_strategic_objectives", :force => true do |t|

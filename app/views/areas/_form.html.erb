@@ -1,0 +1,16 @@
+<%= render :partial => 'shared/errors', 
+				 :locals => {:message_error => t('views.creed.most_views.form_errors'), :object => @area} %>
+
+<%= a.text_field :name %>
+<%= a.select :user_id, options_from_collection_for_select(@users, 'id', 'name', :selected => @area.user_id) %>
+
+<div id="sesiones">
+		<h1><%=t 'views.area.shared.functions' %></h1>
+
+    <%= render :partial => 'functions/form', :locals => {:a => a} %>
+		
+    <%= a.link_to_add t('views.area.new.controls.add_function'), :functions %>
+</div>
+<br/><br/>
+
+<%= link_to t('views.area.shared.controls.cancel'), people_path %>
