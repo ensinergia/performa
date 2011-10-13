@@ -34,16 +34,12 @@
 					  <%= f.text_field :area, :value => @user.area.name,:disabled => true %>
 
 					  <div><%= f.label :position %></div>
-					  <%= f.text_field :position, :value => @user.position.name, :disabled => true %>
+					  <%= f.text_field :position, :value => I18n.t("views.positions.#{@user.position.name}"), :disabled => true %>
 
 						<div><label>Rol</label></div>
 
-						<!-- field :role -->
-						<% if 0 ==2 %>
-					  <div><%= f.label :role %> </div>
-					  <%= f.text_field :role %>
-						<% end %>
-						<input id="user_role" type="text" size="30" name="user[role]" disabled="disabled">
+					  <%= text_field_tag :role, I18n.t("views.roles.#{@user.position.role_equivalence}"), :disabled => true %>
+
 						<div class="right-placed form-controls">
 					  	<%= link_to I18n.t('views.accounts.sections.my_info.controls.cancel'), '' %>&nbsp;
 							<%= f.submit I18n.t('views.accounts.sections.my_info.controls.save'), :class => "button orange as-link" %>

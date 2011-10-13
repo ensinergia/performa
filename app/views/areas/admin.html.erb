@@ -18,9 +18,8 @@
 		
 			<% @people.each do |person| %>
 				
-				<%= select_tag "users[#{person.id}]", options_from_collection_for_select(Role.all, 'id', 'name', person.role.id) %>
-				
-				<span class="<%= person.role?(:admin) ? "is-admin" : "is-not-admin" %>"><%= person.name %></span>
+				<%= select_tag "users[#{person.id}]", translated_permissions_for_select_for(person) %>
+				<%= visual_permissions_for(person) %>
 				
 			<% end %>
 			<%= link_to t('views.people.admin.controls.cancel'), people_url %>

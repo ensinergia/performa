@@ -305,7 +305,14 @@ es-MX:
             "3": "Baja"
           table:
             task_column_name: "Tarea"
-  
+    positions:
+      admin: "Administrador"
+      user: "Empleado"
+      owner: "Dueño"
+    roles: 
+      "99": "Super Administrador"
+      "88": "Administrador"
+      "77": "Usuario"
     registrations:
       title: "Estas a 60 segundos de tu nueva cuenta en Performa"
       help_description: "Para acceder al sistema es necesario crear una cuenta. Crear una cuenta en enSinergia es muy fácil, solo se requiere tu cuenta de e-mail.\n\nLa cuenta e-mail que utilices será tu USUARIO y será la cuenta de correo en la que recibirás notificaciones de actualizaciones en tu cuenta.\n\nTe recomendamos utilizar una Contraseña segura conformada por mayúsculas, minúsculas y números, evitando caracteres especiales.\n\nAsegúrate de repetir correctamente tu Contraseña."

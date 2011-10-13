@@ -23,19 +23,17 @@ class User < ActiveRecord::Base
   
   attr_accessor :company_name
 
-  belongs_to :role
-
   before_destroy :destroy_company
 
   def self.change_role_for(users)
     users.each_key do |key|
       user=self.find(key)
-      user.update_attribute(:role_id, users[key]) if user.role != users[key]
+      user.update_attribute(:position_id, users[key]) if user.position != users[key]
     end
   end
 
-  def role?(role_name)
-    return self.role.try(:name) == role_name.to_s
+  def role?(role_id)
+    return self.position.role_equivalence == role_id
   end
 
   def company_name

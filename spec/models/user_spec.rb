@@ -25,14 +25,16 @@ describe User do
     describe ": Given two users: one admin and the other not" do
 
       before(:each) do
-        @admin = Factory(:user_no_company_name_other_area, :name => "Felix", :company => @company, :role => Factory(:role_admin))
-        @not_admin = Factory(:user_no_company_name_other_area, :name => "San", :company => @company, :role => Factory(:role_user))
+        @u_p = Factory(:user_position)
+        @o_p = Factory(:owner_position)
+        @admin = Factory(:user_no_company_name_other_area, :name => "Felix", :company => @company, :position => @o_p)
+        @not_admin = Factory(:user_no_company_name_other_area, :name => "San", :company => @company, :position => @u_p)
       end
 
       it "should let me change it's permissions" do
-        User.change_role_for({@admin.id => false, @not_admin => true})
-        User.find(@admin.id).role?(:admin).should be_false
-        User.find(@not_admin.id).role?(:admin).should be_true
+        User.change_role_for({@admin.id => @u_p.id, @not_admin.id => @o_p.id})
+        User.find(@admin.id).role?(Role.user).should be_true
+        User.find(@not_admin.id).role?(Role.super_admin).should be_true
       end
 
     end

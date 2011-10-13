@@ -1,7 +1,12 @@
-class Role < ActiveRecord::Base
-  has_many :users
+class Role
+  
+  @@super_admin = 99
+  @@admin = 88
+  @@user = 77
+  
+  cattr_accessor :super_admin, :admin, :user
   
   def self.default_role
-    return Role.find_by_name('user')
+    return @user
   end
 end

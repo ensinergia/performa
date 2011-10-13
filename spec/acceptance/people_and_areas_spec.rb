@@ -9,7 +9,7 @@ feature "PEOPLE AND AREAS features:" do
   before(:each) do    
     @host = "http://lvh.me:#{Capybara.server_port}"
     Capybara.app_host = @host
-    @user = Factory(:user, :role => Factory(:role_admin))
+    @user = Factory(:user, :position => Factory(:owner_position))
     @sub_host = @host.gsub('lvh.me', "#{@user.subdomain}.lvh.me")
     login_as(@user)    
   end
@@ -62,15 +62,14 @@ feature "PEOPLE AND AREAS features:" do
   describe "Given a registered additional user" do
     
     before(:each) do
-      role_user=Factory(:role_user)
-      @user_one = Factory(:user_no_company_name_other_area, :name => "Felix", :company => @user.company, :role => role_user)
+      @user_one = Factory(:user_no_company_name_other_area, :name => "Felix", :company => @user.company, :position => Factory(:user_position))
     end
     
     it "should allow me to change it's permissions to admin", :js => true do
       visit @sub_host + areas_admin_path
       
-      select('admin', :from => "users_#{@user_one.id}")
-      select("user", :from => "users_#{@user.id}")
+      select(I18n.t('views.positions.owner'), :from => "users_#{@user_one.id}")
+      select(I18n.t('views.positions.user'), :from => "users_#{@user.id}")
       click_on I18n.t('views.people.admin.controls.save')
       
       current_url.should == @sub_host + areas_admin_path
