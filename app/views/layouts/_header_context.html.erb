@@ -1,18 +1,28 @@
-<div class="header-contents content on-2 columns">
-	<div class="centered title-container">
-		<p><%= t('views.header.app_name') %></p>
+<div class="header-contents">
+	
+	<div class="left-menu">
+		<ul>
+			<li><%= link_to t('views.header.controls.my_account'), accounts_path %></li>
+			<li><%= link_to t('views.header.controls.reports'), '' %></li>
+			<li><%= link_to t('views.header.controls.preparation'), '' %></li>
+			<li><%= link_to t('views.header.controls.help'), '' %></li>
+			<li class="last"><%= link_to t('views.header.controls.support'), '' %></li>
+		</ul>
 	</div>
 	
-	<div class="action-menu content on-2 columns">
+	<div id="app-logo"></div>
+	
+	<div class="right-menu content on-2 columns">
 		<div class="column fixed">
-			<b><%= current_user.full_name %></b> | <%= task_number_for(current_user) %>
-			<br>
+			<b><%= current_user.full_name %> | <%= task_number_for(current_user) %></b>
+			
 			<%= form_tag '' do %>
+				<div class="area-selector-arrow"></div>
 				<%= select_tag "area_selector", options_from_collection_for_select(current_user.company.areas, "id", "name") %>
 			<% end %>
 		</div>
 		<div class="column fixed right-placed">
-			<b><%= link_to t('views.header.controls.my_account'), accounts_path %></b>&nbsp;|&nbsp;
+			<b><%= link_to t('views.header.controls.help'), '' %></b>&nbsp;|&nbsp;
 			<%= link_to t('views.header.controls.logout'), destroy_user_session_url %>
 		</div>
 	</div>

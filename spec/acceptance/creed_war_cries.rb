@@ -16,7 +16,8 @@ feature "Creed section (War Cries):" do
     end
     
     it "should take me to the war cry sub-section when I click the creed link menu item and then the war cry link" do
-      click_link I18n.t('views.menu.creed')
+      click_link  "direction-menu"
+
       click_link I18n.t('activerecord.models.war_cry')
       
       current_url.should == @sub_host + creed_war_cries_path

@@ -26,14 +26,16 @@ feature "Strategic Lines:", :js => true do
     describe "and there is no strategic line registered" do
       
       it "should show me the first section welcome page when clicking 'Strategic Lines' on main menu" do
-        
-        click_link I18n.t('views.menu.strategic_lines')
+
+        click_link "strategic-lines-menu"
+
         should_have_initial_welcome_page_contents
         
       end
       
       it "should send me to the new strategic line form after clicking the add new button" do
-        click_link I18n.t('views.menu.strategic_lines')
+        click_link "strategic-lines-menu"
+        
         
         click_on I18n.t('views.strategic_lines.index.empty.controls.start')
         
@@ -47,7 +49,7 @@ feature "Strategic Lines:", :js => true do
       
       before(:each) do
         @sl = Factory(:strategic_line, :company => @user.company, :user => @user)
-        click_link I18n.t('views.menu.strategic_lines')
+        click_link "strategic-lines-menu"
       end
       
       it "should show me the first section page with one strategic line when clicking 'Strategic Lines' on main menu" do
