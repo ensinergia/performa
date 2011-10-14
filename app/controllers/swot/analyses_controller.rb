@@ -10,7 +10,7 @@ class Swot::AnalysesController < ActionController::Base
   
   def index
     render_main_analyses_template && return unless (@weaknesses.empty? && @strengths.empty?)
-    render(:template => 'swot/index')
+    render(:template => 'swot/index', :layout => 'application_index_page')
   end
   
   def externals

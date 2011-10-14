@@ -1,6 +1,6 @@
 <div class="title-bar rounded-10-top">
 	<ul class="items-inlined">
-		<li><%= link_to t('views.swot.internals.title'), internal_swot_analyses_url %></li>
-		<li><%= link_to t('views.swot.externals.title'), external_swot_analyses_url %></li>
+		<li class="<%= yield(:swi_submenu) %>"><%= link_to t('views.swot.internals.title'), internal_swot_analyses_url %></li>
+		<li class="<%= yield(:swe_submenu) %>"><%= link_to t('views.swot.externals.title'), external_swot_analyses_url %></li>
 	</ul>
 </div>

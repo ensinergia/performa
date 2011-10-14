@@ -231,7 +231,6 @@ feature "Handling of accounts in Performa" do
         find_field("user_company_name").value.should == @user.company_name
         find_field("user_area").value.should == @user.area.name
         find_field("user_position").value.should == I18n.t("views.positions.#{@user.position.name}")
-        find_field("role").value.should ==  I18n.t("views.roles.#{@user.position.role_equivalence}")
         
         fill_in 'user_email', :with => 'myemail@example.com'
         fill_in 'user_name', :with => 'My Example Name'

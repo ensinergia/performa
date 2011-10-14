@@ -1,7 +1,9 @@
+<%= content_for(:di_menu, &Proc.new { "selected" }) %>
+
 <div class="title-bar rounded-10-top">
 	<ul class="items-inlined">
-		<li><%= link_to t('activerecord.models.vision'), creed_visions_url %></li>
-		<li><%= link_to t('activerecord.models.mission'), creed_missions_url %></li>
-		<li><%= link_to t('activerecord.models.war_cry'), creed_war_cries_url %></li>
+		<li class="<%= yield(:vi_submenu) %>"><%= link_to t('activerecord.models.vision'), creed_visions_url %></li>
+		<li class="<%= yield(:mi_submenu) %>"><%= link_to t('activerecord.models.mission'), creed_missions_url %></li>
+		<li class="<%= yield(:wa_submenu) %>"><%= link_to t('activerecord.models.war_cry'), creed_war_cries_url %></li>
 	</ul>
 </div>

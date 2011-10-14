@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  		<title>Oficina de Gestion de desempeño</title>
+  		
+			<%= stylesheet_link_tag :defaults, 'layout', 'app_index_pages' %>  		
+			<%= javascript_include_tag :defaults, :others %>
+
+  		<%= csrf_meta_tag %>
+	</head>
+	<body>
+		<header>
+			<% if user_signed_in? %>
+				<%= render :partial => 'layouts/header_context' %>
+			<% else %>
+				<h1>Performa</h1>
+			<% end %>
+		</header>
+		
+		<div class="main-content">
+			
+			<%= render(:partial => 'shared/main_menu') if user_signed_in? %>
+			
+			<div class="messages">
+				<p id="notice" class="flash centered"><%= notice %></p>
+	    	<p id="alert" class="flash centered"><%= alert %></p>
+			</div>
+			
+			<div class="box-right">
+
+				<div class="content">
+					<%= yield %>		
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

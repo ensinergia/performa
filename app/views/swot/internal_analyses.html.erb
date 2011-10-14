@@ -1,5 +1,8 @@
 <div class="box rounded-10 with-shadow with-mid-width">
 	
+	<%= content_for(:sw_menu, &Proc.new { "selected" }) %>
+	<%= content_for(:swi_submenu, &Proc.new { "selected" }) %>
+	
 	<%= render 'swot/shared/menu' %>	
 	
 	<div class="inside-box">

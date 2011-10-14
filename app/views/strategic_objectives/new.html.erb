@@ -1,5 +1,8 @@
 <div class="box rounded-10 with-shadow with-mid-width">
-  <div class="title-bar rounded-10-top">
+  
+	<%= content_for(:so_menu, &Proc.new { "selected" }) %>
+
+	<div class="title-bar rounded-10-top">
     <h2><%= t('views.strategic_objectives.new.title') %></h2>
   </div>
 

@@ -11,7 +11,7 @@ class StrategicObjectivesController < ActionController::Base
   def index
     @strategic_objectives = current_company.strategic_objectives
 
-    @strategic_objectives.blank? ? render('index_welcome') : render('index')
+    @strategic_objectives.blank? ? render('index_welcome', :layout => 'application_index_page') : render('index')
   end
 
   def new

@@ -1,3 +1,5 @@
+<%= content_for(:mi_submenu, &Proc.new { "selected" }) %>
+
 <div class="box rounded-10 with-shadow with-mid-width">
 	<%= render :partial => 'creed/shared/new_creed', :locals => {:creed => @mission} %>
 </div>

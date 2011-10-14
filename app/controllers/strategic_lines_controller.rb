@@ -10,7 +10,7 @@ class StrategicLinesController < ActionController::Base
   def index
     @strategic_lines = StrategicLine.get_all_for(current_company)
     
-    @strategic_lines.blank? ? render('index_welcome') : render('index')
+    @strategic_lines.blank? ? render('index_welcome', :layout => 'application_index_page') : render('index')
   end
   
   def new

@@ -1,4 +1,7 @@
 <div class="box rounded-10 with-shadow with-mid-width">
+
+	<%= content_for(:sl_menu, &Proc.new { "selected" }) %>
+
   <div class="title-bar rounded-10-top">
     <h2><%= t('views.strategic_lines.edit.title') %></h2>
     <%= link_to 'Back', strategic_lines_path, :class => "back" %>

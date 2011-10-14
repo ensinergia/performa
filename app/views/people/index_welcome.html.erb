@@ -1,5 +1,7 @@
 <div class="box rounded-10 with-shadow with-mid-width">
 		
+	<%= content_for(:pe_menu, &Proc.new { "selected" }) %>	
+		
 	<div class="inside-box">
 		<!-- Image space -->
 		<h1><%= t('views.people.first_view.title') %></h1>

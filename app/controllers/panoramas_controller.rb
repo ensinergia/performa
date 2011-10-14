@@ -6,6 +6,7 @@ class PanoramasController < ActionController::Base
   before_filter :verify_subdomain
   
   def index
+    render :layout => 'application_index_page'
   end
   
 end

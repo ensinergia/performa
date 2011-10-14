@@ -1,5 +1,7 @@
 <div class="box rounded-10 with-shadow with-mid-width">
 	
+	<%= content_for(:sw_menu, &Proc.new { "selected" }) %>
+	
 	<%= render 'swot/shared/menu' %>	
 	
 	<%= link_to t('views.common.controls.back'), @analysis.is_internal? ? internal_swot_analyses_path : external_swot_analyses_path %>

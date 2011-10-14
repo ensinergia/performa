@@ -1,19 +1,23 @@
-<div class="box rounded-10 with-shadow with-mid-width">
+<%= content_for(:wa_submenu, &Proc.new { "selected" }) %>
+
+<div class="box rounded-10 with-shadow max-inner-width">
 	
 	<%= render 'creed/shared/menu' %>	
 	
 	<div class="inside-box">
-		<!-- Image space -->
-		<h1><%= t('views.creed.first_warcry.title') %></h1>
+		<div class="creed-img image"></div>
+		<div class="text-content">
+			<h1><%= t('views.creed.first_warcry.title') %></h1>
 		
-		<div class="contextual">
-			<%= form_tag contextual_legends_show_path, :remote => true, :id => "contextual-show-action-form" do %>
-				<%= hidden_field_tag :route, "#{request.env['PATH_INFO']}#empty" %>
-			<% end %>
-		</div>
+			<div class="contextual">
+				<%= form_tag contextual_legends_show_path, :remote => true, :id => "contextual-show-action-form" do %>
+					<%= hidden_field_tag :route, "#{request.env['PATH_INFO']}#empty" %>
+				<% end %>
+			</div>
 				
-		<%= link_to t('views.creed.first_warcry.controls.add'), 
-					  new_creed_war_cry_url(with_current_subdomain), 
-					  :method => :get, :class => "button orange" %>
+			<%= link_to t('views.creed.first_warcry.controls.add'), 
+						  new_creed_war_cry_url(with_current_subdomain), 
+						  :method => :get, :class => "button orange start-button" %>
+		</div>
 	</div>
 </div>

@@ -11,6 +11,7 @@ class Creed::MissionsController < ActionController::Base
       render :action => 'show'
       return
     end
+    render :layout => 'application_index_page'
   end
   
   def new

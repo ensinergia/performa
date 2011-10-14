@@ -20,6 +20,11 @@ h1 {
 	-moz-border-radius: 5px;
 }
 
+.rounded-5-top {
+	border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0; 
+	-moz-border-radius: 5px 5px 0 0;	
+}
 
 .rounded-10-top {
 	border-radius: 10px 10px 0 0;
@@ -71,14 +76,33 @@ h1 {
 
 ul.items-inlined { 
 	list-style: none;
-	margin: 2px;
+	margin: 5px 0px;
 	padding: 0;
-	text-align: center;
+}
+
+ul.items-inlined li.selected a { 
+	color: #FFF;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+
+ul.items-inlined li a { 
+	font-size: 16px;
+	text-decoration: none;
+	color:#6E7128;
+}
+
+ul.items-inlined li.selected { 
+	background-color:#A8AC3E;
 }
 
 ul.items-inlined li { 
 	display: inline-block;
 	margin-right: 15px;
+	padding: 5px;
+	width: 120px;
+	text-align: center;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
 }
 
 .orange.button, .orange.button:visited	{ background-color: rgba(255,96,4,1); }
@@ -141,7 +165,7 @@ input:focus, textarea:focus {
 /** Styles for specific global controls **/
 
 .title-bar {
-	background-color:#A7C933;
+	background-color:#C2C747;
 	padding: 2px 30px;
   height: 40px;
 }
@@ -151,7 +175,7 @@ input:focus, textarea:focus {
 	color: white;
 	text-shadow:0 0 3px black;
   float:left;
-  margin: 0.8em 0em;
+  margin: 7px 0;
 }
 .title-bar a.back {
   float: right;
@@ -168,12 +192,13 @@ input:focus, textarea:focus {
 
 .inside-box {
 	padding: 20px 30px;
+	clear: both;
 }
 
 .grey-colored {
 	background-color:rgba(189,189,189,0.2);
 	border: 1px solid #BCBCBC;
-}
+}se
 
 .field-set {
 	padding: 30px 20px;
@@ -200,20 +225,24 @@ input:focus, textarea:focus {
 
 .help { width: 80% }
 
+.help .title p {
+	padding-top: 3px;
+}
+
 .help .title { 
-	font-weight: bold;
+	font-weight: 200;
 	background-color: #EC8614;
 	text-align: center; 
 	text-transform: uppercase;
 	color: white;
-	font-size: 17px;
-	padding-top: 5px;
+	font-size: 16px;
+	height: 25px;
 	text-shadow:0 0 2px black;
 }
 
-.help > p { font-size: 14px }
-
-.help .subtitle { font-weight: bold }
+.help .contextual { 
+	padding: 10px 8px;
+}
 
 .account_menu {
 	background-color: #E2E4B4;
@@ -384,7 +413,9 @@ ul.menu{
 	display: block;
 }
 
-
+.menu li.selected a.panorama-btn, .menu li.selected a.panorama-btn:hover {
+	background: url(../images/panorama_btn_selected.png) no-repeat;
+}
 
 .menu li a.panorama-btn:hover {
 	background: url(../images/panorama_btn_hover.png) no-repeat;
@@ -394,6 +425,10 @@ ul.menu{
 	width:102px;
 	height: 32px;
 	background: url(../images/panorama_btn_up.png) no-repeat;
+}
+
+.menu li.selected a.direction-btn, .menu li.selected a.direction-btn:hover {
+	background: url(../images/direction_btn_selected.png) no-repeat;
 }
 
 .menu li a.direction-btn:hover {
@@ -406,6 +441,10 @@ ul.menu{
 	background: url(../images/direction_btn_up.png) no-repeat;
 }
 
+.menu li.selected a.foda-btn, .menu li.selected a.foda-btn:hover {
+	background: url(../images/FODA_btn_selected.png) no-repeat;
+}
+
 .menu li a.foda-btn:hover {
 	background: url(../images/FODA_btn_hover.png) no-repeat;
 }
@@ -414,6 +453,10 @@ ul.menu{
 	width:65px;
 	height: 32px;
 	background: url(../images/FODA_btn_up.png) no-repeat;
+}
+
+.menu li.selected a.strategic-l-btn, .menu li.selected a.strategic-l-btn:hover {
+	background: url(../images/strategic_l_btn_selected.png) no-repeat;
 }
 
 .menu li a.strategic-l-btn:hover {
@@ -426,6 +469,10 @@ ul.menu{
 	background: url(../images/strategic_l_btn_up.png) no-repeat;
 }
 
+.menu li.selected a.strategic-o-btn, .menu li.selected a.strategic-o-btn:hover {
+	background: url(../images/strategic_o_btn_selected.png) no-repeat;
+}
+
 .menu li a.strategic-o-btn:hover {
 	background: url(../images/strategic_o_btn_hover.png) no-repeat;
 }
@@ -434,6 +481,10 @@ ul.menu{
 	width:194px;
 	height: 32px;
 	background: url(../images/strategic_o_btn_up.png) no-repeat;
+}
+
+.menu li.selected a.programs-btn, .menu li.selected a.programs-btn:hover {
+	background: url(../images/programs_btn_selected.png) no-repeat;
 }
 
 .menu li a.programs-btn:hover {
@@ -446,6 +497,10 @@ ul.menu{
 	background: url(../images/programs_btn_up.png) no-repeat;
 }
 
+.menu li.selected a.people-btn, .menu li.selected a.people-btn:hover {
+	background: url(../images/people_btn_selected.png) no-repeat;
+}
+
 .menu li a.people-btn:hover {
 	background: url(../images/people_btn_hover.png) no-repeat;
 }
@@ -454,4 +509,14 @@ ul.menu{
 	width:113px;
 	height: 32px;
 	background: url(../images/people_btn_up.png) no-repeat;
+}
+
+.contextual-link:hover {
+	text-decoration: underline;
+	color: #000;
+}
+
+.contextual-link {
+	color: #353535;
+	text-decoration: none;
 }
