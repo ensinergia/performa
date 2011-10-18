@@ -118,6 +118,8 @@ ul.items-inlined li {
 	border:none;
 }
 
+.margin-from-top-8 { margin-top: 8px }
+
 input, textarea, select {  
 	padding: 5px;  
 	border: solid 1px #E5E5E5;  
@@ -519,4 +521,25 @@ ul.menu{
 .contextual-link {
 	color: #353535;
 	text-decoration: none;
+}
+
+.area-title #modify:hover {
+	background: url(../images/editar_ico_hover.png) no-repeat;
+}
+
+.area-title #modify {
+	background: url(../images/editar_ico_up.png) no-repeat;
+	width: 9px;
+	height: 18px;
+	display: inline-block;
+}
+
+.area-title {
+	background-color:#E2E0B3;
+	padding: 10px;
+}
+
+.area-title span {
+	font-size: 16px;
+	color:#6D6A63;
 }

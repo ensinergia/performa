@@ -1,4 +1,4 @@
-	<div class="box rounded-10 with-shadow" style="width: 550px;">
+	<div class="box rounded-10 with-shadow" style="width: 600px;">
 		<div class="title-bar rounded-10-top">
 			<h2><%= t('views.registrations.title') %></h2>
 		</div>
@@ -10,16 +10,16 @@
 				<div class="field-set label-large grey-colored rounded-5 with-inner-shadow">
 
 					<div><%= f.label :name %>:</div><%= f.text_field :name %>
-
+					<br/>
 					<div><%= f.label :last_name %>:</div><%= f.text_field :last_name %>
-
+					<br/>
 					<div><%= f.label :company_name %>:</div><%= f.text_field :company_name %>
-
+					<br/>
 					<div>*<%= f.label :email %>:</div><%= f.email_field :email %>
-
+					<br/>
 				  <div>*<%= f.label :password %>:</div>
 					<%= f.password_field :password, :size => 15 %>
-
+					<br/>
 				  <div>*<%= f.label :password_confirmation %>:</div>
 					<%= f.password_field :password_confirmation, :size => 15 %>
 				</div>

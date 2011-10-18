@@ -2,13 +2,15 @@
 	
 	<%= content_for(:pe_menu, &Proc.new { "selected" }) %>
 	
+	<div class="title-bar rounded-10-top">
+		<h2><%=t 'views.people.non_empty.title', :company => current_user.company.name %></h2>
+			
+		<%= link_to t('views.people.non_empty.controls.add_area'), new_area_url, :class => "button orange right-placed margin-from-top-8" %>
+	</div>
+	
 	<div class="inside-box">
 
-		<div class="title-bar">
-			<p><%=t 'views.people.non_empty.title', :company => current_user.company.name %></p>
-			
-			<%= link_to t('views.people.non_empty.controls.add_area'), new_area_url, :class => "button orange" %>
-		</div>
+
 		
 		<% @areas.each do |area| %>
 			<%= render area %>

@@ -194,7 +194,7 @@ feature "PEOPLE AND AREAS features:" do
           find_link I18n.t('views.area.index.controls.admin_list')
         
           within("#person-#{@user.id}") do
-            should_have_person_view_with(:name => @user.name, :email => @user.email, :position => Position.owner)
+            should_have_person_view_with(:name => @user.name, :email => @user.email, :position => I18n.t("views.positions.#{Position.owner}"))
           end
           find(:xpath, "//a[contains(@class, 'add')]")
         end
