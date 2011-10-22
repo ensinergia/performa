@@ -7,7 +7,7 @@ Factory.define :user do |u|
   u.password "performa"
   u.password_confirmation "performa"
   u.email "silvanito@ievolutioned.com"
-  u.position { Factory(:position, :name => Position.owner) }
+  u.position { Factory(:position, :name => Position.owner, :role_equivalence => Role.admin) }
 end
 
 Factory.define :user_no_company_name, :class => "User" do |u|
