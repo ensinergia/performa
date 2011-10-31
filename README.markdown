@@ -1,6 +1,6 @@
 #Performa
 ## Office management of performance
-  Our new rails project, with **BDD, Steak, PaperTrail, Remotipart**
+  Our new rails project, with **BDD with RSpec, Capybara, Steak, FactoryGirl. Other libraries are PaperTrail, Remotipart and Devise**
 	[vidriloco](https://github.com/vidriloco) in charge.
 
 ### Installation
@@ -49,3 +49,26 @@ By a suggestion from [Omar](https://github.com/ovargas27) we started using git-f
 In the *planning* directory within the application directory there is an updated diagram of all the models of the application
 and it's relations. It is editable with Omnigraffle.
    
+## RSpec and friends
+
+### What to spec
+
+In this project we have been focusing on acceptance testing *(specs/acceptance)*, unit testing *(specs/models)* and integration testing *(specs/controllers)*. While implementing those three groups of tests we are sometimes testing the functionality given by some helpers for code refactoring in the views mainly and also testing routes work correctly. The latter are found at *(specs/helpers)* and at *(specs/routing)* respectively.
+
+In directory *(specs/factories)* are defined all the fixtures for mocking model's instances. We are using FactoryGirl for that.
+
+### How to spec
+
+See [this](http://www.slideshare.net/drmanitoba/behaviour-driven-development-with-cucumber-rspec-and-shoulda) slide for an overview on BDD and the red-green-refactor cycle. Here it is explained how to do it right. 
+
+### Some of the tools
+
+For acceptance testing we are using Steak (see [here](https://github.com/cavalle/steak)) together with Selenium through Capybara (see [here](https://github.com/jnicklas/capybara)) for simulating a user interaction with controls within a webpage, which also allows to interact with the javascript on it.
+
+### The Reasons for choosing Steak instead of Cucumber as a DSL for acceptance testing
+
+We decided to go for Steak as a DSL (Domain Specific Language) for acceptance testing due it's simplicity. Whilst Cucumber is more focused on describing specs that are easy to understand for a client with no computer programming language understanding; Steak is just focused on describing quick and concrete specs which promote faster spec'ing without useless paraphernalia. 
+
+It the case of this project using Cucumber provides no extra value, as we are not having meetings with clients where they tell us the features on the application explicitly, instead we are being guided by a set of mocks previously agreed upon.
+
+For more information about **Steak** see [here](http://jeffkreeftmeijer.com/2010/steak-because-cucumber-is-for-vegetarians/)
