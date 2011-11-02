@@ -1,75 +1,80 @@
 .box-right {
-	padding: 30px 0;
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
+  padding: 30px 0;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .box-right .text-content {
-	width: 650px;
-	max-width: 700px;
-	display: inline-block;
+  width: 650px;
+  max-width: 700px;
+  vertical-align:top;
+  display: inline-block;
+}
+
+.box-right .text-content a{
+  float:left;
 }
 
 .box-right .content {
-	display: inline-block;
-	margin-left: auto;
-	margin-right: auto;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .max-inner-width {
-	width: 1100px;
+  width: 1100px;
 }
 
 .inside-box {
-	padding-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 .inside-box .image {
-	margin-right: 100px;
+  margin-right: 100px;
 }
 
 .box-right .start-button {
-	float: right;
-	margin-right: 100px;
+  float: right;
+  margin-right: 100px;
 }
 
 .strategic-objectives-img {
-	width: 265px;
-	height: 274px;
-	background: url(../images/Ilustracion_4.png) no-repeat;
-	display: inline-block;
+  width: 265px;
+  height: 274px;
+  background: url(../images/Ilustracion_4.png) no-repeat;
+  display: inline-block;
 }
 
 .strategic-lines-img {
-	width: 263px;
-	height: 242px;
-	background: url(../images/Ilustracion_5.png) no-repeat;
-	display: inline-block;
+  width: 263px;
+  height: 242px;
+  background: url(../images/Ilustracion_5.png) no-repeat;
+  display: inline-block;
 }
 
 .foda-img {
-	width: 226px;
-	height: 274px;
-	background: url(../images/Ilustracion_3.png) no-repeat 5px;
-	display: inline-block;
+  width: 226px;
+  height: 274px;
+  background: url(../images/Ilustracion_3.png) no-repeat 5px;
+  display: inline-block;
 }
 
 .panorama-img {
-	width: 216px;
-	height: 273px;
-	background: url(../images/Ilustracion_1.png) no-repeat;
-	display: inline-block;
+  width: 216px;
+  height: 273px;
+  background: url(../images/Ilustracion_1.png) no-repeat;
+  display: inline-block;
 }
 
 .creed-img {
-	width: 216px;
-	height: 274px;
-	background: url(../images/Ilustracion_2.png) no-repeat;
-	display: inline-block;
+  width: 216px;
+  height: 274px;
+  background: url(../images/Ilustracion_2.png) no-repeat;
+  display: inline-block;
 }
 
 .box-with-left-contents {
-	margin-left: 100px;
-	display: inline-block;
+  margin-left: 100px;
+  display: inline-block;
 }

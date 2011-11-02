@@ -15,7 +15,6 @@
 					<%= hidden_field_tag :route, "#{request.env['PATH_INFO']}#empty" %>
 				<% end %>
 			</div>
-		
 			<%= link_to t('views.creed.first_vision.controls.add_vision'), 
 						  new_creed_vision_url(with_current_subdomain), 
 						  :method => :get, :class => "button orange start-button" %>
