@@ -2,6 +2,9 @@ class StrategicLine < ActiveRecord::Base
   include Shared
 
   has_many :comments, :as => :commentable
+  has_many :strategic_line_strategic_objective
+  
+  has_many :strategic_objectives, :through => :strategic_line_strategic_objective
 
   belongs_to :company
   belongs_to :user

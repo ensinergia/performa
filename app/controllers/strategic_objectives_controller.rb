@@ -6,7 +6,6 @@ class StrategicObjectivesController < ActionController::Base
   layout 'application'
 
   before_filter :verify_subdomain
-  before_filter :strategic_lines, :only => [:new, :edit]
 
   def index
     @strategic_objectives = current_company.strategic_objectives
@@ -57,7 +56,4 @@ class StrategicObjectivesController < ActionController::Base
     end
   end
 
-  def strategic_lines
-    @strategic_lines = current_company.strategic_lines
-  end
 end

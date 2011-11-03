@@ -6,6 +6,8 @@ class StrategicLinesController < ActionController::Base
   layout 'application'
   
   before_filter :verify_subdomain
+  before_filter :strategic_objectives, :only => [:new, :edit]
+  
   
   def index
     @strategic_lines = StrategicLine.get_all_for(current_company)
@@ -52,5 +54,9 @@ class StrategicLinesController < ActionController::Base
       format.html { redirect_to(strategic_lines_url) }
     end
   end
+  
+  def strategic_objectives
+     @strategic_objectives = current_company.strategic_objectives
+   end
   
 end

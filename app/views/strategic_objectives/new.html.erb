@@ -11,16 +11,6 @@
       <%= form_for @strategic_objective do |f| %>
         <%= f.text_area :content %><br/>
 
-        <h2><%= t('views.strategic_objectives.new.strategic_lines') %></h2>
-        <ul>
-          <% @strategic_lines.each do |strategic_line| %>
-            <li>
-              <%= check_box_tag "strategic_objective[strategic_line_ids][]", strategic_line.id, strategic_objective_include_strategic_line?(f.object, strategic_line) -%>
-              <%= label_tag "strategic_objective_strategic_line_ids_", strategic_line.content -%>
-            </li>
-          <% end %>
-        </ul>
-
       </div>
       <%= render 'shared/notifications' %>
 
