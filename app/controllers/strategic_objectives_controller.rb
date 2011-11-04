@@ -29,7 +29,6 @@ class StrategicObjectivesController < ActionController::Base
       @strategic_objective.notify_to(params[:users])
       redirect_to strategic_objectives_path, :notice => I18n.t('views.common.messages.save.successful', :model => "Objetivos Estratégicos", :genre => "os")
     else
-      strategic_lines
       render :action => 'new'
     end
   end
@@ -42,7 +41,6 @@ class StrategicObjectivesController < ActionController::Base
 
       redirect_to strategic_objectives_path, :notice => I18n.t('views.common.messages.update.successful', :model => "Objetivos Estratégicos", :genre => "os")
     else
-      strategic_lines
       render :action => 'edit'
     end
   end
