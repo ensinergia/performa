@@ -43,9 +43,6 @@ feature "Strategic Objectives:", :js => true do
         page.should have_content I18n.t('views.strategic_objectives.new.title')
         fill_in 'strategic_objective_content', :with => 'Foo Objective'
 
-
-        page.should have_content I18n.t('views.strategic_objectives.new.strategic_lines')
-
         click_on I18n.t('views.strategic_objectives.new.controls.save')
 
         current_url.should == @sub_host + strategic_objectives_path
