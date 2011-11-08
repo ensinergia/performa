@@ -11,6 +11,17 @@
     <div class="form-box">
       <%= form_for @strategic_line, :html => { :method => :put } do |f| %>
         <%= f.text_area :content %><br/>
+
+		<h2><%= t('views.strategic_lines.edit.strategic_objectives') %></h2>
+        <ul>
+          <% @strategic_objectives.each do |strategic_objective| %>
+            <li>
+              <%= check_box_tag "strategic_line[strategic_objective_ids][]", strategic_objective.id, strategic_line_include_strategic_objective?(f.object, strategic_objective) -%>
+              <%= label_tag "strategic_line_strategic_objective_ids_", strategic_objective.content -%>
+            </li>
+          <% end %>
+        </ul>
+
         <span class="updated-pragma">Última actualización : <%= record_info_for(@strategic_line) %></span>
 
 

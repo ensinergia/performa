@@ -395,11 +395,13 @@ es-MX:
             add: "Agregar una Línea Estratégica"
       new:
         title: "Agregando una Línea Estratégica"
+        strategic_objectives: "Objetivos(s) Estratégico(s) a (el/los) que contribuye:"
         controls:
           cancel: "Cancelar"
           save: "Guardar"
       edit:
         title: "Modificando Línea Estratégica"
+        strategic_objectives: "Expectativas a cubrir:"
         last_updated: "Última actualización"
         controls:
           cancel: "Cancelar"

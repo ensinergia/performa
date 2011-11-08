@@ -6,6 +6,8 @@ class StrategicLinesController < ActionController::Base
   layout 'application'
   
   before_filter :verify_subdomain
+  before_filter :strategic_objectives, :only => [:new, :edit]
+  
   
   def index
     @strategic_lines = StrategicLine.get_all_for(current_company)
@@ -28,6 +30,7 @@ class StrategicLinesController < ActionController::Base
       @strategic_line.notify_to(params[:users])
       redirect_to strategic_lines_path, :notice => I18n.t('views.common.messages.save.successful', :model => "Líneas Estratégicas", :genre => "as")
     else
+      strategic_objectives
       render :action => 'new'
     end
   end
@@ -40,6 +43,7 @@ class StrategicLinesController < ActionController::Base
       
       redirect_to strategic_lines_path, :notice => I18n.t('views.common.messages.update.successful', :model => "Líneas Estratégicas", :genre => "as")
     else
+      strategic_objectives
       render :action => 'edit'
     end
   end
@@ -52,5 +56,9 @@ class StrategicLinesController < ActionController::Base
       format.html { redirect_to(strategic_lines_url) }
     end
   end
+  
+  def strategic_objectives
+     @strategic_objectives = current_company.strategic_objectives
+   end
   
 end

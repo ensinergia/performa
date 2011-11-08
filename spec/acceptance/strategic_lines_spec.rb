@@ -157,6 +157,7 @@ feature "Strategic Lines:", :js => true do
           current_path.should == new_strategic_line_path
           
           page.should have_content I18n.t('views.strategic_lines.new.title')
+          page.should have_content I18n.t('views.strategic_lines.new.strategic_objectives')
           
           notifications_area_with(@user, {:notified => [@user_in_area], :unnotified => [@user_not_in_area]})
           
