@@ -567,3 +567,89 @@ ul.menu{
 .creed_buttons input {
   margin: 10px;
 }
+
+.creed_description {
+  clear:both;
+  background-color:#eaecc7;
+  height:37px;
+  width:100%;
+}
+
+#comments {
+  background-color:#f2f2f2;
+  padding-bottom: 1em;
+}
+
+#comments p {
+  vertical-align:center;
+}
+
+.number {
+  background: #eaecc7;
+}
+
+.links {
+  padding-left: 17px;
+}
+
+.links a {
+  padding-left: 1em;
+}
+
+.creed_description_first {
+  float:left;
+  width:90%;
+  color:#666666;
+  height:37px;
+}
+
+.creed_description_first h4 {
+  float:left;
+  font-family: Tahoma;
+  font-size:18pt;
+  text-align:center;
+  padding: .2em;
+  vertical-align: bottom;
+}
+
+.creed_description_first p {
+  float:left;
+  position:relative;
+  font-size:10pt;
+  text-align:left;
+  padding-left:5px;
+  vertical-align: bottom;
+  top: 13px;
+}
+
+.pbutton {
+  float:right;
+  display: inline-block;
+  padding: 5px 10px 6px;
+  padding-right: 1em;
+}
+.pencil.pbutton, 
+.pencil.pbutton:visited  { 
+  background-image: url(../images/editar_ico_up.png);
+  background-repeat:no-repeat;
+  background-position: 10px 5px;
+  height:35px;
+}
+.pencil.pbutton:hover { 
+  background-image: url(../images/editar_ico_hover.png);
+  background-repeat:no-repeat;
+  background-position: 10px 5px;
+}
+
+.pencil.pbutton a {
+  display: inline-block;
+  border:0;
+  opacity:0.4;
+  filter:alpha(opacity=40);
+  text-decoration:none;
+  color: #eaecc7 transparent;
+}
+
+.creed_description_desc {
+  padding: .7em;
+}
