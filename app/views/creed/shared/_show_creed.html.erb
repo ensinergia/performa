@@ -7,8 +7,10 @@
 		  <h4><%=t "activerecord.models.#{creed.class.to_s.downcase}" %></h4>
       <p><%= record_info_for(creed) %></p>
     </div>
-    <div class="pbutton pencil">
-		  <%= link_to t('ii'), eval("edit_creed_#{creed.class.to_s.underscore.downcase}_path(creed)"), :method => :get %>
+    <div class="area-title">
+      <div class="right-placed">
+        <%= link_to "", eval("edit_creed_#{creed.class.to_s.underscore.downcase}_path(creed)"), :method => :get, :id => "modify"%>
+      </div>
     </div>
 	</div>
   <div class="creed_description_desc">

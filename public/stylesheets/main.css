@@ -550,7 +550,7 @@ ul.menu{
 }
 
 .area-title {
-  background-color:#E2E0B3;
+  background-color:#eaecc7;
   padding: 10px;
 }
 
@@ -620,34 +620,6 @@ ul.menu{
   padding-left:5px;
   vertical-align: bottom;
   top: 13px;
-}
-
-.pbutton {
-  float:right;
-  display: inline-block;
-  padding: 5px 10px 6px;
-  padding-right: 1em;
-}
-.pencil.pbutton, 
-.pencil.pbutton:visited  { 
-  background-image: url(../images/editar_ico_up.png);
-  background-repeat:no-repeat;
-  background-position: 10px 5px;
-  height:35px;
-}
-.pencil.pbutton:hover { 
-  background-image: url(../images/editar_ico_hover.png);
-  background-repeat:no-repeat;
-  background-position: 10px 5px;
-}
-
-.pencil.pbutton a {
-  display: inline-block;
-  border:0;
-  opacity:0.4;
-  filter:alpha(opacity=40);
-  text-decoration:none;
-  color: #eaecc7 transparent;
 }
 
 .creed_description_desc {
