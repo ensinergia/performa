@@ -596,6 +596,36 @@ ul.menu{
   padding-left: 1em;
 }
 
+.list {
+  clear:both;
+  padding: 3em; 
+}
+
+.comment {
+  padding-top:1em;
+}
+
+.author {
+  float:left;
+}
+
+.date {
+  float:left;
+  padding-left: 5em;
+}
+
+.comment_content {
+  clear:both;
+  padding-top:1em;
+  padding-bottom:2em;
+  border-bottom: 2px solid #dadada;
+}
+
+.button_to {
+  float:right;
+  position:relative;
+}
+
 .creed_description_first {
   float:left;
   width:90%;

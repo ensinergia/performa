@@ -25,21 +25,18 @@
 				<p id="notice" class="flash centered"><%= notice %></p>
 	    	<p id="alert" class="flash centered"><%= alert %></p>
 			</div>
+
+      <div class="column fixed" style="width: 200px">
+        <br/>
+      </div>
 			
-			<div class="column fixed" style="width: 200px">
-				<br/>
-			</div>
-				
 			<div class="column fixed" style="width: 780px">
 				<%= yield %>		
-			</div>
+      </div>
 				
-			<div class="column elastic" style="width: 250px">
-				
+			<div class="column fixed" style="width: 250px">
 				<%= yield :contextual_legend %>
-
 			</div>
-
 		</div>
 	</body>
 </html>

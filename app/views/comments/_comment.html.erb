@@ -1,4 +1,4 @@
-<div id="comment-<%= comment.id %>">
+<div id="comment-<%= comment.id %>" class="comment">
 	
 	<span class="author"><%= comment.user.name %></span>
 	<span class="date"><%=l comment.created_at, :format => :short %></span>
@@ -8,12 +8,10 @@
 			<%= link_to a.content_identifier, "#{a.content}" %>
 		<% end %>
 	<% end %>
-	
-	<div class="content"><%= comment.content %></div>
+  <div class="right-placed">
 	<% if comment.user == current_user %>
-		<%= button_to t('views.comments.controls.delete'), comment, :method => :delete, 
-				:remote => true, 
-				:confirm => t('views.common.messages.delete.confirm', :model => t('activerecord.models.comment'), :connector => "éste"), 
-				:class => 'delete-comment' %>
+		<%= button_to t('views.comments.controls.delete'), comment, :method => :delete, :remote => true, :confirm => t('views.common.messages.delete.confirm', :model => t('activerecord.models.comment'), :connector => "éste") %>
 	<% end %>
+  </div>
+	<div class="comment_content"><%= comment.content %></div>
 </div>
