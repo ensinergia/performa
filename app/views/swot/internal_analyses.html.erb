@@ -5,9 +5,15 @@
 	
 	<%= render 'swot/shared/menu' %>	
 	
-	<div class="inside-box">
-		
-		<div class="strengths">
+	<div class="inside-box on-2 columns">
+
+		<div class="strengths column">
+      <div id="new-strength" class="hidden">
+        <%= form_for([:swot, Analysis.new]) do |f| %>
+          <%= render :partial => 'swot/form', :locals => {:f => f, :kind => Analysis.strength} %>
+        <% end %>
+      </div>
+
 			<p><%=t 'views.swot.shared_views.strengths' %></p>
 			
 			<%= render :partial => "swot/analysis", :collection => @strengths %>
@@ -15,28 +21,20 @@
 			<%= link_to t('views.swot.shared_views.controls.add_strength'), 'javascript:void(0);', :class => "show-div", :id => "new-strength" %>
 		</div>
 		
-		<div id="new-strength" class="hidden">
-			<%= form_for([:swot, Analysis.new]) do |f| %>
-				<%= render :partial => 'swot/form', :locals => {:f => f, :kind => Analysis.strength} %>
-			<% end %>
-		</div>
-		
-		<div class="weaknesses">
+				
+		<div class="weaknesses column">
+      <div id="new-weakness" class="hidden">
+        <%= form_for([:swot, Analysis.new]) do |f| %>
+          <%= render :partial => 'swot/form', :locals => {:f => f, :kind => Analysis.weakness} %>
+        <% end %>
+      </div>
+
 			<p><%=t 'views.swot.shared_views.weaknesses' %></p>
 			
 			<%= render :partial => "swot/analysis", :collection => @weaknesses %>
 			
 			<%= link_to t('views.swot.shared_views.controls.add_weakness'), 'javascript:void(0);', :class => "show-div", :id => "new-weakness" %>
 		</div>
-		
-		<div id="new-weakness" class="hidden">
-			<%= form_for([:swot, Analysis.new]) do |f| %>
-				<%= render :partial => 'swot/form', :locals => {:f => f, :kind => Analysis.weakness} %>
-			<% end %>
-		</div>
-		
-		
-		
 	</div>
 </div>
 
