@@ -1,9 +1,9 @@
-<div id="comments">
+<div id="comments" class="comments_with_triangle">
 	<div class="messages"></div>
 	<div class="links">
 		<%= render_links_for_comments_number comments.size %>
-	</div>
-	<div id="c-list" class="list hidden">
-		<%= render :partial => 'comments/comment', :collection => comments %>
+    <div id="c-list" class="list hidden">
+      <%= render :partial => 'comments/comment', :collection => comments %>
+    </div>
 	</div>
 </div>

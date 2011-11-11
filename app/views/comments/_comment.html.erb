@@ -1,5 +1,4 @@
 <div id="comment-<%= comment.id %>" class="comment">
-	
 	<span class="author"><%= comment.user.name %></span>
 	<span class="date"><%=l comment.created_at, :format => :short %></span>
 	<% unless comment.attachments.empty? %>
@@ -10,7 +9,7 @@
 	<% end %>
   <div class="right-placed">
 	<% if comment.user == current_user %>
-		<%= button_to t('views.comments.controls.delete'), comment, :method => :delete, :remote => true, :confirm => t('views.common.messages.delete.confirm', :model => t('activerecord.models.comment'), :connector => "éste") %>
+		<%= button_to comment, :method => :delete, :remote => true, :confirm => t('views.common.messages.delete.confirm', :model => t('activerecord.models.comment'), :connector => "éste") %>
 	<% end %>
   </div>
 	<div class="comment_content"><%= comment.content %></div>

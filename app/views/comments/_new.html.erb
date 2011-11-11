@@ -10,8 +10,8 @@
 	<div class="hidden" id="upload-area">
 		<%= file_field_tag 'uploads[0]', :class => "selected-file" %>
 	</div>
-	
-	<%= link_to t('views.comments.controls.cancel'), 'javascript:void();', :class => 'hide-div', :id => 'new-comment-for-commentable' %>
-	<%= f.submit t('views.comments.controls.add') %>
+  <div class="right-placed">
+    <%= link_to t('views.comments.controls.cancel'), 'javascript:void();', :class => 'hide-div', :id => 'new-comment-for-commentable', :class => "button gray"%>
+    <%= f.submit t('views.comments.controls.add'), :class => "button orange" %>
+  </div>
 <% end %>
-
