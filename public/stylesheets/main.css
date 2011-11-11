@@ -621,7 +621,6 @@ ul.menu{
 
 .list {
   clear:both;
-  padding: 3em; 
 }
 
 .comment {
@@ -696,6 +695,8 @@ ul.menu{
 }
 
 .list-item {
+  margin: 4px;
+  padding-bottom:.7em;
   border-bottom: 2px solid #dadada;
 }
 
@@ -737,5 +738,73 @@ ul.menu{
 
 #new-comment-for-commentable h2 {
   padding-left: 2.5em;
+}
+
+.strengths p {
+  font-size:18pt;
+  text-align:center;
+}
+
+.strengths span {
+  font-size:10pt;
+}
+
+.weaknesses p {
+  font-size:18pt;
+  text-align:center;
+}
+
+.weaknesses span {
+  font-size:10pt;
+}
+
+.opportunities p {
+  font-size:18pt;
+  text-align:center;
+}
+
+.opportunities span {
+  font-size:10pt;
+}
+
+.risks p {
+  font-size:18pt;
+  text-align:center;
+}
+
+.risks span {
+  font-size:10pt;
+}
+
+.new_analysis {
+  
+}
+
+.number {
+  position:relative;
+  padding-top:3px;
+  padding-bottom:3px;
+  padding-left:9px;
+  padding-right:9px;
+  margin:1em 0 3em;
+  color:#fff;
+  background:#A8AC3E; /* default background for browsers without gradient support */
+  /* css3 */
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+}
+
+.number:after {
+  content:"";
+  position:absolute;
+  bottom:-9px; /* value = - border-top-width - border-bottom-width */
+  left:11px; /* controls horizontal position */
+  border-width:9px 0 0 7px; /* vary these values to change the angle of the vertex */
+  border-style:solid;
+  border-color:#A8AC3E transparent; 
+  /* reduce the damage in FF3.0 */
+  display:block; 
+  width:0;
 }
 
