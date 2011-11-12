@@ -1,9 +1,13 @@
 <div class="list">
-<p id="analysis-<%= analysis.id %>">
-	<span class="inline-analysis-value"><%= analysis.content %></span>
-	<%= link_to analysis.comments.count, swot_analysis_comments_url(analysis), :class => 'comment'  %>
-	
-	<%= button_to('Eliminar', [:swot, analysis], :method => :delete, :confirm => delete_confirmation_for(analysis), :class => 'delete' ) %>
-
-</p>
+  <div class="list-item">
+    <p id="analysis-<%= analysis.id %>">
+      <span class="inline-analysis-value"><%= analysis.content %></span>
+      <div class="right-placed">
+        <%= button_to('Eliminar', [:swot, analysis], :method => :delete, :confirm => delete_confirmation_for(analysis), :class => 'delete' ) %>
+      </div>
+      <div class="right-placed">
+        <%= link_to analysis.comments.count, swot_analysis_comments_url(analysis), :class => 'number' %>
+      </div>
+    </p>
+  </div>
 </div>
