@@ -2,10 +2,12 @@
   <%= strategic_objective.content %>
   <%= record_info_for(strategic_objective) %>
 
-  <%= render :partial => 'comments/index', :locals => { :comments => strategic_objective.comments } %>
+  <div class="comment_new">
+    <%= render :partial => 'comments/index', :locals => { :comments => strategic_objective.comments } %>
 
-  <div id="new-comment-for-commentable" class="hidden">
-    <%= render :partial => 'comments/new', :locals => {:commentable => strategic_objective} %>
+    <div id="new-comment-for-commentable" class="hidden">
+      <%= render :partial => 'comments/new', :locals => {:commentable => strategic_objective} %>
+    </div>
   </div>
 
   <%= button_to 'Eliminar', strategic_objective, :method => :delete, 

@@ -795,6 +795,10 @@ ul.menu{
   border-radius:5px;
 }
 
+.right-placed a {
+  text-decoration:none;
+}
+
 .number:after {
   content:"";
   position:absolute;
@@ -808,3 +812,6 @@ ul.menu{
   width:0;
 }
 
+.commenting-title {
+  background: #EAECC7;
+}

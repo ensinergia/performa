@@ -1,31 +1,24 @@
 <div class="box rounded-10 with-shadow with-mid-width">
 	
 	<%= content_for(:sw_menu, &Proc.new { "selected" }) %>
-	
 	<%= render 'swot/shared/menu' %>	
-	
 	<%= link_to t('views.common.controls.back'), @analysis.is_internal? ? internal_swot_analyses_path : external_swot_analyses_path %>
 	
 	<div class="inside-box">
-
-		<div class="title-bar">
+		<div class="commenting-title">
 		<p>
 			<%=t 'views.comments.commenting' %>&nbsp;-&nbsp;
 			<%= @analysis.content %>&nbsp;
 		</p>
 		</div>
-		
 		<%= record_info_for(@analysis) %>
-		
+    <div class="comment_new">
 		<%= render :partial => 'comments/index', :locals => { :comments => @analysis.comments } %>
-		
 		<div id="new-comment-for-commentable" class="hidden">
 			<%= render :partial => 'comments/new', :locals => {:commentable => @analysis} %>
 		</div>
-		
+    </div>
 	</div>
-	
-	
 </div>
 
 <%= content_for :contextual_legend do %>

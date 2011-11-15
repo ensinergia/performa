@@ -12,19 +12,18 @@
 					<%= sl.content %>
 					<%= record_info_for(sl) %>
 					
+          <div class="comment_new">
 					<%= render :partial => 'comments/index', :locals => { :comments => sl.comments } %>
-					
 					<div id="new-comment-for-commentable" class="hidden">
 						<%= render :partial => 'comments/new', :locals => {:commentable => sl} %>
 					</div>
-					
+					</div>
 					<%= button_to 'Eliminar', sl, :method => :delete, 
 												  :confirm => t('views.common.messages.delete.confirm', :connector => "ésta", :model => t('activerecord.models.strategic_line')), 
 												  :class => 'delete' %>
 					<%= link_to 'Modificar', edit_strategic_line_path(sl), :class => 'modify' %>
 				</div>
 		<% end %>		
-			
 		<%= link_to t('views.strategic_lines.index.not_empty.controls.add'), new_strategic_line_path, :class => "button orange" %>
 	</div>
 </div>
