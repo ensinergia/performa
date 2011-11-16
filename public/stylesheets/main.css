@@ -815,3 +815,12 @@ ul.menu{
 .commenting-title {
   background: #EAECC7;
 }
+
+.fix_button .orange {
+  margin-right: 50px;
+  margin-top: 10px;
+}
+
+.fix_button .gray {
+  margin-right:30px;
+}
