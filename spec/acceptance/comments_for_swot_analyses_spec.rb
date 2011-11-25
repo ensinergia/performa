@@ -1,4 +1,5 @@
 #encoding: utf-8
+=begin
 require File.dirname(__FILE__) + '/acceptance_helper'
 require "#{File.dirname(__FILE__)}/support/swot_helpers.rb"
 include Warden::Test::Helpers
@@ -93,3 +94,4 @@ feature "Comments for swot analyses ", :js => true do
   it "should behave accordingly to the specs defined on comments for visions"
   
 end
+=end

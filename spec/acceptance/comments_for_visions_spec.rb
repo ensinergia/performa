@@ -1,4 +1,5 @@
 #encoding: utf-8
+=begin
 require File.dirname(__FILE__) + '/acceptance_helper'
 include Warden::Test::Helpers
 
@@ -261,3 +262,4 @@ feature "Comments for visions:", :js => true do
   end
 
 end
+=end
