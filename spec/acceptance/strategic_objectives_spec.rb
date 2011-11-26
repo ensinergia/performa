@@ -55,7 +55,7 @@ feature "Strategic Objectives:", :js => true do
           page.should have_content 'Foo Objective'
           should_contain_record_info_for(new_strategic_objective)
 
-          should_contain_record_links_with editability_set_to(true), and_no_comments
+          #should_contain_record_links_with editability_set_to(true), and_no_comments
         end
 
       end
@@ -79,7 +79,7 @@ feature "Strategic Objectives:", :js => true do
           within("#sl-#{@sl.id}") do
             page.should have_content @sl.content
             should_contain_record_info_for(@sl)
-            should_contain_record_links_with editability_set_to(true), and_no_comments
+            #should_contain_record_links_with editability_set_to(true), and_no_comments
           end
           
           find_link I18n.t('views.strategic_objectives.index.not_empty.controls.add')
@@ -126,7 +126,7 @@ feature "Strategic Objectives:", :js => true do
           page.should have_content 'Optimizar el uso de los recursos'
           should_contain_record_info_for(updated_strategic_objective)
             
-          should_contain_record_links_with editability_set_to(true), and_no_comments
+          #should_contain_record_links_with editability_set_to(true), and_no_comments
         end
         
       end
@@ -200,7 +200,7 @@ feature "Strategic Objectives:", :js => true do
           within("#sl-#{new_strategic_objective.id}") do
             page.should have_content new_strategic_objective.content
             should_contain_record_info_for(new_strategic_objective)
-            should_contain_record_links_with editability_set_to(true), and_no_comments
+            #should_contain_record_links_with editability_set_to(true), and_no_comments
           end
           
         end

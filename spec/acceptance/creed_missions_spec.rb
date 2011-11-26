@@ -85,7 +85,7 @@ feature "Creed section (Missions):" do
       current_url.should == @sub_host + creed_missions_path
       current_path.should == creed_missions_path
     
-      within('.title-bar p') do
+      within('.creed_description_first') do
         page.should have_content I18n.t('activerecord.models.mission') 
         page.should have_content registered_mission.user.name
         page.should have_content I18n.l(registered_mission.updated_at, :format => :short)
@@ -93,9 +93,10 @@ feature "Creed section (Missions):" do
       
       page.should have_content registered_mission.description 
       
-      find_link I18n.t('views.comments.controls.make_a_comment')
+      #find_link I18n.t('views.comments.controls.make_a_comment')
       
-      find_link I18n.t('views.creed.show_mission.controls.edit')
+      #find_link I18n.t('views.creed.show_mission.controls.edit')
+      find ("#modify")
       
       within(".help") do
         page.should have_content I18n.t('views.help.title')
@@ -134,7 +135,7 @@ feature "Creed section (Missions):" do
       find_link I18n.t('activerecord.models.mission')
       find_link I18n.t('activerecord.models.war_cry')
       
-      within('.title-bar p') do
+      within('.creed_description_first') do
         page.should have_content "#{I18n.t('activerecord.models.mission')}" 
         page.should have_content @mission.user.name
         page.should have_content I18n.l(@mission.updated_at, :format => :short)
@@ -142,15 +143,18 @@ feature "Creed section (Missions):" do
       
       page.should have_content @mission.description 
       
-      find_link I18n.t('views.comments.controls.make_a_comment')
+      #find_link I18n.t('views.comments.controls.make_a_comment')
       
-      find_link I18n.t('views.creed.show_mission.controls.edit')
+      #find_link I18n.t('views.creed.show_mission.controls.edit')
+      find ("#modify")
     end
   
     it "should let me change it" do
       visit @sub_host + creed_missions_path
 
-      click_on I18n.t('views.creed.show_mission.controls.edit')
+      #click_on I18n.t('views.creed.show_mission.controls.edit')
+      
+      find("#modify").click
 
       current_url.should == @sub_host + edit_creed_mission_path(@mission)
       current_path.should == edit_creed_mission_path(@mission)
@@ -182,7 +186,9 @@ feature "Creed section (Missions):" do
     it "should NOT let me change it if I leave the description field empty" do
       visit @sub_host + creed_missions_path
       
-      click_on I18n.t('views.creed.show_mission.controls.edit')
+      #click_on I18n.t('views.creed.show_mission.controls.edit')
+      
+      find("#modify").click
       
       fill_in 'mission_description', :with => ''
       

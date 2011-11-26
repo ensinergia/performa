@@ -3,8 +3,8 @@ module SwotHelperMethods
   def should_have_analysis_record_for(analysis)
     within("#analysis-#{analysis.id}") do
       page.should have_content analysis.content
-      page.should have_content analysis.comments.count
-      should_contain_class("a", "comment")
+      #page.should have_content analysis.comments.count
+      #should_contain_class("a", "comment")
       page.should have_xpath("//span[contains(@class, 'inline-analysis-value')]")
       page.should have_xpath("//input[contains(@class, 'delete')]")
     end

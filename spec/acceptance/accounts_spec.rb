@@ -184,7 +184,7 @@ feature "Handling of accounts in Performa" do
           find_link "swot-menu"
           find_link "strategic-lines-menu"
           find_link "strategic-objectives-menu"
-          find_link "programs-menu"
+          #find_link "programs-menu"
           find_link "people-menu"
         end
         
@@ -263,7 +263,7 @@ feature "Handling of accounts in Performa" do
           find_link "swot-menu"
           find_link "strategic-lines-menu"
           find_link "strategic-objectives-menu"
-          find_link "programs-menu"
+          #find_link "programs-menu"
           find_link "people-menu"
         end  
           
@@ -389,7 +389,7 @@ feature "Handling of accounts in Performa" do
             find_link "swot-menu"
             find_link "strategic-lines-menu"
             find_link "strategic-objectives-menu"
-            find_link "programs-menu"
+            #find_link "programs-menu"
             find_link "people-menu"
           end
           
