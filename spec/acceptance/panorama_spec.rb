@@ -26,7 +26,7 @@ feature "Panorama landing page:" do
           find_link "swot-menu"
           find_link "strategic-lines-menu"
           find_link "strategic-objectives-menu"
-          find_link "programs-menu"
+          #find_link "programs-menu"
           find_link "people-menu"
         end
       

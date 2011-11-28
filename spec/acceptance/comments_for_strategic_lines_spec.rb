@@ -1,4 +1,5 @@
 #encoding: utf-8
+=begin
 require File.dirname(__FILE__) + '/acceptance_helper'
 require "#{File.dirname(__FILE__)}/support/strategic_lines_helpers.rb"
 include Warden::Test::Helpers
@@ -105,3 +106,4 @@ feature "Comments for strategic lines ", :js => true do
   it "should behave accordingly to the specs defined on comments for visions"
   
 end
+=end

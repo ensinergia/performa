@@ -5,9 +5,9 @@
       <div class="right-placed">
         <%= button_to('Eliminar', [:swot, analysis], :method => :delete, :confirm => delete_confirmation_for(analysis), :class => 'delete' ) %>
       </div>
-      <div class="right-placed">
+      <!--<div class="right-placed">
         <%= link_to analysis.comments.count, swot_analysis_comments_url(analysis), :class => 'number' %>
-      </div>
+      </div>-->
     </p>
   </div>
 </div>
