@@ -741,8 +741,26 @@ ul.menu{
 }
 
 .strengths p {
-  font-size:18pt;
-  text-align:center;
+  font-size:16pt;
+  color:#666666;
+  background-color:#EAECC7;
+  margin:0px 5px 0px 0px;
+  padding: 5px 0px 6px 10px;
+}
+
+
+.strengths_add_link {
+  font-size:10pt;
+  background-color:#E0E0E0;
+  margin:10px 5px 0px 0px;
+  padding: 5px 0px 6px 10px;
+}
+
+.weaknesses_add_link {
+  font-size:10pt;
+  background-color:#E0E0E0;
+  margin:10px 0px 0px 5px;
+  padding: 5px 0px 6px 10px;
 }
 
 .strengths span {
@@ -750,8 +768,11 @@ ul.menu{
 }
 
 .weaknesses p {
-  font-size:18pt;
-  text-align:center;
+  font-size:16pt;
+  color:#666666;
+  background-color:#EAECC7;
+  margin:0px 0px 0px 5px;
+  padding: 5px 0px 6px 10px;
 }
 
 .weaknesses span {

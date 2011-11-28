@@ -17,11 +17,11 @@
 			<p><%=t 'views.swot.shared_views.strengths' %></p>
 			
 			<%= render :partial => "swot/analysis", :collection => @strengths %>
-			
-			<%= link_to t('views.swot.shared_views.controls.add_strength'), 'javascript:void(0);', :class => "show-div", :id => "new-strength" %>
+			<div class="strengths_add_link">
+				<%= link_to t('views.swot.shared_views.controls.add_strength'), 'javascript:void(0);', :id => "new-strength" %>
+			</div>
 		</div>
 		
-				
 		<div class="weaknesses column">
       <div id="new-weakness" class="hidden">
         <%= form_for([:swot, Analysis.new]) do |f| %>
@@ -32,8 +32,9 @@
 			<p><%=t 'views.swot.shared_views.weaknesses' %></p>
 			
 			<%= render :partial => "swot/analysis", :collection => @weaknesses %>
-			
-			<%= link_to t('views.swot.shared_views.controls.add_weakness'), 'javascript:void(0);', :class => "show-div", :id => "new-weakness" %>
+			<div class='weaknesses_add_link'>
+				<%= link_to t('views.swot.shared_views.controls.add_weakness'), 'javascript:void(0);', :id => "new-weakness" %>
+			</div>
 		</div>
 	</div>
 </div>

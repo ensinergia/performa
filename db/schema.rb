@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111067182747) do
+ActiveRecord::Schema.define(:version => 20110930063414) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -81,12 +81,6 @@ ActiveRecord::Schema.define(:version => 20111067182747) do
   create_table "positions", :force => true do |t|
     t.string  "name"
     t.integer "role_equivalence"
-  end
-
-  create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "strategic_line_strategic_objectives", :force => true do |t|
