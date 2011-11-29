@@ -740,8 +740,8 @@ ul.menu{
   padding-left: 2.5em;
 }
 
-.strengths p {
-  font-size:16pt;
+.strengths_title {
+  font-size:18pt;
   color:#666666;
   background-color:#EAECC7;
   margin:0px 5px 0px 0px;
@@ -750,15 +750,17 @@ ul.menu{
 
 
 .strengths_add_link {
-  font-size:10pt;
-  background-color:#E0E0E0;
+  font-size:12pt;
+  color:#0000FF;
+  background-color:#F2F2F2;
   margin:10px 5px 0px 0px;
   padding: 5px 0px 6px 10px;
 }
 
 .weaknesses_add_link {
-  font-size:10pt;
-  background-color:#E0E0E0;
+  font-size:12pt;
+  color:#0000FF;
+  background-color:#F2F2F2;
   margin:10px 0px 0px 5px;
   padding: 5px 0px 6px 10px;
 }
@@ -767,8 +769,8 @@ ul.menu{
   font-size:10pt;
 }
 
-.weaknesses p {
-  font-size:16pt;
+.weaknesses_title {
+  font-size:18pt;
   color:#666666;
   background-color:#EAECC7;
   margin:0px 0px 0px 5px;
@@ -844,4 +846,8 @@ ul.menu{
 
 .fix_button .gray {
   margin-right:30px;
+}
+
+.list{
+  background-color:FFFFFF;
 }

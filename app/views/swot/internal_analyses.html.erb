@@ -14,11 +14,11 @@
         <% end %>
       </div>
 
-			<p><%=t 'views.swot.shared_views.strengths' %></p>
+			<p class="strengths_title"><%=t 'views.swot.shared_views.strengths' %></p>
 			
 			<%= render :partial => "swot/analysis", :collection => @strengths %>
 			<div class="strengths_add_link">
-				<%= link_to t('views.swot.shared_views.controls.add_strength'), 'javascript:void(0);', :id => "new-strength" %>
+				<%= link_to t('views.swot.shared_views.controls.add_strength'), 'javascript:void(0);', :class => "show-div", :id => "new-strength" %>
 			</div>
 		</div>
 		
@@ -29,11 +29,11 @@
         <% end %>
       </div>
 
-			<p><%=t 'views.swot.shared_views.weaknesses' %></p>
+			<p class='weaknesses_title'><%=t 'views.swot.shared_views.weaknesses' %></p>
 			
 			<%= render :partial => "swot/analysis", :collection => @weaknesses %>
 			<div class='weaknesses_add_link'>
-				<%= link_to t('views.swot.shared_views.controls.add_weakness'), 'javascript:void(0);', :id => "new-weakness" %>
+				<%= link_to t('views.swot.shared_views.controls.add_weakness'), 'javascript:void(0);', :class => "show-div", :id => "new-weakness" %>
 			</div>
 		</div>
 	</div>
