@@ -82,12 +82,12 @@ ul.items-inlined {
 
 ul.items-inlined li.selected a { 
   color: #FFF;
-  font-size: 12px;
+  font-size: 16px;
   text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
 }
 
 ul.items-inlined li a { 
-  font-size: 12px;
+  font-size: 16px;
   text-transform:capitalize;
   text-decoration: none;
   color:#6E7128;
@@ -781,18 +781,40 @@ ul.menu{
   font-size:10pt;
 }
 
-.opportunities p {
+.opportunities_title {
   font-size:18pt;
-  text-align:center;
+  color:#666666;
+  background-color:#EAECC7;
+  margin:0px 5px 0px 0px;
+  padding: 5px 0px 6px 10px;
 }
 
 .opportunities span {
   font-size:10pt;
 }
 
-.risks p {
+.risk_title {
   font-size:18pt;
-  text-align:center;
+  color:#666666;
+  background-color:#EAECC7;
+  margin:0px 0px 0px 5px;
+  padding: 5px 0px 6px 10px;
+}
+
+.opportunities_add_link{
+  font-size:12pt;
+  color:#0000FF;
+  background-color:#F2F2F2;
+  margin:10px 5px 0px 0px;
+  padding: 5px 0px 6px 10px;
+}
+
+.risk_add_link {
+  font-size:12pt;
+  color:#0000FF;
+  background-color:#F2F2F2;
+  margin:10px 0px 0px 5px;
+  padding: 5px 0px 6px 10px;
 }
 
 .risks span {
@@ -846,8 +868,4 @@ ul.menu{
 
 .fix_button .gray {
   margin-right:30px;
-}
-
-.list{
-  background-color:FFFFFF;
 }
