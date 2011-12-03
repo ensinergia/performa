@@ -7,25 +7,11 @@
   </div>
 	
 	<div class="inside-box">
-		<% @strategic_lines.each do |sl| %>
-				<div id="sl-<%= sl.id %>">
-					<%= sl.content %>
-					<%= record_info_for(sl) %>
-					
-        <!--  <div class="comment_new">
-					<%= render :partial => 'comments/index', :locals => { :comments => sl.comments } %>
-					<div id="new-comment-for-commentable" class="hidden">
-						<%= render :partial => 'comments/new', :locals => {:commentable => sl} %>
-					</div>
-					</div>  -->
-					<%= button_to 'Eliminar', sl, :method => :delete, 
-												  :confirm => t('views.common.messages.delete.confirm', :connector => "ésta", :model => t('activerecord.models.strategic_line')), 
-												  :class => 'delete' %>
-					<%= link_to 'Modificar', edit_strategic_line_path(sl), :class => 'modify' %>
-				</div>
-		<% end %>	
-		<br/>	
-		<%= link_to t('views.strategic_lines.index.not_empty.controls.add'), new_strategic_line_path, :class => "button orange" %>
+		<%= render :partial => 'strategic_line', :collection => @strategic_lines %>
+		
+		<div class='strategic_add_link'>
+			<%= link_to t('views.strategic_lines.index.not_empty.controls.add'), new_strategic_line_path %>
+		</div>
 	</div>
 </div>
 

@@ -49,7 +49,6 @@ h1 {
 .right-placed { float: right }
 
 .button, .button:visited {
-  display: inline-block;
   padding: 5px 10px 6px;
   color: #fff;
   text-decoration: none;
@@ -664,6 +663,36 @@ ul.menu{
   background: url(../images/borrar_ico_over.png) no-repeat;
 }
 
+.button_to_edit{
+  background: url(../images/editar_ico_up.png) no-repeat;
+  padding-right: 1em; 
+  border: none;
+  cursor:pointer; 
+  width: 9px;
+  height: 18px;
+  display: inline-block;
+  color: transparent;
+}
+
+.button_to_delete{
+  padding-right: 1em; 
+  border: none;
+  cursor:pointer; 
+  width: 13px;
+  height: 18px;
+  display: inline-block;
+  color: transparent;
+}
+
+.button_to_delete:hover{
+	 background: url(../images/borrar_ico_over.png) no-repeat;
+}
+
+
+.button_to_edit:hover{
+	background: url(../images/editar_ico_hover.png) no-repeat;	
+}
+
 .creed_description_first {
   float:left;
   width:90%;
@@ -698,6 +727,9 @@ ul.menu{
   margin: 4px;
   padding-bottom:.7em;
   border-bottom: 2px solid #dadada;
+}
+.list-item p{
+	font-size:16px;
 }
 
 .list-item span {
@@ -868,4 +900,27 @@ ul.menu{
 
 .fix_button .gray {
   margin-right:30px;
+}
+
+.strategic_line_value{
+	font-size:14pt;
+	float:left;
+	color: #666666;
+}
+.record_info{
+	color:#BFBFBF;
+	font-size:10pt;
+}
+
+.right_place{
+	float:right;
+	display:inline;
+}
+
+.strategic_add_link{
+  font-size:10pt;
+  color:#0000FF;
+  background-color:#F2F2F2;
+  margin:10px 5px 0px 0px;
+  padding: 5px 0px 6px 10px;
 }
