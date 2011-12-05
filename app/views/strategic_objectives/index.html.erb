@@ -8,8 +8,9 @@
 	
 	<div class="inside-box">
 		<%= render @strategic_objectives %>
-		<br/>	
-		<%= link_to t('views.strategic_objectives.index.not_empty.controls.add'), new_strategic_objective_path, :class => "button orange" %>
+		<div class='strategic_add_link'>
+			<%= link_to t('views.strategic_objectives.index.not_empty.controls.add'), new_strategic_objective_path %>
+		</div>
 	</div>
 </div>
 

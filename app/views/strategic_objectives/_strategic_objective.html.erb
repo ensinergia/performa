@@ -1,17 +1,28 @@
-<div id="sl-<%= strategic_objective.id %>">
-  <%= strategic_objective.content %>
-  <%= record_info_for(strategic_objective) %>
-<!--
-  <div class="comment_new">
-    <%= render :partial => 'comments/index', :locals => { :comments => strategic_objective.comments } %>
+<div class='list-item'>
+	<div id="sl-<%= strategic_objective.id %>">
+		<div class='strategic_line_value'> 
+  		<%= strategic_objective.content %>
+		</div>
+		<!--
+  	<div class="comment_new">
+    	<%= render :partial => 'comments/index', :locals => { :comments => strategic_objective.comments } %>
 
-    <div id="new-comment-for-commentable" class="hidden">
-      <%= render :partial => 'comments/new', :locals => {:commentable => strategic_objective} %>
-    </div>
-  </div>
--->
-  <%= button_to 'Eliminar', strategic_objective, :method => :delete, 
-    :confirm => t('views.common.messages.delete.confirm', :connector => "ésta", :model => t('activerecord.models.strategic_objective')), 
-    :class => 'delete' %>
-    <%= link_to 'Modificar', edit_strategic_objective_path(strategic_objective), :class => 'modify' %>
+    	<div id="new-comment-for-commentable" class="hidden">
+      	<%= render :partial => 'comments/new', :locals => {:commentable => strategic_objective} %>
+    		</div>
+  		</div>
+			-->
+		<div class='right_place'>
+			<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_strategic_objective_path(strategic_objective), :class => 'modify' %>
+  		<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), strategic_objective_path(strategic_objective), 
+								:method => :delete, :confirm => t('views.common.messages.delete.confirm', 
+																								:connector => "ésta", 
+																								:model => t('activerecord.models.strategic_line'))%>
+		</div>
+		<br/>
+		<br/>
+		<div class="record_info">
+			<%= record_info_for(strategic_objective) %>
+		</div>
+	</div>
 </div>
