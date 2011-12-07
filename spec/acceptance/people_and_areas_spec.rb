@@ -86,7 +86,7 @@ feature "PEOPLE AND AREAS features:" do
       end
 
     end
-      
+    
     
     it "should allow me to return from admin page" do
       visit @sub_host + areas_admin_path
