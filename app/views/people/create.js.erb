@@ -1,0 +1,5 @@
+<%unless @text.nil?%>
+$("#area-form-<%=@resource.area_id%>").html("<%=@text.full_messages.map { |msg| content_tag(:li, msg) }.join.html_safe%>");
+<%else%>
+$("#area_<%=@resource.area_id%>").before('<%=render @resource%>');
+<%end%>

@@ -1,15 +1,31 @@
 require 'subdomain_guards'
 class PeopleController < ApplicationController
   include UserAssociationsHelper
+  include PeopleHelper
   include SubdomainGuards
   layout 'application'
   
   before_filter :verify_subdomain
   
+  def create
+    resource!(params[:user])
+    if @resource.save
+      @text=nil
+    else
+      @text= devise_error_messages!
+    end  
+    
+    respond_to do |format|
+      format.js
+    end  
+    
+  end
+    
+  
   def index
     @company = current_company
     @areas = Area.get_all_for(current_company)
-    
+    resource
     if @areas.empty?
       render('index_welcome')
     else

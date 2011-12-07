@@ -924,3 +924,64 @@ ul.menu{
   margin:10px 5px 0px 0px;
   padding: 5px 0px 6px 10px;
 }
+
+
+.user-block{
+	background-color: #EFEDED;
+    display: block;
+    float: left;
+    margin: 10px;
+    min-height: 35px;
+    padding: 30px;
+    width: 38%;
+}
+
+
+.new-user-block{
+	border: 4px solid #D6D33B;
+    display: block;
+    float: left;
+    margin: 10px;
+    min-height: 25px;
+    padding: 10px;
+    width: 43%;
+	color :#D6D33B;
+	font-size:17px;
+}
+
+.new-user-block a{
+	color:#D6D33B;
+}
+
+.new-user-block span{
+	float:left;
+	margin:20px 30px;
+}
+
+.new-user-block img{
+	float:left;
+}
+.new-user-block li{
+	color:#000 !important;
+	font-size:12px;
+}
+
+
+.hidden{
+	visibility:hidden;
+}
+
+.fields-new-person{
+	width:100%;
+	font-size:12px;
+	margin-top:15px;
+}
+
+.fields-new-person span{
+	width:70px;
+	margin:0px !important;
+}
+
+.clear{
+	clear:both;
+}
