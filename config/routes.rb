@@ -21,7 +21,7 @@ GestionDesempeno::Application.routes.draw do
     resources :strategic_objectives, :except => :show
 
     match '/people/bulk_update_admin' => 'people#bulk_update_admin', :as => 'bulk_update_admin', :via => :put
-    resources :people, :only => [:index, :new, :edit]
+    resources :people, :only => [:index, :new, :edit,:create,:update]
     
     match '/areas/admin' => 'areas#admin', :as => 'areas_admin', :via => :get
     resources :areas, :only => [:index, :new, :create, :edit, :update]

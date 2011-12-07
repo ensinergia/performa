@@ -6,7 +6,7 @@
 		<div class='right_place'>
 			<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_strategic_line_path(strategic_line), :class => 'modify' %>
 			<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), strategic_line_path(strategic_line), 
-								:method => :delete, :confirm => t('views.common.messages.delete.confirm', 
+								:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
 																								:connector => "ésta", 
 																								:model => t('activerecord.models.strategic_line'))%>
 			</div>

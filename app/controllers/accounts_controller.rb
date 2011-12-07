@@ -30,8 +30,9 @@ class AccountsController < ActionController::Base
   end
   
   def destroy
+    user=current_user
     sign_out(current_user)
-    current_user.destroy
+    user.destroy
     redirect_to root_path, :alert => I18n.t('devise.registrations.destroyed')
   end
   

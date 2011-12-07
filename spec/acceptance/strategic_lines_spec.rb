@@ -79,7 +79,7 @@ feature "Strategic Lines:", :js => true do
       it "should let me destroy the registered strategic line" do
         
         within("#sl-#{@sl.id}") do
-          find(:xpath, "//input[contains(@class, 'delete')]").click
+          find(:xpath, "//a[contains(@class, 'delete')]").click
         end
         
         page.driver.browser.switch_to.alert.accept

@@ -5,6 +5,7 @@
   		
 			<%= stylesheet_link_tag :defaults, 'layout', 'login' %>  		
 			<%= javascript_include_tag :defaults, :others %>
+			<%= yield :javascript %>
 
   		<%= csrf_meta_tag %>
 	</head>

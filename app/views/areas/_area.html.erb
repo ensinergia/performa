@@ -10,6 +10,22 @@
 	<% area.users.each do |user| %>
 		<%= render user %>
 	<% end %>
+	<div id="area_<%=area.id%>" class="new-user-block">
+		<%= link_to image_tag('person.png')+"<span> #{t('views.area.index.controls.add_person')}</span>".html_safe,"", :class => "new_person", :rel=>area.id %>
+		<div id="area-form-<%=area.id%>" class="area-form"></div>
+	</div>	
+	<div class="clear"></div>
 	
 	<%= link_to '', new_person_path, :class => "add" %>
 </div>
+
+
+<div id="new-person"class="hidden">
+	<%= render :partial=>'people/new'%>	
+</div>
+
+<% 
+content_for :javascript do
+	 javascript_include_tag 'people.js'
+end	
+%>

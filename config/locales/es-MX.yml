@@ -477,6 +477,9 @@ es-MX:
       index:
         controls:
           admin_list: "Ir a Lista de Administrador"
+          add_person: "+ Agregar una Persona"
+          create_person: "Agregar Persona"
+          cancel: "Cancelar"
       new:
         title: "Agregar Área Nueva"
         controls:

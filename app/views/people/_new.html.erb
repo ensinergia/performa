@@ -1,0 +1,23 @@
+		<div class="clear"></div>
+<div class="inside-box-ajax">
+	<%= form_for(resource, :as => resource_name, :url=>url_for(:action=>:create), :remote=>true) do |f| %>
+	<%= devise_error_messages! %>
+	<div class="fields-new-person">
+
+		<div><span><%= f.label :name %></span><%= f.text_field :name, :size=>20 %></div>
+		<br/>
+		<div><span><%= f.label :last_name %></span><%= f.text_field :last_name,:size=>20 %></div>
+		<br/>
+		<div><span><%= f.label :email %></span><%= f.email_field :email,:size=>20 %></div>
+		<%= f.hidden_field :company_id , :value=>current_company.id %>
+		<%= f.hidden_field :area_id %>
+		<br/>
+	</div>
+	<br/>
+
+
+	<div class="centered">
+	<%= link_to t('views.area.index.controls.cancel'), "", :class => "button gray", :id=>"cancel_person" %>
+	<%= f.submit  t('views.area.index.controls.create_person'), :class => "button orange as-link create_person" %></div>
+	<% end %>
+</div>
