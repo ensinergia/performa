@@ -17,13 +17,14 @@
 		<%= form_tag bulk_update_admin_url, :method => :put do %>
 		
 			<% @people.each do |person| %>
-				
+				<div class="user-block-roles">
 				<%= select_tag "users[#{person.id}]", translated_permissions_for_select_for(person) %>
 				<%= visual_permissions_for(person) %>
-				
+				</div>
 			<% end %>
-			<%= link_to t('views.people.admin.controls.cancel'), people_url %>
-			<%= submit_tag t('views.people.admin.controls.save') %>
+			<div class="clear"></div>
+			<%= link_to t('views.people.admin.controls.cancel'), people_url, :class => "button gray" %>
+			<%= submit_tag t('views.people.admin.controls.save'), :class => "button orange as-link" %>
 		<% end %>
 	</div>
 </div>

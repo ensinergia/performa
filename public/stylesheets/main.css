@@ -932,10 +932,20 @@ ul.menu{
     float: left;
     margin: 10px;
     min-height: 35px;
-    padding: 30px;
-    width: 38%;
+    padding: 10px 10px 20px 30px;
+    width: 41%;
 }
 
+
+.user-block-roles{
+	background-color: #EFEDED;
+    display: block;
+    float: left;
+    margin: 10px;
+    min-height: 35px;
+    padding: 10px;
+    width: 38%;
+}
 
 .new-user-block{
 	border: 4px solid #D6D33B;
@@ -984,4 +994,27 @@ ul.menu{
 
 .clear{
 	clear:both;
+}
+
+
+.right{
+	float:right;
+}
+
+.left{
+	float:left;
+}
+
+.width50%{
+	width:50%;
+}
+.update_user:hover {
+  background: url(../images/editar_ico_hover.png) no-repeat;
+}
+
+.update_user{
+  background: url(../images/editar_ico_up.png) no-repeat;
+  width: 9px;
+  height: 18px;
+  display: inline-block;
 }

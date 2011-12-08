@@ -1,0 +1,54 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+	<%= content_for(:pe_menu, &Proc.new { "selected" }) %>
+	<div class="title-bar rounded-10-top">
+		<h2><%=t 'views.people.non_empty.title', :company => current_user.company.name %></h2>
+	</div>
+
+	<div class="inside-box">
+		<div class="unit on-2 columns">
+			<div class="photo-placeholder centered column fixed" style="width: 30%">
+				<!-- Image link -->
+				<%= link_to I18n.t('views.accounts.sections.my_info.controls.change_photo'), '' %>
+			</div>
+			
+			<div class="column fixed" style="width: 70%">
+				<%= form_for(@user, :url => person_path(@user), :html => { :method => :put }) do |f| %>
+
+				<div class="field-set label-large">
+					
+					<div><%= f.label :area %> </div>
+					<%= f.select "area_id", options_from_collection_for_select(current_user.company.areas, "id", "name",@user.area_id) %>
+					
+					<div><%= f.label :position %></div>
+
+					<%= f.select :position_id, translated_permissions_for_select_for(@user) %>
+					
+					<div><%= f.label :name %></div>
+					<%= f.text_field :name %>
+
+					<div><%= f.label :last_name %></div>
+					<%= f.text_field :last_name %>
+
+					<div><%= f.label :email %></div>
+					<%= f.email_field :email, :size => 26 %>
+
+					<div><%= f.label :company_name %></div>
+					<%= f.text_field :company_name, :disabled => true %>
+
+					<br/><br/>
+
+					<%= link_to t('views.area.index.controls.cancel'), people_path, :class => "button gray" %>
+					<%= f.submit I18n.t('views.accounts.sections.my_info.controls.save'), :class => "button orange as-link" %>
+				</div>
+
+
+
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%= content_for :contextual_legend do %>
+<%= render 'contextual_legends/contextual_legend' %>
+<% end %>
