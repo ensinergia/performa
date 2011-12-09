@@ -5,4 +5,4 @@ tmp/
 **.orig
 **.swp
 **.DS_Store
-images/
+/images/

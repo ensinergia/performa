@@ -1,1 +1,11 @@
-<div id="person-<%= user.id %>" class="user-block"><b><%= user.name %></b><%= link_to user.email, "javascript:void(0);" %><br/><%= I18n.t("views.positions.#{user.position.name}") %><%= link_to '', edit_person_path(user), :class => "modify" %></div>
+<li class=user_item>
+	<div id="person-<%= user.id %>" class="user_area">
+	<div class='image_avatar'><%= image_tag 'default_avatar.jpg'%> </div>
+		<b> <%= user.name %> </b>
+		<span class='right'><%= link_to '', edit_person_path(user), :class => "button_to_edit" %> </span>
+		<br/>
+		<%= link_to user.email, "javascript:void(0);", :class =>'user_area_email' %>
+		<br/>
+		<%= I18n.t("views.positions.#{user.position.name}") %>
+	</div>
+</li>
