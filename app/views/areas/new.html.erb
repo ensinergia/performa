@@ -1,19 +1,15 @@
 <div class="box rounded-10 with-shadow with-mid-width">
-	
-	<div class="inside-box">
+	<div class="title-bar">
+		<h2><%=t 'views.people.non_empty.title', :company => current_user.company.name %></h2>
+	</div>
 
-		<div class="title-bar">
-			<p><%=t 'views.people.non_empty.title', :company => current_user.company.name %></p>
+	<div class='inside-box'>
+		<div class='inside_area'>
+			<%= nested_form_for @area do |a| %>
+				<h2 class='title_h2'><%=t 'views.area.new.title' %></h2>
+				<%= render :partial => 'form', :locals => {:a => a} %>
+			<% end %>
 		</div>
-		
-		<%= nested_form_for @area do |a| %>
-			<h1><%=t 'views.area.new.title' %></h1>
-			
-			<%= render :partial => 'form', :locals => {:a => a} %>
-			
-			<%= a.submit t('views.area.new.controls.save') %>
-		<% end %>
-		
 	</div>
 </div>
 
