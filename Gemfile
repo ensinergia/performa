@@ -10,12 +10,13 @@ gem 'heroku'
 gem "devise", ">= 1.4.2"
 gem "cancan"
 gem 'paper_trail', '~> 2'
-
+gem 'paperclip', '~> 2.4'
 gem 'remotipart', '~> 0.4'
 gem 'carrierwave'
 gem 'fog'
 gem 'bluecloth'
 
+gem 'aws-s3'
 gem 'jquery-rails'
 gem 'store_base_sti_class_for_3_0'
 gem 'nested_form'
@@ -38,5 +39,6 @@ group :test, :development do
   gem 'launchy' #cross plataform application helper
   gem 'pickle' #generate steps for new models of your blueprints, visit pages
 	gem 'spork'
+  gem 'ruby-debug19'	
 end
 
