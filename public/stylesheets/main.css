@@ -223,7 +223,7 @@ input:focus, textarea:focus {
 .field-set label { font-size: 14px }
 
 .label-large > div {
-  width: 170px;
+  width: 150px;
 }
 
 .label-small > div {

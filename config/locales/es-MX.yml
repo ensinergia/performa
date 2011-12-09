@@ -232,6 +232,13 @@ es-MX:
         position: "Posición"
         area: "Área"
         role: "Rol"
+        grade: "Tìtulo"
+        officce_phone: "Tel. Oficina"
+        ext_phone: "Ext."
+        celular_phone: "Tel. Cel"
+        fax: "Tel. Fax"
+        home_phone: "Tel. Casa"
+        
       strategic_line:
         content: "Contenido"
       strategic_objective:

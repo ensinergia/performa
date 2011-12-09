@@ -22,7 +22,24 @@
 					  <%= f.text_field :name %>
 
 						<div><%= f.label :last_name %></div>
-					  <%= f.text_field :last_name %>
+					  	<%= f.text_field :last_name %>
+					
+						<div><%= f.label :grade %></div>
+						<%= f.text_field :grade %>
+
+						<div><%= f.label :officce_phone %></div>
+						<%= f.text_field :officce_phone %><%= f.label :ext_phone %><%= f.text_field :ext_phone, :size=>4 %>
+
+						<div><%= f.label :celular_phone %></div>
+						<%= f.text_field :celular_phone %>
+
+
+						<div><%= f.label :fax %></div>
+						<%= f.text_field :fax %>
+
+
+						<div><%= f.label :home_phone %></div>
+						<%= f.text_field :home_phone %>
 
 					  <div><%= f.label :email %></div>
 					  <%= f.email_field :email, :size => 26 %>
@@ -39,11 +56,9 @@
 						<div><label>Rol</label></div>
 
 					  <%= text_field_tag :role, I18n.t("views.roles.#{@user.position.role_equivalence}"), :disabled => true %>
-
-						<div class="right-placed form-controls">
-					  	<%= link_to I18n.t('views.accounts.sections.my_info.controls.cancel'), '' %>&nbsp;
+						<br/><br/>
+					  	<%= link_to I18n.t('views.accounts.sections.my_info.controls.cancel'), '',:class=>"button gray" %>&nbsp;
 							<%= f.submit I18n.t('views.accounts.sections.my_info.controls.save'), :class => "button orange as-link" %>
-						</div>
 					</div>
 
 

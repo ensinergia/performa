@@ -23,18 +23,24 @@
 
 					<%= f.select :position_id, translated_permissions_for_select_for(@user) %>
 					
-					<div><%= f.label :name %></div>
-					<%= f.text_field :name %>
+					<div><%= f.label :grade %></div>
+					<%= f.text_field :grade %>
 
-					<div><%= f.label :last_name %></div>
-					<%= f.text_field :last_name %>
-
-					<div><%= f.label :email %></div>
-					<%= f.email_field :email, :size => 26 %>
-
-					<div><%= f.label :company_name %></div>
-					<%= f.text_field :company_name, :disabled => true %>
-
+					<div><%= f.label :officce_phone %></div>
+					<%= f.text_field :officce_phone %><%= f.label :ext_phone %><%= f.text_field :ext_phone, :size=>4 %>
+					
+					<div><%= f.label :celular_phone %></div>
+					<%= f.text_field :celular_phone %>
+					
+					
+					<div><%= f.label :fax %></div>
+					<%= f.text_field :fax %>
+					
+					
+					<div><%= f.label :home_phone %></div>
+					<%= f.text_field :home_phone %>
+					
+					
 					<br/><br/>
 
 					<%= link_to t('views.area.index.controls.cancel'), people_path, :class => "button gray" %>
