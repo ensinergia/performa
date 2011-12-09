@@ -926,61 +926,37 @@ ul.menu{
   padding: 5px 0px 6px 10px;
 }
 
-
-.user-block{
-	background-color: #EFEDED;
-    display: block;
-    float: left;
-    margin: 10px;
-    min-height: 35px;
-    padding: 30px;
-    width: 38%;
+.inside_area {
+	background-color:#F2F2F2;
+	padding:5px 5px 10px 5px;
+}
+.title_h2{
+	color: #999999;
+	font-style:normal;
+	font-size:13pt;
 }
 
-
-.new-user-block{
-	border: 4px solid #D6D33B;
-    display: block;
-    float: left;
-    margin: 10px;
-    min-height: 25px;
-    padding: 10px;
-    width: 43%;
-	color :#D6D33B;
-	font-size:17px;
+.area_name{
+	width:500px; 
 }
 
-.new-user-block a{
-	color:#D6D33B;
+.textarea_function {
+    height: 65px;
+    line-height: 150%;
+    max-width: 665px;
+    width: 665px;
 }
 
-.new-user-block span{
-	float:left;
-	margin:20px 30px;
+.select_area{
+	float:right;
 }
 
-.new-user-block img{
-	float:left;
-}
-.new-user-block li{
-	color:#000 !important;
-	font-size:12px;
+.right{
+	float:right;
 }
 
-
-.hidden{
-	visibility:hidden;
-}
-
-<<<<<<< HEAD
 .center{
 	clear: both;
-=======
-.fields-new-person{
-	width:100%;
-	font-size:12px;
-	margin-top:15px;
->>>>>>> parent of 32b4d25... update css
 }
 .area_people{
 	list-style:none;
@@ -1003,7 +979,6 @@ ul.menu{
 	font-size:9pt;
 }
 
-<<<<<<< HEAD
 .new_user_block{
 	width:280px;
 	margin:6px 35px 5px 6px;
@@ -1043,13 +1018,4 @@ ul.menu{
 .image_avatar{
 	float:left;
 	margin:0px 10px 0px 0px;
-=======
-.fields-new-person span{
-	width:70px;
-	margin:0px !important;
-}
-
-.clear{
-	clear:both;
->>>>>>> parent of 32b4d25... update css
 }
