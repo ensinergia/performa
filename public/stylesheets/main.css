@@ -546,7 +546,6 @@ ul.menu{
   width: 9px;
   height: 18px;
   display: inline-block;
-  margin:0px 0px 0px 15px;
 }
 
 .area-title {
@@ -954,68 +953,8 @@ ul.menu{
 .right{
 	float:right;
 }
-
 .center{
 	clear: both;
 }
-.area_people{
-	list-style:none;
-}
-.user_item{
-	 list-style: none;
-	 float:left;
-	 margin:6px 6px 6px 6px;
-	 
-}
 
-.user_area{
-	background-color:#F2F2F2;
-	width:295px;
-	padding:10px 0px 10px 10px;
-	font-size:10pt;
-}
 
-.user_area_email{
-	font-size:9pt;
-}
-
-.new_user_block{
-	width:280px;
-	margin:6px 35px 5px 6px;
-	padding:5px 0px 0px 10px;
-	float:right;
-	border-width:8px; 
-	border-style:solid;
-	border-color:#C2C747;
-}
-
-.fields-new-person{
-	margin:0 auto;
-}
-
-.fields-new-person label{
-	display:block;
-	text-align:left;
-	width:70px;
-	float:left;
-}
-
-.add_people_link{
-	margin:0px 0px 25px 0px;
-	padding:0px 0px 50px 0px;
-	display:inline;
-}
-
-.user_area img{
-	display:inline;	
-}
-.add_people_link a{
-	text-decoration:none;
-	color:#C2C234;
-	font-size:16pt;
-}
-
-.image_avatar{
-	float:left;
-	margin:0px 10px 0px 0px;
-}
