@@ -3,6 +3,7 @@
 	<%= render :partial => 'shared/main_title', :locals => {:title => I18n.t('views.accounts.title') } %>
 	<%= render :partial => 'menu' %>
 	
+	<%= form_for(@user, :url => account_path(@user), :html => { :method => :put,:multipart => true }) do |f| %>
 	<div class="inside-box">
 		<h1><%= I18n.t('views.accounts.sections.my_info.title') %></h1>
 
@@ -10,11 +11,12 @@
 
 			<div class="photo-placeholder centered column fixed" style="width: 30%">
 				<!-- Image link -->
-				<%= link_to I18n.t('views.accounts.sections.my_info.controls.change_photo'), '' %>
+				<%= image_tag @user.avatar.url(:thumb) %><br/>
+				 <%= f.file_field :avatar, :id=>'user_photo' %>
 			</div>
 
 			<div class="column fixed" style="width: 70%">
-				<%= form_for(@user, :url => account_path(@user), :html => { :method => :put }) do |f| %>
+				
 
 					<div class="field-set label-large">
 
@@ -63,10 +65,11 @@
 
 
 
-				<% end %>
+
 			</div>
 		</div>
 	</div>
+<% end %>	
 </div>
 
 <%= content_for :contextual_legend do %>

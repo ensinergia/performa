@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base  
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
-  attr_accessible :name, :login, :last_name, :email, :password, :password_confirmation, :remember_me, :company_name,:grade,:officce_phone,:ext_phone,:celular_phone,:fax,:home_phone
-
+  attr_accessible :name, :login, :last_name, :email, :password, :password_confirmation, :remember_me, :company_name,:grade,:officce_phone,:ext_phone,:celular_phone,:fax,:home_phone,:avatar,:avatar_file_name, :avatar_content_type,  :avatar_file_size, :avatar_updated_at
   # Refactor this horrible thing
   has_many :areas
   belongs_to :area
@@ -25,6 +24,16 @@ class User < ActiveRecord::Base
 
   before_destroy :destroy_company
 
+  has_attached_file :avatar,
+      :storage => :s3,
+      :bucket => 'ensinergiaphotos',
+      :styles => { :medium => "300x300>", :thumb => "100x100>", :min=>"60X70>"},
+      :default_url=>'person.png',
+      :s3_credentials => {
+        :access_key_id => "AKIAJYKCWTZMXFO2YBNA",
+        :secret_access_key => "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"
+      }
+      
   def self.change_role_for(users)
     users.each_key do |key|
       user=self.find(key)

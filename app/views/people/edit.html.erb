@@ -3,16 +3,18 @@
 	<div class="title-bar rounded-10-top">
 		<h2><%=t 'views.people.non_empty.title', :company => current_user.company.name %></h2>
 	</div>
-
+<%= form_for(@user, :url => person_path(@user), :html => {:method=>:put, :multipart => true  }) do |f| %>
 	<div class="inside-box">
 		<div class="unit on-2 columns">
 			<div class="photo-placeholder centered column fixed" style="width: 30%">
 				<!-- Image link -->
-				<%= link_to I18n.t('views.accounts.sections.my_info.controls.change_photo'), '' %>
+				<%= image_tag @user.avatar.url(:thumb) %><br/>
+				 <%= f.file_field :avatar, :id=>'user_photo' %>
+				
 			</div>
-			
+
 			<div class="column fixed" style="width: 70%">
-				<%= form_for(@user, :url => person_path(@user), :html => { :method => :put }) do |f| %>
+
 
 				<div class="field-set label-large">
 					
@@ -49,10 +51,11 @@
 
 
 
-				<% end %>
+
 			</div>
 		</div>
 	</div>
+<% end %>
 </div>
 
 <%= content_for :contextual_legend do %>
