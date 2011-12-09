@@ -6,10 +6,9 @@
 			<%= link_to '', edit_area_path(area), :id => "modify" %>
 		</div>
 	</div>
-	<%=  %>
-	<% area.users.each do |user| %>
-		<%= render user %>
-	<% end %>
+
+	<%= render :partial => 'users/user', :collection => area.users %>
+
 	<div id="area_<%=area.id%>" class="new-user-block">
 		<%= link_to image_tag('person.png')+"<span> #{t('views.area.index.controls.add_person')}</span>".html_safe,"", :class => "new_person", :rel=>area.id %>
 		<div id="area-form-<%=area.id%>" class="area-form"></div>

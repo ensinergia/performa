@@ -15,11 +15,11 @@ gem 'remotipart', '~> 0.4'
 gem 'carrierwave'
 gem 'fog'
 gem 'bluecloth'
-
 gem 'aws-s3'
 gem 'jquery-rails'
 gem 'store_base_sti_class_for_3_0'
 gem 'nested_form'
+gem 'haml'
 
 # Test environment
 group :test, :development do
