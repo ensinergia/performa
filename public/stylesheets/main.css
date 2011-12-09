@@ -932,7 +932,7 @@ ul.menu{
     float: left;
     margin: 10px;
     min-height: 35px;
-    padding: 10px 10px 20px 30px;
+    padding: 10px 10px 10px 15px;
     width: 41%;
 }
 
@@ -953,8 +953,7 @@ ul.menu{
     float: left;
     margin: 10px;
     min-height: 25px;
-    padding: 10px;
-    width: 43%;
+    padding: 10px 6px 6px 10px;
 	color :#D6D33B;
 	font-size:17px;
 }
@@ -975,7 +974,6 @@ ul.menu{
 	color:#000 !important;
 	font-size:12px;
 }
-
 
 .hidden{
 	visibility:hidden;
@@ -1018,3 +1016,131 @@ ul.menu{
   height: 18px;
   display: inline-block;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/*mi desmadre */
+
+
+
+.strategic_line_value{
+	font-size:14pt;
+	float:left;
+	color: #666666;
+}
+.record_info{
+	color:#BFBFBF;
+	font-size:10pt;
+}
+
+.right_place{
+	float:right;
+	display:inline;
+}
+
+.strategic_add_link{
+  font-size:10pt;
+  color:#0000FF;
+  background-color:#F2F2F2;
+  margin:10px 5px 0px 0px;
+  padding: 5px 0px 6px 10px;
+}
+
+.inside_area {
+	background-color:#F2F2F2;
+	padding:5px 5px 10px 5px;
+}
+.title_h2{
+	color: #999999;
+	font-style:normal;
+	font-size:13pt;
+}
+
+.area_name{
+	width:500px; 
+}
+
+.textarea_function {
+    height: 65px;
+    line-height: 150%;
+    max-width: 665px;
+    width: 665px;
+}
+
+.select_area{
+	float:right;
+}
+
+.right{
+	float:right;
+}
+
+.center{
+	clear: both;
+}
+.area_people{
+	list-style:none;
+}
+.user_item{
+	 list-style: none;
+	 float:left;
+	 margin:6px 6px 6px 6px;
+	 
+}
+
+.user_area{
+	background-color:#F2F2F2;
+	width:295px;
+	padding:10px 0px 10px 10px;
+	font-size:10pt;
+}
+
+.user_area_email{
+	font-size:9pt;
+}
+
+.new_user_block{
+	width:280px;
+	margin:6px 35px 5px 6px;
+	padding:5px 0px 0px 10px;
+	float:right;
+	border-width:8px; 
+	border-style:solid;
+	border-color:#C2C747;
+}
+
+.fields-new-person{
+	margin:0 auto;
+}
+
+.fields-new-person label{
+	display:block;
+	text-align:left;
+	width:70px;
+	float:left;
+}
+
+.add_people_link{
+	display:inline;
+}
+
+.user-block img{
+	float:left;
+	display:inline;	
+}
+.add_people_link a{
+	text-decoration:none;
+	color:#C2C234;
+	font-size:16pt;
+}
+
+
