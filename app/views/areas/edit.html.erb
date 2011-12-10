@@ -1,19 +1,17 @@
-<div class="box rounded-10 with-shadow with-mid-width">
-	
+<div class="box rounded-10 with-shadow with-mid-width ">
+	<div class="title-bar">
+		<h2><%=t 'views.people.non_empty.title', :company => current_user.company.name %></h2>
+	</div>
 	<div class="inside-box">
-
-		<div class="title-bar">
-			<p><%=t 'views.people.non_empty.title', :company => current_user.company.name %></p>
-		</div>
-		
+		<div class="inside_area">
 		<%= nested_form_for @area, :method => :put do |a| %>
 			<h1><%=t 'views.area.edit.title', :area => @area.name %></h1>
 			
 			<%= render :partial => 'form', :locals => {:a => a} %>
 			
-			<%= a.submit t('views.area.edit.controls.save') %>
+			<% a.submit t('views.area.edit.controls.save') %>
 		<% end %>
-		
+		</div>
 	</div>
 </div>
 

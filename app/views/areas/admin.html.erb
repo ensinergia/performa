@@ -1,13 +1,16 @@
 <div class="box rounded-10 with-shadow with-mid-width">
 	
+	<%= content_for(:pe_menu, &Proc.new { "selected" }) %>
+	
+	<div class="title-bar rounded-10-top">
+		<h2><%=t 'views.people.non_empty.title', :company => current_user.company.name %></h2>
+		<% if (current_user.is_admin? || current_user.is_owner?) %>
+		<%= link_to t('views.people.non_empty.controls.add_area'), new_area_url, :class => "button orange right-placed margin-from-top-8" %>
+		<%end%>
+	</div>
+	
 	<div class="inside-box">
 
-		<div class="title-bar">
-			<p><%=t 'views.people.non_empty.title', :company => current_user.company.name %></p>
-			
-			<%= link_to t('views.people.non_empty.controls.add_area'), new_area_url, :class => "button orange" %>
-		</div>
-		
 		<div class="subtitle-bar">
 			<%=t 'views.people.admin.title' %>
 			<%= link_to t('views.people.admin.controls.close'), people_url %>
