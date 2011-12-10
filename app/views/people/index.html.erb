@@ -4,8 +4,9 @@
 	
 	<div class="title-bar rounded-10-top">
 		<h2><%=t 'views.people.non_empty.title', :company => current_user.company.name %></h2>
-			
+		<% if (current_user.is_admin? || current_user.is_owner?) %>
 		<%= link_to t('views.people.non_empty.controls.add_area'), new_area_url, :class => "button orange right-placed margin-from-top-8" %>
+		<%end%>
 	</div>
 	
 	<div class="inside-box">

@@ -9,6 +9,10 @@ class Position < ActiveRecord::Base
     'employee'
   end
   
+  def self.admin
+    'admin'
+  end
+  
   def self.get_owner
     self.first(:conditions => {:name => Position.owner})
   end

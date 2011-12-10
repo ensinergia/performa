@@ -1002,9 +1002,16 @@ ul.menu{
 .left{
 	float:left;
 }
+.width20{
+	width:20% !important;
+}
 
-.width50%{
-	width:50%;
+.width70{
+	width:70% !important;
+}
+
+.width50{
+	width:50% !important;
 }
 .update_user:hover {
   background: url(../images/editar_ico_hover.png) no-repeat;
@@ -1017,18 +1024,33 @@ ul.menu{
   display: inline-block;
 }
 
+.edit_person_title {
+	background-color: #E2E4B4;
+	padding: 1px 20px;
+	margin-top:10px;
+	color:#999;
+}
 
 
 
+.edit_person_title b{
+	color:#666;
+}
 
+.yellow{
+	background-color: #BBBF45;
+}
 
+.padding10{
+	padding:10px;
+}
 
-
-
-
-
-
-/*mi desmadre */
+.notice_box{
+	background-color:#E6E3DA;
+	margin:30px 0px;
+	padding:20px;
+	text-align:center;
+}
 
 
 

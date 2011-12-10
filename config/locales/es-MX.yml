@@ -507,6 +507,19 @@ es-MX:
         title: "¿Listo para agregar Áreas y Personas a tu Proyecto?"
         controls:
           add: "Agregar Personas"
+      edit:
+        title: "Editando a "
+        delete: "Borrar usuario"
+        save: "Guardar Cambios"
+        cancel: "Cancelar"
+        send_email: "Enviar Correo"
+        remember_title: "No recuerda su contraseña?"
+        remember_text: "La contraseña de cada persona es privada pero puedes enviarle un correo electrónico con instrucciones de como escoger uno nuevo"
+        destroy_user: "El usuario ha sido elimiando"
+        destroy_himself: "Has eliminado tu cuenta"
+        confirm_destroy: "¿Estas seguro que deseas eliminar a %{name}?"
+        cannot_destroy: "El Usuario no puede ser eliminado porque es el ùnico dueño de la compañía"
+      access_denied: "No tienes permisos para entrar a esta sección"
       non_empty:
         title: "Todas las Áreas y Personas en %{company}"
         controls:
