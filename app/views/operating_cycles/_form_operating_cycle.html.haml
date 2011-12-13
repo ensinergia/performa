@@ -1,0 +1,20 @@
+= nested_form_for @operating_cycle do |f|
+	= f.label :name, t('views.operating_cycle.name')
+	%br
+	= f.text_field :name
+	%br
+	= f.label :reason, t('views.operating_cycle.reason')
+	%br
+	= f.text_area :reason
+	%br
+	= f.label :internal_id, t('views.operating_cycle.internal_id')
+	%br
+	= f.text_field :internal_id
+	%br
+	= render :partial => 'clients', :locals => {:f => f}
+	%br
+	= render :partial => 'services', :locals => {:f => f}
+	%br
+	= render :partial => 'key_activities', :locals => {:f => f}
+	%br
+	=	f.submit t('views.operating_cycle.submit')

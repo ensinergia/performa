@@ -591,3 +591,13 @@ es-MX:
             title: "*Notificaciones"    
             description: "Una descripción simple para notificaciones"
             description_extra: "Una descripción simple extra para notificaciones"
+    operating_cycle:
+      client: 'Clientes'
+      add_client: '+ Agregar Cliente'
+      service: 'Productos y/o Servicios'
+      add_service: ' + Agregar Producto y/o Servicio'
+      key_activities: 'Actividades Clave'
+      add_key_activity: ' + Agregar Actividad Clave'
+      cancel: 'Cancelar'
+      submit: 'Agregar'
+      internal_id: 'ID'

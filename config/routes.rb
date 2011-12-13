@@ -19,6 +19,7 @@ GestionDesempeno::Application.routes.draw do
     resources :comments, :only => [:create, :destroy]
     resources :strategic_lines, :only => [:index, :destroy, :edit, :update, :create, :new]
     resources :strategic_objectives, :except => :show
+    resources :operating_cycles
 
     match '/people/bulk_update_admin' => 'people#bulk_update_admin', :as => 'bulk_update_admin', :via => :put
     resources :people, :only => [:index, :new, :edit,:create,:update]
