@@ -5,7 +5,7 @@ class StrategicLine < ActiveRecord::Base
   has_many :strategic_line_strategic_objective
   
   has_many :strategic_objectives, :through => :strategic_line_strategic_objective
-
+  has_and_belongs_to_many :operating_cycles
   belongs_to :company
   belongs_to :user
 

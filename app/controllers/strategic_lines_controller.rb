@@ -59,6 +59,6 @@ class StrategicLinesController < ActionController::Base
   
   def strategic_objectives
      @strategic_objectives = current_company.strategic_objectives
-   end
+  end
   
 end

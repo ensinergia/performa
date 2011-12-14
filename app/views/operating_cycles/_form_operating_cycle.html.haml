@@ -16,5 +16,10 @@
 	= render :partial => 'services', :locals => {:f => f}
 	%br
 	= render :partial => 'key_activities', :locals => {:f => f}
-	%br
-	=	f.submit t('views.operating_cycle.submit')
+	= render :partial => 'strategic_line'
+	= render 'shared/notifications'
+	%div.actions
+		= link_to t('views.operating_cycle.cancel'), operating_cycles_path, :class => 'button gray'
+		=	f.submit t('views.operating_cycle.submit'), :class => 'button orange as-link'
+		
+		

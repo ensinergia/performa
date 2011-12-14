@@ -5,3 +5,6 @@
 			= t('views.strategic_objectives.new.title')
 	%div{:class => 'inside-box'}
 		= render :partial => 'form_operating_cycle'
+
+	= content_for :contextual_legend do
+		= render 'contextual_legends/contextual_legend'
