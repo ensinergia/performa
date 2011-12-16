@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem 'store_base_sti_class_for_3_0'
 gem 'nested_form'
 gem 'haml'
+gem 'best_in_place', "~> 0.2.0"
 
 # Test environment
 group :test, :development do

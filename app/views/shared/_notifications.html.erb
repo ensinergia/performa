@@ -7,8 +7,8 @@
   <!-- Refactorizar este bloque -->
   <% current_user.area.users.each do |user| %>
     <% if current_user != user %>
-      <%= label_tag user.name %>
-      <%= check_box_tag "users[#{user.id}]" %>
+ 		<%= check_box_tag "users[#{user.id}]" %>
+    <%= label_tag user.name %> 
       <br/>
     <% end %>
   <% end %>

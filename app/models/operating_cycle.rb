@@ -1,8 +1,8 @@
 class OperatingCycle < ActiveRecord::Base
   include Shared
   
-  attr_accessible :name, :reason, :company_id, :clients__attributes,
-    :key_activities_attributes, :services_attributes
+  attr_accessible :name, :reason, :company_id, :user_id, :internal_id, :clients__attributes,
+    :key_activities_attributes, :services_attributes, :strategic_line_ids
 
   #*************************************************
   #                   Relations                    *
@@ -15,6 +15,9 @@ class OperatingCycle < ActiveRecord::Base
   has_and_belongs_to_many :strategic_lines, :uniq => true
   accepts_nested_attributes_for :clients, :key_activities, :services, :allow_destroy => true
   
+  #*************************************************
+  #                   Instance Methods             *
+  #*************************************************
   def notify_to(users)
   end
 

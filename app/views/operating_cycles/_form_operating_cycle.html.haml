@@ -1,4 +1,6 @@
 = nested_form_for @operating_cycle do |f|
+	= f.hidden_field :user_id, :value => current_user.id
+	= f.hidden_field :company_id,:value =>  current_company.id
 	= f.label :name, t('views.operating_cycle.name')
 	%br
 	= f.text_field :name

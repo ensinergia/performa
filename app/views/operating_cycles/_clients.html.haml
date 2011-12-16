@@ -1,5 +1,6 @@
+= client.label :name, t('views.operating_cycle.client')
 = f.fields_for :clients do |client|
-	= client.label :name, t('views.operating_cycle.client')
+	= client.label :name, t('views.operating_cycle.new_client')
 	%br
 	= client.text_field :name
 	%br

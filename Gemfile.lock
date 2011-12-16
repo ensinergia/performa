@@ -44,6 +44,8 @@ GEM
       mime-types
       xml-simple
     bcrypt-ruby (3.0.1)
+    best_in_place (0.2.2)
+      rails (~> 3.0.0)
     bluecloth (2.2.0)
     builder (2.1.2)
     cancan (1.6.7)
@@ -222,6 +224,7 @@ DEPENDENCIES
   autotest-growl
   autotest-rails
   aws-s3
+  best_in_place (~> 0.2.0)
   bluecloth
   cancan
   capybara

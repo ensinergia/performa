@@ -65,4 +65,9 @@ $(document).ready(function() {
 		var regexp = new RegExp("new_" + association, "g")
 		$(link).parent().before(content.replace(regexp, new_id));
 	}
+	
+	
+	
+	/* Activating Best In Place */
+	  jQuery(".best_in_place").best_in_place();
 });

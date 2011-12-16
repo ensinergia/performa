@@ -601,3 +601,4 @@ es-MX:
       cancel: 'Cancelar'
       submit: 'Agregar'
       internal_id: 'ID'
+      new_client: "Cliente Nuevo"
