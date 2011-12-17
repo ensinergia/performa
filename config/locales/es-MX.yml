@@ -602,3 +602,6 @@ es-MX:
       submit: 'Agregar'
       internal_id: 'ID'
       new_client: "Cliente Nuevo"
+      name: 'Nombre De la Etapa'
+      reason: 'Razon de Ser'
+      section_client: 'Clientes'

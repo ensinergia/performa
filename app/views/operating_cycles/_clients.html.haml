@@ -1,9 +1,8 @@
-= client.label :name, t('views.operating_cycle.client')
+= f.label :clients, t('views.operating_cycle.section_client'), :class => 'bold'
+%br
 = f.fields_for :clients do |client|
-	= client.label :name, t('views.operating_cycle.new_client')
+	= client.text_field :name, :class => 'nested_textbox'
 	%br
-	= client.text_field :name
+	= client.link_to_remove 'Remove'
 	%br
-	= client.link_to_remove "remove"
-	%br
-= f.link_to_add t('views.operating_cycle.add_client'), :clients
+= f.link_to_add t('views.operating_cycle.add_client'), :clients, :class => 'right'

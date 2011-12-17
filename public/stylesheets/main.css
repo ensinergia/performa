@@ -1143,5 +1143,25 @@ ul.menu{
 	font-size:16pt;
 }
 
+.bold{
+	font-weight:bold;
+	margin:2px 0px 4px 0px;
+}
+
+.text_area_operative_cycle{
+	width: 550px;	
+	height: 90px;
+}
+.cycle_name{
+	width: 550px;
+}
+
+.internal_id{
+	width: 85px;
+}
+
+.nested_textbox{
+	width: 550px;	
+}
 
 

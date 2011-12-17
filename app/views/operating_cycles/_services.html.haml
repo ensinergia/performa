@@ -1,8 +1,8 @@
 = f.fields_for :services do |p_service|
 	= p_service.label :name, t('views.operating_cycle.product_service')
 	%br
-	= p_service.text_field :name
+	= p_service.text_field :name, :class => 'nested_textbox'
 	%br
 	= p_service.link_to_remove "remove"
 	%br
-= f.link_to_add t('views.operating_cycle.add_service'), :services
+= f.link_to_add t('views.operating_cycle.add_service'), :services, :class => 'right'
