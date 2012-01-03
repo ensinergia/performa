@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   database: gestion_development
   username: postgres
-  password:
+  password: postgres
   encoding: utf8
   pool: 5
   timeout: 5000
@@ -16,7 +16,7 @@ test:
   adapter: postgresql
   database: gestion_test
   username: postgres
-  password:
+  password: postgres
   encoding: utf8
   pool: 5
   timeout: 5000

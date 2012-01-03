@@ -7,8 +7,7 @@ $(document).ready(function(){
 		$("#area-form-"+id).html(form);
 		$("#user_area_id").val(id);
 		
-		
-		$("#cancel_person").click(function(){
+		$(".cancel_person").click(function(){
 			$(".area-form").html("");
 			return false;
 		});

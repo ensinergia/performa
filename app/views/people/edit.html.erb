@@ -3,6 +3,12 @@
 	<div class="title-bar rounded-10-top">
 		<h2><%=t 'views.people.non_empty.title', :company => current_user.company.name %></h2>
 	</div>
+	<div class="edit_person_title">
+		<div class="left"><h2><%=t 'views.people.edit.title' %> <b><%=@user.full_name %></b> </h2></div>
+		<div class="right width20% padding10">		
+		<%= link_to image_tag('borrar_ico_up.png')+" "+t('views.people.edit.delete'), person_path(:id=>@user.id),:method=>:delete,:confirm => t("views.people.edit.confirm_destroy", :name=>@user.full_name), :class => "button yellow" %></div>
+		<div class="clear"></div>
+	</div>
 <%= form_for(@user, :url => person_path(@user), :html => {:method=>:put, :multipart => true  }) do |f| %>
 	<div class="inside-box">
 		<div class="unit on-2 columns">
@@ -45,14 +51,24 @@
 					
 					<br/><br/>
 
-					<%= link_to t('views.area.index.controls.cancel'), people_path, :class => "button gray" %>
-					<%= f.submit I18n.t('views.accounts.sections.my_info.controls.save'), :class => "button orange as-link" %>
+					<%= link_to t('views.people.edit.cancel'), people_path, :class => "button gray" %>
+					<%= f.submit I18n.t('views.people.edit.save'), :class => "button orange as-link" %>
 				</div>
 
-
+					
+					
 
 
 			</div>
+			
+		</div>
+		<div class="notice_box">
+			<b><%=@user.full_name %> <%=t 'views.people.edit.remember_title' %></b>
+			<br/><br/>
+			<div class="left width70"><%=t 'views.people.edit.remember_text' %></div>
+			<div class="right width20 padding10"><%= link_to t('views.people.edit.send_email'), people_path, :class => "button yellow" %></div>
+			<div class="clear"></div>
+			
 		</div>
 	</div>
 <% end %>

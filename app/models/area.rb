@@ -10,7 +10,7 @@ class Area < ActiveRecord::Base
   validates_presence_of :name
   
   def self.get_all_for(company)
-    self.includes(:users).where(:company_id => company.id)
+    self.includes(:users).where(:company_id => company.id).order(:id)
   end
   
   def self.new_with_company(params, company)

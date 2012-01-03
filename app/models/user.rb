@@ -64,6 +64,12 @@ class User < ActiveRecord::Base
     self.position.name == Position.owner
   end
 
+  def is_admin?
+    return false if self.position.nil?
+    self.position.name == Position.admin
+  end
+
+
   private
   def set_company
     return unless company.nil?
