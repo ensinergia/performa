@@ -80,7 +80,7 @@ ul.items-inlined {
 }
 
 ul.items-inlined li.selected a { 
-  color: #FFF;
+  color: #fff;
   font-size: 16px;
   text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
 }
@@ -89,11 +89,12 @@ ul.items-inlined li a {
   font-size: 16px;
   text-transform:capitalize;
   text-decoration: none;
-  color:#6E7128;
+  color:#525252;
 }
 
 ul.items-inlined li.selected { 
-  background-color:#A8AC3E;
+	color:#fff;
+  background-color:#838383;
 }
 
 ul.items-inlined li { 
@@ -167,7 +168,7 @@ input:focus, textarea:focus {
 /** Styles for specific global controls **/
 
 .title-bar {
-  background-color:#C2C747;
+  background-color:#999;
   padding: 2px 30px;
   height: 40px;
 }
@@ -298,7 +299,7 @@ input:focus, textarea:focus {
 
 .header-contents #app-logo {
   width:211px;
-  height: 62px;
+  height: 60px;
   position: relative;
   left: 50%;
   margin-left:-105px;
@@ -458,17 +459,17 @@ ul.menu{
 }
 
 .menu li.selected a.foda-btn, .menu li.selected a.foda-btn:hover {
-  background: url(../images/FODA_btn_selected.png) no-repeat;
+  background: url(../images/foda_btn_selected.png) no-repeat;
 }
 
 .menu li a.foda-btn:hover {
-  background: url(../images/FODA_btn_hover.png) no-repeat;
+  background: url(../images/foda_btn_hover.png) no-repeat;
 }
 
 .menu li a.foda-btn {
   width:65px;
   height: 32px;
-  background: url(../images/FODA_btn_up.png) no-repeat;
+  background: url(../images/foda_btn_up.png) no-repeat;
 }
 
 .menu li.selected a.strategic-l-btn, .menu li.selected a.strategic-l-btn:hover {
@@ -480,7 +481,7 @@ ul.menu{
 }
 
 .menu li a.strategic-l-btn {
-  width:171px;
+  width:170px;
   height: 32px;
   background: url(../images/strategic_l_btn_up.png) no-repeat;
 }
@@ -522,7 +523,7 @@ ul.menu{
 }
 
 .menu li a.people-btn {
-  width:113px;
+  width:190px;
   height: 32px;
   background: url(../images/people_btn_up.png) no-repeat;
 }
@@ -549,7 +550,7 @@ ul.menu{
 }
 
 .area-title {
-  background-color:#eaecc7;
+  background-color:#ccc;
   padding: 10px;
 }
 
@@ -1026,7 +1027,7 @@ ul.menu{
 }
 
 .edit_person_title {
-	background-color: #E2E4B4;
+	background-color: #ccc;
 	padding: 1px 20px;
 	margin-top:10px;
 	color:#999;
