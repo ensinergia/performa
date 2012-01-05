@@ -89,12 +89,12 @@ ul.items-inlined li a {
   font-size: 16px;
   text-transform:capitalize;
   text-decoration: none;
-  color:#525252;
+  color:#4C4C4C;
 }
 
 ul.items-inlined li.selected { 
 	color:#fff;
-  background-color:#838383;
+  background-color:#828282;
 }
 
 ul.items-inlined li { 
@@ -244,7 +244,7 @@ input:focus, textarea:focus {
 
 .help .title { 
   font-weight: 200;
-  background-color: #EC8614;
+  background-color: #F2811D;
   text-align: center; 
   text-transform: uppercase;
   color: white;
@@ -354,13 +354,13 @@ input:focus, textarea:focus {
   top: 5px;
   right: 30px;
   font-size: 12px;
-  color: #B8BF45;
+  color: #fff;
   width: 320px;
 }
 
 .header-contents .right-menu a { 
   text-decoration: none;
-  color: #B8BF45;
+  color: #fff;
 }
 
 .header-contents .right-menu span { 
