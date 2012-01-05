@@ -445,31 +445,31 @@ ul.menu{
 }
 
 .menu li.selected a.direction-btn, .menu li.selected a.direction-btn:hover {
-  background: url(../images/direction_btn_selected.png) no-repeat;
+  background: url(../images/directions_btn_selected.png) no-repeat;
 }
 
 .menu li a.direction-btn:hover {
-  background: url(../images/direction_btn_hover.png) no-repeat;
+  background: url(../images/directions_btn_hover.png) no-repeat;
 }
 
 .menu li a.direction-btn {
   width:76px;
   height: 32px;
-  background: url(../images/direction_btn_up.png) no-repeat;
+  background: url(../images/directions_btn_up.png) no-repeat;
 }
 
 .menu li.selected a.foda-btn, .menu li.selected a.foda-btn:hover {
-  background: url(../images/foda_btn_selected.png) no-repeat;
+  background: url(../images/fod_btn_selected.png) no-repeat;
 }
 
 .menu li a.foda-btn:hover {
-  background: url(../images/foda_btn_hover.png) no-repeat;
+  background: url(../images/fod_btn_hover.png) no-repeat;
 }
 
 .menu li a.foda-btn {
   width:65px;
   height: 32px;
-  background: url(../images/foda_btn_up.png) no-repeat;
+  background: url(../images/fod_btn_up.png) no-repeat;
 }
 
 .menu li.selected a.strategic-l-btn, .menu li.selected a.strategic-l-btn:hover {
