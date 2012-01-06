@@ -6,6 +6,14 @@ $.extend({
 
 $(document).ready(function() {
 
+	$('#area_selector').change(
+		function(){
+			document.location='areas/select?area_id='+$('#area_selector').val();
+		}
+	);
+
+
+
 	$('#user_photo').attr('size','1');
 	$('#notice').delay(3500).fadeOut('slow');
 	$('#alert').delay(3500).fadeOut('slow');
@@ -65,9 +73,9 @@ $(document).ready(function() {
 		var regexp = new RegExp("new_" + association, "g")
 		$(link).parent().before(content.replace(regexp, new_id));
 	}
-	
-	
-	
+
+
+
 	/* Activating Best In Place */
-	  jQuery(".best_in_place").best_in_place();
+	jQuery(".best_in_place").best_in_place();
 });

@@ -430,6 +430,59 @@ ul.menu{
   display: block;
 }
 
+.back_menu{
+	color: #4C4C4C;
+	    display: block;
+	    padding: 7px 9px;
+	    text-decoration: none;
+}
+
+.menu li.selected a.objective-op-btn, .menu li.selected a.objective-op-btn:hover {
+  background: url(../images/objetivosope_btn_selected.png) no-repeat;
+}
+
+.menu li a.objective-op-btn:hover {
+  background: url(../images/objetivosope_btn_hover.png) no-repeat;
+}
+
+.menu li a.objective-op-btn {
+  width:180px;
+  height: 32px;
+  background: url(../images/objetivosope_btn_up.png) no-repeat;
+}
+
+
+.menu li.selected a.projects-btn, .menu li.selected a.projects-btn:hover {
+  background: url(../images/proyectos_btn_selected.png) no-repeat;
+}
+
+.menu li a.projects-btn:hover {
+  background: url(../images/proyectos_btn_hover.png) no-repeat;
+}
+
+.menu li a.projects-btn {
+  width:180px;
+  height: 32px;
+  background: url(../images/proyectos_btn_up.png) no-repeat;
+}
+
+
+.menu li.selected a.ciclos-op-btn, .menu li.selected a.ciclos-op-btn:hover {
+  background: url(../images/ciclos_btn_selected.png) no-repeat;
+}
+
+.menu li a.ciclos-op-btn:hover {
+  background: url(../images/ciclos_btn_hover.png) no-repeat;
+}
+
+.menu li a.ciclos-op-btn {
+  width:160px;
+  height: 32px;
+  background: url(../images/ciclos_btn_up.png) no-repeat;
+}
+
+
+
 .menu li.selected a.panorama-btn, .menu li.selected a.panorama-btn:hover {
   background: url(../images/panorama_btn_selected.png) no-repeat;
 }

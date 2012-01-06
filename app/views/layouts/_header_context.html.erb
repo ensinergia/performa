@@ -18,7 +18,7 @@
 			
 			<%= form_tag '' do %>
 				<div class="area-selector-arrow"></div>
-				<%= select_tag "area_selector", options_from_collection_for_select(current_user.company.areas, "id", "name") %>
+				<%= select_tag "area_selector", options_from_collection_for_select(current_user.company.areas, "id", "name",session[:area_id]) %>
 			<% end %>
 		</div>
 		<div class="column fixed right-placed">

@@ -1,13 +1,29 @@
 <div id="menu-content" class="with-shadow">
-<ul class="menu centered ">
+<% if session['area_id']=='' || session[:area_id].to_s==session[:main_area_id].to_s%>
 
+<ul class="menu centered ">
 	<li class="<%= yield(:pa_menu) %>"><%= link_to '', panorama_url(with_current_subdomain), :class => "panorama-btn", :id => "panorama-menu" %></li>
 	<li class="<%= yield(:di_menu) %>"><%= link_to '', creed_visions_url(with_current_subdomain), :class => "direction-btn", :id => "direction-menu" %></li>
 	<li class="<%= yield(:sw_menu) %>"><%= link_to '', swot_analyses_url(with_current_subdomain), :class => "foda-btn", :id => "swot-menu" %></li>
 	<li class="<%= yield(:so_menu) %>"><%= link_to '', strategic_objectives_url(with_current_subdomain), :class => "strategic-o-btn", :id => "strategic-objectives-menu" %></li>
 	<li class="<%= yield(:sl_menu) %>"><%= link_to '', strategic_lines_url(with_current_subdomain), :class => "strategic-l-btn", :id => "strategic-lines-menu" %></li>
-	<!--<li class="<%= yield(:pr_menu) %>"><%= link_to '', '', :class => "programs-btn", :id => "programs-menu" %></li>-->
+
 	<li class="<%= yield(:pe_menu) %>"><%= link_to '', people_url(with_current_subdomain), :class => "people-btn", :id => "people-menu" %></li>
 
 </ul>
+
+<%else%>
+	<ul class="menu centered ">
+		<li ><%= link_to '<< Regresar', area_select_path, :class=>'back_menu'%></li>
+		<li class="<%= yield(:pa_menu) %>"><%= link_to '', panorama_url(with_current_subdomain), :class => "panorama-btn", :id => "panorama-menu" %></li>
+		<li class="<%= yield(:op_menu) %>"><%= link_to '', creed_visions_url(with_current_subdomain), :class => "objective-op-btn", :id => "objetivope-menu" %></li>
+		<li class="<%= yield(:sw_menu) %>"><%= link_to '', operating_cycles_path(with_current_subdomain), :class => "ciclos-op-btn", :id => "ciclos-menu" %></li>
+		<li class="<%= yield(:so_menu) %>"><%= link_to '', strategic_objectives_url(with_current_subdomain), :class => "projects-btn", :id => "proyects-menu" %></li>
+
+		<li class="<%= yield(:pe_menu) %>"><%= link_to '', people_url(with_current_subdomain), :class => "people-btn", :id => "people-menu" %></li>
+
+	</ul>
+	
+<%end%>
+
 </div>

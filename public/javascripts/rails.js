@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://raw.github.com/rails/jquery-ujs/master/src/rails.js">redirected</a>.</body></html>

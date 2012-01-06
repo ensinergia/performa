@@ -46,6 +46,12 @@ class AreasController < ApplicationController
     @people = User.all(:conditions => { :company_id => current_company.id })
   end
   
+  def select
+    session['area_id']=params['area_id'] || ""
+    redirect_to panorama_path
+  end
+  
+  
   private
   def get_company_users
     @users = current_company.users
