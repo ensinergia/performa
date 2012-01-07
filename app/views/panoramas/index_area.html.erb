@@ -1,0 +1,18 @@
+<div class="panorama-img image"></div>
+
+<div class="box rounded-10 with-shadow with-mid-width box-with-left-contents">
+	<%= render :partial => 'shared/main_title', :locals => {:title => I18n.t('views.panorama.title') } %>
+	
+	<%= content_for(:pa_menu, &Proc.new { "selected" }) %>
+		
+	<div class="inside-box">
+		<div class="content">
+			<p><%= line_break t('views.panorama.description_area') %></p>
+		
+			<p><%= link_to t('views.panorama.actions.add_strategic_objetive'), operating_objetives_url %></p>
+			<p><%= link_to t('views.panorama.actions.add_cycle'), new_operating_cycle_url %></p>
+			<p><%= link_to t('views.panorama.actions.add_project'), projects_url %></p>
+			
+		</div>
+	</div>
+</div>

@@ -347,6 +347,7 @@ es-MX:
     panorama:
       title: "Bienvenido a Performa"
       description: "En esta pantalla verás el panorama general de toda tu empresa. \n\n Pero antes de que puedas ver actividad, tienes tareas pendientes por hacer."
+      description_area: "En esta pantalla verás el panorama general para esta area. \n\n Pero antes de que puedas ver actividad, tienes tareas pendientes por hacer."
       actions:
         add_creed: "Agregar Credo"
         add_swot: "Agregar FODA"
@@ -354,6 +355,9 @@ es-MX:
         add_objectives: "Agregar Objetivos Estratégicos"
         add_programmes: "Agregar Programas"
         add_areas_and_people: "Agregar Áreas y Personas"
+        add_project: "Agregar Proyecto"
+        add_cycle: "Agregar Ciclo Operativo"
+        add_strategic_objetive: "Agregar Objetivo Operativo"
     help:
       title: "Ayuda"
       shared:

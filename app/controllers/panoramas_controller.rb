@@ -6,7 +6,7 @@ class PanoramasController < ActionController::Base
   before_filter :verify_subdomain
   
   def index
-    render :layout => 'application_index_page'
+    session['area_id']=='' || session[:area_id].to_s==session[:main_area_id].to_s  ? render( :layout => 'application_index_page') : render('index_area',:layout => 'application_index_page')
   end
   
 end
