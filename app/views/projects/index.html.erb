@@ -1,0 +1,34 @@
+<div class="box rounded-10 with-shadow with-mid-width">
+  
+	<%= content_for(:cy_menu, &Proc.new { "selected" }) %>
+	
+	<div class="title-bar rounded-10-top">
+		<h2><%= t('views.cycles.index.not_empty.title') %></h2>
+  </div>
+	
+	<div class="inside-box">
+		<%= render :partial => 'strategic_line', :collection => @strategic_lines %>
+		
+		<div class='strategic_add_link'>
+			<%= link_to t('views.cycles.index.not_empty.controls.add'), new_operating_cycle_path %>
+		</div>
+	</div>
+</div>
+
+<%= content_for :contextual_legend do %>
+
+	<div class="help">
+		<div class="title">
+			<p><%=t 'views.help.title' %></p>
+		</div>
+	
+		<!--This form will trigger after the page has finished loading. It will retrieve the contextual menu for the current URL path-->
+
+		<div class="contextual">
+			<%= form_tag contextual_legends_show_path, :remote => true, :id => "contextual-show-action-form" do %>
+				<%= hidden_field_tag :route, "#{request.env['PATH_INFO']}#non_empty" %>
+			<% end %>
+		</div>
+	</div>
+
+<% end %>

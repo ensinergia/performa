@@ -434,7 +434,55 @@ es-MX:
           last_updated: "Última actualización"
           controls:
             cancel: "Cancelar"
-            save: "Guardar cambios"      
+            save: "Guardar cambios" 
+
+    projects:
+      index:
+        empty:
+            title: "¿Listo para agregar El primer Proyecto?"
+            description: "Esta es la descripción para un nuevo Proyecto"
+            controls:
+              start: "Agregar"
+        not_empty:
+            title: "Proyectos"
+            controls:
+              add: "Agregar un Proyecto"
+      new:
+        title: "Agregando un Proyecto"
+        controls:
+          cancel: "Cancelar"
+          save: "Guardar"
+      edit:
+          title: "Modificando Proyecto"
+          last_updated: "Última actualización"
+          controls:
+            cancel: "Cancelar"
+            save: "Guardar cambios"  
+            
+    operating_objetives:
+      index:
+        empty:
+            title: "¿Listo para agregar El primer Objetivo Operativo?"
+            description: "Esta es la descripción para un nuevo Objetivo Operativo"
+            controls:
+              start: "Agregar"
+        not_empty:
+            title: "Objetivos Operativos"
+            controls:
+              add: "Agregar un Objetivo Operativo"
+      new:
+        title: "Agregando un Objetivo Operativo"
+        controls:
+          cancel: "Cancelar"
+          save: "Guardar"
+      edit:
+          title: "Modificando Objetivo Operativo"
+          last_updated: "Última actualización"
+          controls:
+            cancel: "Cancelar"
+            save: "Guardar cambios"
+            
+                           
     strategic_objectives:
       index:
         empty:

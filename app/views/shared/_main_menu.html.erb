@@ -16,9 +16,9 @@
 	<ul class="menu centered ">
 		<li ><%= link_to '<< Regresar', area_select_path, :class=>'back_menu'%></li>
 		<li class="<%= yield(:pa_menu) %>"><%= link_to '', panorama_url(with_current_subdomain), :class => "panorama-btn", :id => "panorama-menu" %></li>
-		<li class="<%= yield(:op_menu) %>"><%= link_to '', creed_visions_url(with_current_subdomain), :class => "objective-op-btn", :id => "objetivope-menu" %></li>
+		<li class="<%= yield(:op_menu) %>"><%= link_to '', operating_objetives_url(with_current_subdomain), :class => "objective-op-btn", :id => "objetivope-menu" %></li>
 		<li class="<%= yield(:cy_menu) %>"><%= link_to '', operating_cycles_path(with_current_subdomain), :class => "ciclos-op-btn", :id => "ciclos-menu" %></li>
-		<li class="<%= yield(:proj_menu) %>"><%= link_to '', strategic_objectives_url(with_current_subdomain), :class => "projects-btn", :id => "proyects-menu" %></li>
+		<li class="<%= yield(:proj_menu) %>"><%= link_to '', projects_url(with_current_subdomain), :class => "projects-btn", :id => "proyects-menu" %></li>
 
 		<li class="<%= yield(:pe_menu) %>"><%= link_to '', people_url(with_current_subdomain), :class => "people-btn", :id => "people-menu" %></li>
 

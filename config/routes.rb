@@ -27,6 +27,8 @@ GestionDesempeno::Application.routes.draw do
     match '/areas/admin' => 'areas#admin', :as => 'areas_admin', :via => :get
     match '/areas/select' => 'areas#select', :as => 'area_select', :via => :get
     resources :areas, :only => [:index, :new, :create, :edit, :update]
+    resources :projects, :only => [:index, :new, :create, :edit, :update]
+    resources :operating_objetives, :only => [:index, :new, :create, :edit, :update]
     
     match 'contextual_legends/show' => 'contextual_legends#show', :via => :post
     
