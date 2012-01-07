@@ -1,6 +1,6 @@
 <% if @contextual_legend.nil? %>
 	<%= t 'views.help.show.empty.legend' %>
-	
+	<br/><br/>
 	<% if can? :create, @contextual_legend %>
 	  <%= link_to t('views.help.show.controls.add'), new_admin_contextual_legend_path, :class => "contextual-link" %>
 	<% end %>

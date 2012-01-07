@@ -413,6 +413,28 @@ es-MX:
         controls:
           cancel: "Cancelar"
           save: "Guardar cambios"
+    cycles:
+      index:
+        empty:
+            title: "¿Listo para agregar El primer Ciclo Operativo?"
+            description: "Esta es la descripción para un nuevo Cyclo Operativo"
+            controls:
+              start: "Agregar"
+        not_empty:
+            title: "Ciclos Operativos"
+            controls:
+              add: "Agregar un Ciclo Operativo"
+      new:
+        title: "Agregando un Ciclo Operativo"
+        controls:
+          cancel: "Cancelar"
+          save: "Guardar"
+      edit:
+          title: "Modificando Ciclo Operativo"
+          last_updated: "Última actualización"
+          controls:
+            cancel: "Cancelar"
+            save: "Guardar cambios"      
     strategic_objectives:
       index:
         empty:
