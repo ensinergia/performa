@@ -15,7 +15,10 @@ GestionDesempeno::Application.routes.draw do
     match '/accounts/destroy_current' => 'accounts#destroy', :as => 'destroy_account', :via => :delete
     
     match '/panorama' => 'panoramas#index'
-    
+    match '/panorama/area/(:area)' => 'panoramas#index' , :as=>"area_panorama"
+    match '/operating_objetives/area/(:area)' => 'operating_objetives#index' , :as=>"area_operating_objetives"
+    match '/operating_cycles/area/(:area)' => 'operating_cycles#index' , :as=>"area_operating_cycles"
+    match '/projects/area/(:area)' => 'projects#index' , :as=>"area_projects"
     resources :comments, :only => [:create, :destroy]
     resources :strategic_lines, :only => [:index, :destroy, :edit, :update, :create, :new]
     resources :strategic_objectives, :except => :show

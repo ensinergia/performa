@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 	$('#area_selector').change(
 		function(){
-			document.location='areas/select?area_id='+$('#area_selector').val();
+			document.location=base_url+'areas/select?area_id='+$('#area_selector').val();
 		}
 	);
 
