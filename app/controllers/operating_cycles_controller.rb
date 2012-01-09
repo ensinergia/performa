@@ -12,13 +12,16 @@ class OperatingCyclesController < ApplicationController
   
   
   def index
-    @cicles = OperatingCycle.get_all_for(current_company)
-    @cicles.empty? ? render('welcome', :layout => 'application_index_page') : render('index')
+    @operating_cycles = OperatingCycle.get_all_for(current_company)
+    @operating_cycles.empty? ? render('welcome', :layout => 'application_index_page') : render('index')
     
   end
   
   def new
     @operating_cycle = OperatingCycle.new
+  end
+  
+  def edit
   end
   
   def create
@@ -37,6 +40,12 @@ class OperatingCyclesController < ApplicationController
   end
   
   def show
+  end
+  
+  def destroy
+    @operating_cycle.destroy
+    redirect_to(area_operating_cycles_url(session[:area_id]))
+    
   end
   
   private
