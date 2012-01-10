@@ -404,7 +404,7 @@ ul.menu{
 
 .form-box{
   padding: 10px;
-  background-color: #eaebc9;
+  background-color: #DFDFDF;
 }
 
 .notification-box{
@@ -1229,6 +1229,13 @@ ul.menu{
 	width: 550px;	
 	height: 90px;
 }
+
+.text_area_operative_objective{
+	width: 320px;	
+	height: 90px;
+}
+
+
 .cycle_name{
 	width: 550px;
 }

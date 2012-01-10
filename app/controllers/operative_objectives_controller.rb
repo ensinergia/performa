@@ -1,0 +1,68 @@
+#encoding: utf-8
+require 'subdomain_guards'
+class OperativeObjectivesController < ApplicationController
+  
+  include SubdomainGuards
+  include UserAssociationsHelper
+  layout 'application'
+  
+  before_filter :strategic_lines, :only => :new
+  before_filter :verify_subdomain
+  
+  def index
+    #@cicles = OperatingCycle.get_all_for(current_company)
+    #@cicles.empty? ? render('welcome', :layout => 'application_index_page') : render('index')
+    render('welcome', :layout => 'application_index_page')
+    
+  end
+  
+  def new
+    @operative_objective = OperativeObjective.new
+  end
+
+  # GET /operative_objectives/1/edit
+  def edit
+    @operative_objective = OperativeObjective.find(params[:id])
+  end
+
+  def create
+    @operative_objective = OperativeObjective.new_with_user(params[:operative_objective], current_user)
+
+    if @operative_objective.save
+      @operative_objective.notify_to(params[:users])
+      redirect_to operative_objectives_path, :notice => I18n.t('views.common.messages.save.successful', :model => "Objetivos Estratégicos", :genre => "os")
+    else
+      render :action => 'new'
+    end
+  end
+
+  def update
+    @operative_objective = OperativeObjective.find(params[:id])
+
+    if @operative_objective.update_attributes(params[:operative_objective])
+      @operative_objective.notify_to(params[:users])
+
+      redirect_to operative_objectives_path, :notice => I18n.t('views.common.messages.update.successful', :model => "Objetivos Estratégicos", :genre => "os")
+    else
+      render :action => 'edit'
+    end
+  end
+
+  def destroy
+    
+    @operative_objective = OperativeObjective.find(params[:id])
+    @operative_objective.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(operative_objectives_url) }
+    end
+  end
+  
+  
+  private
+  def strategic_lines
+    @strategic_lines = current_company.strategic_lines
+  end
+  
+  
+end

@@ -1,0 +1,34 @@
+%div.notification-box
+	MEDIANTE
+%br	
+= nested_form_for @operative_objective do |f|
+	= f.hidden_field :user_id, :value => current_user.id
+	= f.hidden_field :company_id,:value =>  current_company.id
+	= f.hidden_field :area_id,:value =>  session[:area_id]
+	
+	%div.left
+		= f.label :reason, t('views.operative_objective.reason'), :class => 'bold'
+		%br
+		= f.text_area :results, :class => 'text_area_operative_objective', :cols=>5
+
+	%div.right
+		= f.label :reason, t('views.operative_objective.reason'), :class => 'bold'
+		%br
+		= f.text_area :actions, :class => 'text_area_operative_objective', :cols=>5
+	%div.clear
+	%div.left
+		= f.select :perspective, { "Financial" => "Financial", "Other" => "Other"}
+
+	%div.right
+		= f.label :reason, t('views.operative_objective.reason'), :class => 'bold'
+		%br
+		= f.text_area :actions, :class => 'text_area_operative_objective', :cols=>5	
+	%br
+	%div.clear
+	= render :partial => 'strategic_line'
+	= render 'shared/notifications'
+	%div.actions
+		= link_to t('views.operative_objective.cancel'), operative_objectives_path, :class => 'button gray'
+		= f.submit t('views.operative_objective.submit'), :class => 'button orange as-link'
+		
+		
