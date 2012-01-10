@@ -113,6 +113,8 @@ ActiveRecord::Schema.define(:version => 20120109230000) do
     t.string   "perspective"
     t.integer  "area_id"
     t.integer  "user_id"
+    t.datetime "init_date"
+    t.datetime "final_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

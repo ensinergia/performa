@@ -463,7 +463,7 @@ es-MX:
             cancel: "Cancelar"
             save: "Guardar cambios"  
             
-    operating_objetives:
+    operative_objective:
       index:
         empty:
             title: "¿Listo para agregar El primer Objetivo Operativo?"
@@ -476,6 +476,12 @@ es-MX:
               add: "Agregar un Objetivo Operativo"
       new:
         title: "Agregando un Objetivo Operativo"
+        through: "Mediante"
+        results: "Resultados Esperados"
+        actions: "Acciones a Tomar"
+        perspective: "Perspectiva Balance Scorecard"
+        init_date: "Fecha Inicio"
+        final_date: "Fecha Final"
         controls:
           cancel: "Cancelar"
           save: "Guardar"

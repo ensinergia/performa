@@ -6,13 +6,12 @@ class OperativeObjectivesController < ApplicationController
   include UserAssociationsHelper
   layout 'application'
   
-  before_filter :strategic_lines, :only => :new
+  before_filter :strategic_lines, :only => [:new,:edit]
   before_filter :verify_subdomain
   
   def index
-    #@cicles = OperatingCycle.get_all_for(current_company)
-    #@cicles.empty? ? render('welcome', :layout => 'application_index_page') : render('index')
-    render('welcome', :layout => 'application_index_page')
+    @objectives = OperativeObjective.get_all_for(session[:area_id])
+    @objectives.empty? ? render('welcome', :layout => 'application_index_page') : render('index')
     
   end
   
@@ -26,11 +25,10 @@ class OperativeObjectivesController < ApplicationController
   end
 
   def create
-    @operative_objective = OperativeObjective.new_with_user(params[:operative_objective], current_user)
-
+    @operative_objective = OperativeObjective.new(params[:operative_objective])
     if @operative_objective.save
       @operative_objective.notify_to(params[:users])
-      redirect_to operative_objectives_path, :notice => I18n.t('views.common.messages.save.successful', :model => "Objetivos Estratégicos", :genre => "os")
+      redirect_to operative_objectives_path, :notice => I18n.t('views.common.messages.save.successful', :model => "Objetivos Operativos", :genre => "os")
     else
       render :action => 'new'
     end
@@ -42,7 +40,7 @@ class OperativeObjectivesController < ApplicationController
     if @operative_objective.update_attributes(params[:operative_objective])
       @operative_objective.notify_to(params[:users])
 
-      redirect_to operative_objectives_path, :notice => I18n.t('views.common.messages.update.successful', :model => "Objetivos Estratégicos", :genre => "os")
+      redirect_to operative_objectives_path, :notice => I18n.t('views.common.messages.update.successful', :model => "Objetivos Operativos", :genre => "os")
     else
       render :action => 'edit'
     end

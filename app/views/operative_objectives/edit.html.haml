@@ -1,11 +1,11 @@
-= content_for(:cy_menu, &Proc.new { "selected" })
+= content_for(:op_menu, &Proc.new { "selected" })
 %div{:class => 'box rounded-10 with-shadow with-mid-width'}
 	= content_for(:so_menu, &Proc.new { "selected" })
 	%div{:class => "title-bar rounded-10-top" }
 		%h2
-			= t('views.cycles.new.title')
+			= t('views.operative_objective.edit.title')
 	%div{:class => 'inside-box'}
-		= render :partial => 'form_operating_cycle'
+		= render :partial => 'form'
 
 	= content_for :contextual_legend do
 		= render 'contextual_legends/contextual_legend'

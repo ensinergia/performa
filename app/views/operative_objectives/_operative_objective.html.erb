@@ -1,0 +1,24 @@
+<tr>
+	<th width="54%">Objetivo</th>
+	<th width="10%">BSC</th>
+	<th width="13%">Fecha Ini</th>
+	<th width="13%">Fecha Final</th>
+	<th width="10%"></th>
+</tr>
+	<tr>
+		<td>
+			<%= operative_objective.results %> 
+			<strong><%= t('views.operative_objective.new.through') %> </strong>
+			<%= operative_objective.actions %>
+			</td>
+		<td><%= operative_objective.perspective %></td>
+		<td><%= operative_objective.init_date.to_date %></td>
+		<td><%= operative_objective.final_date.to_date %></td>
+		<td>
+			<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_operative_objective_path(operative_objective), :class => 'modify' %>
+			<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), operative_objective_path(operative_objective), 
+								:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
+																								:connector => "ésta", 
+																								:model => t('activerecord.models.operative_objective'))%>
+		</td>
+	</tr>

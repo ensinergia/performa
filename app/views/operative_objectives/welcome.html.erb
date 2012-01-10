@@ -3,7 +3,7 @@
 <div class="inside-box max-inner-width">
 	<div class="strategic-objectives-img image"></div>
 	<div class="text-content">
-		<h1><%= t('views.operating_objetives.index.empty.title') %></h1>
+		<h1><%= t('views.operative_objective.index.empty.title') %></h1>
 
 		<div class="contextual">
 			<%= form_tag contextual_legends_show_path, :remote => true, :id => "contextual-show-action-form" do %>
@@ -12,5 +12,5 @@
 		</div>
 	</div>
 	<br/>
-	<%= link_to t('views.operating_objetives.index.empty.controls.start'), new_operative_objective_url(with_current_subdomain), :class => "button orange start-button" %>
+	<%= link_to t('views.operative_objective.index.empty.controls.start'), new_operative_objective_url(with_current_subdomain), :class => "button orange start-button" %>
 </div>

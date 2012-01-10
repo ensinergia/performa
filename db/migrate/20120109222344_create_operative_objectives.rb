@@ -6,8 +6,8 @@ class CreateOperativeObjectives < ActiveRecord::Migration
       t.string :perspective
       t.integer :area_id
       t.integer :user_id
-      t.timestamps :init_date
-      t.timestamps :final_date
+      t.datetime :init_date
+      t.datetime :final_date
       t.timestamps
     end
   end

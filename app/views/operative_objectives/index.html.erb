@@ -1,16 +1,19 @@
 <div class="box rounded-10 with-shadow with-mid-width">
   
-	<%= content_for(:cy_menu, &Proc.new { "selected" }) %>
+	<%= content_for(:op_menu, &Proc.new { "selected" }) %>
 	
 	<div class="title-bar rounded-10-top">
-		<h2><%= t('views.cycles.index.not_empty.title') %></h2>
+		<h2><%= t('views.operative_objective.index.not_empty.title') %></h2>
   </div>
 	
 	<div class="inside-box">
-		<%= render :partial => 'strategic_line', :collection => @strategic_lines %>
+		<table with="100%" cellspadding="0" celspacing="0" class="objective_table">	
+			
+		<%= render :partial => 'operative_objective', :collection => @objectives %>
+		</table>
 		
 		<div class='strategic_add_link'>
-			<%= link_to t('views.cycles.index.not_empty.controls.add'), new_operative_objective_path %>
+			<%= link_to t('views.operative_objective.index.not_empty.controls.add'), new_operative_objective_path %>
 		</div>
 	</div>
 </div>
