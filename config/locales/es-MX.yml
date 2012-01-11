@@ -474,6 +474,11 @@ es-MX:
             title: "Objetivos Operativos"
             controls:
               add: "Agregar un Objetivo Operativo"
+        pointers:
+            pointer: "Indicador"
+            advance: "Avance"
+            empty: "No hay indicadores actualmente."
+            add: "Agregar indicador"      
       new:
         title: "Agregando un Objetivo Operativo"
         through: "Mediante"
