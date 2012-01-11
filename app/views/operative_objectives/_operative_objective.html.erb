@@ -22,3 +22,30 @@
 																								:model => t('activerecord.models.operative_objective'))%>
 		</td>
 	</tr>
+	
+	<tr>
+		<td colspan="5">
+			<br/>
+			<table width="50%" cellspadding="0" celspacing="0" class="objective_table">	
+				<tr>
+					<th width="80%">Indicador</th>
+					<th width="20%">Avance</th>
+				</tr>
+
+				<tr>
+					<td class="notification-box">No hay Indicadores actualmente</td>
+					<td class="notification-box"></td>
+				</tr>
+
+				<tr>
+					<td class="notification-box"></td>
+					<td class="notification-box"><%= link_to "Agregar", edit_operative_objective_path(operative_objective) %></td>
+				</tr>
+
+			</table>	
+			
+			
+		</td>
+	</tr>
+
+	
