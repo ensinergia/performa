@@ -480,6 +480,10 @@ es-MX:
         results: "Resultados Esperados"
         actions: "Acciones a Tomar"
         perspective: "Perspectiva Balance Scorecard"
+        perspective_options:
+                one: "Financial"
+                two: "Operative"
+                three: "Other"
         init_date: "Fecha Inicio"
         final_date: "Fecha Final"
         controls:

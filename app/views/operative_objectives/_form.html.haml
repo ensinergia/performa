@@ -27,17 +27,18 @@
 	%br
 	%div.left
 		=t('views.operative_objective.new.perspective')
-		= f.select :perspective, { "Financial" => "Financial", "Other" => "Other"}
+		= f.select :perspective, { t('views.operative_objective.new.perspective_options.one') => t('views.operative_objective.new.perspective_options.one'), 
+		t('views.operative_objective.new.perspective_options.two') => t('views.operative_objective.new.perspective_options.two'),t('views.operative_objective.new.perspective_options.three')=>t('views.operative_objective.new.perspective_options.three')}
 	
 	%div.right
 		%div.left.marginright10px
 			%div.left
-				Fecha Inicio
+				=t('views.operative_objective.new.init_date')
 			= f.text_field :init_date
 			
 		%div.right
 			%div.left
-				Fecha Final			
+				=t('views.operative_objective.new.final_date')
 			= f.text_field :final_date
 		%div.clear	
 	

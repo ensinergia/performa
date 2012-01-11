@@ -2,8 +2,7 @@ $(document).ready(function() {
 	$('#operative_objective_init_date').dateinput({ format: 'yyyy/mm/dd'});
 	$('#operative_objective_final_date').dateinput({ format: 'yyyy/mm/dd'});
 
-	
-	
+	update_text();
 
 	$('#operative_objective_results').keypress(
 		function() {
