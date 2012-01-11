@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109230000) do
+ActiveRecord::Schema.define(:version => 20120111195201) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -122,6 +122,29 @@ ActiveRecord::Schema.define(:version => 20120109230000) do
   create_table "operative_objectives_strategic_lines", :id => false, :force => true do |t|
     t.integer "strategic_line_id"
     t.integer "operative_objective_id"
+  end
+
+  create_table "pointers", :force => true do |t|
+    t.integer  "operative_objective_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "perspective"
+    t.string   "type"
+    t.string   "file"
+    t.string   "advance_type"
+    t.string   "behavior"
+    t.string   "periodicity"
+    t.string   "reajust_to_cero"
+    t.string   "ini_value"
+    t.datetime "init_date"
+    t.string   "thresholds"
+    t.string   "advance"
+    t.string   "goals"
+    t.string   "results"
+    t.string   "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "positions", :force => true do |t|

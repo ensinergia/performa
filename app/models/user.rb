@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :analysis
   has_many :strategic_lines
   has_many :strategic_objectives
-
+  has_many :pointers
   belongs_to :company
   belongs_to :position
   before_validation :set_company, :on => :create
