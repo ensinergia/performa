@@ -37,20 +37,28 @@ google.setOnLoadCallback(drawVisualization);
 function drawVisualization() {
   // Some raw data (not necessarily accurate)
   var data = google.visualization.arrayToDataTable([
-    ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua  Guinea','Rwanda', 'Average'],
-    ['2004/05', 165, 938, 522, 998, 450, 614.6],
-    ['2005/06', 135, 1120, 599, 1268, 288, 682],
-    ['2006/07', 157, 1167, 587, 807, 397, 623],
-    ['2007/08', 139, 1110, 615, 968, 215, 609.4],
-    ['2008/09', 136, 691, 629, 1026, 366, 569.6]
+    ['Mes', 'Resultado del Periodo','Meta del Periodo'],
+    ['Ene', 800, 938],
+    ['Feb', 1000, 1120],
+    ['Mar', 1200, 1167],
+    ['Abr', 990, 1110],
+    ['May', 800, 691],
+	['Jun', 1000, 1510],
+	['Jul', 1500, 1410],
+	['Ago', 1600, 1810],
+	['Sep', 1800, 2010],
+	['Oct', 1700, 1910],
+	['Nov', 1550, 1510],
+	['Dic', 1025, 1310],
   ]);
 
   var options = {
-    title : 'Monthly Coffee Production by Country',
-    vAxis: {title: "Cups"},
-    hAxis: {title: "Month"},
+	titlePosition: 'in',
+    title : 'Simulacion de Indicadores',
+    vAxis: {title: "Valor"},
+    hAxis: {title: "Meses"},
     seriesType: "bars",
-    series: {5: {type: "line"}}
+    series: {1: {type: "line"}}
   };
 
   var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
