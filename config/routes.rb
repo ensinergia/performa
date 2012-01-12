@@ -24,6 +24,7 @@ GestionDesempeno::Application.routes.draw do
     resources :strategic_objectives, :except => :show
     resources :operating_cycles
     resources :operative_objectives
+    resources :pointers
 
     match '/people/bulk_update_admin' => 'people#bulk_update_admin', :as => 'bulk_update_admin', :via => :put
     resources :people, :only => [:index, :new, :edit,:create,:update,:destroy]

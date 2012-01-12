@@ -1,0 +1,268 @@
+- content_for :styles do
+	= stylesheet_link_tag 'jquerydate','range_input'
+	
+- content_for :javascript do
+	= javascript_include_tag 'jquery.tools.min','https://www.google.com/jsapi','pointers'
+
+
+
+= nested_form_for @pointer do |f|
+	= f.hidden_field :user_id, :value => current_user.id
+	= f.hidden_field :operative_objective_id,:value =>  params[:id]
+
+	.left.marginright10px
+		= f.label :name, t('views.pointers.new.name'), :class => 'bold'
+	.left
+		= f.text_field :name, :size =>"80" 	
+	.clear
+	%br
+	.left.marginright10px
+		= f.label :description, t('views.pointers.new.description'), :class => 'bold'
+	.left	
+		= f.text_area :description, :class=>:pointer_description
+	.clear	
+	%br
+	%div.left
+		=t('views.pointers.new.perspective')
+		= f.select :perspective, { t('views.pointers.new.perspective_options.one') => t('views.pointers.new.perspective_options.one'), 
+		t('views.pointers.new.perspective_options.two') => t('views.pointers.new.perspective_options.two'),t('views.pointers.new.perspective_options.three')=>t('views.pointers.new.perspective_options.three')}
+		%br
+		%br
+		=t('views.pointers.new.type')
+		= f.select :type, { t('views.pointers.new.type_options.one') => t('views.pointers.new.type_options.one'), 
+		t('views.pointers.new.type_options.two') => t('views.pointers.new.type_options.two'),t('views.pointers.new.type_options.three')=>t('views.pointers.new.type_options.three')}
+	
+	.right.notification-box.width200px
+		=t('views.pointers.new.attach')
+		%br
+		%br
+		=f.file_field :file
+		%br
+		
+	.clear
+	
+	%br
+	
+	.left.notification-box.width46.align-right
+		=t('views.pointers.new.behavior')
+		= f.select :behavior, { t('views.pointers.new.behavior_options.one') => t('views.pointers.new.behavior_options.one'), 
+		t('views.pointers.new.behavior_options.two') => t('views.pointers.new.behavior_options.two'),t('views.pointers.new.behavior_options.three')=>t('views.pointers.new.behavior_options.three')}
+		%br
+		%br
+		=t('views.pointers.new.advance_type')
+		= f.select :type, { t('views.pointers.new.advance_type_options.one') => t('views.pointers.new.advance_type_options.one'), 
+		t('views.pointers.new.advance_type_options.two') => t('views.pointers.new.advance_type_options.two'),t('views.pointers.new.advance_type_options.three')=>t('views.pointers.new.advance_type_options.three')}
+	
+	.right.notification-box.width46.align-right
+		.right
+			.left
+				=t('views.pointers.new.init_date')
+			= f.text_field :init_date
+		.clear	
+		%br
+		%br
+		=t('views.pointers.new.periodicity')
+		= f.select :type, { t('views.pointers.new.periodicity_options.one') => t('views.pointers.new.periodicity_options.one'), 
+		t('views.pointers.new.periodicity_options.two') => t('views.pointers.new.periodicity_options.two'),t('views.pointers.new.periodicity_options.three')=>t('views.pointers.new.periodicity_options.three')}
+	.clear
+	%br
+	.left.marginright10px
+		= f.label :ini_value, t('views.pointers.new.ini_value'), :class => 'bold'
+		= f.text_field :ini_value, :size =>"20"
+		
+	.left.marginright10px
+		= f.check_box :reajust_to_cero
+		= f.label :reajust, t('views.pointers.new.reajust'), :class => 'bold'
+		
+	.clear
+	
+	.notification-box
+		.blank_color_pointers
+			%b
+				=t('views.pointers.new.thresholds')
+			%i	
+				=t('views.pointers.new.thresholds_sub')	
+			.red_box.left
+				=t('views.pointers.new.from') 
+				=text_field_tag :umb1, 0,:disabled=>:disabled,:class=>"thresholds_input"
+				="%"
+				=t('views.pointers.new.to')
+				=text_field_tag :umb2, 0, :class=>"thresholds_input"
+				="%"
+			.yellow_box.left
+				=t('views.pointers.new.from') 
+				=text_field_tag :umb3, 0,:disabled=>:disabled, :class=>"thresholds_input"
+				="%"
+				=t('views.pointers.new.to')
+				=text_field_tag :umb4, 0, :class=>"thresholds_input"
+				="%"
+			.green_box.left
+				=t('views.pointers.new.from') 
+				=text_field_tag :umb5, 0,:disabled=>:disabled, :class=>"thresholds_input"
+				="%"
+				=t('views.pointers.new.to')
+				=text_field_tag :umb6,100,:disabled=>:disabled, :class=>"thresholds_input"
+				="%"
+			.clear	
+		%br	
+		%br
+		.left
+			=t('views.pointers.new.pointer_status')
+		.right
+			=t('views.pointers.new.advance_value')
+		.clear	
+		%input{:type=>"range", :name=>"test", :min=>"0", :max=>"100", :value=>"0"}
+		.clear
+		%br
+		%i
+			=t('views.pointers.new.pointer_empty')
+		%br
+		
+	%table{:cellspacing=>"2",:cellpadding=>"10", :class=>"notification-box pointer_table"}
+		%tr
+			%th
+			%th
+				=t('views.month_names.jan').upcase
+			%th
+				=t('views.month_names.feb').upcase
+			%th
+				=t('views.month_names.mar').upcase
+			%th
+				=t('views.month_names.apr').upcase
+			%th
+				=t('views.month_names.may').upcase
+			%th
+				=t('views.month_names.jun').upcase
+			%th
+				=t('views.month_names.jul').upcase
+			%th
+				=t('views.month_names.aug').upcase
+			%th
+				=t('views.month_names.sep').upcase
+			%th
+				=t('views.month_names.oct').upcase
+			%th
+				=t('views.month_names.nov').upcase
+			%th
+				=t('views.month_names.dic').upcase
+		%tr	
+			%td
+				=t('views.pointers.new.period_goals')
+			%td
+				=text_field_tag :pg1, 0, :class=>"pointer_input"
+			%td
+				=text_field_tag :pg2, 0, :class=>"pointer_input"
+			%td
+				=text_field_tag :pg3, 0, :class=>"pointer_input"
+			%td
+				=text_field_tag :pg4, 0, :class=>"pointer_input"
+			%td
+				=text_field_tag :pg5, 0, :class=>"pointer_input"
+			%td
+				=text_field_tag :pg6, 0, :class=>"pointer_input"
+			%td
+				=text_field_tag :pg7, 0, :class=>"pointer_input"
+			%td
+				=text_field_tag :pg8, 0, :class=>"pointer_input"
+			%td
+				=text_field_tag :pg9, 0, :class=>"pointer_input"
+			%td
+				=text_field_tag :pg10, 0, :class=>"pointer_input"
+			%td
+				=text_field_tag :pg11, 0, :class=>"pointer_input"
+			%td
+				=text_field_tag :pg12, 0, :class=>"pointer_input"
+			
+			%tr	
+				%td
+					=t('views.pointers.new.period_sum')
+				%td
+				
+				%td
+				
+				%td
+				
+				%td
+				
+				%td
+				
+				%td
+				
+				%td
+				
+				%td
+				
+				%td
+				
+				%td
+				
+				%td
+				
+				%td
+			%tr	
+				%td
+					=t('views.pointers.new.period_results')
+				%td
+					=text_field_tag :pr1, 0, :class=>"pointer_input"
+				%td
+					=text_field_tag :pr2, 0, :class=>"pointer_input"
+				%td
+					=text_field_tag :pr3, 0, :class=>"pointer_input"
+				%td
+					=text_field_tag :pr4, 0, :class=>"pointer_input"
+				%td
+					=text_field_tag :pr5, 0, :class=>"pointer_input"
+				%td
+					=text_field_tag :pr6, 0, :class=>"pointer_input"
+				%td
+					=text_field_tag :pr7, 0, :class=>"pointer_input"
+				%td
+					=text_field_tag :pr8, 0, :class=>"pointer_input"
+				%td
+					=text_field_tag :pr9, 0, :class=>"pointer_input"
+				%td
+					=text_field_tag :pr10, 0, :class=>"pointer_input"
+				%td
+					=text_field_tag :pr11, 0, :class=>"pointer_input"
+				%td
+					=text_field_tag :pr12, 0, :class=>"pointer_input"
+				
+			%tr	
+				%td
+					=t('views.pointers.new.results_sum')
+				%td
+
+				%td
+
+				%td
+
+				%td
+
+				%td
+
+				%td
+
+				%td
+
+				%td
+
+				%td
+
+				%td
+
+				%td
+
+				%td		
+	
+	#chart_div{:style=>"width: 600px; height: 200px;"}		
+	.notification-box
+		= f.label :comments, t('views.pointers.new.comments'), :class => 'bold'
+	%br	
+	= f.text_area :comments		
+			
+	%br
+	= render 'shared/notifications'
+	%div.actions
+		= link_to t('views.pointers.cancel'), pointers_path, :class => 'button gray'
+		= f.submit t('views.pointers.new.controls.save'), :class => 'button orange as-link'
+		

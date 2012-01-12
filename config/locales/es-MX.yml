@@ -82,7 +82,7 @@ es-MX:
       - sep
       - oct
       - nov
-      - dic
+      - dic   
     day_names:
       - domingo
       - lunes
@@ -91,20 +91,6 @@ es-MX:
       - jueves
       - viernes
       - sábado
-    month_names:
-      - ~
-      - enero
-      - febrero
-      - marzo
-      - abril
-      - mayo
-      - junio
-      - julio
-      - agosto
-      - septiembre
-      - octubre
-      - noviembre
-      - diciembre
     formats:
       short: "%d de %b"
       default: "%d/%m/%Y"
@@ -500,7 +486,78 @@ es-MX:
           controls:
             cancel: "Cancelar"
             save: "Guardar cambios"
+    
+    pointers:
             
+      new:
+        title: "Agregar un Indicador"
+        name: "Nombre del indicador"
+        description: "Descripción del indicador"
+        actions: "Acciones a Tomar"
+        perspective: "Perspectiva del indicador"
+        perspective_options:
+                one: "Expericiencia Operacional o Procesos"
+                two: "Operative"
+                three: "Otro"
+        type: "Tipo de indicador"        
+        type_options:
+                one: "Eficacia"
+                two: "Produccion"
+                three: "Otro"        
+        init_date: "Fecha Inicio"
+        attach: "Anexo del indicador"
+        advance_type: "Tipo de Avance"
+        advance_type_options:
+                one: "Por Periodo"
+                two: "Por Acumulado"
+                three: "Otro"
+        behavior: "Comportamiento del Indicador"        
+        behavior_options:
+                one: "Por Periodo"
+                two: "Por Acumulado"
+                three: "Otro"                
+        periodicity: "Periodicidad del Indicador"        
+        periodicity_options:
+                one: "Cuatrimestral"
+                two: "Trimestral"
+                three: "Mensual"
+        ini_value: "Valor Inicial del Indicador"
+        reajust: "Reajustar a Cero el Valor del Indicador"
+        thresholds: "Umbrales del Indicador ( % )"
+        thresholds_sub: "Determina el Limite en el que el status del indicador cambiará de Color"  
+        from: "De:"
+        to: "Hasta:"
+        pointer_status: "Estatus del Indicador"
+        advance_value: "Avance ( % )"    
+        pointer_empty: "Aun no se ha capturado ningun indicador."    
+        period_goals: "Metas del Periodo"
+        period_sum: "Metas Acumuladas"   
+        period_results: "Resultados del Periodo"
+        results_sum: "Resultados Acumulados"           
+        comments: "Comentarios"
+        controls:
+          cancel: "Cancelar"
+          save: "Guardar"
+      edit:
+          title: "Modificando Objetivo Operativo"
+          last_updated: "Última actualización"
+          controls:
+            cancel: "Cancelar"
+            save: "Guardar cambios"
+            
+    month_names:
+         jan: "ene"
+         feb: "feb"
+         mar: "mar"
+         apr: "abr"
+         may: "may"
+         jun: "jun"
+         jul: "jul"
+         aug: "ago"
+         sep: "sep"
+         oct: "oct"
+         nov: "nov"
+         dic: "dic"
                            
     strategic_objectives:
       index:

@@ -8,6 +8,10 @@ h1 {
   color: #999;
 }
 
+a{
+	color:#C89232;
+}
+
 .rounded-10 {
   border-radius: 10px;
   -webkit-border-radius: 10px; 
@@ -1240,6 +1244,10 @@ ul.menu{
 	width: 550px;
 }
 
+.pointer_description{
+	width: 458px;
+}
+
 .internal_id{
 	width: 85px;
 }
@@ -1261,3 +1269,83 @@ ul.menu{
 	margin:10px 0;
 }
 
+.width200px{
+	width:240px;
+	margin-top:0;
+}
+
+.width46{
+	width:46%;
+	height:100px;
+}
+
+.align-center{
+	text-align:center;
+}
+
+.align-left{
+	text-align:left;
+}
+
+.align-right{
+	text-align:right;
+}
+
+
+.blank_color_pointers{
+	background-color:#fff;
+	padding:10px;
+}
+
+.red_box{
+	background-color:#EB040A;
+	padding:10px;
+	margin: 10px 10px 0;
+	color:#fff;
+	width:27%;
+}
+
+.yellow_box{
+	background-color:#FBCC04;
+	padding:10px;
+	margin: 10px 10px 0;
+	color:#fff;
+	width:27%;
+}
+
+.green_box{
+	background-color:#00972F;
+	padding:10px;
+	margin: 10px 10px 0;
+	color:#fff;
+	width:27%;
+}
+
+.thresholds_input{
+	width:23px;
+	height:10px;
+}
+
+
+.pointer_table{
+	width:100%;
+	border-color:#fff;
+	margin-top:40px;
+	}
+
+.pointer_table th{
+	border:5px solid #fff;
+	color:#969696;
+	background-color:#fff;
+	font-weight:normal !important;
+}
+
+.pointer_table td{
+	border:5px solid #fff;
+	padding:10px 2px;
+}
+
+.pointer_input{
+	width:20px;
+	height:10px;
+}
