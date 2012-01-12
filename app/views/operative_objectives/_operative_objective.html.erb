@@ -5,46 +5,55 @@
 	<th width="13%">Fecha Final</th>
 	<th width="10%"></th>
 </tr>
-	<tr>
-		<td>
-			<%= operative_objective.results %> 
-			<strong><%= t('views.operative_objective.new.through') %> </strong>
-			<%= operative_objective.actions %>
-			</td>
-		<td><%= operative_objective.perspective %></td>
-		<td><%= operative_objective.init_date.to_date %></td>
-		<td><%= operative_objective.final_date.to_date %></td>
-		<td>
-			<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_operative_objective_path(operative_objective), :class => 'modify' %>
-			<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), operative_objective_path(operative_objective), 
-								:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
-																								:connector => "ésta", 
-																								:model => t('activerecord.models.operative_objective'))%>
-		</td>
-	</tr>
-	
-	<tr>
-		<td colspan="5">
-			<br/>
-			<table width="50%" cellspadding="0" celspacing="0" class="objective_table">	
-				<tr>
-					<th width="80%"><%= t('views.operative_objective.index.pointers.pointer') %></th>
-					<th width="20%"><%= t('views.operative_objective.index.pointers.advance') %></th>
-				</tr>
+<tr>
+	<td>
+		<%= operative_objective.results %> 
+		<strong><%= t('views.operative_objective.new.through') %> </strong>
+		<%= operative_objective.actions %>
+	</td>
+	<td><%= operative_objective.perspective %></td>
+	<td><%= operative_objective.init_date.to_date %></td>
+	<td><%= operative_objective.final_date.to_date %></td>
+	<td>
+		<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_operative_objective_path(operative_objective), :class => 'modify' %>
+		<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), operative_objective_path(operative_objective), 
+		:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
+		:connector => "ésta", 
+		:model => t('activerecord.models.operative_objective'))%>
+	</td>
+</tr>
 
+<tr>
+	<td colspan="5">
+		<br/>
+		<table width="60%" cellspadding="0" celspacing="0" class="objective_table">	
+			<tr>
+				<th width="80%"><%= t('views.operative_objective.index.pointers.pointer') %></th>
+				<th width="20%"><%= t('views.operative_objective.index.pointers.advance') %></th>
+			</tr>
+			<%- 
+			pointers=operative_objective.pointers
+			if  pointers.empty?
+				%>	
 				<tr>
 					<td class="notification-box"><%= t('views.operative_objective.index.pointers.empty') %></td>
 					<td class="notification-box"></td>
 				</tr>
-
+				<%else%>
+					<%pointers.each do |pointer|%>
+						<tr>
+							<td class="notification-box"><%= pointer.name%> - <%= pointer.description%></td>
+							<td class="notification-box"></td>
+						</tr>
+					<%end%>
+				<%end%>
 				<tr>
-					<td class="notification-box " colspan="2"><%= link_to t('views.operative_objective.index.pointers.add'), new_pointer_path(operative_objective.id) %></td>
+					<td class="notification-box " colspan="2"><%= link_to t('views.operative_objective.index.pointers.add'), new_pointer_path(:id=>operative_objective.id) %></td>
 				</tr>
 
 			</table>	
-			
-			
+
+
 		</td>
 	</tr>
 
-	
