@@ -4,18 +4,32 @@ $(document).ready(function() {
 
 	$("#pointer_file").attr("size","15");
 	
-	$('#umb2').keypress(
+	$('#umb2').blur(
 		function() {
-			$('#umb3').val($('#umb2').val()+1);
+			num=parseInt($('#umb2').val());
+			if(num==100){
+				$('#umb2').val(1)
+				num=1;
+			}
+			
+			$('#umb3').val(num+1);
 		}
 		);
 		
-		$('#umb4').keypress(
+		
+		$('#umb4').blur(
 			function() {
-				$('#umb5').val($('#umb4').val()+1);
+				num=parseInt($('#umb4').val());
+				if(num==100){
+					$('#umb4').val(parseInt($('#umb3').val())+1)
+					num=parseInt($('#umb4').val());
+				}
+				
+				$('#umb5').val(num+1);
 			}
 			);	
 
+		
 	$(":range").rangeinput();
 	
 	

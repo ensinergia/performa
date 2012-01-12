@@ -19,6 +19,7 @@ class PointersController < ApplicationController
 
   def create
     @pointer = Pointer.new(params[:pointer])
+    @pointer.thresholds="#{params[:umb2]},#{params[:umb4]}"
     if @pointer.save
       @pointer.notify_to(params[:users])
       redirect_to operative_objectives_path, :notice => I18n.t('views.common.messages.save.successful', :model => "Pointer", :genre => "os")
@@ -29,7 +30,7 @@ class PointersController < ApplicationController
 
   def update
     @pointer = Pointer.find(params[:id])
-
+    @pointer.thresholds="#{params[:umb2]},#{params[:umb4]}"
     if @pointer.update_attributes(params[:pointer])
       @pointer.notify_to(params[:users])
 

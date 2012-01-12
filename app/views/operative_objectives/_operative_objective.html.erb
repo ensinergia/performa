@@ -59,6 +59,18 @@
 							<td class="<%=trclass%>" width="40%">
 
 								<div id='chart_div_<%=operative_objective.id%>_<%=pointer.id%>'></div>
+								<%-
+								thres=pointer.thresholds
+								unless thres.nil?
+									thresholds=thres.split(',')
+									umb2=thresholds[0]
+									umb4=thresholds[1]
+								else
+									umb2=30
+									umb4=70
+								end	
+										
+								%>
 								<script type="text/javascript">
 									google.setOnLoadCallback(drawChart_<%=operative_objective.id%>_<%=pointer.id%>);
 
@@ -72,9 +84,9 @@
 
 								        var options = {
 										  width: 300, height: 80,
-										  redFrom: 0, redTo: 30,
-										  yellowFrom:31, yellowTo: 70,
-										  greenFrom:71, greenTo:100,
+										  redFrom: 0, redTo: <%=umb2%>,
+										  yellowFrom:<%=umb2.to_i + 1%>, yellowTo: <%=umb4%>,
+										  greenFrom:<%=umb4.to_i + 1%>, greenTo:100,
 										  minorTicks: 5
 										};
 
