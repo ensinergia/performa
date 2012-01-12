@@ -45,8 +45,19 @@
 						trclass= index%2==0 ? "blank-box" : "notification-box"
 						%>
 						<tr>
-							<td class="<%=trclass%>" width="60%"><%= pointer.name%> - <%= pointer.description%></td>
+							<td class="<%=trclass%>" width="60%">
+								<div class="right">
+										<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_pointer_path(pointer,:operative_objective_id=>operative_objective.id), :class => 'modify' %>
+										<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), pointer_path(pointer), 
+										:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
+										:connector => "ésta", 
+										:model => t('activerecord.models.pointer'))%>
+								</div>
+								<%= pointer.name%> - <%= pointer.description%>
+								
+								</td>
 							<td class="<%=trclass%>" width="40%">
+
 								<div id='chart_div_<%=operative_objective.id%>_<%=pointer.id%>'></div>
 								<script type="text/javascript">
 									google.setOnLoadCallback(drawChart_<%=operative_objective.id%>_<%=pointer.id%>);
@@ -70,7 +81,7 @@
 								        var chart = new google.visualization.Gauge(document.getElementById('chart_div_<%=operative_objective.id%>_<%=pointer.id%>'));
 								        chart.draw(data, options);
 								      }
-
+								
 								</script>
 								
 							</td>
@@ -79,7 +90,7 @@
 					<%end%>
 				<%end%>
 				<tr>
-					<td class="notification-box " colspan="2"><%= link_to t('views.operative_objective.index.pointers.add'), new_pointer_path(:id=>operative_objective.id) %></td>
+					<td class="notification-box " colspan="2"><%= link_to t('views.operative_objective.index.pointers.add'), new_pointer_path(:operative_objective_id=>operative_objective.id) %></td>
 				</tr>
 
 			</table>	

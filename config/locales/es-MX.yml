@@ -206,6 +206,9 @@ es-MX:
       mission: "Misión"
       vision: "Visión"
       contextual_legend: "Información Contextual"
+      operating_cycle: "Ciclo Operativo"
+      operative_objective: "Objetivo Operativo"
+      pointer: "Indicador"
     attributes:
       user:
         name: "Nombre"
@@ -232,7 +235,7 @@ es-MX:
       person:
         name: "Nombre"
       vision:
-        description: "Descripción"        
+        description: "Descripción"            
     errors:
       template:
         header:

@@ -11,7 +11,7 @@ class OperativeObjective < ActiveRecord::Base
   end
   
   def self.get_all_for(area_id)
-    self.where(:area_id => area_id)
+    self.where(:area_id => area_id).order("id DESC")
   end
   #*************************************************
   #                   Instance Methods             *

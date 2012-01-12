@@ -8,7 +8,7 @@
 
 = nested_form_for @pointer do |f|
 	= f.hidden_field :user_id, :value => current_user.id
-	= f.hidden_field :operative_objective_id,:value =>  params[:id]
+	= f.hidden_field :operative_objective_id,:value =>  params[:operative_objective_id]
 
 	.left.marginright10px
 		= f.label :name, t('views.pointers.new.name'), :class => 'bold'
@@ -111,7 +111,7 @@
 		.right
 			=t('views.pointers.new.advance_value')
 		.clear	
-		%input{:type=>"range", :name=>"pointer[advance]", :min=>"0", :max=>"100", :value=>"0"}
+		%input{:type=>"range", :id=>"pointer_advance",:name=>"pointer[advance]", :min=>"0", :max=>"100", :value=>"#{@pointer.advance}"}
 		.clear
 		%br
 		%i
