@@ -40,10 +40,41 @@
 					<td class="notification-box"></td>
 				</tr>
 				<%else%>
-					<%pointers.each do |pointer|%>
+					
+					<%pointers.each_with_index do |pointer,index|
+						trclass= index%2==0 ? "blank-box" : "notification-box"
+						%>
 						<tr>
-							<td class="notification-box"><%= pointer.name%> - <%= pointer.description%></td>
-							<td class="notification-box"></td>
+							<td class="<%=trclass%>" width="60%"><%= pointer.name%> - <%= pointer.description%></td>
+							<td class="<%=trclass%>" width="40%">
+								<div id='chart_div_<%=operative_objective.id%>_<%=pointer.id%>'></div>
+								<script type="text/javascript">
+									google.setOnLoadCallback(drawChart_<%=operative_objective.id%>_<%=pointer.id%>);
+
+								      function drawChart_<%=operative_objective.id%>_<%=pointer.id%>() {
+								        var data = new google.visualization.DataTable();
+								        data.addColumn('string', 'Label');
+								        data.addColumn('number', 'Value');
+								        data.addRows([
+								          ['Status', <%= pointer.advance || 0%>]
+								        ]);
+
+								        var options = {
+										  width: 300, height: 80,
+										  redFrom: 0, redTo: 30,
+										  yellowFrom:31, yellowTo: 70,
+										  greenFrom:71, greenTo:100,
+										  minorTicks: 5
+										};
+
+								        var chart = new google.visualization.Gauge(document.getElementById('chart_div_<%=operative_objective.id%>_<%=pointer.id%>'));
+								        chart.draw(data, options);
+								      }
+
+								</script>
+								
+							</td>
+						 </td>
 						</tr>
 					<%end%>
 				<%end%>

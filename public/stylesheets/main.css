@@ -1297,6 +1297,11 @@ ul.menu{
 	padding:10px;
 }
 
+.blank-box{
+	background-color:#fff;
+	padding:10px;
+}
+
 .red_box{
 	background-color:#EB040A;
 	padding:10px;

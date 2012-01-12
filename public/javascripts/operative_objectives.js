@@ -28,3 +28,8 @@ function update_text(){
 		$('#through_text').addClass("notification-box");
 	}
 }
+
+
+
+google.load('visualization', '1', {packages:['gauge']});
+ 
