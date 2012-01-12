@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120111195201) do
+ActiveRecord::Schema.define(:version => 20120112223949) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20120111195201) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
-    t.integer  "operating_cycles_id"
+    t.integer  "operating_cycle_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(:version => 20120111195201) do
 
   create_table "key_activities", :force => true do |t|
     t.string   "name"
-    t.integer  "operating_cycles_id"
+    t.integer  "operating_cycle_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20120111195201) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "area_id"
   end
 
   create_table "operating_cycles_strategic_lines", :id => false, :force => true do |t|
@@ -154,7 +155,7 @@ ActiveRecord::Schema.define(:version => 20120111195201) do
 
   create_table "services", :force => true do |t|
     t.string   "name"
-    t.integer  "operating_cycles_id"
+    t.integer  "operating_cycle_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
