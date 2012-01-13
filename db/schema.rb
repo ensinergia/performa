@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120112223949) do
+ActiveRecord::Schema.define(:version => 20120113174553) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20120112223949) do
   add_index "contextual_legends", ["url", "id"], :name => "contextual_legends_index", :unique => true
 
   create_table "creeds", :force => true do |t|
-    t.string   "description"
+    t.text     "description"
     t.integer  "company_id"
     t.integer  "user_id"
     t.string   "type"
@@ -109,8 +109,8 @@ ActiveRecord::Schema.define(:version => 20120112223949) do
   end
 
   create_table "operative_objectives", :force => true do |t|
-    t.string   "results"
-    t.string   "actions"
+    t.text     "results"
+    t.text     "actions"
     t.string   "perspective"
     t.integer  "area_id"
     t.integer  "user_id"
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(:version => 20120112223949) do
     t.integer  "operative_objective_id"
     t.integer  "user_id"
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "perspective"
     t.string   "type"
     t.string   "file"
