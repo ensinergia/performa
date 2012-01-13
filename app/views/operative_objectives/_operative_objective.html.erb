@@ -12,8 +12,8 @@
 		<%= operative_objective.actions %>
 	</td>
 	<td><%= operative_objective.perspective %></td>
-	<td><%= operative_objective.init_date.to_date %></td>
-	<td><%= operative_objective.final_date.to_date %></td>
+	<td><%= operative_objective.init_date.nil? ? "" : operative_objective.init_date.to_date %></td>
+	<td><%= operative_objective.final_date.nil? ? "" : operative_objective.final_date.to_date %></td>
 	<td>
 		<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_operative_objective_path(operative_objective), :class => 'modify' %>
 		<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), operative_objective_path(operative_objective), 
