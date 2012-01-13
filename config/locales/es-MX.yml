@@ -467,7 +467,8 @@ es-MX:
             pointer: "Indicador"
             advance: "Avance"
             empty: "No hay indicadores actualmente."
-            add: "Agregar indicador"      
+            add: "Agregar indicador"   
+      strategic_lines: "Líneas Estratégicas"           
       new:
         title: "Agregando un Objetivo Operativo"
         through: "Mediante"
@@ -475,9 +476,10 @@ es-MX:
         actions: "Acciones a Tomar"
         perspective: "Perspectiva Balance Scorecard"
         perspective_options:
-                one: "Financial"
-                two: "Operative"
-                three: "Other"
+                1d: "Finanzas"
+                2d: "Clientes"
+                3d: "Procesos"
+                4d: "Aprendizaje"
         init_date: "Fecha Inicio"
         final_date: "Fecha Final"
         controls:
