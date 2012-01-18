@@ -1,0 +1,31 @@
+= nested_form_for @operating_cycle do |f|
+	= f.hidden_field :user_id, :value => current_user.id
+	= f.hidden_field :company_id,:value =>  current_company.id
+	= f.hidden_field :area_id,:value =>  session[:area_id]
+	%div
+		%div.left
+			= f.label :name, t('views.operating_cycle.name'), :class => 'bold'
+			%br
+			= f.text_field :name, :class => 'cycle_name'
+		%div.right
+			%br
+			= f.label :internal_id, t('views.operating_cycle.internal_id'), :class => 'bold'
+			= f.text_field :internal_id, :class => 'internal_id'
+	%br
+	%br
+	%br
+	= f.label :reason, t('views.operating_cycle.reason'), :class => 'bold'
+	%br
+	= f.text_area :reason, :class => 'text_area_operative_cycle'
+	%br
+	= render :partial => 'clients'
+	%br
+	= render :partial => 'stages'
+	%br
+	= render :partial => 'strategic_line'
+	= render 'shared/notifications'
+	%div.actions
+		= link_to t('views.operating_cycle.cancel'), operating_cycles_path, :class => 'button gray'
+		=	f.submit t('views.operating_cycle.submit'), :class => 'button orange as-link'
+		
+		

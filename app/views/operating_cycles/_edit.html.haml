@@ -17,18 +17,14 @@
 	= f.label :reason, t('views.operating_cycle.reason'), :class => 'bold'
 	%br
 	= f.text_area :reason, :class => 'text_area_operative_cycle'
-
 	%br
-	= render :partial => 'clients', :locals => {:f => f}
+	= render :partial => 'clients'
 	%br
-	= render :partial => 'services', :locals => {:f => f}
-	%br
-	= render :partial => 'key_activities', :locals => {:f => f}
+	= render :partial => 'stages'
 	%br
 	= render :partial => 'strategic_line'
 	= render 'shared/notifications'
 	%div.actions
 		= link_to t('views.operating_cycle.cancel'), operating_cycles_path, :class => 'button gray'
 		=	f.submit t('views.operating_cycle.submit'), :class => 'button orange as-link'
-		
 		

@@ -1,8 +1,11 @@
-= f.label :clients, t('views.operating_cycle.section_client'), :class => 'bold'
+%label
+	%strong
+		= t('views.operating_cycle.section_client')
 %br
-= f.fields_for :clients do |client|
-	= client.text_field :name, :class => 'nested_textbox'
+%br
+.align-right.right{:style=>"width:100%"}
+	%input{:id=>"clients_input", :style=>"width:100%"}		
 	%br
-	= client.link_to_remove 'Remove'
-	%br
-= f.link_to_add t('views.operating_cycle.add_client'), :clients, :class => 'right'
+	= link_to t('views.operating_cycle.add_client'), "", :id=>"add_client"
+.clear	
+#clients.hidden

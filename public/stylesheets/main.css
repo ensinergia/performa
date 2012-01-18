@@ -50,6 +50,7 @@ a{
 
 .centered { text-align: center }
 
+
 .right-placed { float: right }
 
 .button, .button:visited {
@@ -1358,3 +1359,38 @@ ul.menu{
 #area_selector{
 	width:200px;
 }
+
+.light-gray{
+	background-color:#F2F2F2;
+	padding:5px;
+}
+
+.gray{
+	background-color:#E1E1E1;
+	padding:5px;
+}
+
+.clients_input{
+	border:none;
+	background:none;
+	}
+	
+.stages_input{
+	border:none;
+	background:none;
+	}	
+
+#clients{
+	margin:10px;
+}
+
+
+#stages{
+	margin:10px;
+}
+
+.editable{
+	border:1px solid #c0c0c0;
+	background:white;
+	}
+

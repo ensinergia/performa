@@ -28,7 +28,7 @@ class OperatingCyclesController < ApplicationController
     @operating_cycle = OperatingCycle.new_with_user(params[:operating_cycle], current_user)
     if @operating_cycle.save
       @operating_cycle.notify_to(params[:users])
-      redirect_to operating_cycles_path, :notice => I18n.t('views.common.messages.save.successful', :model => "Ciclos Operativos", :genre => "as")
+      redirect_to edit_operating_cycle_path(@operating_cycle.id)
     else
       strategic_lines
       render :action => 'new'
