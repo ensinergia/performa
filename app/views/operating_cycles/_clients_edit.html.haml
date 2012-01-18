@@ -1,0 +1,22 @@
+%label
+	%strong
+		= t('views.operating_cycle.section_client')
+%br
+%br
+.align-right.right{:style=>"width:100%"}
+	%input{:id=>"clients_input", :style=>"width:100%"}		
+	%br
+	= link_to t('views.operating_cycle.add_client'), "", :id=>"add_client"
+.clear	
+#clients
+	-index=0
+	= f.fields_for :clients do |client|
+		-classs=index%2==0 ? "light-gray" : "gray" 
+		%div{:id=>"operating_cycle_clients_attributes_new_#{client.object.id}_div", :class=>"#{classs}"}
+			.left
+				= client.text_field :name, :class => 'nested_textbox'
+			.right
+			%a{:rel=>"operating_cycle_clients_attributes_new_#{client.object.id}_div",:class=>"delete",  :href=>""}
+				=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
+			.clear	
+		-index=index+1	

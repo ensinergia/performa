@@ -44,11 +44,18 @@ class OperatingCyclesController < ApplicationController
   
   def update
      @operating_cycle = OperatingCycle.find(params[:id])
-
+     @operating_cycle.clients.delete_all
+     @operating_cycle.stages.delete_all
+     params[:operating_cycle][:clients_attributes].each  do |client| 
+       @operating_cycle.clients.build(:name=>client[1][:name])
+     end
+     params[:operating_cycle][:stages_attributes].each  do |stage| 
+       @operating_cycle.stages.build(:name=>stage[1][:name])
+     end
       if @operating_cycle.update_attributes(params[:operating_cycle])
         @operating_cycle.notify_to(params[:users])
 
-        redirect_to operating_cycles_path, :notice => I18n.t('views.common.messages.update.successful', :model => "Objetivos Operativos", :genre => "os")
+        redirect_to edit_operating_cycle_path(@operating_cycle), :notice => I18n.t('views.common.messages.update.successful', :model => "Objetivos Operativos", :genre => "os")
       else
         render :action => 'edit'
       end

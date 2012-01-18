@@ -18,9 +18,9 @@
 	%br
 	= f.text_area :reason, :class => 'text_area_operative_cycle'
 	%br
-	= render :partial => 'clients'
+	= render :partial => 'clients_edit',:locals =>{:f=> f}
 	%br
-	= render :partial => 'stages'
+	= render :partial => 'stages_edit' ,:locals =>{:f=> f}
 	%br
 	= render :partial => 'strategic_line'
 	= render 'shared/notifications'
