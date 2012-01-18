@@ -26,6 +26,13 @@ class OperatingCyclesController < ApplicationController
   
   def create
     @operating_cycle = OperatingCycle.new_with_user(params[:operating_cycle], current_user)
+    params[:operating_cycle][:clients_attributes].each  do |client| 
+      @operating_cycle.clients.build(:name=>client[1][:name])
+    end
+    params[:operating_cycle][:stages_attributes].each  do |stage| 
+      @operating_cycle.stages.build(:name=>stage[1][:name])
+    end
+    
     if @operating_cycle.save
       @operating_cycle.notify_to(params[:users])
       redirect_to edit_operating_cycle_path(@operating_cycle.id)

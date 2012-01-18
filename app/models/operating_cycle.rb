@@ -11,9 +11,9 @@ class OperatingCycle < ActiveRecord::Base
   belongs_to :company
   has_many :clients
   has_many :services
-  has_many :key_activities
+  has_many :stages, :dependent => :destroy
   has_and_belongs_to_many :strategic_lines, :uniq => true
-  accepts_nested_attributes_for :clients, :key_activities, :services, :allow_destroy => true
+  accepts_nested_attributes_for :clients, :stages, :services, :allow_destroy => true
   
   #*************************************************
   #                   Instance Methods             *
