@@ -12,6 +12,12 @@ $(document).ready(function(){
 		return false;
 	});
 
+	$("#add_service").click(function(){
+		add_input('services');
+		return false;
+	});
+	
+
 	$(".modify").click(function(){
 		id=$(this).attr('rel');
 		$("#"+id).addClass('editable');

@@ -11,6 +11,12 @@ $(document).ready(function(){
 		add_input('stages');
 		return false;
 	});
+	
+	
+	$("#add_service").click(function(){
+		add_input('services');
+		return false;
+	});
 
 
   function add_input(type){

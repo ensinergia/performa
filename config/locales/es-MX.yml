@@ -762,7 +762,7 @@ es-MX:
       client: 'Clientes'
       add_client: '+ Agregar Cliente'
       add_stage: "+ Agregar Etapa"
-      service: 'Productos y/o Servicios'
+      services: 'Productos y/o Servicios'
       add_service: ' + Agregar Producto y/o Servicio'
       key_activities: 'Actividades Clave'
       add_key_activity: ' + Agregar Actividad Clave'
