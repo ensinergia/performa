@@ -10,7 +10,10 @@
 .clear
 #stages
 	-index=0
-	= f.fields_for :stages do |client|
+
+		
+	
+	= f.fields_for :stages do |client|			
 		-classs=index%2==0 ? "light-gray" : "gray" 
 		%div{:id=>"operating_cycle_clients_attributes_#{client.object.id}_div", :class=>"#{classs}"}
 			.left
@@ -20,5 +23,20 @@
 					=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"
 				%a{:rel=>"operating_cycle_clients_attributes_#{client.object.id}_div",:class=>"delete",  :href=>""}
 					=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
-			.clear	
+			.clear
+			.steps_container
+				%label
+					%strong
+						=t('views.operating_cycle.steps')
+				%br
+				%br
+				%div{:class=>"align-left left", :style=>"width:100%"}
+					%input{:id=>"steps_#{client.object.id}_input", :style=>"width:80%"}
+					%a{:id=>"add_step_#{client.object.id}",:rel=>"#{client.object.id}",:href=>"", :class=>"add_step"}
+						=t('views.operating_cycle.add_step')
+				%div{:id=>"steps_#{client.object.id}"}		
+				.clear
+				%br		
 		-index=index+1
+		
+		
