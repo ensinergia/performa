@@ -1370,17 +1370,7 @@ ul.menu{
 	padding:5px;
 }
 
-.clients_input{
-	border:none;
-	background:none;
-	}
-	
-.stages_input{
-	border:none;
-	background:none;
-	}	
-	
-	.services_input{
+.no_edit_input{
 		border:none;
 		background:none;
 		}	
@@ -1399,3 +1389,8 @@ ul.menu{
 	background:white;
 	}
 
+.steps_container{
+	background-color:white;
+	margin:10px;
+	padding:10px;
+}

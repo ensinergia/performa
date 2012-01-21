@@ -25,17 +25,9 @@ class OperatingCyclesController < ApplicationController
   end
 
   def create
+    debugger
     @operating_cycle = OperatingCycle.new_with_user(params[:operating_cycle], current_user)
-    unless params[:operating_cycle][:clients_attributes].nil?
-    params[:operating_cycle][:clients_attributes].each  do |client| 
-      @operating_cycle.clients.build(:name=>client[1][:name])
-    end
-  end
-  unless params[:operating_cycle][:stages_attributes].nil?
-    params[:operating_cycle][:stages_attributes].each  do |stage| 
-      @operating_cycle.stages.build(:name=>stage[1][:name])
-    end
-  end  
+   
 
     if @operating_cycle.save
       @operating_cycle.notify_to(params[:users])
@@ -48,19 +40,8 @@ class OperatingCyclesController < ApplicationController
 
   def update
     @operating_cycle = OperatingCycle.find(params[:id])
-    @operating_cycle.clients.delete_all
-    @operating_cycle.stages.delete_all
-    unless params[:operating_cycle][:clients_attributes].nil?
-      params[:operating_cycle][:clients_attributes].each  do |client| 
-        @operating_cycle.clients.build(:name=>client[1][:name])
-      end
-    end
-
-    unless params[:operating_cycle][:stages_attributes].nil?
-      params[:operating_cycle][:stages_attributes].each  do |stage| 
-        @operating_cycle.stages.build(:name=>stage[1][:name])
-      end
-    end 
+   
+    
     if @operating_cycle.update_attributes(params[:operating_cycle])
       @operating_cycle.notify_to(params[:users])
 

@@ -1,8 +1,8 @@
 class OperatingCycle < ActiveRecord::Base
   include Shared
   
-  attr_accessible :name, :reason, :company_id,:area_id, :user_id, :internal_id, :clients__attributes,
-    :key_activities_attributes, :services_attributes, :strategic_line_ids
+  attr_accessible :name, :reason, :company_id,:area_id, :user_id, :internal_id, :clients_attributes,
+    :stages_attributes, :services_attributes, :strategic_line_ids
 
   #*************************************************
   #                   Relations                    *
