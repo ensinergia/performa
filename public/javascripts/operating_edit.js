@@ -25,8 +25,19 @@ $(document).ready(function(){
 	});
 	
 	$(".delete").click(function(){
-		id=$(this).attr('rel');
-		$("#"+id).remove();
+		div=$(this).attr('rel');
+		alert(div);
+		if(div[4]=='new'){
+			$("#"+div).remove();
+		}else{
+			st=div.split('_');
+			id=st[6];
+			type=st[2];
+			
+			des="<input type='text' name='operating_cycle["+type+"_attributes]["+id+"][_destroy]' id='operating_cycle_"+type+"_attributes_new_"+id+"_destroy' class='hidden' value='1'>"
+		$("#"+div).append(des);
+		$("#"+div).addClass('hidden');
+		}
 		return false;
 	});
 
@@ -48,7 +59,7 @@ $(document).ready(function(){
 	
 		value=$("#"+type+"_input").val();
 		if(value!=""){
-			id=Math.floor(Math.random()*1000)
+			id=Math.floor(Math.random()*1000);
 			inputs=$("#"+type+" .no_edit_input").length;
 			if(inputs%2==0)
 			classs='light-gray';

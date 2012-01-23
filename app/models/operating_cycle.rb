@@ -9,8 +9,8 @@ class OperatingCycle < ActiveRecord::Base
   #*************************************************
   belongs_to :user
   belongs_to :company
-  has_many :clients
-  has_many :services
+  has_many :clients, :dependent => :destroy
+  has_many :services, :dependent => :destroy
   has_many :stages, :dependent => :destroy
   has_and_belongs_to_many :strategic_lines, :uniq => true
   accepts_nested_attributes_for :clients, :stages, :services, :allow_destroy => true
