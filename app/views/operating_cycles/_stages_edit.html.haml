@@ -38,13 +38,13 @@
 					-index2=0
 					-classs=index2%2==0 ? "light-gray" : "gray" 
 					= client.fields_for :steps do |step|
-						%div{:id=>"operating_cycle_clients_attributes_#{index}_stages_#{step.object.id}_div", :class=>"#{classs}"}
+						%div{:id=>"operating_cycle_stages_attributes_#{index}_steps_#{index2}_div", :class=>"#{classs}"}
 							.left
 								= step.text_field :name, :class => 'no_edit_input', :size=>50
 							.right
 								%a{:rel=>"operating_cycle_stages_attributes_#{index}_steps_attributes_#{index2}_name",:class=>"modify",  :href=>""}
 									=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"
-								%a{:rel=>"operating_cycle_clients_attributes_#{index}_stages_#{step.object.id}_div",:class=>"delete",  :href=>""}
+								%a{:rel=>"operating_cycle_stages_attributes_#{index}_steps_#{index2}_div",:class=>"delete_step",  :href=>""}
 									=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
 							.clear
 						-index2=index2+1 		
