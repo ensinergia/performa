@@ -2,7 +2,7 @@ class CreateProjects < ActiveRecord::Migration
   def self.up
     create_table  :projects do |t|
       t.integer   :area_id
-      t.indeger   :user_id
+      t.integer   :user_id
       t.integer   :company_id
       t.string    :name
       t.text      :description

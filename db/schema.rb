@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120118183353) do
+ActiveRecord::Schema.define(:version => 20120125195229) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -92,6 +92,15 @@ ActiveRecord::Schema.define(:version => 20120118183353) do
     t.datetime "updated_at"
   end
 
+  create_table "liabilities", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.boolean  "increment"
+    t.boolean  "decrement"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "operating_cycles", :force => true do |t|
     t.string   "name"
     t.text     "reason"
@@ -151,6 +160,37 @@ ActiveRecord::Schema.define(:version => 20120118183353) do
   create_table "positions", :force => true do |t|
     t.string  "name"
     t.integer "role_equivalence"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.integer  "area_id"
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "type"
+    t.text     "reason"
+    t.integer  "leader_id"
+    t.string   "length"
+    t.datetime "init_date"
+    t.datetime "final_date"
+    t.text     "product"
+    t.string   "investment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects_operative_objectives", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "operative_objective_id"
+    t.integer "percent"
+  end
+
+  create_table "restrictions", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "services", :force => true do |t|
