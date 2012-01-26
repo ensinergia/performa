@@ -1,8 +1,0 @@
-%div.form-box
-	%h2
-		= t('views.operating_cycle.strategic_lines')
-	%ul
-		- @strategic_lines.each do |strategic_line|
-			= check_box_tag 'operating_cycle[strategic_line_ids][]', strategic_line.id, @operating_cycle.strategic_lines.include?(strategic_line)
-			= label_tag :operating_cylce_strategic_line_ids_, strategic_line.content
-			%br
