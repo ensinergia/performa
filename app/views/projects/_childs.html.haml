@@ -1,0 +1,11 @@
+%label
+	%strong
+		= t("views.projects.section_#{type}s")
+%br
+%br
+.align-right.right{:style=>"width:100%"}
+	%input{:id=>"#{type}s_input", :style=>"width:100%"}		
+	%br
+	= link_to t("views.projects.add_#{type}"), "", :id=>"add_#{type}"
+.clear	
+%div{:id=>"#{type}s", :class=>"hidden"}

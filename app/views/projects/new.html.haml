@@ -1,0 +1,14 @@
+= content_for(:proj_menu, &Proc.new { "selected" })
+- content_for :javascript do
+	= javascript_include_tag 'project_new'
+
+%div{:class => 'box rounded-10 with-shadow with-mid-width'}
+	= content_for(:so_menu, &Proc.new { "selected" })
+	%div{:class => "title-bar rounded-10-top" }
+		%h2
+			= t('views.projects.new.title')
+	%div{:class => 'inside-box'}
+		= render :partial => 'new'
+
+	= content_for :contextual_legend do
+		= render 'contextual_legends/contextual_legend'

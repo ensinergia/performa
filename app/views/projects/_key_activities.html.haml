@@ -1,0 +1,8 @@
+= f.fields_for :key_activities do |key_activity|
+	= key_activity.label :name, t('views.operating_cycle.new_key_activity')
+	%br
+	= key_activity.text_field :name, :class => 'nested_textbox'
+	%br
+	= key_activity.link_to_remove "remove"
+	%br
+= f.link_to_add t('views.operating_cycle.add_key_activity'), :key_activities, :class => 'right'

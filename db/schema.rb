@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125195229) do
+ActiveRecord::Schema.define(:version => 20120126005350) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -95,8 +95,6 @@ ActiveRecord::Schema.define(:version => 20120125195229) do
   create_table "liabilities", :force => true do |t|
     t.integer  "project_id"
     t.string   "name"
-    t.boolean  "increment"
-    t.boolean  "decrement"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -160,6 +158,15 @@ ActiveRecord::Schema.define(:version => 20120125195229) do
   create_table "positions", :force => true do |t|
     t.string  "name"
     t.integer "role_equivalence"
+  end
+
+  create_table "profits", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.boolean  "incre"
+    t.boolean  "decre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "projects", :force => true do |t|

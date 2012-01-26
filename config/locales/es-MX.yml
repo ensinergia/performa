@@ -442,6 +442,23 @@ es-MX:
               add: "Agregar un Proyecto"
       new:
         title: "Agregando un Proyecto"
+        reason: "Razon Fundamental para actuar (Objetivo del proyecto y problemática que atiende)"
+        length: "Duracion del Proyecto"
+        product: "Producto del proyecto"
+        length_options:
+                1d: "1 mes"
+                2d: "3 meses"
+                3d: "6 meses"
+                4d: "12 meses"
+        type: "Tipo de Proyecto"
+        type_options:
+                1d: "Inversion"
+                2d: "Ajuste"
+                3d: "otro1"
+                4d: "otro2"
+        investment: "Inversion estimada requerida $:"        
+        init_date: "Fecha Inicio"
+        final_date: "Fecha Final"
         controls:
           cancel: "Cancelar"
           save: "Guardar"
@@ -450,7 +467,14 @@ es-MX:
           last_updated: "Última actualización"
           controls:
             cancel: "Cancelar"
-            save: "Guardar cambios"  
+            save: "Guardar cambios"
+      section_profits: "Beneficios Generales Esperados"
+      add_profit: "Agregar beneficio"
+      section_liabilities: "Riesgos"
+      add_liabilitie: "Agregar riesgo"
+      section_restrictions: "Supuestos y Restricciones"
+      add_restriction: "Agregar Supuesto o Restricción"
+      
             
     operative_objective:
       index:
