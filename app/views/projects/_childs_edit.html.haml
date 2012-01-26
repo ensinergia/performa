@@ -1,24 +1,25 @@
-%label
-	%strong
-		= t("views.project.section_#{type}s")
-%br
-%br
-.align-right.right{:style=>"width:100%"}
-	%input{:id=>"#{type}s_input", :style=>"width:100%"}		
+.light-gray.padding_10px
+	%label
+		%strong
+			= t("views.projects.section_#{type}s")
 	%br
-	= link_to t("views.projects.add_#{type}"), "", :id=>"add_#{type}"
-.clear	
-%div{:id=>"#{type}s"}
-	-index=0
-	= f.fields_for "#{type}s" do |client|
-		-classs=index%2==0 ? "light-gray" : "gray" 
-		%div{:id=>"project_#{type}s_attributes_#{client.object.id}_div_#{index}", :class=>"#{classs}"}
-			.left
-				= client.text_field :name, :class => 'no_edit_input', :size=>"50"
-			.right
-				%a{:rel=>"project_#{type}s_attributes_#{index}_name",:class=>"modify",  :href=>""}
-					=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"	
-				%a{:rel=>"project_#{type}s_attributes_#{client.object.id}_div_#{index}",:class=>"delete",  :href=>""}
-					=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
-			.clear	
-		-index=index+1	
+	%br
+	.align-right.right{:style=>"width:100%"}
+		%input{:id=>"#{type}s_input", :style=>"width:100%"}		
+		%br
+		= link_to t("views.projects.add_#{type}"), "", :id=>"add_#{type}"
+	.clear	
+	%div{:id=>"#{type}s"}
+		-index=0
+		= f.fields_for "#{type}s" do |client|
+			-classs=index%2==0 ? "blank_bg" : "gray" 
+			%div{:id=>"project_#{type}s_attributes_#{client.object.id}_div_#{index}", :class=>"#{classs}"}
+				.left
+					= client.text_field :name, :class => 'no_edit_input', :size=>"50"
+				.right
+					%a{:rel=>"project_#{type}s_attributes_#{index}_name",:class=>"modify",  :href=>""}
+						=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"	
+					%a{:rel=>"project_#{type}s_attributes_#{client.object.id}_div_#{index}",:class=>"delete",  :href=>""}
+						=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
+				.clear	
+			-index=index+1	

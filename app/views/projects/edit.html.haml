@@ -1,6 +1,6 @@
 = content_for(:proj_menu, &Proc.new { "selected" })
 - content_for :javascript do
-	= javascript_include_tag 'project_new'
+	= javascript_include_tag 'project_edit'
 
 %div{:class => 'box rounded-10 with-shadow with-mid-width'}
 	= content_for(:so_menu, &Proc.new { "selected" })
