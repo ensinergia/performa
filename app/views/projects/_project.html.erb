@@ -1,0 +1,19 @@
+<div class='list-item'>
+	<div id="sl-<%= project.id %>">
+		<div class='project_value'> 
+			<%= project.name %> 
+		</div>
+		<div class='right_place'>
+			<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_project_path(project), :class => 'modify' %>
+			<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), project_path(project), 
+								:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
+																								:connector => "ésta", 
+																								:model => t('activerecord.models.project'))%>
+			</div>
+			<br/>
+			<br/>
+			<div class="record_info">
+				<%= record_info_for(project) %>
+			</div>
+	</div>
+</div>

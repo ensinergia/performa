@@ -1,11 +1,12 @@
-%label
-	%strong
-		= t("views.projects.section_#{type}s")
-%br
-%br
-.align-right.right{:style=>"width:100%"}
-	%input{:id=>"#{type}s_input", :style=>"width:100%"}		
+.light-gray.padding_10px
+	%label
+		%strong
+			= t("views.projects.section_#{type}s")
 	%br
-	= link_to t("views.projects.add_#{type}"), "", :id=>"add_#{type}"
-.clear	
-%div{:id=>"#{type}s", :class=>"hidden"}
+	%br
+	.align-right.left{:style=>"width:95%"}
+		%input{:id=>"#{type}s_input", :style=>"width:100%"}		
+		%br
+		= link_to t("views.projects.add_#{type}"), "", :id=>"add_#{type}"
+	.clear	
+	%div{:id=>"#{type}s", :class=>"hidden"}

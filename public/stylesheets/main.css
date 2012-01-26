@@ -1370,6 +1370,11 @@ ul.menu{
 	padding:5px;
 }
 
+.blank_bg{
+	background-color:white;
+	padding:5px;
+}
+
 .no_edit_input{
 		border:none;
 		background:none;
@@ -1407,5 +1412,7 @@ ul.menu{
 	margin-right:50px;
 	margin-top:35px;
 	
-}	
+}
+
+	
 

@@ -1,32 +1,91 @@
-= nested_form_for @operating_cycle do |f|
+- content_for :styles do
+	= stylesheet_link_tag 'jquerydate'
+	
+- content_for :javascript do
+	= javascript_include_tag 'jquery.tools.min','projects_new'
+	
+= nested_form_for @project do |f|
 	= f.hidden_field :user_id, :value => current_user.id
 	= f.hidden_field :company_id,:value =>  current_company.id
 	= f.hidden_field :area_id,:value =>  session[:area_id]
 	%div
-		%div.left
-			= f.label :name, t('views.operating_cycle.name'), :class => 'bold'
-			%br
+		.left
+			= f.label :name, t('views.projects.name'), :class => 'bold'
+		.right
 			= f.text_field :name, :class => 'cycle_name'
-		%div.right
+	.clear
+	%br
+	%br
+	.left
+		= f.label :description, t('views.projects.description'), :class => 'bold'
+	.right	
+		= f.text_area :description, :class => 'text_area_operative_cycle'
+	.clear
+	%br
+	= f.label :reason, t('views.projects.new.reason'), :class => 'bold'
+	%br
+	%br
+	.centered
+		= f.text_area :reason, :style=>"width:100%; height:50px" 	
+	%br
+	.left.marginright10px
+		=f.label :type,t('views.projects.new.type'), :class => 'bold'
+	.left	
+		= f.select :type, { t('views.projects.new.type_options.1d') => t('views.projects.new.type_options.1d'), 
+		t('views.projects.new.type_options.2d') => t('views.projects.new.type_options.2d'),t('views.projects.new.type_options.3d')=>t('views.projects.new.type_options.3d'),t('views.projects.new.type_options.4d')=>t('views.projects.new.type_options.4d')}
+
+	%br	
+	.clear	
+	.left.marginright10px
+		=f.label :leader,t('views.projects.new.leader'), :class => 'bold'
+	.left
+		= f.select :leader_id, options_from_collection_for_select(@users, 'id', 'name', '1')
+	%br	
+	%br
+	.light-gray.padding_10px
+		.left.marginright_70px
+			=f.label :length,t('views.projects.new.length'), :class => 'bold'
 			%br
-			= f.label :internal_id, t('views.operating_cycle.internal_id'), :class => 'bold'
-			= f.text_field :internal_id, :class => 'internal_id'
+			%br
+			= f.select :length, { t('views.projects.new.length_options.1d') => t('views.projects.new.length_options.1d'), 
+		t('views.projects.new.length_options.2d') => t('views.projects.new.length_options.2d'),t('views.projects.new.length_options.3d')=>t('views.projects.new.length_options.3d'),t('views.projects.new.length_options.4d')=>t('views.projects.new.length_options.4d')}
+		.left.project_date
+			.left
+				=t('views.projects.new.init_date')
+			= f.text_field :init_date
+			
+		.left.project_date
+			.left
+				=t('views.projects.new.final_date')
+			= f.text_field :final_date
+		.clear
+	%br	
+	.light-gray.padding_10px
+		= f.label :product, t('views.projects.new.product'), :class => 'bold'
+		%br
+		%br
+		.centered
+			= f.text_area :product, :style=>"width:100%; height:50px"
+		
+	.clear	
+	%br
+	.left.marginright10px
+		=t('views.projects.new.investment')
+	.left
+		= f.text_field :investment
+	.clear	
+	%br
+	= render :partial => 'childs_edit', :locals=>{:type=>'profit', :f=>f}
 	%br
 	%br
+	= render :partial => 'childs_edit', :locals=>{:type=>'liabilitie', :f=>f}
 	%br
-	= f.label :reason, t('views.operating_cycle.reason'), :class => 'bold'
 	%br
-	= f.text_area :reason, :class => 'text_area_operative_cycle'
+	= render :partial => 'childs_edit', :locals=>{:type=>'restriction', :f=>f}
 	%br
-	= render :partial => 'clients_edit',:locals =>{:f=> f}
-	%br
-	= render :partial => 'stages_edit' ,:locals =>{:f=> f}
-	%br
-	= render :partial => 'services_edit' ,:locals =>{:f=> f}
-	%br
-	= render :partial => 'strategic_line'
 	= render 'shared/notifications'
 	%div.actions
-		= link_to t('views.operating_cycle.cancel'), operating_cycles_path, :class => 'button gray'
-		=	f.submit t('views.operating_cycle.submit'), :class => 'button orange as-link'
+		= link_to t('views.projects.new.controls.cancel'), projects_path, :class => 'button gray'
+		=	f.submit t('views.projects.new.controls.save'), :class => 'button orange as-link'
+		
 		

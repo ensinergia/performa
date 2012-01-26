@@ -25,6 +25,7 @@ GestionDesempeno::Application.routes.draw do
     resources :operating_cycles
     resources :operative_objectives
     resources :pointers
+    resources :projects
 
     match '/people/bulk_update_admin' => 'people#bulk_update_admin', :as => 'bulk_update_admin', :via => :put
     resources :people, :only => [:index, :new, :edit,:create,:update,:destroy]
@@ -32,7 +33,7 @@ GestionDesempeno::Application.routes.draw do
     match '/areas/admin' => 'areas#admin', :as => 'areas_admin', :via => :get
     match '/areas/select' => 'areas#select', :as => 'area_select', :via => :get
     resources :areas, :only => [:index, :new, :create, :edit, :update]
-    resources :projects, :only => [:index, :new, :create, :edit, :update]
+    
     resources :operating_objetives, :only => [:index, :new, :create, :edit, :update]
     
     match 'contextual_legends/show' => 'contextual_legends#show', :via => :post

@@ -19,6 +19,19 @@ $(document).ready(function() {
 			add_input('restrictions');
 			return false;
 	});
+	
+	
+		$(".modify").click(function(){
+			id=$(this).attr('rel');
+			$("#"+id).addClass('editable');
+			return false;
+		});
+
+		$(".delete").click(function(){
+			id=$(this).attr('rel');
+			$("#"+id).remove();
+			return false;
+		});
 
 });
 
@@ -28,14 +41,13 @@ $(document).ready(function() {
 function add_input(type){
 
 	value=$("#"+type+"_input").val();
-	alert(value);
 	if(value!=""){
 		id=Math.floor(Math.random()*1000)
-		inputs=$(".no_edit_input").length;
+		inputs=$("#"+type+" .no_edit_input").length;
 		if(inputs%2==0)
 		classs='gray';
 		else
-		classs='light-gray';
+		classs='blank_bg';
 		
 		inp='';
 		if (type=='stages'){

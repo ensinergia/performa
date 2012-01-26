@@ -127,6 +127,12 @@ ActiveRecord::Schema.define(:version => 20120126005350) do
     t.datetime "updated_at"
   end
 
+  create_table "operative_objectives_projects", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "operative_objective_id"
+    t.integer "percent"
+  end
+
   create_table "operative_objectives_strategic_lines", :id => false, :force => true do |t|
     t.integer "strategic_line_id"
     t.integer "operative_objective_id"
@@ -185,12 +191,6 @@ ActiveRecord::Schema.define(:version => 20120126005350) do
     t.string   "investment"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "projects_operative_objectives", :id => false, :force => true do |t|
-    t.integer "project_id"
-    t.integer "operative_objective_id"
-    t.integer "percent"
   end
 
   create_table "restrictions", :force => true do |t|

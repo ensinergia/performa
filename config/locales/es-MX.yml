@@ -209,6 +209,7 @@ es-MX:
       operating_cycle: "Ciclo Operativo"
       operative_objective: "Objetivo Operativo"
       pointer: "Indicador"
+      project: "Proyecto"
     attributes:
       user:
         name: "Nombre"
