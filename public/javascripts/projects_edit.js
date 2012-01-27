@@ -59,16 +59,34 @@ function add_input(type){
 		classs='blank_bg';
 
 		inp='';
-		if (type=='stages'){
-			steps='<div id="steps_'+id+'" class="hidden"></div>';
-			inp='<div class="clear"></div><div class="steps_container"><label><strong> Pasos </strong></label><br><br><div class="align-left left" style="width:100%"><input id="steps_'+id+'_input" style="width:80%"><a id="add_step_'+id+'" rel="'+id+'" href="" class="add_step">+ Agregar Paso</a></div><div class="clear"></div><br/>'+steps+'</div>';
+		if (type=='profits'){
+			
+			inc=$("#inc_0").attr("checked");
+			if (inc==undefined)
+				inc="";
+			else	
+				inc="checked='checked'"
+			
+			dec=$("#dec_0").attr("checked");
+			
+			if (dec==undefined)
+				dec="";
+			else	
+				dec="checked='checked'"
+				
+				
+			inc_text=$("#increment").html();
+			dec_text=$("#decrement").html();
 
+			inp1="<div class='left marginright10px'><input type='checkbox' value='1' "+inc+" name='project["+type+"_attributes][new_"+id+"][incre]' id='project_"+type+"_attributes_new_"+id+"_incre'>"+inc_text+"</div>";
+			inp2="<div class='left marginright10px'><input type='checkbox' value='1' "+dec+" name='project["+type+"_attributes][new_"+id+"][decre]' id='project_"+type+"_attributes_new_"+id+"_incre'>"+dec_text+"</div>";
+			inp=inp1+inp2;
 		}
 
-		input="<div class='"+classs+"' id='project_"+type+"_attributes_new_"+id+"_div'> <div class='left'><input type='text' size='50' name='project["+type+"_attributes][new_"+id+"][name]' id='project_"+type+"_attributes_new_"+id+"_name' class='no_edit_input ' value='"+value+"'></div>"
+		input="<div class='"+classs+"' id='project_"+type+"_attributes_new_"+id+"_div'> <div class='left'><input type='text' size='40' name='project["+type+"_attributes][new_"+id+"][name]' id='project_"+type+"_attributes_new_"+id+"_name' class='no_edit_input ' value='"+value+"'></div>"+inp
 		links='<div class="right"><a class="modify" href="" rel="project_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="project_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 		clear='<div class="clear"></div></div>';
-		$("#"+type).append(input+links+inp+clear);
+		$("#"+type).append(input+links+clear);
 		$("#"+type).removeClass("hidden");
 		$("#"+type+"_input").val("");
 

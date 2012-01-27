@@ -475,6 +475,8 @@ es-MX:
       add_liabilitie: "Agregar riesgo"
       section_restrictions: "Supuestos y Restricciones"
       add_restriction: "Agregar Supuesto o Restricción"
+      profit_increment: "Incremento de Ingresos"
+      profit_decrement: "Reducción de Costos"
       
             
     operative_objective:

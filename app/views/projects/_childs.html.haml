@@ -1,12 +1,25 @@
 .light-gray.padding_10px
-	%label
-		%strong
-			= t("views.projects.section_#{type}s")
+	.left
+		%label
+			%strong
+				= t("views.projects.section_#{type}s")
+	-unless type!="profit"			
+		.right.width50
+			.left.marginright10px
+				=check_box("inc", "0")
+				%span{:id=>"increment"}
+					= t("views.projects.profit_increment")	
+			.left.marginright10px
+				=check_box("dec", "0")		
+				%span{:id=>"decrement"}
+					= t("views.projects.profit_decrement")
+	.clear		
 	%br
 	%br
 	.align-right.left{:style=>"width:95%"}
 		%input{:id=>"#{type}s_input", :style=>"width:100%"}		
 		%br
 		= link_to t("views.projects.add_#{type}"), "", :id=>"add_#{type}"
-	.clear	
+	.clear
+	%br	
 	%div{:id=>"#{type}s", :class=>"hidden"}
