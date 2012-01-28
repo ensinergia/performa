@@ -48,7 +48,7 @@
 	.light-gray.padding_10px
 		.left.marginright10px.width_40
 			=f.label :leader,t('views.projects.objectives'), :class => 'bold'
-			= select("operative","objective", @objectives.collect {|p| [ "#{p.results} #{t('views.operative_objective.new.through')} #{p.results}", p.id ] }, {:prompt => ''}, :style=>"width:100%")
+			= select("operative","objective", @objectives.collect {|p| [ "#{p.results} #{t('views.operative_objective.new.through')} #{p.actions}", p.id ] }, {:prompt => ''}, :style=>"width:100%")
 		.right.align-right
 			%br
 			=t('views.projects.grade')
