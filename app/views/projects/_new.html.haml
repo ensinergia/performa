@@ -22,24 +22,43 @@
 		= f.text_area :description, :class => 'text_area_operative_cycle'
 	.clear
 	%br
-	= f.label :reason, t('views.projects.new.reason'), :class => 'bold'
-	%br
-	%br
-	.centered
-		= f.text_area :reason, :style=>"width:100%; height:50px" 	
 	%br
 	.left.marginright10px
 		=f.label :type,t('views.projects.new.type'), :class => 'bold'
 	.left	
 		= f.select :type, { t('views.projects.new.type_options.1d') => t('views.projects.new.type_options.1d'), 
 		t('views.projects.new.type_options.2d') => t('views.projects.new.type_options.2d'),t('views.projects.new.type_options.3d')=>t('views.projects.new.type_options.3d'),t('views.projects.new.type_options.4d')=>t('views.projects.new.type_options.4d')}
-
+	%br	
+	%br
+	%br
+	= f.label :reason, t('views.projects.new.reason'), :class => 'bold'
+	.centered
+		= f.text_area :reason, :style=>"width:100%; height:50px" 	
+	
+	%br
 	%br	
 	.clear	
 	.left.marginright10px
 		=f.label :leader,t('views.projects.new.leader'), :class => 'bold'
 	.left
 		= f.select :leader_id, options_from_collection_for_select(@users, 'id', 'name', '1')
+	%br
+	%br
+	%br
+	.light-gray.padding_10px
+		.left.marginright10px.width_40
+			=f.label :leader,t('views.projects.objectives'), :class => 'bold'
+			= select("operative","objective", @objectives.collect {|p| [ "#{p.results} #{t('views.operative_objective.new.through')} #{p.results}", p.id ] }, {:prompt => ''}, :style=>"width:100%")
+		.right.align-right
+			%br
+			=t('views.projects.grade')
+			%input{:id=>"objectives_input"}	
+			="%"
+			%br
+			= link_to t("views.projects.add_objective"), "", :id=>"add_objective"	
+		.clear	
+		%br
+		#objectives
 	%br	
 	%br
 	.light-gray.padding_10px

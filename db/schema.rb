@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126005350) do
+ActiveRecord::Schema.define(:version => 20120128000410) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -127,12 +127,6 @@ ActiveRecord::Schema.define(:version => 20120126005350) do
     t.datetime "updated_at"
   end
 
-  create_table "operative_objectives_projects", :id => false, :force => true do |t|
-    t.integer "project_id"
-    t.integer "operative_objective_id"
-    t.integer "percent"
-  end
-
   create_table "operative_objectives_strategic_lines", :id => false, :force => true do |t|
     t.integer "strategic_line_id"
     t.integer "operative_objective_id"
@@ -171,6 +165,14 @@ ActiveRecord::Schema.define(:version => 20120126005350) do
     t.string   "name"
     t.boolean  "incre"
     t.boolean  "decre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_objectives", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "operative_objective_id"
+    t.integer  "percent"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

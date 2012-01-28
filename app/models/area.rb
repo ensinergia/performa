@@ -3,6 +3,7 @@ class Area < ActiveRecord::Base
 
   belongs_to :user
   has_many :users
+  has_many :operative_objectives
   belongs_to :company
   
   accepts_nested_attributes_for :functions, :allow_destroy => true

@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
 
   before_filter :verify_subdomain
   before_filter :users, :only => [:new, :edit]
+  before_filter :objectives, :only => [:new, :edit]
   before_filter :find_project, :except =>  [:new, :create, :index]
 
 
@@ -61,6 +62,11 @@ class ProjectsController < ApplicationController
   private
   def users
     @users = current_company.users
+  end
+  
+  def objectives
+    area=Area.find(session[:area_id])
+    @objectives = area.operative_objectives
   end
 
   def find_project

@@ -477,7 +477,10 @@ es-MX:
       add_restriction: "Agregar Supuesto o Restricción"
       profit_increment: "Incremento de Ingresos"
       profit_decrement: "Reducción de Costos"
-      
+      objectives: "Objetivos a los que contribuye..."
+      grade: "Grado de contribución(porcentaje)"
+      add_objective: "Agregar Objetivo"
+      percent: "Porcentaje"
             
     operative_objective:
       index:

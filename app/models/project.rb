@@ -9,8 +9,8 @@ class Project < ActiveRecord::Base
   has_many :liabilities, :dependent => :destroy
   has_many :profits, :dependent => :destroy
   has_many :restrictions, :dependent => :destroy
-  has_and_belongs_to_many :operative_objectives, :uniq => true
-  accepts_nested_attributes_for :liabilities, :restrictions, :profits, :allow_destroy => true
+  has_many :project_objectives
+  accepts_nested_attributes_for :project_objectives,:liabilities, :restrictions, :profits, :allow_destroy => true
   
   #*************************************************
   #                   Instance Methods             *
