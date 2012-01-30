@@ -6,7 +6,7 @@
 
 
 
-= nested_form_for @pointer do |f|
+= nested_form_for @pointer, :html=>{:multipart=>true} do |f| 
 	= f.hidden_field :user_id, :value => current_user.id
 	= f.hidden_field :operative_objective_id,:value =>  params[:operative_objective_id]
 
@@ -20,24 +20,45 @@
 		= f.label :description, t('views.pointers.new.description'), :class => 'bold'
 	.left	
 		= f.text_area :description, :class=>:pointer_description
+
 	.clear	
 	%br
-	%div.left
+	.left.width_40
 		=t('views.pointers.new.perspective')
 		= f.select :perspective, { t('views.pointers.new.perspective_options.1d') => t('views.pointers.new.perspective_options.1d'), 
-		t('views.pointers.new.perspective_options.2d') => t('views.pointers.new.perspective_options.2d'),t('views.pointers.new.perspective_options.3d')=>t('views.pointers.new.perspective_options.3d'),t('views.pointers.new.perspective_options.4d')=>t('views.pointers.new.perspective_options.4d')}
+		t('views.pointers.new.perspective_options.2d') => t('views.pointers.new.perspective_options.2d'),t('views.pointers.new.perspective_options.3d')=>t('views.pointers.new.perspective_options.3d'),t('views.pointers.new.perspective_options.4d')=>t('views.pointers.new.perspective_options.4d')},{},{ :style=>"width:45%"}
 		%br
 		%br
 		=t('views.pointers.new.type')
 		= f.select :type, { t('views.pointers.new.type_options.1d') => t('views.pointers.new.type_options.1d'), 
 		t('views.pointers.new.type_options.2d') => t('views.pointers.new.type_options.2d'),t('views.pointers.new.type_options.3d')=>t('views.pointers.new.type_options.3d')}
 	
-	.right.notification-box.width200px
+	.right.notification-box.width_40
 		=t('views.pointers.new.attach')
 		%br
+		%br 
+		#files
+			=file_field_tag "pointer[assets_attributes][0][asset]", :id=>'asset_0' ,:size=>"15", :type=>"file", :class=>"add_asset"
+			%br
 		%br
-		=f.file_field :file
+		= link_to t("views.pointers.add_file"), "", :id=>"add_file"
 		%br
+		%br
+		-unless @pointer.assets.empty?
+			.blank_bg
+				=f.label :titles, t("views.pointers.files_title"), :class=>"bold"
+				%br
+				-@pointer.assets.each_with_index do |as,index|
+					%div{:id=> "asset_destroy_#{as.id}"}
+						.left
+							=as.asset.url().split("/")[7].gsub("%20", " ")
+							%input{ :id=>"pointer_assets_attributes_new_1_destroy", :class=>"hidden", :type=>"text", :value=>"#{as.id}", :name=>"pointer[assets_attributes][#{as.id}][id]"}
+							=link_to  t('views.pointers.view_file'), as.asset.url(), :target=>"_blank"
+						.right
+							%a{:class=>"delete",  :href=>"" ,:rel=>"#{as.id}"}
+								=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
+						.clear		
+						%br
 		
 	.clear
 	

@@ -22,7 +22,7 @@ class PointersController < ApplicationController
     @pointer.thresholds="#{params[:umb2]},#{params[:umb4]}"
     if @pointer.save
       @pointer.notify_to(params[:users])
-      redirect_to operative_objectives_path, :notice => I18n.t('views.common.messages.save.successful', :model => "Pointer", :genre => "os")
+      redirect_to edit_pointer_path(@pointer.id), :notice => I18n.t('views.common.messages.save.successful', :model => "Pointer", :genre => "os")
     else
       render :action => 'new'
     end
@@ -34,7 +34,7 @@ class PointersController < ApplicationController
     if @pointer.update_attributes(params[:pointer])
       @pointer.notify_to(params[:users])
 
-      redirect_to operative_objectives_path, :notice => I18n.t('views.common.messages.update.successful', :model => "Pointer", :genre => "os")
+      redirect_to edit_pointer_path(@pointer.id), :notice => I18n.t('views.common.messages.update.successful', :model => "Pointer", :genre => "os")
     else
       render :action => 'edit'
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120128000410) do
+ActiveRecord::Schema.define(:version => 20120130183705) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(:version => 20120128000410) do
     t.integer  "company_id"
     t.boolean  "is_root_area"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "assets", :force => true do |t|
+    t.integer  "pointer_id"
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -584,6 +584,9 @@ es-MX:
           controls:
             cancel: "Cancelar"
             save: "Guardar cambios"
+      add_file: "Agregar otro"
+      files_title: "Anexos"     
+      view_file: " Ver"    
             
     month_names:
          jan: "ene"
