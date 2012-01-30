@@ -1,10 +1,16 @@
 <div class="box rounded-10 with-shadow with-mid-width">
-  
-	<%= content_for(:proj_menu, &Proc.new { "selected" }) %>
-	
-	<div class="title-bar rounded-10-top">
-		<h2><%= t('views.projects.index.not_empty.title') %></h2>
-  </div>
+<%= content_for(:pro_submenu, &Proc.new { "selected" }) %>
+<%= content_for(:proj_menu, &Proc.new { "selected" }) %>
+
+<div class="title-bar rounded-10-top">
+	<ul class="items-inlined">
+		<li class="<%= yield(:pro_submenu) %>"><%= link_to t('views.projects.submenu.project'), projects_url %></li>
+		<li class="<%= yield(:plan_submenu) %>"><%= link_to t('views.projects.submenu.planning'), projects_url %></li>
+		<li class="<%= yield(:fol_submenu) %>"><%= link_to t('views.projects.submenu.follow'), projects_url %></li>
+	</ul>
+</div>  
+
+
 	
 	<div class="inside-box">
 		<%= render :partial => 'project', :collection => @projects %>

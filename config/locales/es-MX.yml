@@ -481,6 +481,10 @@ es-MX:
       grade: "Grado de contribución(porcentaje)"
       add_objective: "Agregar Objetivo"
       percent: "Porcentaje"
+      submenu:
+        project: "Anteproyectos"
+        planning: "Planeación"
+        follow: "Seguimiento"
             
     operative_objective:
       index:
