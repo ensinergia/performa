@@ -6,6 +6,8 @@ gem 'rails', '3.0.9'
 gem 'pg'
 gem 'sqlite3'
 
+gem 'ruby-graphviz'
+
 gem 'heroku'
 gem "devise", ">= 1.4.2"
 gem "cancan"

@@ -185,6 +185,7 @@ GEM
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
       ruby-debug-base19 (>= 0.11.19)
+    ruby-graphviz (1.0.4)
     ruby-hmac (0.4.0)
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
@@ -249,6 +250,7 @@ DEPENDENCIES
   remotipart (~> 0.4)
   rspec-rails (~> 2.6.0)
   ruby-debug19
+  ruby-graphviz
   spork
   sqlite3
   steak (~> 2.0.0)
