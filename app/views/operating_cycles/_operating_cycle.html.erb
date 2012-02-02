@@ -5,14 +5,19 @@
 			clients_arr=operating_cycle.clients	
 			clients=clients_arr.enum_for(:each_with_index).collect do |x, j| 
 				tab= j==clients_arr.count-1 ? "" : " , "
-				x=x.name + tab
+				unless x.nil?
+					y=x.name + tab
+				end	
 
 			end
 
 			products_arr=operating_cycle.services	
 			products=products_arr.enum_for(:each_with_index).collect do |x, k| 
 				tab= k==products_arr.count-1 ? "" : " | "
-				x=x.name + tab
+				unless x.nil?
+					y=x.name + tab
+				end	
+				
 			end
 
 			stages=operating_cycle.stages	
