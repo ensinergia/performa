@@ -4,7 +4,7 @@
 		   <%-
 			clients_arr=operating_cycle.clients	
 			clients=clients_arr.enum_for(:each_with_index).collect do |x, j| 
-				tab= j==clients_arr.count-1 ? "" : " , "
+				tab= (j==clients_arr.count-1) ? "" : " , "
 				unless x.nil?
 					y=x.name + tab
 				end	
@@ -13,7 +13,7 @@
 
 			products_arr=operating_cycle.services	
 			products=products_arr.enum_for(:each_with_index).collect do |x, k| 
-				tab= k==products_arr.count-1 ? "" : " | "
+				tab= (k==products_arr.count-1) ? "" : " | "
 				unless x.nil?
 					y=x.name + tab
 				end	
