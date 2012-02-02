@@ -13,7 +13,7 @@ class OperatingCyclesController < ApplicationController
 
   def index
     @operating_cycles = OperatingCycle.get_all_for(session[:area_id])
-    @operating_cycles.empty? ? render('welcome', :layout => 'application_index_page') : render('index')
+    @operating_cycles.empty? ? render('welcome', :layout => 'application_index_page') : render('index',:layout => 'application_index_page')
 
   end
 
@@ -22,6 +22,8 @@ class OperatingCyclesController < ApplicationController
   end
 
   def edit
+    code = 'digraph G{subgraph cluster_0 {style=filled;color=lightgrey;node [style=filled,color=white];ya -> me -> sa;label = "Etapa 1 ";}subgraph cluster_1 {node [style=filled]; Ñ -> w -> D ;label = "Etapa 2 ";color=blue}Inicio -> ya;Inicio -> Ñ; me -> D;w -> sa;sa -> ya;sa -> Producto;D -> Producto; [shape=Mdiamond]; [shape=Msquare];}'
+    @url_img="http://localhost:9000/graph/dot.svg?data=#{CGI::escape code}"
   end
 
   def create

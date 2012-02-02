@@ -1,19 +1,90 @@
 <div class='list-item'>
 	<div id="sl-<%= operating_cycle.id %>">
 		<div class='operating_cycle_value'> 
+		   <%-
+			clients_arr=operating_cycle.clients	
+			clients=clients_arr.enum_for(:each_with_index).collect do |x, j| 
+				tab= j==clients_arr.count-1 ? "" : " , "
+				x=x.name + tab
+
+			end
+
+			products_arr=operating_cycle.services	
+			products=products_arr.enum_for(:each_with_index).collect do |x, k| 
+				tab= k==products_arr.count-1 ? "" : " | "
+				x=x.name + tab
+			end
+
+			stages=operating_cycle.stages	
+
+			stages_str=""	
+			i_stage=""
+			f_stage=""
+			follow=""
+			ant=""
+			joins=""
+			stages_joins=""
+			stages.each_with_index do |stage,index|
+			
+				steps_arr=stage.steps
+				steps=steps_arr.enum_for(:each_with_index).collect do |x, i| 
+					color= i%2==0 ?   "#F2F2F2" : "#E1E1E1"
+					if i==0
+						joins+='"'+clients.join+'" -> "'+x.id.to_s+'.-'+x.name+'"'
+						'"'+x.id.to_s+'.-'+x.name+'"'	
+					else
+						'-> "'+x.id.to_s+'.-'+x.name+'"'	
+					end	
+					
+				end
+				
+				
+				color= index%2==0 ?   "slategray1" : "lightskyblue"
+				stages_str+='subgraph cluster_'+stage.id.to_s+' {
+				node [shape= box3d, style=filled,color=white,peripheries=2,fontsize=9];
+				style=filled;
+				fontsize=8;
+				shape= folder;
+				color='+color+';
+				'+steps.join+';
+				label = "'+stage.name+'";
+				}'		
+				
+			end	
+			
+			unless stages.last.nil?	
+				x=stages.last.steps.last
+				joins+='"'+x.id.to_s+'.-'+x.name+'" -> "'+products.join+'"';
+			end
+
+			%>
+			<%- code='digraph G {
+			'+stages_str+'
+			'+joins+'
+			'+stages_joins+'
+			"'+clients.join+'" [shape=box3d,style=filled,color=lightskyblue,peripheries=2,fontsize=9];
+		 	"'+products.join+'" [shape=box3d,style=filled,color="#DBC54C",peripheries=2,fontsize=9];
+		}'%>
+		
+		<%-@url_img="http://50.56.189.188:9292/graph/dot.svg?data=#{CGI::escape code}" -%>
+		<%- unless stages.empty? %>
+			<%=image_tag @url_img  %>
+		<%else%>
 			<%= operating_cycle.name %> 
-		</div>
-		<div class='right_place'>
-			<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_operating_cycle_path(operating_cycle), :class => 'modify' %>
-			<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), operating_cycle_path(operating_cycle), 
-								:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
-																								:connector => "ésta", 
-																								:model => t('activerecord.models.operating_cycle'))%>
-			</div>
-			<br/>
-			<br/>
-			<div class="record_info">
-				<%= record_info_for(operating_cycle) %>
-			</div>
+			<br/><br/>
+		<%end%>
 	</div>
+	<div class='right_place'>
+		<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_operating_cycle_path(operating_cycle), :class => 'modify' %>
+		<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), operating_cycle_path(operating_cycle), 
+		:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
+		:connector => "ésta", 
+		:model => t('activerecord.models.operating_cycle'))%>
+	</div>
+	<br/>
+	<br/>
+	<div class="record_info">
+		<%= record_info_for(operating_cycle) %>
+	</div>
+</div>
 </div>
