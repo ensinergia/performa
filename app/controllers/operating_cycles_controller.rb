@@ -13,7 +13,7 @@ class OperatingCyclesController < ApplicationController
 
   def index
     @operating_cycles = OperatingCycle.get_all_for(session[:area_id])
-    @operating_cycles.empty? ? render('welcome', :layout => 'application_index_page') : render('index',:layout => 'application_index_page')
+    @operating_cycles.empty? ? render('welcome', :layout => 'application_index_page') : render('index',:layout => 'twocolumns')
 
   end
 

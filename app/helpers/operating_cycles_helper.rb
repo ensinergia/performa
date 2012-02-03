@@ -31,15 +31,15 @@ module OperatingCyclesHelper
           stname=wrap_word(x.name,3)
           height=(x.name.split(" ").count / 3) 
           if height==0
-             height=0.5
+             height=0.3
           else
              height=height*0.2
           end      
           
-          if height<0.5
-            height=0.5
+          if height<0.3
+            height=0.3
           end
-          labels+='"'+x.id.to_s+'.-'+stage.id.to_s+'" [label="'+stname+'", shape= box, style=filled,color=white,fontsize=9,fixedsize=true, width=1.5,height='+height.to_s+',text-wrap= auto, margin=0];'	
+          labels+='"'+x.id.to_s+'.-'+stage.id.to_s+'" [label="'+stname+'", shape= box, style=filled,color=white,fontsize=9,fixedsize=true, width=1.8,height='+height.to_s+',text-wrap= auto, margin=0];'	
 
           if index==0 && i==0
             from_clients+='"clients" -> "'+x.id.to_s+'.-'+stage.id.to_s+'"[style=dashed];'
