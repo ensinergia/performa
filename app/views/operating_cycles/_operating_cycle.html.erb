@@ -1,29 +1,30 @@
-<div class='list-item'>
+<div class='list-item' style="width: 1100px; overflow-x: auto;">
 	<div id="sl-<%= operating_cycle.id %>">
 		<div class='operating_cycle_value'> 
-<br/>
-<%-
-code=get_graph(operating_cycle)
-@url_img="http://50.56.189.188:9292/graph/dot.svg?data=#{CGI::escape code}" 
-%>
-<%- unless code=="" %>
-<%=image_tag @url_img , :alt=>"" %>
-<%else%>
-<%= operating_cycle.name %> 
-<br/><br/>
-<%end%>
-</div>
-<div class='right_place'>
-	<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_operating_cycle_path(operating_cycle), :class => 'modify' %>
-	<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), operating_cycle_path(operating_cycle), 
-	:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
-	:connector => "ésta", 
-	:model => t('activerecord.models.operating_cycle'))%>
-</div>
-<br/>
-<br/>
-<div class="record_info">
-	<%= record_info_for(operating_cycle) %>
-</div>
-</div>
-</div>
+			<br/>
+			<%-
+			code=get_graph(operating_cycle)
+			@url_img="http://50.56.189.188:9292/graph/dot.svg?data=#{CGI::escape code}" 
+			%>
+			<%#code%>
+			<%- unless code=="" %>
+			<%=image_tag @url_img , :alt=>"" %>
+			<%else%>
+			<%= operating_cycle.name %> 
+			<br/><br/>
+			<%end%>
+		</div>
+		<div class='right_place'>
+			<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_operating_cycle_path(operating_cycle), :class => 'modify' %>
+			<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), operating_cycle_path(operating_cycle), 
+			:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
+			:connector => "ésta", 
+			:model => t('activerecord.models.operating_cycle'))%>
+		</div>
+		<br/>
+		<br/>
+		<div class="record_info">
+			<%= record_info_for(operating_cycle) %>
+		</div>
+	</div>
+</div>	

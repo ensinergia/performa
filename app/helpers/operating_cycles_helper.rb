@@ -2,7 +2,7 @@ module OperatingCyclesHelper
 
   def get_graph(operating_cycle)
     code=""
-    
+
     stages=operating_cycle.stages	
     unless stages.empty?
 
@@ -36,7 +36,7 @@ module OperatingCyclesHelper
 
           if i==steps_arr.count-1
             to_products+='"'+x.id.to_s+'.-'+stage.id.to_s+'"'+" -> products";	
-            to_products+=	index==stages.count-1 ? "[style=bold] ; " : "[style=invis] ; " 
+            to_products+=	index==stages.count-1 ? "[style=dashed] ; " : "[style=invis] ; " 
           end
 
           if i==0
@@ -71,9 +71,9 @@ module OperatingCyclesHelper
       end	
 
       code='digraph G {
-      label="dfdsfds";
+      label="'+operating_cycle.name+'";
       labelloc=t;
-      labelfontsize=12;
+      labelfontsize=16;
       splines=false;
       '+from_clients+'
       "clients" [style=filled,color="#FF7E51", label="'+clients.join+'",fontsize=9];
@@ -87,30 +87,48 @@ module OperatingCyclesHelper
       }'
     end
 
-     code
+    code
 
   end  
-  
-  
+
+
   def get_clients(operating_cycle)
     clients_arr=operating_cycle.clients	
+    tab='\n'
     clients=clients_arr.enum_for(:each_with_index).collect do |x, j| 
-      tab= j==clients_arr.count-1 ? "" :  '\n' 
       unless x.nil?
-        y=x.name + tab
+        arrname=x.name.split(" ");
+        fname=""
+        arrname.each_with_index do |name,inc|
+          fname+=" "+name
+          if inc%5==0 and inc!=0
+            fname+=tab
+          end  
+        end  
+
+        "- "+fname + tab
       end	
 
     end
     clients
   end  
-  
-  
+
+
   def get_products(operating_cycle)
     products_arr=operating_cycle.services	
+    tab='\n'
     products=products_arr.enum_for(:each_with_index).collect do |x, k| 
-      tab= k==products_arr.count-1 ? "" : '\n'
       unless x.nil?
-        y=x.name + tab
+        arrname=x.name.split(" ");
+        fname=""
+        arrname.each_with_index do |name,inc|
+          fname+=" "+name
+          if inc%5==0 and inc!=0
+            fname+=tab
+          end  
+        end  
+
+        "- "+fname + tab
       end	
 
     end
