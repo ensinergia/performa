@@ -58,6 +58,7 @@ module OperatingCyclesHelper
 
         ic= index>6 ?   0 : ic
         stages_str+='subgraph cluster_'+stage.id.to_s+' {
+        fontsize=9,
         style=filled;
         color="'+colors[ic]+'";
         '+labels+'
@@ -70,11 +71,14 @@ module OperatingCyclesHelper
       end	
 
       code='digraph G {
+      label="dfdsfds";
+      labelloc=t;
+      labelfontsize=12;
       splines=false;
       '+from_clients+'
-      "clients" [style=filled,color="#FF7E51", label="'+clients.join+'"];
+      "clients" [style=filled,color="#FF7E51", label="'+clients.join+'",fontsize=9];
       '+to_products+'
-      "products" [style=filled,color="#F9A366", label="'+products.join+'"];
+      "products" [style=filled,color="#F9A366", label="'+products.join+'",fontsize=9];
       '+stages_str+'
       edge[constraint=false];
       '+follow+'
