@@ -28,7 +28,18 @@ module OperatingCyclesHelper
         steps_arr=stage.steps
         labels=""
         steps=steps_arr.enum_for(:each_with_index).collect do |x, i| 
-          labels+='"'+x.id.to_s+'.-'+stage.id.to_s+'" [label="'+x.name+'", shape= box, style=filled,color=white,fontsize=9];'	
+          stname=wrap_word(x.name,3)
+          height=(x.name.split(" ").count / 3) 
+          if height==0
+             height=0.5
+          else
+             height=height*0.2
+          end      
+          
+          if height<0.5
+            height=0.5
+          end
+          labels+='"'+x.id.to_s+'.-'+stage.id.to_s+'" [label="'+stname+'", shape= box, style=filled,color=white,fontsize=9,fixedsize=true, width=1.5,height='+height.to_s+',text-wrap= auto, margin=0];'	
 
           if index==0 && i==0
             from_clients+='"clients" -> "'+x.id.to_s+'.-'+stage.id.to_s+'"[style=dashed];'
@@ -97,15 +108,7 @@ module OperatingCyclesHelper
     tab='\n'
     clients=clients_arr.enum_for(:each_with_index).collect do |x, j| 
       unless x.nil?
-        arrname=x.name.split(" ");
-        fname=""
-        arrname.each_with_index do |name,inc|
-          fname+=" "+name
-          if inc%5==0 and inc!=0
-            fname+=tab
-          end  
-        end  
-
+        fname=wrap_word(x.name,5)
         "- "+fname + tab
       end	
 
@@ -119,20 +122,26 @@ module OperatingCyclesHelper
     tab='\n'
     products=products_arr.enum_for(:each_with_index).collect do |x, k| 
       unless x.nil?
-        arrname=x.name.split(" ");
-        fname=""
-        arrname.each_with_index do |name,inc|
-          fname+=" "+name
-          if inc%5==0 and inc!=0
-            fname+=tab
-          end  
-        end  
-
+        fname=wrap_word(x.name,5)
         "- "+fname + tab
       end	
 
     end
     products
+  end  
+
+  
+  def wrap_word(name,nw)
+    arrname=name.split(" ");
+    fname=""
+    tab='\n'
+        arrname.each_with_index do |name,inc|
+          fname+=" "+name
+          if inc%nw==0 and inc!=0
+            fname+=tab
+          end  
+        end  
+        fname
   end  
 
 
