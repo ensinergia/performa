@@ -19,6 +19,12 @@ $(document).ready(function(){
 	});
 
 
+	$('.head').unbind('click');
+	$('.head').click(function() {	
+		id=$(this).attr('rel');
+		$("#"+id).toggle('slow');
+		return false;
+	});
 
 
 });
@@ -38,18 +44,26 @@ function add_input(type){
 		classs='light-gray';
 		
 		inp='';
+		class_delete='delete '
 		if (type=='stages'){
 			steps='<div id="steps_'+id+'" class="hidden"></div>';
 			inp='<div class="clear"></div><div class="steps_container"><label><strong> Pasos </strong></label><br><br><div class="align-left left" style="width:100%"><input id="steps_'+id+'_input" style="width:80%"><a id="add_step_'+id+'" rel="'+id+'" href="" class="add_step">+ Agregar Paso</a></div><div class="clear"></div><br/>'+steps+'</div>';
 			
 		}
 		
-		input="<div class='"+classs+"' id='operating_cycle_"+type+"_attributes_new_"+id+"_div'> <div class='left'><input type='text' disabled='disabled' size='50' name='operating_cycle["+type+"_attributes][new_"+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input nested_textbox' value='"+value+"'></div>"
-		links='<div class="right"><a class="modify" href="" rel="operating_cycle_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
-		clear='<div class="clear"></div></div>';
-		$("#"+type).append(input+links+inp+clear);
+		input="<div class='"+classs+"'><div class='left'><a rel='operating_cycle_"+type+"_attributes_new_"+id+"_div' href=''class='head'>+/-</a><input type='text' disabled='disabled' size='50' name='operating_cycle["+type+"_attributes]["+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input' value='"+value+"'></div>";
+		links='<div class="right"><a class="modify" href="" rel="operating_cycle_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="'+class_delete+'" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
+		clear='<div class="clear"></div></div><div class="'+classs+'" id="operating_cycle_'+type+'_attributes_new_'+id+'_div"> '+inp+' </div>';
+		$("#"+type).append(input+links+clear);
 		$("#"+type).removeClass("hidden");
 		$("#"+type+"_input").val("");
+
+		$('.head').unbind('click');
+		$('.head').click(function() {	
+		id=$(this).attr('rel');
+		$("#"+id).toggle('slow');
+		return false;
+		});
 
 		$(".modify").click(function(){
 			id=$(this).attr('rel');
@@ -94,6 +108,7 @@ function add_steps_input(id){
 		$("#steps_"+id).removeClass("hidden");
 		$("#steps_"+id+"_input").val("");
 
+	
 			
 
 		$(".modify_step").click(function(){

@@ -1429,3 +1429,8 @@ ul.menu{
 
 .width1000 { width: 1000px }
 
+.ui-sortable li{
+	list-style:none;
+	cursor:move;
+}
+

@@ -1,6 +1,6 @@
 = content_for(:cy_menu, &Proc.new { "selected" })
 - content_for :javascript do
-	= javascript_include_tag 'operating_edit'
+	= javascript_include_tag 'operating_edit','jquery-ui.min'
 %div{:class => 'box rounded-10 with-shadow with-mid-width'}
 	= content_for(:so_menu, &Proc.new { "selected" })
 	%div{:class => "title-bar rounded-10-top" }

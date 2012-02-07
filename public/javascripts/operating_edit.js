@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+	$('.head').unbind('click');
+	$('.head').click(function() {	
+		id=$(this).attr('rel');
+		$("#"+id).toggle('slow');
+		return false;
+	});
 
 	$("#add_client").click(function(){
 		add_input('clients');
@@ -92,10 +98,10 @@ function add_input(type){
 
 		}
 
-		input="<div class='"+classs+"' id='operating_cycle_"+type+"_attributes_new_"+id+"_div'> <div class='left'><input type='text' disabled='disabled' size='50' name='operating_cycle["+type+"_attributes]["+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input' value='"+value+"'></div>"
+		input="<div class='"+classs+"'><div class='left'><a rel='operating_cycle_"+type+"_attributes_new_"+id+"_div' href=''class='head'>+/-</a><input type='text' disabled='disabled' size='50' name='operating_cycle["+type+"_attributes]["+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input' value='"+value+"'></div>";
 		links='<div class="right"><a class="modify" href="" rel="operating_cycle_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="'+class_delete+'" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
-		clear='<div class="clear"></div></div>';
-		$("#"+type).append(input+links+inp+clear);
+		clear='<div class="clear"></div></div><div class="'+classs+'" id="operating_cycle_'+type+'_attributes_new_'+id+'_div"> '+inp+' </div>';
+		$("#"+type).append(input+links+clear);
 		$("#"+type).removeClass("hidden");
 		$("#"+type+"_input").val("");
 
@@ -118,6 +124,14 @@ function add_input(type){
 			add_steps_input(id);
 			return false;
 		});
+		$('.head').unbind('click');
+		$('.head').click(function() {	
+			id=$(this).attr('rel');
+			$("#"+id).toggle('slow');
+
+			return false;
+		});
+
 
 	}	
 
@@ -174,13 +188,13 @@ function add_steps_input(id){
 
 
 function dragAndDrop(type,id){
-		$("#"+type+"_"+id+" ul").sortable({ opacity: 0.6, cursor: 'move', update: function() {
-			//var order = $(this).sortable("serialize") + '&action=updateRecordsListings';
-			//$.post("updateDB.php", order, function(theResponse){
-				//	$("#contentRight").html(theResponse);
-				//	});
-				
-			}
-		});
+	$("#"+type+"_"+id+" ul").sortable({ opacity: 0.6, cursor: 'move', update: function() {
+		//var order = $(this).sortable("serialize") + '&action=updateRecordsListings';
+		//$.post("updateDB.php", order, function(theResponse){
+			//	$("#contentRight").html(theResponse);
+			//	});
+
+		}
+	});
 
 }
