@@ -44,7 +44,7 @@ function add_input(type){
 			
 		}
 		
-		input="<div class='"+classs+"' id='operating_cycle_"+type+"_attributes_new_"+id+"_div'> <div class='left'><input type='text' size='50' name='operating_cycle["+type+"_attributes][new_"+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input nested_textbox' value='"+value+"'></div>"
+		input="<div class='"+classs+"' id='operating_cycle_"+type+"_attributes_new_"+id+"_div'> <div class='left'><input type='text' disabled='disabled' size='50' name='operating_cycle["+type+"_attributes][new_"+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input nested_textbox' value='"+value+"'></div>"
 		links='<div class="right"><a class="modify" href="" rel="operating_cycle_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 		clear='<div class="clear"></div></div>';
 		$("#"+type).append(input+links+inp+clear);
@@ -54,6 +54,7 @@ function add_input(type){
 		$(".modify").click(function(){
 			id=$(this).attr('rel');
 			$("#"+id).addClass('editable');
+			$("#"+id).removeAttr('disabled');
 			return false;
 		});
 
@@ -85,7 +86,7 @@ function add_steps_input(id){
 		else
 		classs='light-gray';
 		id2=Math.floor(Math.random()*1000)
-		input="<div class='"+classs+"' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_div'> <div class='left'><input type='text' size='50' name='operating_cycle[stages_attributes][new_"+id+"][steps_attributes][new_"+id2+"][name]' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_name' class='no_edit_input nested_textbox' value='"+value+"'></div>"
+		input="<div class='"+classs+"' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_div'> <div class='left'><input type='text' disabled='disabled' size='50' name='operating_cycle[stages_attributes][new_"+id+"][steps_attributes][new_"+id2+"][name]' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_name' class='no_edit_input nested_textbox' value='"+value+"'></div>"
 		links='<div class="right"><a class="modify modify_step" href="" rel="operating_cycle_steps_attributes_new_'+id+'_'+id2+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_steps_attributes_new_'+id+'_'+id2+'_div" data-method="delete" class="delete delete_step" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 		clear='<div class="clear"></div></div>';
 
@@ -98,6 +99,7 @@ function add_steps_input(id){
 		$(".modify_step").click(function(){
 			id=$(this).attr('rel');
 			$("#"+id).addClass('editable');
+			$("#"+id).removeAttr('disabled');
 			return false;
 		});
 

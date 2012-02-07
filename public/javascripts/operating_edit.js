@@ -21,6 +21,7 @@ $(document).ready(function(){
 	$(".modify").click(function(){
 		id=$(this).attr('rel');
 		$("#"+id).addClass('editable');
+		$("#"+id).removeAttr('disabled');
 		return false;
 	});
 
@@ -47,23 +48,23 @@ $(document).ready(function(){
 		add_steps_input(id);
 		return false;
 	});
-	
-	
-		$(".delete_step").click(function(){
-			div=$(this).attr('rel');
-			st=div.split('_');
-			if(st[4]=='new'){
-				$("#"+div).remove();
-			}else{
-				
-				id=st[4];
-				id2=st[6];
-				des="<input type='text' name='operating_cycle[stages_attributes]["+id+"][steps_attributes]["+id2+"][_destroy]' id='operating_cycle_"+id+"_attributes_new_"+id2+"_destroy' class='hidden' value='1'>"
-				$("#"+div).append(des);
-				$("#"+div).addClass('hidden');
-			}
-			return false;
-		});
+
+
+	$(".delete_step").click(function(){
+		div=$(this).attr('rel');
+		st=div.split('_');
+		if(st[4]=='new'){
+			$("#"+div).remove();
+		}else{
+
+			id=st[4];
+			id2=st[6];
+			des="<input type='text' name='operating_cycle[stages_attributes]["+id+"][steps_attributes]["+id2+"][_destroy]' id='operating_cycle_"+id+"_attributes_new_"+id2+"_destroy' class='hidden' value='1'>"
+			$("#"+div).append(des);
+			$("#"+div).addClass('hidden');
+		}
+		return false;
+	});
 
 
 });
@@ -91,7 +92,7 @@ function add_input(type){
 
 		}
 
-		input="<div class='"+classs+"' id='operating_cycle_"+type+"_attributes_new_"+id+"_div'> <div class='left'><input type='text' size='50' name='operating_cycle["+type+"_attributes]["+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input' value='"+value+"'></div>"
+		input="<div class='"+classs+"' id='operating_cycle_"+type+"_attributes_new_"+id+"_div'> <div class='left'><input type='text' disabled='disabled' size='50' name='operating_cycle["+type+"_attributes]["+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input' value='"+value+"'></div>"
 		links='<div class="right"><a class="modify" href="" rel="operating_cycle_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="'+class_delete+'" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 		clear='<div class="clear"></div></div>';
 		$("#"+type).append(input+links+inp+clear);
@@ -101,6 +102,7 @@ function add_input(type){
 		$(".modify").click(function(){
 			id=$(this).attr('rel');
 			$("#"+id).addClass('editable');
+			$("#"+id).removeAttr('disabled');
 			return false;
 		});
 
@@ -131,7 +133,7 @@ function add_steps_input(id){
 		else
 		classs='light-gray';
 		id2=Math.floor(Math.random()*1000)
-		input="<div class='"+classs+"' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_div'> <div class='left'><input type='text' size='50' name='operating_cycle[stages_attributes]["+id+"][steps_attributes][new_"+id2+"][name]' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_name' class='no_edit_input' value='"+value+"'></div>"
+		input="<div class='"+classs+"' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_div'> <div class='left'><input type='text' disabled='disabled' size='50' name='operating_cycle[stages_attributes]["+id+"][steps_attributes][new_"+id2+"][name]' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_name' class='no_edit_input' value='"+value+"'></div>"
 		links='<div class="right"><a class="modify modify_step" href="" rel="operating_cycle_steps_attributes_new_'+id+'_'+id2+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_steps_attributes_new_'+id+'_'+id2+'_div" data-method="delete" class="delete delete_step" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 		clear='<div class="clear"></div></div>';
 
@@ -144,6 +146,7 @@ function add_steps_input(id){
 		$(".modify_step").click(function(){
 			id=$(this).attr('rel');
 			$("#"+id).addClass('editable');
+			$("#"+id).removeAttr('disabled');
 			return false;
 		});
 
@@ -153,7 +156,7 @@ function add_steps_input(id){
 			if(st[4]=='new'){
 				$("#"+div).remove();
 			}else{
-				
+
 				id=st[4];
 				id2=st[6];
 				des="<input type='text' name='operating_cycle[stages_attributes]["+id+"][steps_attributes]["+id2+"][_destroy]' id='operating_cycle_"+id+"_attributes_new_"+id2+"_destroy' class='hidden' value='1'>"
@@ -165,5 +168,19 @@ function add_steps_input(id){
 
 
 	}
+
+}
+
+
+
+function dragAndDrop(type,id){
+		$("#"+type+"_"+id+" ul").sortable({ opacity: 0.6, cursor: 'move', update: function() {
+			//var order = $(this).sortable("serialize") + '&action=updateRecordsListings';
+			//$.post("updateDB.php", order, function(theResponse){
+				//	$("#contentRight").html(theResponse);
+				//	});
+				
+			}
+		});
 
 }
