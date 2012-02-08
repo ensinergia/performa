@@ -1,5 +1,5 @@
 <tr>
-	<th width="54%">Objetivo</th>
+	<th width="54%" style="text-align:left; padding:6px"> <%= link_to "+/- ","", :class=>"head" , :rel=>"operative_#{operative_objective.id}" %>   Objetivo</th>
 	<th width="10%">BSC</th>
 	<th width="13%">Fecha Ini</th>
 	<th width="13%">Fecha Final</th>
@@ -26,36 +26,37 @@
 <tr>
 	<td colspan="5">
 		<br/>
-		<table width="60%" cellspadding="0" celspacing="0" class="objective_table">	
-			<tr>
-				<th width="80%"><%= t('views.operative_objective.index.pointers.pointer') %></th>
-				<th width="20%"><%= t('views.operative_objective.index.pointers.advance') %></th>
-			</tr>
-			<%- 
-			pointers=operative_objective.pointers
-			if  pointers.empty?
-				%>	
+		<div id="operative_<%=operative_objective.id %>" class="collapse">
+			<table width="60%" cellspadding="0" celspacing="0" class="objective_table">	
 				<tr>
-					<td class="notification-box"><%= t('views.operative_objective.index.pointers.empty') %></td>
-					<td class="notification-box"></td>
+					<th width="80%"><%= t('views.operative_objective.index.pointers.pointer') %></th>
+					<th width="20%"><%= t('views.operative_objective.index.pointers.advance') %></th>
 				</tr>
-				<%else%>
-					
+				<%- 
+				pointers=operative_objective.pointers
+				if  pointers.empty?
+					%>	
+					<tr>
+						<td class="notification-box"><%= t('views.operative_objective.index.pointers.empty') %></td>
+						<td class="notification-box"></td>
+					</tr>
+					<%else%>
+
 					<%pointers.each_with_index do |pointer,index|
 						trclass= index%2==0 ? "blank-box" : "notification-box"
 						%>
 						<tr>
 							<td class="<%=trclass%>" width="60%">
 								<div class="right">
-										<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_pointer_path(pointer,:operative_objective_id=>operative_objective.id), :class => 'modify' %>
-										<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), pointer_path(pointer), 
-										:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
-										:connector => "ésta", 
-										:model => t('activerecord.models.pointer'))%>
+									<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_pointer_path(pointer,:operative_objective_id=>operative_objective.id), :class => 'modify' %>
+									<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), pointer_path(pointer), 
+									:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
+									:connector => "ésta", 
+									:model => t('activerecord.models.pointer'))%>
 								</div>
 								<%= pointer.name%> - <%= pointer.description%>
-								
-								</td>
+
+							</td>
 							<td class="<%=trclass%>" width="40%">
 
 								<div id='chart_div_<%=operative_objective.id%>_<%=pointer.id%>'></div>
@@ -69,45 +70,45 @@
 									umb2=30
 									umb4=70
 								end	
-										
+
 								%>
 								<script type="text/javascript">
-									google.setOnLoadCallback(drawChart_<%=operative_objective.id%>_<%=pointer.id%>);
+								google.setOnLoadCallback(drawChart_<%=operative_objective.id%>_<%=pointer.id%>);
 
-								      function drawChart_<%=operative_objective.id%>_<%=pointer.id%>() {
-								        var data = new google.visualization.DataTable();
-								        data.addColumn('string', 'Label');
-								        data.addColumn('number', 'Value');
-								        data.addRows([
-								          ['Status', <%= pointer.advance || 0%>]
-								        ]);
+								function drawChart_<%=operative_objective.id%>_<%=pointer.id%>() {
+									var data = new google.visualization.DataTable();
+									data.addColumn('string', 'Label');
+									data.addColumn('number', 'Value');
+									data.addRows([
+										['Status', <%= pointer.advance || 0%>]
+										]);
 
-								        var options = {
-										  width: 350, height: 85,
-										  redFrom: 0, redTo: <%=umb2%>,
-										  yellowFrom:<%=umb2.to_i + 1%>, yellowTo: <%=umb4%>,
-										  greenFrom:<%=umb4.to_i + 1%>, greenTo:100,
-										  minorTicks: 5
+										var options = {
+											width: 350, height: 85,
+											redFrom: 0, redTo: <%=umb2%>,
+											yellowFrom:<%=umb2.to_i + 1%>, yellowTo: <%=umb4%>,
+											greenFrom:<%=umb4.to_i + 1%>, greenTo:100,
+											minorTicks: 5
 										};
 
-								        var chart = new google.visualization.Gauge(document.getElementById('chart_div_<%=operative_objective.id%>_<%=pointer.id%>'));
-								        chart.draw(data, options);
-								      }
-								
-								</script>
-								
+										var chart = new google.visualization.Gauge(document.getElementById('chart_div_<%=operative_objective.id%>_<%=pointer.id%>'));
+										chart.draw(data, options);
+									}
+
+									</script>
+
+								</td>
 							</td>
-						 </td>
 						</tr>
-					<%end%>
-				<%end%>
-				<tr>
-					<td class="notification-box " colspan="2"><%= link_to t('views.operative_objective.index.pointers.add'), new_pointer_path(:operative_objective_id=>operative_objective.id) %></td>
-				</tr>
+						<%end%>
+						<%end%>
+						<tr>
+							<td class="notification-box " colspan="2"><%= link_to t('views.operative_objective.index.pointers.add'), new_pointer_path(:operative_objective_id=>operative_objective.id) %></td>
+						</tr>
 
-			</table>	
+					</table>	
+				</div>
 
-
-		</td>
-	</tr>
+			</td>
+		</tr>
 

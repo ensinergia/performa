@@ -257,7 +257,6 @@ function add_steps_input(id){
 
 
 function dragAndDrop(type,id){
-
 	if (type=="steps"){
 		$("#"+type+"_"+id+" ul").sortable({ opacity: 0.6, cursor: 'move', update: function(){
 			$("#"+type+"_"+id+" ul li").each(function(index){		
