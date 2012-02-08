@@ -805,9 +805,10 @@ es-MX:
       key_activities: 'Actividades Clave'
       add_key_activity: ' + Agregar Actividad Clave'
       cancel: 'Cancelar'
-      submit: 'Agregar'
+      submit: 'Guardar'
       internal_id: 'ID'
       new_client: "Cliente Nuevo"
       name: 'Nombre De la Etapa'
       reason: 'Razon de Ser'
       section_client: 'Clientes'
+      strategic_lines: "Líneas Estratégicas"
