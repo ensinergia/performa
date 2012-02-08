@@ -1432,11 +1432,18 @@ ul.menu{
 .ui-sortable li{
 	list-style:none;
 	cursor:move;
+	padding-left: 30px;
 }
 
+
+.ui-sortable li:hover{
+	background: url('../images/move.gif') no-repeat;
+}
 
 .ui-sortable a{
 	text-decoration:none;
+	
 }
+
 
 
