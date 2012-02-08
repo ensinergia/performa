@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120130183705) do
+ActiveRecord::Schema.define(:version => 20120207184241) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -223,6 +223,7 @@ ActiveRecord::Schema.define(:version => 20120130183705) do
     t.integer  "operating_cycle_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "torder"
   end
 
   create_table "steps", :force => true do |t|
@@ -230,6 +231,7 @@ ActiveRecord::Schema.define(:version => 20120130183705) do
     t.integer  "stage_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "torder"
   end
 
   create_table "strategic_line_strategic_objectives", :force => true do |t|
