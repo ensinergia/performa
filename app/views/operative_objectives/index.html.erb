@@ -1,5 +1,5 @@
 <%- content_for :javascript do %>
-<%= javascript_include_tag 'https://www.google.com/jsapi','operative_objectives_index' %>
+<%= javascript_include_tag 'https://www.google.com/jsapi','jquery-ui.min','operative_objectives_index' %>
 <%end%>
 <div class="box rounded-10 with-shadow with-mid-width">
   
@@ -9,11 +9,11 @@
 		<h2><%= t('views.operative_objective.index.not_empty.title') %></h2>
   </div>
 	
-	<div class="inside-box">
-		<table width="100%" cellspadding="0" celspacing="0" class="objective_table">	
-			
-		<%= render :partial => 'operative_objective', :collection => @objectives %>
-		</table>
+	<div class="inside-box">	
+		<ul id="objectives_ul">	
+			<%= render :partial => 'operative_objective', :collection => @objectives %>
+		</ul>
+
 		
 		<div class='strategic_add_link'>
 			<%= link_to t('views.operative_objective.index.not_empty.controls.add'), new_operative_objective_path %>
