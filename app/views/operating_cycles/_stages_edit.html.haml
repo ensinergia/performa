@@ -21,6 +21,8 @@
 								+/-
 							= client.text_field :name, :class => 'no_edit_input',:disabled=>"disabled"
 							= client.hidden_field :torder
+							%a{:id=>"operating_cycle_stages_attributes_#{index}_name_close",:rel=>"operating_cycle_stages_attributes_#{index}_name",:class=>"close hidden",  :href=>""}
+								=image_tag "close.png"
 
 						.right
 							%a{:rel=>"operating_cycle_stages_attributes_#{index}_name",:class=>"modify",  :href=>""}
@@ -49,8 +51,10 @@
 										%li{:rel=>"#{index},#{index2}"}
 											%div{:id=>"operating_cycle_stages_attributes_#{index}_steps_#{index2}_div", :class=>"#{classs}"}
 												.left
-													= step.text_field :name, :class => 'no_edit_input', :size=>50, :disabled=>"disabled"
+													= step.text_field :name, :class => 'no_edit_input', :disabled=>"disabled"
 													= step.hidden_field :torder
+													%a{:id=>"operating_cycle_stages_attributes_#{index}_steps_attributes_#{index2}_name_close",:rel=>"operating_cycle_stages_attributes_#{index}_steps_attributes_#{index2}_name",:class=>"close hidden",  :href=>""}
+														=image_tag "close.png"
 												.right
 													%a{:rel=>"operating_cycle_stages_attributes_#{index}_steps_attributes_#{index2}_name",:class=>"modify",  :href=>""}
 														=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"
