@@ -33,7 +33,9 @@ $(document).ready(function(){
 		$(" .no_edit_input").removeAttr("disabled");
 	});
 
-	dragAndDrop("stages","container");
+	dragAndDrop("stages","");
+	dragAndDrop("services","");
+	dragAndDrop("clients","");
 
 
 });
@@ -74,11 +76,14 @@ function add_input(type){
 			$("#stages_container >  ul").append(input+links+clear);
 			$("#stages").removeClass("hidden");
 		}else{
-			input=li_open+"<div class='"+classs+"' id='operating_cycle_"+type+"_attributes_new_"+id+"_div'><div class='left'>"+collapse+"<input type='text' disabled='disabled' size='50' name='operating_cycle["+type+"_attributes]["+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input' value='"+value+"'>"+close_edit+"</div>";
+			class_delete='delete'
+			li_open="<div><li rel='"+id+"'><input type='hidden' name='operating_cycle["+type+"_attributes]["+id+"][torder]' id='operating_cycle_"+type+"_attributes_"+id+"_torder'>";
+			li_close='</li></div>';
+			
+			input=li_open+"<div class='"+classs+"'><div class='left'><input type='text' disabled='disabled' name='operating_cycle["+type+"_attributes]["+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input' value='"+value+"'>"+close_edit+"</div>";
 			links='<div class="right"><a class="modify" href="" rel="operating_cycle_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="'+class_delete+'" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 			clear='<div class="clear"></div></div><div class="'+classs+'" id="operating_cycle_'+type+'_attributes_new_'+id+'_div"> '+inp+' </div>'+li_close;
-
-			$("#"+type).append(input+links+clear);
+			$("#"+type+"_ul").append(input+links+clear);
 			$("#"+type).removeClass("hidden");
 		}
 
@@ -195,27 +200,30 @@ function add_steps_input(id){
 
 
 
-
 function dragAndDrop(type,id){
-	$("#"+type+"_"+id+" ul").sortable({ opacity: 0.6, cursor: 'move', update: function(){
-		if (type=="steps"){
-			$("#"+type+"_"+id+" ul li").each(function(index){						
+
+	if (type=="steps"){
+		$("#"+type+"_"+id+" ul").sortable({ opacity: 0.6, cursor: 'move', update: function(){
+			$("#"+type+"_"+id+" ul li").each(function(index){		
 				ids=$(this).attr('rel').split(',');
 				id1=ids[0];
 				id2=ids[1];
-
 				$("#operating_cycle_stages_attributes_"+id1+"_steps_attributes_"+id2+"_torder").val(index);
 			});
-		}else{
-			$("#stages_ul > li").each(function(index){	
-				id=$(this).attr('rel');
-				$("#operating_cycle_stages_attributes_"+id+"_torder").val(index);
-			});
 		}
+	});
 
-
-
+}else{
+	$("#"+type+"_ul").sortable({ opacity: 0.6, cursor: 'move', update: function(){
+		$("#"+type+"_ul > div > li").each(function(index){
+			id=$(this).attr('rel');		
+			$("#operating_cycle_"+type+"_attributes_"+id+"_torder").val(index);
+		});
 	}
 });
 
 }
+
+
+}
+
