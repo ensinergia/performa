@@ -40,7 +40,6 @@ class OperatingCyclesController < ApplicationController
 
   def update
     @operating_cycle = OperatingCycle.find(params[:id])
-   debugger
     if @operating_cycle.update_attributes(params[:operating_cycle])
       @operating_cycle.notify_to(params[:users])
 

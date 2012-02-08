@@ -14,7 +14,7 @@
 		-classs=index%2==0 ? "light-gray" : "gray" 
 		%div{:id=>"operating_cycle_clients_attributes_#{client.object.id}_div_#{index}", :class=>"#{classs}"}
 			.left
-				= client.text_field :name, :class => 'no_edit_input', :size=>"50"
+				= client.text_field :name, :class => 'no_edit_input', :size=>"50", :disabled=>:disabled
 			.right
 				%a{:rel=>"operating_cycle_clients_attributes_#{index}_name",:class=>"modify",  :href=>""}
 					=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"	

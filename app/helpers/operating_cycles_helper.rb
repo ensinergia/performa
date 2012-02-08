@@ -4,7 +4,9 @@ module OperatingCyclesHelper
     code=""
 
     stages=operating_cycle.stages	
-    unless stages.empty?
+    clients=operating_cycle.clients	
+    products=operating_cycle.services	
+    unless stages.empty? || clients.empty? || products.empty?
 
       clients=get_clients(operating_cycle)
       products=get_products(operating_cycle)

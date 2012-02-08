@@ -10,57 +10,61 @@
 .clear
 #stages
 	-index=0
+	#stages_container
+		%ul{:id=>"stages_ul"}
+			= f.fields_for :stages do |client|			
+				-classs=index%2==0 ? "gray" : "light-gray" 
+				%li{:rel=>"#{index}"}	
+					%div{:class=>"#{classs}"}
+						.left
+							%a{:href=>"", :class=>"head" , :rel=>"operating_cycle_stages_attributes_#{index}_div_#{index}"}
+								+/-
+							= client.text_field :name, :class => 'no_edit_input',:disabled=>"disabled"
+							= client.hidden_field :torder
 
-	= f.fields_for :stages do |client|			
-		-classs=index%2==0 ? "light-gray" : "gray" 
-		%div{:class=>"#{classs}"}
-			.left
-				%a{:href=>"", :class=>"head" , :rel=>"operating_cycle_stages_attributes_#{index}_div_#{index}"}
-					+/-
-				= client.text_field :name, :class => 'no_edit_input',:disabled=>"disabled"
-
-			.right
-				%a{:rel=>"operating_cycle_stages_attributes_#{index}_name",:class=>"modify",  :href=>""}
-					=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"
-				%a{:rel=>"operating_cycle_stages_attributes_#{index}_div_#{index}",:class=>"delete",  :href=>""}
-					=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
-			.clear		
-		%div{:id=>"operating_cycle_stages_attributes_#{index}_div_#{index}", :class=>"#{classs}"}			
-			.steps_container
-				%label
-					%strong
-						=t('views.operating_cycle.steps')
-				%br
-				%br
-				%div{:class=>"align-left left", :style=>"width:100%"}
-					%input{:id=>"steps_#{index}_input", :style=>"width:80%"}
-					%a{:id=>"add_step_#{index}",:rel=>"#{index}",:href=>"", :class=>"add_step"}
-						=t('views.operating_cycle.add_step')
-				.clear	
-				%br	
-				%div{:id=>"steps_#{index}"}	
-					-index2=0 
-					%ul
-						= client.fields_for :steps do |step|
-							-classs=index2%2==0 ? "light-gray" : "gray"
-							%li{:rel=>"#{step.object.id}"}
-								%div{:id=>"operating_cycle_stages_attributes_#{index}_steps_#{index2}_div", :class=>"#{classs}"}
-									.left
-										= step.text_field :name, :class => 'no_edit_input', :size=>50, :disabled=>"disabled"
-									.right
-										%a{:rel=>"operating_cycle_stages_attributes_#{index}_steps_attributes_#{index2}_name",:class=>"modify",  :href=>""}
-											=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"
-										%a{:rel=>"operating_cycle_stages_attributes_#{index}_steps_#{index2}_div",:class=>"delete_step",  :href=>""}
-											=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
-									.clear
-							-index2=index2+1 		
-				.clear
-				%br	
-		%script{:type=>"text/javascript"}	
-			="$(document).ready(function(){"
-			="dragAndDrop('steps','#{index}');"
-			=" });"
-		= hidden_field_tag "stages_order_#{index}", :value => ""
-		-index=index+1
+						.right
+							%a{:rel=>"operating_cycle_stages_attributes_#{index}_name",:class=>"modify",  :href=>""}
+								=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"
+							%a{:rel=>"operating_cycle_stages_attributes_#{index}_div_#{index}",:class=>"delete",  :href=>""}
+								=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
+						.clear		
+					%div{:id=>"operating_cycle_stages_attributes_#{index}_div_#{index}", :class=>"#{classs} collapse"}			
+						.steps_container
+							%label
+								%strong
+									=t('views.operating_cycle.steps')
+							%br
+							%br
+							%div{:class=>"align-left left", :style=>"width:100%"}
+								%input{:id=>"steps_#{index}_input", :style=>"width:80%"}
+								%a{:id=>"add_step_#{index}",:rel=>"#{index}",:href=>"", :class=>"add_step"}
+									=t('views.operating_cycle.add_step')
+							.clear	
+							%br	
+							%div{:id=>"steps_#{index}"}	
+								-index2=0 
+								%ul
+									= client.fields_for :steps do |step|
+										-classs=index2%2==0 ? "gray" : "light-gray"
+										%li{:rel=>"#{index},#{index2}"}
+											%div{:id=>"operating_cycle_stages_attributes_#{index}_steps_#{index2}_div", :class=>"#{classs}"}
+												.left
+													= step.text_field :name, :class => 'no_edit_input', :size=>50, :disabled=>"disabled"
+													= step.hidden_field :torder
+												.right
+													%a{:rel=>"operating_cycle_stages_attributes_#{index}_steps_attributes_#{index2}_name",:class=>"modify",  :href=>""}
+														=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"
+													%a{:rel=>"operating_cycle_stages_attributes_#{index}_steps_#{index2}_div",:class=>"delete_step",  :href=>""}
+														=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
+												.clear
+										-index2=index2+1 		
+							.clear
+							%br	
+					%script{:type=>"text/javascript"}	
+						="$(document).ready(function(){"
+						="dragAndDrop('steps','#{index}');"
+						=" });"
+				= hidden_field_tag "stages_order_#{index}", :value => ""
+				-index=index+1
 		
 		
