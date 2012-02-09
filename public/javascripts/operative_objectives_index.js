@@ -31,7 +31,7 @@ function dragAndDrop(type,id){
 			});
 			$.ajax({
   				type: 'POST',
-  				url: '/operative_objectives/order?or='+str,
+  				url: '/operative_objectives/order?or='+str+"&model=OperativeObjective",
 				success: function(data) {
    						$(".messages").html('<p id="notice" class="flash centered">El Orden se guardó correctamente</p>');
  						}

@@ -49,9 +49,9 @@ class OperativeObjectivesController < ApplicationController
   
   def order
     order=params[:or].split(',')
-    OperativeObjective.reorder(order)
+    params[:model].constantize.reorder(order)
     render :nothing => true
-  end
+  end  
   
 
   def destroy

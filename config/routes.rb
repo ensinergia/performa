@@ -16,7 +16,7 @@ GestionDesempeno::Application.routes.draw do
     
     match '/panorama' => 'panoramas#index'
     match '/operative_objectives/order' => 'operative_objectives#order' , :as=>"order_operative_objectives"
-    match '/strategic_lines/order' => 'strategic_lines#order' , :as=>"order_strategic_lines"
+
     match '/panorama/area/(:area)' => 'panoramas#index' , :as=>"area_panorama"
     match '/operative_objectives/area/(:area)' => 'operative_objectives#index' , :as=>"area_operative_objectives"
     match '/operating_cycles/area/(:area)' => 'operating_cycles#index' , :as=>"area_operating_cycles"

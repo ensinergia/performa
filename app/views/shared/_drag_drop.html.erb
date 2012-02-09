@@ -1,0 +1,7 @@
+<%- content_for :javascript do %>
+	<%= javascript_include_tag 'jquery-ui.min','drag_drop' %>
+	<script type="text/javascript">
+	controller="operative_objectives";
+	model="<%=params[:controller].camelize.singularize%>";
+	</script>
+	<%end%>

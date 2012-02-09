@@ -1,9 +1,4 @@
-<%- content_for :javascript do %>
-<%= javascript_include_tag 'jquery-ui.min','drag_drop' %>
-<script type="text/javascript">
-controller='strategic_lines'
-</script>
-<%end%>
+<%= render :partial=>"shared/drag_drop"%>
 <div class="box rounded-10 with-shadow with-mid-width">
   
 	<%= content_for(:sl_menu, &Proc.new { "selected" }) %>

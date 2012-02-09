@@ -25,7 +25,7 @@ function dragAndDrop(type,id){
 			});
 			$.ajax({
   				type: 'POST',
-  				url: '/'+controller+'/order?or='+str,
+  				url: '/'+controller+'/order?or='+str+"&model="+model,
 				success: function(data) {
    						$(".messages").html('<p id="notice" class="flash centered">El Orden se guardó correctamente</p>');
  						}
