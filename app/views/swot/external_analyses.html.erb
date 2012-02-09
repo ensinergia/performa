@@ -1,3 +1,4 @@
+<%= render :partial=>"shared/drag_drop"%>
 <div class="box rounded-10 with-shadow with-mid-width">
 	
 	<%= content_for(:sw_menu, &Proc.new { "selected" }) %>
@@ -9,9 +10,9 @@
 		
 		<div class="opportunities column">
 			<p class='opportunities_title'><%=t 'views.swot.shared_views.opportunities' %></p>
-			
-			<%= render :partial => "swot/analysis", :collection => @opportunities %>
-
+			<ul id="drag_ul">
+				<%= render :partial => "swot/analysis", :collection => @opportunities %>
+			</ul>
 			<div class='opportunities_add_link'>
 				<%= link_to t('views.swot.shared_views.controls.add_opportunity'), 'javascript:void(0);', :class => "show-div", :id => "new-opportunity" %>
 			</div>
@@ -25,8 +26,9 @@
 				
 		<div class="risks column">
 			<p class='risk_title'><%=t 'views.swot.shared_views.risks' %></p>
-			
-			<%= render :partial => "swot/analysis", :collection => @risks %>
+			<ul id="drag2_ul">
+				<%= render :partial => "swot/analysis", :collection => @risks %>
+			</ul>
 			<div class ='risk_add_link'>
 				<%= link_to t('views.swot.shared_views.controls.add_risk'), 'javascript:void(0);', :class => "show-div", :id => "new-risk" %>
 			</div>

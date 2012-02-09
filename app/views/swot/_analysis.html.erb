@@ -1,7 +1,7 @@
 <li rel="<%=analysis.id %>" >
 <div class="list">
-  <div class="list-item">
-    <p id="analysis-<%= analysis.id %>">
+  <div class="list-item <%=(analysis_counter + 1)%2==0 ? "light-gray" : "gray"  %>">
+    <div id="analysis-<%= analysis.id %>">
       <span class="inline-analysis-value"><%= analysis.content %></span>
       <div class="right-placed">
         <%= button_to('Eliminar', [:swot, analysis], :method => :delete, :confirm => delete_confirmation_for(analysis), :class => 'delete' ) %>
@@ -9,7 +9,9 @@
       <!--<div class="right-placed">
         <%= link_to analysis.comments.count, swot_analysis_comments_url(analysis), :class => 'number' %>
       </div>-->
-    </p>
+	<div class="clear"></div>
+    </div>
+
   </div>
 </div>
 </li>
