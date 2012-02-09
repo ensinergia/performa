@@ -1,3 +1,4 @@
+<%= render :partial=>"shared/drag_drop"%>
 <div class="box rounded-10 with-shadow with-mid-width">
 	
 	<%= content_for(:sw_menu, &Proc.new { "selected" }) %>
@@ -9,7 +10,9 @@
 
 		<div class="strengths column">
 			<p class="strengths_title"><%=t 'views.swot.shared_views.strengths' %></p>
-			<%= render :partial => "swot/analysis", :collection => @strengths %>
+			<ul id="drag_ul">
+				<%= render :partial => "swot/analysis", :collection => @strengths %>
+			</ul>
 			<div class="strengths_add_link">
 				<%= link_to t('views.swot.shared_views.controls.add_strength'), 'javascript:void(0);', :class => "show-div", :id => "new-strength" %>
 			</div>
@@ -22,7 +25,9 @@
 		
 		<div class="weaknesses column">
 			<p class='weaknesses_title'><%=t 'views.swot.shared_views.weaknesses' %></p>
-			<%= render :partial => "swot/analysis", :collection => @weaknesses %>
+			<ul id="drag2_ul">
+				<%= render :partial => "swot/analysis", :collection => @weaknesses %>
+			</ul>	
 			<div class='weaknesses_add_link'>
 				<%= link_to t('views.swot.shared_views.controls.add_weakness'), 'javascript:void(0);', :class => "show-div", :id => "new-weakness" %>
 			</div>

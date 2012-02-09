@@ -1,5 +1,8 @@
 class Analysis < ActiveRecord::Base
   
+  
+  include Order
+  
   has_many :comments, :as => :commentable
   belongs_to :swot
   belongs_to :user

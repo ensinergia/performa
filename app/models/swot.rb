@@ -2,19 +2,19 @@ class Swot < ActiveRecord::Base
   
   has_many :analyses do
     def strengths
-      all(:conditions => {:kind => Analysis.strength},:include => [:comments])
+      all(:conditions => {:kind => Analysis.strength},:include => [:comments], :order=>'torder ASC')
     end
     
     def weaknesses
-      all(:conditions => {:kind => Analysis.weakness},:include => [:comments])
+      all(:conditions => {:kind => Analysis.weakness},:include => [:comments], :order=>'torder ASC')
     end
     
     def opportunities
-      all(:conditions => {:kind => Analysis.opportunity},:include => [:comments])
+      all(:conditions => {:kind => Analysis.opportunity},:include => [:comments], :order=>'torder ASC')
     end
     
     def risks
-      all(:conditions => {:kind => Analysis.risk},:include => [:comments])
+      all(:conditions => {:kind => Analysis.risk},:include => [:comments], :order=>'torder ASC')
     end
   end
   

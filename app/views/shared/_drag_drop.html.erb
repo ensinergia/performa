@@ -2,6 +2,11 @@
 	<%= javascript_include_tag 'jquery-ui.min','drag_drop' %>
 	<script type="text/javascript">
 	controller="operative_objectives";
+	<%if params[:controller]=="swot"%>
 	model="<%=params[:controller].camelize.singularize%>";
+	<%else%>
+		model="Analysis";
+		$(document).ready(function() {dragAndDrop("drag2","");});
+	<%end%>
 	</script>
 	<%end%>
