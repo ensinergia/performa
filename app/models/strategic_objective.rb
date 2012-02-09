@@ -1,6 +1,6 @@
 class StrategicObjective < ActiveRecord::Base
   include Shared
-
+  include Order
   has_many :comments, :as => :commentable
 
   has_many :strategic_line_strategic_objective

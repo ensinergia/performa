@@ -7,8 +7,8 @@ class Company < ActiveRecord::Base
   
   has_many :users
   has_many :areas, :dependent => :destroy
-  has_many :strategic_lines
-  has_many :strategic_objectives
+  has_many :strategic_lines, :order=>"torder ASC"
+  has_many :strategic_objectives, :order=>"torder ASC"
   has_one :swot
   
   validates_uniqueness_of :name
