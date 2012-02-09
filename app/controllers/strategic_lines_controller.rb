@@ -57,6 +57,12 @@ class StrategicLinesController < ActionController::Base
     end
   end
   
+    def order
+    order=params[:or].split(',')
+    StrategicLine.reorder(order)
+    render :nothing => true
+  end
+  
   def strategic_objectives
      @strategic_objectives = current_company.strategic_objectives
   end

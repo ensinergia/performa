@@ -49,11 +49,7 @@ class OperativeObjectivesController < ApplicationController
   
   def order
     order=params[:or].split(',')
-    order.each_with_index  do   |id,index|
-      @operative_objective = OperativeObjective.find(id)
-      @operative_objective.torder=index
-      @operative_objective.save
-    end
+    OperativeObjective.reorder(order)
     render :nothing => true
   end
   

@@ -1,19 +1,25 @@
-<div class='list-item'>
-	<div id="sl-<%= strategic_line.id %>">
-		<div class='strategic_line_value'> 
-			<%= strategic_line.content %> 
+
+<li rel="<%=strategic_line.id %>" >
+	<div  class=" list-item <%=(strategic_line_counter + 1)%2==0 ? "light-gray" : "gray"  %>">
+		<div id="sl-<%= strategic_line.id %>">
+			<div class='strategic_line_value'> 
+				<%= strategic_line.content %> 
+			</div>
+			<div class='right_place'>
+				<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_strategic_line_path(strategic_line), :class => 'modify' %>
+				<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), strategic_line_path(strategic_line), 
+				:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
+				:connector => "ésta", 
+				:model => t('activerecord.models.strategic_line'))%>
+			</div>
+
 		</div>
-		<div class='right_place'>
-			<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_strategic_line_path(strategic_line), :class => 'modify' %>
-			<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), strategic_line_path(strategic_line), 
-								:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
-																								:connector => "ésta", 
-																								:model => t('activerecord.models.strategic_line'))%>
-			</div>
-			<br/>
-			<br/>
-			<div class="record_info">
-				<%= record_info_for(strategic_line) %>
-			</div>
+		<div class='clear'></div> 
 	</div>
-</div>
+	<div class="record_info">
+		<%= record_info_for(strategic_line) %>
+	</div>
+	<br/>
+
+
+</li>

@@ -1,5 +1,6 @@
 class StrategicLine < ActiveRecord::Base
   include Shared
+  include Order
 
   has_many :comments, :as => :commentable
   has_many :strategic_line_strategic_objective
@@ -13,7 +14,7 @@ class StrategicLine < ActiveRecord::Base
 
 
   def self.get_all_for(company)
-    self.where(:company_id => company.id)
+    self.where(:company_id => company.id).order("torder ASC")
   end
 
   def notify_to(users)

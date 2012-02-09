@@ -25,6 +25,8 @@ class OperatingCycle < ActiveRecord::Base
     initialize_with_user(params, user)
   end
   
+  
+  
   def self.get_all_for(id)
     self.where(:area_id =>id)
   end

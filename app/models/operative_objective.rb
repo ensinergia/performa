@@ -1,4 +1,6 @@
 class OperativeObjective < ActiveRecord::Base
+  include Order
+  
   #*************************************************
   #                   Relations                    *
   #*************************************************
@@ -11,9 +13,11 @@ class OperativeObjective < ActiveRecord::Base
   def notify_to(users)
   end
   
+
   def self.get_all_for(area_id)
     self.where(:area_id => area_id).order("torder ASC")
   end
+  
   #*************************************************
   #                   Instance Methods             *
   #*************************************************

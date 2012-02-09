@@ -1,3 +1,9 @@
+<%- content_for :javascript do %>
+<%= javascript_include_tag 'jquery-ui.min','drag_drop' %>
+<script type="text/javascript">
+controller='strategic_lines'
+</script>
+<%end%>
 <div class="box rounded-10 with-shadow with-mid-width">
   
 	<%= content_for(:sl_menu, &Proc.new { "selected" }) %>
@@ -7,8 +13,9 @@
   </div>
 	
 	<div class="inside-box">
+		<ul id="drag_ul">	
 		<%= render :partial => 'strategic_line', :collection => @strategic_lines %>
-		
+		</ul>
 		<div class='strategic_add_link'>
 			<%= link_to t('views.strategic_lines.index.not_empty.controls.add'), new_strategic_line_path %>
 		</div>
