@@ -1,5 +1,5 @@
 class AddTorderToOperativeCycle < ActiveRecord::Migration
-    def self.up
+  def self.up
     add_column :operating_cycles, :torder, :integer
 
   end

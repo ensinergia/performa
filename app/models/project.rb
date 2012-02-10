@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
     
+  include Order
     
   #*************************************************
   #                   Relations                    *
@@ -18,6 +19,9 @@ class Project < ActiveRecord::Base
   def notify_to(users)
   end
 
+  def setorder(order)
+    setorder(order)
+  end
   
   def self.get_all_for(id)
     self.where(:area_id =>id)

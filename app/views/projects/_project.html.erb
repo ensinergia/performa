@@ -1,4 +1,5 @@
-<div class='list-item'>
+<li rel="<%=project.id %>" >
+<div class="list-item <%=(project_counter + 1)%2==0 ? "light-gray" : "gray"  %>">
 	<div id="sl-<%= project.id %>">
 		<div class='project_value'> 
 			<%= project.name %> 
@@ -17,3 +18,4 @@
 			</div>
 	</div>
 </div>
+</li>

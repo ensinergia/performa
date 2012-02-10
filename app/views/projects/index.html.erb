@@ -1,3 +1,4 @@
+<%= render :partial=>"shared/drag_drop"%>
 <div class="box rounded-10 with-shadow with-mid-width">
 <%= content_for(:pro_submenu, &Proc.new { "selected" }) %>
 <%= content_for(:proj_menu, &Proc.new { "selected" }) %>
@@ -13,8 +14,9 @@
 
 	
 	<div class="inside-box">
-		<%= render :partial => 'project', :collection => @projects %>
-		
+		<ul id="drag_ul">
+			<%= render :partial => 'project', :collection => @projects %>
+		</ul>
 		<div class='strategic_add_link'>
 			<%= link_to t('views.projects.index.not_empty.controls.add'), new_project_path %>
 		</div>
