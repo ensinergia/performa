@@ -88,14 +88,13 @@ module OperatingCyclesHelper
       end	
 
       code='digraph G {
-      label="'+operating_cycle.name+'";
       labelloc=t;
       labelfontsize=16;
       splines=false;
       '+from_clients+'
-      "clients" [style=filled,color="#FF7E51", label="'+clients.join+'",fontsize=9];
+      "clients" [shape=box,style=filled,color="#FF7E51", label="'+clients.join+'",fontsize=9];
       '+to_products+'
-      "products" [style=filled,color="#F9A366", label="'+products.join+'",fontsize=9];
+      "products" [shape=box,style=filled,color="#F9A366", label="'+products.join+'",fontsize=9];
       '+stages_str+'
       edge[constraint=false];
       '+follow+'
@@ -114,8 +113,8 @@ module OperatingCyclesHelper
     tab='\n'
     clients=clients_arr.enum_for(:each_with_index).collect do |x, j| 
       unless x.nil?
-        fname=wrap_word(x.name,5)
-        "- "+fname + tab
+        #fname=wrap_word(x.name,5)
+        "- "+x.name + tab
       end	
 
     end
@@ -128,8 +127,8 @@ module OperatingCyclesHelper
     tab='\n'
     products=products_arr.enum_for(:each_with_index).collect do |x, k| 
       unless x.nil?
-        fname=wrap_word(x.name,5)
-        "- "+fname + tab
+        #fname=wrap_word(x.name,5)
+        "- "+x.name + tab
       end	
 
     end
