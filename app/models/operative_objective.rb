@@ -9,10 +9,14 @@ class OperativeObjective < ActiveRecord::Base
   has_and_belongs_to_many :strategic_lines, :uniq => true
   has_and_belongs_to_many :projects, :uniq => true
   has_many :pointers
+  has_many :project_objectives
 
   def notify_to(users)
   end
   
+   def setorder(order)
+    setorder(order)
+  end
 
   def self.get_all_for(area_id)
     self.where(:area_id => area_id).order("torder ASC")
@@ -22,4 +26,5 @@ class OperativeObjective < ActiveRecord::Base
   #                   Instance Methods             *
   #*************************************************
   
+   
 end

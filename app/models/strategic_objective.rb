@@ -13,6 +13,10 @@ class StrategicObjective < ActiveRecord::Base
 
   validates_presence_of :content
 
+   def setorder(order)
+    setorder(order)
+  end
+
 
   def notify_to(users)
   end
@@ -20,4 +24,7 @@ class StrategicObjective < ActiveRecord::Base
   def self.new_with_user(params, user)
     initialize_with_user(params, user)
   end
+  
+ 
+  
 end

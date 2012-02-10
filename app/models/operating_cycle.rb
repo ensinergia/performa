@@ -25,9 +25,12 @@ class OperatingCycle < ActiveRecord::Base
   def self.new_with_user(params, user)
     initialize_with_user(params, user)
   end
-  
-  
-  
+    
+  def setorder(order)
+    setorder(order)
+  end
+      
+    
   def self.get_all_for(id)
     self.where(:area_id =>id).order("torder ASC")
   end

@@ -20,7 +20,14 @@ class StrategicLine < ActiveRecord::Base
   def notify_to(users)
   end
 
+   def setorder(order)
+    setorder(order)
+  end
+
   def self.new_with_user(params, user)
     initialize_with_user(params, user)
   end
+  
+ 
+  
 end

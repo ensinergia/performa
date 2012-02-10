@@ -35,6 +35,10 @@ class Analysis < ActiveRecord::Base
     self.kind <= 2
   end
   
+   def setorder(order)
+    setorder(order)
+  end
+  
   def self.new_with_user(params, user)
     user.company.swot = Swot.new if user.company.swot.nil? 
     self.new params.merge({ :user => user, :swot => user.company.swot })
