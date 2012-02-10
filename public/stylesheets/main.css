@@ -1449,5 +1449,7 @@ ul.menu{
 	vertical-align:bottom;
 }
 
-
+.ui-sortable{
+	margin:0;
+}
 

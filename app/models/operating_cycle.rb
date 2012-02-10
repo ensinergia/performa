@@ -1,5 +1,6 @@
 class OperatingCycle < ActiveRecord::Base
   include Shared
+  include Order
   
   attr_accessible :name, :reason, :company_id,:area_id, :user_id, :internal_id, :clients_attributes,
     :stages_attributes, :services_attributes, :strategic_line_ids
@@ -28,7 +29,7 @@ class OperatingCycle < ActiveRecord::Base
   
   
   def self.get_all_for(id)
-    self.where(:area_id =>id)
+    self.where(:area_id =>id).order("torder ASC")
   end
   
 end
