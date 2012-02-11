@@ -59,32 +59,35 @@
 		%br
 		#objectives
 			-index=0
-			=f.fields_for "project_objectives" do |obj|
-				-classs=index%2==0 ? "blank_bg" : "gray" 
-				%div{:id=>"project_project_objectives_attributes_#{obj.object.id}_div_#{index}", :class=>"#{classs}"}
-					.left
-						.left.width_60
-							=obj.object.operative_objective.results
-							=" "
-							%b
-								=t("views.operative_objective.new.through")
-							=" "
-							=obj.object.operative_objective.actions
-					.right
-						%a{:rel=>"project_project_objectives_attributes_#{index}_percent",:class=>"modify",  :href=>""}
-							=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"	
-						%a{:rel=>"project_project_objectives_attributes_#{obj.object.id}_div_#{index}",:class=>"delete",  :href=>""}
-							=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
+			%ul{:id=>"project_objectives_ul"}
+				=f.fields_for "project_objectives" do |obj|
+					-classs=index%2==0 ?  "gray" : "blank_bg" 
+					%li{:rel=>"#{index}"}
+						%div{:id=>"project_project_objectives_attributes_#{obj.object.id}_div_#{index}", :class=>"#{classs}"}
+							.left
+								.left.width_60
+									=obj.object.operative_objective.results
+									=" "
+									%b
+										=t("views.operative_objective.new.through")
+									=" "
+									=obj.object.operative_objective.actions
+							.right
+								%a{:rel=>"project_project_objectives_attributes_#{index}_percent",:class=>"modify",  :href=>""}
+									=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"	
+								%a{:rel=>"project_project_objectives_attributes_#{obj.object.id}_div_#{index}",:class=>"delete",  :href=>""}
+									=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
 									
-					.right.marginright10px
-						%b
-							=t("views.projects.percent")
-						= obj.text_field :percent, :class => 'no_edit_input', :size=>"1"
-						="%"
+							.right.marginright10px
+								%b
+									=t("views.projects.percent")
+								= obj.text_field :percent, :class => 'no_edit_input', :size=>"1"
+								= obj.hidden_field :torder, :class => 'no_edit_input', :size=>"1"
+								="%"
 				
 					
-					.clear	
-				-index=index+1	
+							.clear	
+					-index=index+1	
 	%br
 	%br
 	.light-gray.padding_10px

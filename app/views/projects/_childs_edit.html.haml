@@ -24,23 +24,26 @@
 	%br
 	%div{:id=>"#{type}s"}
 		-index=0
-		= f.fields_for "#{type}s" do |client|
-			-classs=index%2==0 ? "blank_bg" : "gray" 
-			%div{:id=>"project_#{type}s_attributes_#{client.object.id}_div_#{index}", :class=>"#{classs}"}
-				.left
-					.left
-						= client.text_field :name, :class => 'no_edit_input', :size=>"40"
-					-unless type!="profit"
-						.left.marginright10px
-							=client.check_box :incre
-							= t("views.projects.profit_increment")
-						.left.marginright10px
-							=client.check_box :decre	
-							= t("views.projects.profit_decrement")
-				.right
-					%a{:rel=>"project_#{type}s_attributes_#{index}_name",:class=>"modify",  :href=>""}
-						=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"	
-					%a{:rel=>"project_#{type}s_attributes_#{client.object.id}_div_#{index}",:class=>"delete",  :href=>""}
-						=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
-				.clear	
-			-index=index+1	
+		%ul{:id=>"#{type}s_ul"}
+			= f.fields_for "#{type}s" do |client|
+				-classs=index%2==0 ?  "gray" : "blank_bg"
+				%li{:rel=>"#{index}"}
+					%div{:id=>"project_#{type}s_attributes_#{client.object.id}_div_#{index}", :class=>"#{classs}"}
+						.left
+							.left
+								= client.text_field :name, :class => 'no_edit_input', :size=>"25"
+								= client.hidden_field :torder
+							-unless type!="profit"
+								.left.marginright10px
+									=client.check_box :incre
+									= t("views.projects.profit_increment")
+								.left.marginright10px
+									=client.check_box :decre	
+									= t("views.projects.profit_decrement")
+						.right
+							%a{:rel=>"project_#{type}s_attributes_#{index}_name",:class=>"modify",  :href=>""}
+								=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"	
+							%a{:rel=>"project_#{type}s_attributes_#{client.object.id}_div_#{index}",:class=>"delete",  :href=>""}
+								=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
+						.clear	
+				-index=index+1	

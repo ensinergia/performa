@@ -89,6 +89,7 @@ module OperatingCyclesHelper
 
       code='digraph G {
       labelloc=t;
+      ordering="out";
       labelfontsize=16;
       splines=false;
       '+from_clients+'

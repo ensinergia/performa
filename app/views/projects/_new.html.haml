@@ -2,7 +2,7 @@
 	= stylesheet_link_tag 'jquerydate'
 	
 - content_for :javascript do
-	= javascript_include_tag 'jquery.tools.min','projects_new'
+	= javascript_include_tag 'jquery.tools.min','projects_new', 'jquery-ui.min'
 	
 = nested_form_for @project do |f|
 	= f.hidden_field :user_id, :value => current_user.id
@@ -59,6 +59,7 @@
 		.clear	
 		%br
 		#objectives
+			%ul{:id=>"project_objectives_ul"}
 	%br	
 	%br
 	.light-gray.padding_10px
