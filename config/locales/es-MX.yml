@@ -202,7 +202,8 @@ es-MX:
       user: Usuario
       comment: Comentario
       strategic_line: "Línea Estratégica"
-      war_cry: "Grito de guerra"
+      war_cry: "Propósito Estratégico"
+      warcry: "Propósito Estratégico"
       mission: "Misión"
       vision: "Visión"
       contextual_legend: "Información Contextual"
@@ -731,20 +732,20 @@ es-MX:
           cancel: "Cancelar"
       
       first_warcry:
-        title: "¿Listo para agregar el Grito de Guerra?"
+        title: "¿Listo para agregar el Propósito Estratégico?"
         controls:
-          add: "Agregar Grito de Guerra"
+          add: "Agregar Propósito Estratégico"
       new_warcry:
-        title: "Agregando un nuevo Grito de Guerra"
+        title: "Agregando un nuevo Propósito Estratégico"
         controls: 
           save: "Guardar"    
       edit_warcry:
-        title: "Modificando el Grito de Guerra"
+        title: "Modificando el Propósito Estratégico"
         controls:
           save: "Guardar cambios"
       show_warcry:
         controls:
-          make_a_comment: "Haz un comentario sobre este Grito de Guerra"
+          make_a_comment: "Haz un comentario sobre este Propósito Estratégico"
           edit: "Modificar"
       
       first_mission:
@@ -788,7 +789,7 @@ es-MX:
           vision:
             description: "Una descripción simple para una visión"
           war_cry_description:
-            description: "Una descripción simple para un grito de guerra"
+            description: "Una descripción simple para un Propósito Estratégico"
           notifications:
             title: "*Notificaciones"    
             description: "Una descripción simple para notificaciones"
