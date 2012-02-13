@@ -31,7 +31,7 @@ class OperatingCyclesController < ApplicationController
    
     if @operating_cycle.save
       @operating_cycle.notify_to(params[:users])
-      redirect_to edit_operating_cycle_path(@operating_cycle.id)
+      redirect_to(area_operating_cycles_url(session[:area_id]))
     else
       strategic_lines
       render :action => 'new'
@@ -45,7 +45,7 @@ class OperatingCyclesController < ApplicationController
 
       redirect_to edit_operating_cycle_path(@operating_cycle), :notice => I18n.t('views.common.messages.update.successful', :model => "Objetivos Operativos", :genre => "os")
     else
-      render :action => 'edit'
+      redirect_to(area_operating_cycles_url(session[:area_id]))
     end
 
   end

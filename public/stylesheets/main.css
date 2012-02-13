@@ -303,12 +303,12 @@ input:focus, textarea:focus {
 }
 
 .header-contents #app-logo {
-  width:211px;
+  width:203px;
   height: 60px;
   position: relative;
   left: 50%;
   margin-left:-105px;
-  background: url(../images/app_logo.jpg);
+  background: url(../images/app_logo.png);
 }
 
 .header-contents .left-menu {
