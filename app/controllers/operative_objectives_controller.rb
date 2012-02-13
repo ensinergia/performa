@@ -8,6 +8,7 @@ class OperativeObjectivesController < ApplicationController
   
   before_filter :strategic_lines, :only => [:new,:edit]
   before_filter :verify_subdomain
+  before_filter :users, :only => [:new, :edit]
   
   def index
     @objectives = OperativeObjective.get_all_for(session[:area_id])
@@ -66,6 +67,10 @@ class OperativeObjectivesController < ApplicationController
   
   
   private
+  def users
+    @users = current_company.users
+  end
+  
   def strategic_lines
     @strategic_lines = current_company.strategic_lines
   end

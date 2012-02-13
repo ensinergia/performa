@@ -14,35 +14,43 @@
 	= f.hidden_field :user_id, :value => current_user.id
 	= f.hidden_field :area_id,:value =>  session[:area_id]
 	
-	%div.left
+	.left
 		= f.label :perspective, t('views.operative_objective.new.results'), :class => 'bold'
 		%br
 		= f.text_area :results, :class => 'text_area_operative_objective', :cols=>5
 
-	%div.right
+	.right
 		= f.label :actions, t('views.operative_objective.new.actions'), :class => 'bold'
 		%br
 		= f.text_area :actions, :class => 'text_area_operative_objective', :cols=>5
-	%div.clear
+	.clear
 	%br
-	%div.left
+	.left
 		=t('views.operative_objective.new.perspective')
 		= f.select :perspective, { t('views.operative_objective.new.perspective_options.1d') => t('views.operative_objective.new.perspective_options.1d'), 
 		t('views.operative_objective.new.perspective_options.2d') => t('views.operative_objective.new.perspective_options.2d'),t('views.operative_objective.new.perspective_options.3d')=>t('views.operative_objective.new.perspective_options.3d'),t('views.operative_objective.new.perspective_options.4d')=>t('views.operative_objective.new.perspective_options.4d')}
 	
-	%div.right
-		%div.left.marginright10px
-			%div.left
+	.right
+		.left.marginright10px
+			.left
 				=t('views.operative_objective.new.init_date')
 			= f.text_field :init_date
 			
-		%div.right
-			%div.left
+		.right
+			.left
 				=t('views.operative_objective.new.final_date')
 			= f.text_field :final_date
-		%div.clear	
+		.clear	
 	
-	%div.clear
+	%br
+	%br	
+	%br
+	.clear	
+	.left.marginright10px
+		=t('views.operative_objective.new.responsable')
+	.left
+		= f.select :responsable_id, options_from_collection_for_select(@users, 'id', 'name', '1')
+	.clear	
 	%br
 	= render :partial => 'strategic_line'
 	= render 'shared/notifications'

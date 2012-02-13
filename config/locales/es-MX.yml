@@ -517,6 +517,7 @@ es-MX:
                 4d: "Aprendizaje"
         init_date: "Fecha Inicio"
         final_date: "Fecha Final"
+        responsable: "Responsable"
         controls:
           cancel: "Cancelar"
           save: "Guardar"
