@@ -378,7 +378,7 @@ es-MX:
       controls:
         add_a_file: "Adjuntar un archivo a este comentario"
         cancel: "Cancelar"
-        add: "Agregar"
+        add: "Guardar"
         see: "Ver comentarios"
         make_a_comment: "Haz un comentario"
         comment: "Comentar"
@@ -390,7 +390,7 @@ es-MX:
           title: "¿Listo para agregar la primer Línea Estratégica?"
           description: "Esta es la descripción para una nueva línea estratégica"
           controls:
-            start: "Agregar"
+            start: "Guardar"
         not_empty:
           title: "Líneas Estratégicas"
           controls:
@@ -414,7 +414,7 @@ es-MX:
             title: "¿Listo para agregar El primer Ciclo Operativo?"
             description: "Esta es la descripción para un nuevo Cyclo Operativo"
             controls:
-              start: "Agregar"
+              start: "Guardar"
         not_empty:
             title: "Ciclos Operativos"
             controls:
@@ -437,7 +437,7 @@ es-MX:
             title: "¿Listo para agregar El primer Proyecto?"
             description: "Esta es la descripción para un nuevo Proyecto"
             controls:
-              start: "Agregar"
+              start: "Guardar"
         not_empty:
             title: "Proyectos"
             controls:
@@ -493,7 +493,7 @@ es-MX:
             title: "¿Listo para agregar El primer Objetivo Operativo?"
             description: "Esta es la descripción para un nuevo Objetivo Operativo"
             controls:
-              start: "Agregar"
+              start: "Guardar"
         not_empty:
             title: "Objetivos Operativos"
             controls:
@@ -658,7 +658,7 @@ es-MX:
         opportunities: "Oportunidades"
         risks: "Riesgos"
         controls: 
-          add: "Agregar"
+          add: "Guardar"
           add_weakness: "Agregar una Debilidad"
           add_strength: "Agregar una Fortaleza"
           add_risk: "Agregar un Riesgo"
@@ -682,7 +682,7 @@ es-MX:
         controls:
           add_function: "Agregar Función"
           cancel: "Cancelar"
-          add: "Agregar"
+          add: "Guardar"
           discard_function: "Descartar Función"
           save: "Guardar"
       edit:
