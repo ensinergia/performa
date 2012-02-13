@@ -64,7 +64,7 @@
 	
 	%br
 	
-	.left.notification-box.width46.align-right
+	.left.notification-box.align-right
 		=t('views.pointers.new.behavior')
 		= f.select :behavior, { t('views.pointers.new.behavior_options.1d') => t('views.pointers.new.behavior_options.1d'), 
 		t('views.pointers.new.behavior_options.2d') => t('views.pointers.new.behavior_options.2d')}
@@ -73,6 +73,18 @@
 		=t('views.pointers.new.advance_type')
 		= f.select :type, { t('views.pointers.new.advance_type_options.1d') => t('views.pointers.new.advance_type_options.1d'), 
 		t('views.pointers.new.advance_type_options.2d') => t('views.pointers.new.advance_type_options.2d'),t('views.pointers.new.advance_type_options.3d')=>t('views.pointers.new.advance_type_options.3d')}
+		%br
+		%br
+		.right
+			=t('views.pointers.new.unit')
+			= f.text_field :unit, :size=>3
+		.clear
+		%br
+		%br
+		.right
+			=t('views.pointers.new.algorithm')
+			= f.text_field :algorithm
+		.clear
 	
 	.right.notification-box.width46.align-right
 		.right
@@ -84,7 +96,7 @@
 		%br
 		=t('views.pointers.new.periodicity')
 		= f.select :type, { t('views.pointers.new.periodicity_options.1d') => t('views.pointers.new.periodicity_options.1d'), 
-		t('views.pointers.new.periodicity_options.2d') => t('views.pointers.new.periodicity_options.2d'),t('views.pointers.new.periodicity_options.3d')=>t('views.pointers.new.periodicity_options.3d')}
+		t('views.pointers.new.periodicity_options.2d') => t('views.pointers.new.periodicity_options.2d'),t('views.pointers.new.periodicity_options.3d')=>t('views.pointers.new.periodicity_options.3d'),t('views.pointers.new.periodicity_options.4d')=>t('views.pointers.new.periodicity_options.4d')}
 	.clear
 	%br
 	.left.marginright10px

@@ -534,6 +534,8 @@ es-MX:
         name: "Nombre del indicador"
         description: "Descripción del indicador"
         actions: "Acciones a Tomar"
+        unit: "Unidad de Medida"
+        algorithm: "Algoritmo"
         perspective: "Perspectiva del indicador"
         perspective_options:
                 1d: "Finanzas"
@@ -561,7 +563,8 @@ es-MX:
         periodicity_options:
                 1d: "Cuatrimestral"
                 2d: "Trimestral"
-                3d: "Mensual"
+                3d: "Bimestral"
+                4d: "Mensual"
         ini_value: "Valor Inicial del Indicador"
         reajust: "Reajustar a Cero el Valor del Indicador"
         thresholds: "Umbrales del Indicador ( % )"
@@ -580,7 +583,7 @@ es-MX:
           cancel: "Cancelar"
           save: "Guardar"
       edit:
-          title: "Modificando Objetivo Operativo"
+          title: "Modificando Indicador"
           last_updated: "Última actualización"
           controls:
             cancel: "Cancelar"
