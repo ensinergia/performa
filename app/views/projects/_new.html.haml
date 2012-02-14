@@ -41,7 +41,7 @@
 	.left.marginright10px
 		=f.label :leader,t('views.projects.new.leader'), :class => 'bold'
 	.left
-		= f.select :leader_id, options_from_collection_for_select(@users, 'id', 'name', '1')
+		= f.collection_select(:leader_id,@users, 'id', 'name')
 	%br
 	%br
 	%br
