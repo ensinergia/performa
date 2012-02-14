@@ -30,7 +30,7 @@
 		%br
 		%br
 		=t('views.pointers.new.type')
-		= f.select :type, { t('views.pointers.new.type_options.1d') => t('views.pointers.new.type_options.1d').gsub(" ","_"), 
+		= f.select :ptype, { t('views.pointers.new.type_options.1d') => t('views.pointers.new.type_options.1d').gsub(" ","_"), 
 		t('views.pointers.new.type_options.2d') => t('views.pointers.new.type_options.2d').gsub(" ","_"),t('views.pointers.new.type_options.3d')=>t('views.pointers.new.type_options.3d').gsub(" ","_")}
 	
 	.right.notification-box.width_40
@@ -71,7 +71,7 @@
 		%br
 		%br
 		=t('views.pointers.new.advance_type')
-		= f.select :type, { t('views.pointers.new.advance_type_options.1d') => t('views.pointers.new.advance_type_options.1d').gsub(" ","_"), 
+		= f.select :advance_type, { t('views.pointers.new.advance_type_options.1d') => t('views.pointers.new.advance_type_options.1d').gsub(" ","_"), 
 		t('views.pointers.new.advance_type_options.2d') => t('views.pointers.new.advance_type_options.2d').gsub(" ","_"),t('views.pointers.new.advance_type_options.3d')=>t('views.pointers.new.advance_type_options.3d').gsub(" ","_")}
 		%br
 		%br
@@ -95,7 +95,7 @@
 		%br
 		%br
 		=t('views.pointers.new.periodicity')
-		= f.select :type, { t('views.pointers.new.periodicity_options.1d') => t('views.pointers.new.periodicity_options.1d').gsub(" ","_"), 
+		= f.select :periodicity, { t('views.pointers.new.periodicity_options.1d') => t('views.pointers.new.periodicity_options.1d').gsub(" ","_"), 
 		t('views.pointers.new.periodicity_options.2d') => t('views.pointers.new.periodicity_options.2d').gsub(" ","_"),t('views.pointers.new.periodicity_options.3d')=>t('views.pointers.new.periodicity_options.3d').gsub(" ","_"),t('views.pointers.new.periodicity_options.4d')=>t('views.pointers.new.periodicity_options.4d').gsub(" ","_")}
 	.clear
 	%br

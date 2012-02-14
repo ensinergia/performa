@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213233211) do
+ActiveRecord::Schema.define(:version => 20120214224456) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(:version => 20120213233211) do
     t.string   "name"
     t.text     "description"
     t.string   "perspective"
-    t.string   "type"
+    t.string   "ptype"
     t.string   "file"
     t.string   "advance_type"
     t.string   "behavior"
@@ -202,7 +202,7 @@ ActiveRecord::Schema.define(:version => 20120213233211) do
     t.integer  "company_id"
     t.string   "name"
     t.text     "description"
-    t.string   "type"
+    t.string   "ptype"
     t.text     "reason"
     t.integer  "leader_id"
     t.string   "length"
