@@ -24,7 +24,7 @@ class Project < ActiveRecord::Base
   end
   
   def self.get_all_for(id)
-    self.where(:area_id =>id)
+    self.where(:area_id =>id).order("torder ASC")
   end
 
   
