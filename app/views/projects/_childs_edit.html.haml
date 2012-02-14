@@ -31,7 +31,8 @@
 					%div{:id=>"project_#{type}s_attributes_#{client.object.id}_div_#{index}", :class=>"#{classs}"}
 						.left
 							.left
-								= client.text_field :name, :class => 'no_edit_input', :size=>"25"
+								-size= type=="profit" ? "20" : "85"
+								= client.text_field :name, :class => 'no_edit_input', :size=>size
 								= client.hidden_field :torder
 							-unless type!="profit"
 								.left.marginright10px

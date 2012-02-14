@@ -19,7 +19,7 @@
 						.left
 							%a{:href=>"", :class=>"head" , :rel=>"operating_cycle_stages_attributes_#{index}_div_#{index}"}
 								+/-
-							= client.text_field :name, :class => 'no_edit_input',:disabled=>"disabled"
+							= client.text_field :name, :class => 'no_edit_input',:disabled=>"disabled", :size=>"85"
 							= client.hidden_field :torder
 							%a{:id=>"operating_cycle_stages_attributes_#{index}_name_close",:rel=>"operating_cycle_stages_attributes_#{index}_name",:class=>"close hidden",  :href=>""}
 								=image_tag "close.png"
@@ -51,7 +51,7 @@
 										%li{:rel=>"#{index},#{index2}"}
 											%div{:id=>"operating_cycle_stages_attributes_#{index}_steps_#{index2}_div", :class=>"#{classs}"}
 												.left
-													= step.text_field :name, :class => 'no_edit_input', :disabled=>"disabled"
+													= step.text_field :name, :class => 'no_edit_input', :disabled=>"disabled", :size=>"75"
 													= step.hidden_field :torder
 													%a{:id=>"operating_cycle_stages_attributes_#{index}_steps_attributes_#{index2}_name_close",:rel=>"operating_cycle_stages_attributes_#{index}_steps_attributes_#{index2}_name",:class=>"close hidden",  :href=>""}
 														=image_tag "close.png"
