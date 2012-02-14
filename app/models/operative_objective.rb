@@ -7,9 +7,8 @@ class OperativeObjective < ActiveRecord::Base
   belongs_to :user
   belongs_to :company
   has_and_belongs_to_many :strategic_lines, :uniq => true
-  has_and_belongs_to_many :projects, :uniq => true
-  has_many :pointers
-  has_many :project_objectives
+  has_many :pointers , :dependent=>:destroy
+  has_many :project_objectives, :dependent=>:destroy
 
   def notify_to(users)
   end
