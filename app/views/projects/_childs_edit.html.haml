@@ -34,6 +34,9 @@
 								-size= type=="profit" ? "20" : "85"
 								= client.text_field :name, :class => 'no_edit_input', :size=>size
 								= client.hidden_field :torder
+								%a{:id=>"project_#{type}s_attributes_#{index}_name_close",:rel=>"project_#{type}s_attributes_#{index}_name",:class=>"close hidden",  :href=>""}
+									=image_tag "close.png"
+
 							-unless type!="profit"
 								.left.marginright10px
 									=client.check_box :incre
