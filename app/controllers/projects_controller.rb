@@ -61,7 +61,8 @@ class ProjectsController < ApplicationController
 
   private
   def users
-    @users = current_company.users
+    area=Area.find(session[:area_id])
+    @users = area.users
   end
   
   def objectives
