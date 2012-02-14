@@ -10,14 +10,14 @@
 	= f.hidden_field :area_id,:value =>  session[:area_id]
 	%div
 		.left
-			= f.label :name, t('views.projects.name'), :class => 'bold'
+			= f.label :name, t('views.projects.new.name'), :class => 'bold'
 		.right
 			= f.text_field :name, :class => 'cycle_name'
 	.clear
 	%br
 	%br
 	.left
-		= f.label :description, t('views.projects.description'), :class => 'bold'
+		= f.label :description, t('views.projects.new.description'), :class => 'bold'
 	.right	
 		= f.text_area :description, :class => 'text_area_operative_cycle'
 	.clear
@@ -27,7 +27,7 @@
 		=f.label :type,t('views.projects.new.type'), :class => 'bold'
 	.left	
 		= f.select :type, { t('views.projects.new.type_options.1d') => t('views.projects.new.type_options.1d'), 
-		t('views.projects.new.type_options.2d') => t('views.projects.new.type_options.2d'),t('views.projects.new.type_options.3d')=>t('views.projects.new.type_options.3d'),t('views.projects.new.type_options.4d')=>t('views.projects.new.type_options.4d')}
+		t('views.projects.new.type_options.2d') => t('views.projects.new.type_options.2d'),t('views.projects.new.type_options.3d')=>t('views.projects.new.type_options.3d')}
 	%br	
 	%br
 	%br

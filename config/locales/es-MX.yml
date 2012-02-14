@@ -447,6 +447,9 @@ es-MX:
         reason: "Razon Fundamental para actuar (Objetivo del proyecto y problemática que atiende)"
         length: "Duracion del Proyecto"
         product: "Producto del proyecto"
+        name: "Nombre"
+        description: "Descripción"
+        leader: "Responsable"
         length_options:
                 1d: "1 mes"
                 2d: "3 meses"
@@ -454,10 +457,9 @@ es-MX:
                 4d: "12 meses"
         type: "Tipo de Proyecto"
         type_options:
-                1d: "Inversion"
-                2d: "Ajuste"
-                3d: "otro1"
-                4d: "otro2"
+                1d: "Inversión"
+                2d: "Innovación"
+                3d: "Mejora"
         investment: "Inversion estimada requerida $:"        
         init_date: "Fecha Inicio"
         final_date: "Fecha Final"
