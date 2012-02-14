@@ -49,7 +49,7 @@
 	.left.marginright10px
 		=t('views.operative_objective.new.responsable')
 	.left
-		= f.collection_select(:responsable_id,@users, 'id', 'name')
+		= f.collection_select(:responsable_id,@users, 'id', 'full_name')
 	.clear	
 	%br
 	= render :partial => 'strategic_line'

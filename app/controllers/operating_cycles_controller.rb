@@ -42,8 +42,7 @@ class OperatingCyclesController < ApplicationController
     @operating_cycle = OperatingCycle.find(params[:id])
     if @operating_cycle.update_attributes(params[:operating_cycle])
       @operating_cycle.notify_to(params[:users])
-
-      redirect_to edit_operating_cycle_path(@operating_cycle), :notice => I18n.t('views.common.messages.update.successful', :model => "Objetivos Operativos", :genre => "os")
+      redirect_to(area_operating_cycles_url(session[:area_id]))
     else
       redirect_to(area_operating_cycles_url(session[:area_id]))
     end

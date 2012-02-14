@@ -25,13 +25,13 @@
 	%br
 	.left.width_40
 		=t('views.pointers.new.perspective')
-		= f.select :perspective, { t('views.pointers.new.perspective_options.1d') => t('views.pointers.new.perspective_options.1d'), 
-		t('views.pointers.new.perspective_options.2d') => t('views.pointers.new.perspective_options.2d'),t('views.pointers.new.perspective_options.3d')=>t('views.pointers.new.perspective_options.3d'),t('views.pointers.new.perspective_options.4d')=>t('views.pointers.new.perspective_options.4d')},{},{ :style=>"width:45%"}
+		= f.select :perspective, { t('views.pointers.new.perspective_options.1d') => t('views.pointers.new.perspective_options.1d').gsub(" ","_"), 
+		t('views.pointers.new.perspective_options.2d') => t('views.pointers.new.perspective_options.2d').gsub(" ","_"),t('views.pointers.new.perspective_options.3d')=>t('views.pointers.new.perspective_options.3d').gsub(" ","_"),t('views.pointers.new.perspective_options.4d')=>t('views.pointers.new.perspective_options.4d').gsub(" ","_")},{},{ :style=>"width:45%"}
 		%br
 		%br
 		=t('views.pointers.new.type')
-		= f.select :type, { t('views.pointers.new.type_options.1d') => t('views.pointers.new.type_options.1d'), 
-		t('views.pointers.new.type_options.2d') => t('views.pointers.new.type_options.2d'),t('views.pointers.new.type_options.3d')=>t('views.pointers.new.type_options.3d')}
+		= f.select :type, { t('views.pointers.new.type_options.1d') => t('views.pointers.new.type_options.1d').gsub(" ","_"), 
+		t('views.pointers.new.type_options.2d') => t('views.pointers.new.type_options.2d').gsub(" ","_"),t('views.pointers.new.type_options.3d')=>t('views.pointers.new.type_options.3d').gsub(" ","_")}
 	
 	.right.notification-box.width_40
 		=t('views.pointers.new.attach')
@@ -66,13 +66,13 @@
 	
 	.left.notification-box.align-right
 		=t('views.pointers.new.behavior')
-		= f.select :behavior, { t('views.pointers.new.behavior_options.1d') => t('views.pointers.new.behavior_options.1d'), 
-		t('views.pointers.new.behavior_options.2d') => t('views.pointers.new.behavior_options.2d')}
+		= f.select :behavior, { t('views.pointers.new.behavior_options.1d') => t('views.pointers.new.behavior_options.1d').gsub(" ","_"), 
+		t('views.pointers.new.behavior_options.2d') => t('views.pointers.new.behavior_options.2d').gsub(" ","_")}
 		%br
 		%br
 		=t('views.pointers.new.advance_type')
-		= f.select :type, { t('views.pointers.new.advance_type_options.1d') => t('views.pointers.new.advance_type_options.1d'), 
-		t('views.pointers.new.advance_type_options.2d') => t('views.pointers.new.advance_type_options.2d'),t('views.pointers.new.advance_type_options.3d')=>t('views.pointers.new.advance_type_options.3d')}
+		= f.select :type, { t('views.pointers.new.advance_type_options.1d') => t('views.pointers.new.advance_type_options.1d').gsub(" ","_"), 
+		t('views.pointers.new.advance_type_options.2d') => t('views.pointers.new.advance_type_options.2d').gsub(" ","_"),t('views.pointers.new.advance_type_options.3d')=>t('views.pointers.new.advance_type_options.3d').gsub(" ","_")}
 		%br
 		%br
 		.right
@@ -95,8 +95,8 @@
 		%br
 		%br
 		=t('views.pointers.new.periodicity')
-		= f.select :type, { t('views.pointers.new.periodicity_options.1d') => t('views.pointers.new.periodicity_options.1d'), 
-		t('views.pointers.new.periodicity_options.2d') => t('views.pointers.new.periodicity_options.2d'),t('views.pointers.new.periodicity_options.3d')=>t('views.pointers.new.periodicity_options.3d'),t('views.pointers.new.periodicity_options.4d')=>t('views.pointers.new.periodicity_options.4d')}
+		= f.select :type, { t('views.pointers.new.periodicity_options.1d') => t('views.pointers.new.periodicity_options.1d').gsub(" ","_"), 
+		t('views.pointers.new.periodicity_options.2d') => t('views.pointers.new.periodicity_options.2d').gsub(" ","_"),t('views.pointers.new.periodicity_options.3d')=>t('views.pointers.new.periodicity_options.3d').gsub(" ","_"),t('views.pointers.new.periodicity_options.4d')=>t('views.pointers.new.periodicity_options.4d').gsub(" ","_")}
 	.clear
 	%br
 	.left.marginright10px
