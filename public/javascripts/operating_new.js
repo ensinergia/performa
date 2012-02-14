@@ -31,7 +31,10 @@ $(document).ready(function(){
 
 	$("#operating_cycle_submit").click(function(){
 		$(" .no_edit_input").removeAttr("disabled");
+		
 	});
+
+	
 
 	dragAndDrop("stages","");
 	dragAndDrop("services","");
@@ -48,7 +51,7 @@ function add_input(type){
 	value=$("#"+type+"_input").val();
 	if(value!=""){
 		id=Math.floor(Math.random()*1000)
-		inputs=$(".no_edit_input").length;
+		inputs=$("#"+type+" .no_edit_input").length;
 		if(inputs%2==0)
 		classs='gray';
 		else
@@ -69,7 +72,7 @@ function add_input(type){
 			li_open="<li rel='"+id+"'>";
 			li_close='</li>';
 
-			input=li_open+"<div class='"+classs+"'><div class='left'>"+collapse+"<input type='text' disabled='disabled' size='85' name='operating_cycle["+type+"_attributes]["+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input' value='"+value+"'><input type='hidden'name='operating_cycle["+type+"_attributes]["+id+"][torder]' id='operating_cycle_"+type+"_attributes_"+id+"_torder'>"+close_edit+"</div>";
+			input=li_open+"<div class='"+classs+"'><div class='left'>"+collapse+"<input type='text' disabled='disabled' size='85' name='operating_cycle["+type+"_attributes]["+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input' value='"+value+"'><input type='hidden'name='operating_cycle["+type+"_attributes]["+id+"][torder]' id='operating_cycle_"+type+"_attributes_"+id+"_torder' value='"+inputs+"'>"+close_edit+"</div>";
 			links='<div class="right"><a class="modify" href="" rel="operating_cycle_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="'+class_delete+'" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 			clear='<div class="clear"></div></div><div class="'+classs+'" id="operating_cycle_'+type+'_attributes_new_'+id+'_div"> '+inp+' </div>'+li_close;
 
@@ -77,7 +80,7 @@ function add_input(type){
 			$("#stages").removeClass("hidden");
 		}else{
 			class_delete='delete'
-			li_open="<div><li rel='"+id+"'><input type='hidden' name='operating_cycle["+type+"_attributes]["+id+"][torder]' id='operating_cycle_"+type+"_attributes_"+id+"_torder'>";
+			li_open="<div><li rel='"+id+"'><input type='hidden' name='operating_cycle["+type+"_attributes]["+id+"][torder]' id='operating_cycle_"+type+"_attributes_"+id+"_torder' value='"+inputs+"'>";
 			li_close='</li></div>';
 			
 			input=li_open+"<div class='"+classs+"'><div class='left'><input type='text' size='85' disabled='disabled' name='operating_cycle["+type+"_attributes]["+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input' value='"+value+"'>"+close_edit+"</div>";
@@ -156,7 +159,7 @@ function add_steps_input(id){
 		classs='light-gray';
 		id2=Math.floor(Math.random()*1000)
 		close_edit='<a rel="operating_cycle_steps_attributes_new_'+id+'_'+id2+'_name" id="operating_cycle_steps_attributes_new_'+id+'_'+id2+'_name_close" href="" class="close hidden"><img src="/images/close.png" alt="Close"></a>';
-		input="<li rel='"+id+","+id2+"'><div class='"+classs+"' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_div'> <div class='left'><input type='text' disabled='disabled' size='75' name='operating_cycle[stages_attributes]["+id+"][steps_attributes][new_"+id2+"][name]' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_name' class='no_edit_input' value='"+value+"'><input type='hidden' name='operating_cycle[stages_attributes]["+id+"][steps_attributes][new_"+id2+"][torder]' id='operating_cycle_stages_attributes_"+id+"_steps_attributes_"+id2+"_torder' >"+close_edit+"</div>"
+		input="<li rel='"+id+","+id2+"'><div class='"+classs+"' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_div'> <div class='left'><input type='text' disabled='disabled' size='75' name='operating_cycle[stages_attributes]["+id+"][steps_attributes][new_"+id2+"][name]' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_name' class='no_edit_input' value='"+value+"'><input type='hidden' name='operating_cycle[stages_attributes]["+id+"][steps_attributes][new_"+id2+"][torder]' id='operating_cycle_stages_attributes_"+id+"_steps_attributes_"+id2+"_torder' value='"+inputs+"' >"+close_edit+"</div>"
 		links='<div class="right"><a class="modify modify_step" href="" rel="operating_cycle_steps_attributes_new_'+id+'_'+id2+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_steps_attributes_new_'+id+'_'+id2+'_div" data-method="delete" class="delete delete_step" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 		clear='<div class="clear"></div></div></li>';
 
