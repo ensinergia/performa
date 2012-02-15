@@ -3,16 +3,6 @@
 		%label
 			%strong
 				= t("views.projects.section_#{type}s")
-	-unless type!="profit"			
-		.right.width50
-			.left.marginright10px
-				=check_box("inc", "0")
-				%span{:id=>"increment"}
-					= t("views.projects.profit_increment")	
-			.left.marginright10px
-				=check_box("dec", "0")		
-				%span{:id=>"decrement"}
-					= t("views.projects.profit_decrement")
 	.clear		
 	%br
 	%br

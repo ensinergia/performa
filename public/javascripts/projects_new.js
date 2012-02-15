@@ -65,44 +65,27 @@ function add_input(type){
 	value=$("#"+type+"_input").val();
 	if(value!=""){
 		id=Math.floor(Math.random()*1000)
-		inputs=$("#"+type+" .no_edit_input").length;
+		inputs=$("#"+type+"_ul > div > li").length;
 		if(inputs%2==0)
 		classs='gray';
 		else
 		classs='blank_bg';
 		size="85";
 		inp='';
-		if (type=='profits'){
-
-			inc=$("#inc_0").attr("checked");
-			if (inc==undefined)
-			inc="";
-			else	
-			inc="checked='checked'"
-
-			dec=$("#dec_0").attr("checked");
-
-			if (dec==undefined)
-			dec="";
-			else	
-			dec="checked='checked'"
-
-
-			inc_text=$("#increment").html();
-			dec_text=$("#decrement").html();
-
-			inc_text=$("#increment").html();
-			dec_text=$("#decrement").html();
-
-			inp1="<div class='left marginright10px'><input type='checkbox' value='1' "+inc+" name='project["+type+"_attributes][new_"+id+"][incre]' id='project_"+type+"_attributes_new_"+id+"_incre'>"+inc_text+"</div>";
-			inp2="<div class='left marginright10px'><input type='checkbox' value='1' "+dec+" name='project["+type+"_attributes][new_"+id+"][decre]' id='project_"+type+"_attributes_new_"+id+"_incre'>"+dec_text+"</div>";
-			inp=inp1+inp2;
-
-			size="20";
-		}
+			ptype="";
+			if(type=="restrictions"){
+				ptype='<select name="project[restrictions_attributes][new_'+id+'][ptype]" id="project_restrictions_attributes_new_'+id+'_ptype" disabled="disabled" class="no_edit_input"><option value="restriccion">Restricción</option><option value="supuesto">Supuesto</option></select>';
+				size="70";
+			}
+			 
+			if(type=="profits"){
+				ptype='<select name="project[profits_attributes][new_'+id+'][ptype]" id="project_profits_attributes_new_'+id+'_ptype" disabled="disabled" class="no_edit_input"><option value="incremento">Incremento de Ingresos</option><option value="reduccion">Reducción de Costos</option></select>';
+				size="55";
+			}
+			
 		
 		close='<a rel="project_'+type+'_attributes_new_'+id+'_name" id="project_'+type+'_attributes_new_'+id+'_name_close" href="" class="close hidden"><img src="/images/close.png" alt="Close"></a>';
-		input="<div> <li rel='"+id+"'><div class='"+classs+"' id='project_"+type+"_attributes_new_"+id+"_div'><div class='left'><input type='text' size='"+size+"' name='project["+type+"_attributes][new_"+id+"][name]' id='project_"+type+"_attributes_new_"+id+"_name' class='no_edit_input ' value='"+value+"'>"+close+"</div><input type='hidden'  name='project["+type+"_attributes][new_"+id+"][torder]' id='project_"+type+"_attributes_"+id+"_torder' value='"+inputs+"'>"+inp;
+		input="<div> <li rel='"+id+"'><div class='"+classs+"' id='project_"+type+"_attributes_new_"+id+"_div'><div class='left'><input type='text' size='"+size+"' name='project["+type+"_attributes][new_"+id+"][name]' id='project_"+type+"_attributes_new_"+id+"_name' class='no_edit_input ' value='"+value+"'>"+ptype+close+"</div><input type='hidden'  name='project["+type+"_attributes][new_"+id+"][torder]' id='project_"+type+"_attributes_"+id+"_torder' value='"+inputs+"'>"+inp;
 		links='<div class="right"><a class="modify" href="" rel="project_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="project_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 		clear='<div class="clear"></div></div></li></div>';
 		$("#"+type+"_ul ").append(input+links+clear);
@@ -110,19 +93,32 @@ function add_input(type){
 		$("#"+type+"_input").val("");
 
 
-		$(".close").click(function(){
-			id=$(this).attr('rel');
-			$("#"+id).removeClass('editable');
-			$(this).addClass('hidden');
-			$("#"+id).attr('disabled','disabled');
-			return false;
-		});
-
 		$(".modify").click(function(){
 			id=$(this).attr('rel');
+			id2_array=id.split("_");
+			id2_array[id2_array.length-1]="ptype";
+			id2=id2_array.join("_");
 			$("#"+id).addClass('editable');
 			$("#"+id+"_close").removeClass('hidden');
 			$("#"+id).removeAttr('disabled');
+			$("#"+id2).addClass('editable');
+			$("#"+id2).removeAttr('disabled');
+			return false;
+		});
+
+
+
+
+		$(".close").click(function(){
+			id=$(this).attr('rel');
+			id2_array=id.split("_");
+			id2_array[id2_array.length-1]="ptype";
+			id2=id2_array.join("_");
+			$("#"+id).removeClass('editable');
+			$(this).addClass('hidden');
+			$("#"+id2).removeClass('editable');
+			$("#"+id).attr('disabled','disabled');
+			$("#"+id2).attr('disabled','disabled');
 			return false;
 		});
 
