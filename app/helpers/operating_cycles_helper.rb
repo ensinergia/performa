@@ -112,14 +112,16 @@ module OperatingCyclesHelper
   def get_clients(operating_cycle)
     clients_arr=operating_cycle.clients	
     tab='\n'
+    unless clients_arr.empty?
     clients=clients_arr.enum_for(:each_with_index).collect do |x, j| 
-      unless x.nil?
+      unless x.nil? || x.name.nil?
         #fname=wrap_word(x.name,5)
         "- "+x.name + tab
       end	
 
     end
     clients
+  end
   end  
 
 
