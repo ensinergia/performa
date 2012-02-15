@@ -95,8 +95,7 @@
 			=f.label :length,t('views.projects.new.length'), :class => 'bold'
 			%br
 			%br
-			= f.select :length, { t('views.projects.new.length_options.1d') => t('views.projects.new.length_options.1d'), 
-		t('views.projects.new.length_options.2d') => t('views.projects.new.length_options.2d'),t('views.projects.new.length_options.3d')=>t('views.projects.new.length_options.3d'),t('views.projects.new.length_options.4d')=>t('views.projects.new.length_options.4d')}
+			= f.text_field :length,:size=>"24"
 		.left.project_date
 			.left
 				=t('views.projects.new.init_date')
