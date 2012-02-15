@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
    
     if @project.save
       @project.notify_to(params[:users])
-      redirect_to edit_project_path(@project.id)
+      redirect_to(area_projects_url(session[:area_id]))
     else
       strategic_lines
       render :action => 'new'
@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
     if @project.update_attributes(params[:project])
       @project.notify_to(params[:users])
 
-      redirect_to edit_project_path(@project), :notice => I18n.t('views.common.messages.update.successful', :model => "Project", :genre => "os")
+      redirect_to(area_projects_url(session[:area_id]))
     else
       render :action => 'edit'
     end
