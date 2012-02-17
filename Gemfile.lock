@@ -251,6 +251,7 @@ DEPENDENCIES
   rspec-rails (~> 2.6.0)
   ruby-debug19
   ruby-graphviz
+  rubyzip
   spork
   sqlite3
   steak (~> 2.0.0)

@@ -490,6 +490,20 @@ es-MX:
         follow: "Seguimiento"
             
     operative_objective:
+      card:
+          title: "Ficha de Objetivo Operativo de "
+          output: "Operativos"
+          h1: "ATRIBUTO"
+          h2: "OBJETIVO OPERATIVO"
+          th1: "Identificaciòn"
+          th2: "Objetivo"
+          th3: "Area"
+          th4: "BSC"
+          th5: "Responsable"
+          th6: "Fecha de Inicio"
+          th7: "Fecha de Fin"
+          
+          
       index:
         empty:
             title: "¿Listo para agregar El primer Objetivo Operativo?"

@@ -1,5 +1,6 @@
 #encoding: utf-8
 require 'subdomain_guards'
+require 'word_update'
 
 class OperatingCyclesController < ApplicationController
   include StrategicLinesControllerHelper
@@ -14,8 +15,10 @@ class OperatingCyclesController < ApplicationController
   def index
     @operating_cycles = OperatingCycle.get_all_for(session[:area_id])
     @operating_cycles.empty? ? render('welcome', :layout => 'application_index_page') : render('index',:layout => 'twocolumns')
-
   end
+  
+  
+  
 
   def new
     @operating_cycle = OperatingCycle.new
@@ -66,4 +69,8 @@ class OperatingCyclesController < ApplicationController
   def find_operating_cycle
     @operating_cycle = OperatingCycle.find(params[:id])
   end
+  
+  
+  
+  
 end #End Controller 

@@ -6,7 +6,9 @@
 	<%= content_for(:op_menu, &Proc.new { "selected" }) %>
 	
 	<div class="title-bar rounded-10-top">
-		<h2><%= t('views.operative_objective.index.not_empty.title') %></h2>
+		<div class="left"><h2><%= t('views.operative_objective.index.not_empty.title') %></h2></div>
+		<div class="right"><%= link_to image_tag("export.png"), export_operative_objectives_url %></div>
+		<div class="clear"></div>
   </div>
 	
 	<div class="inside-box">	

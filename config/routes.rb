@@ -19,6 +19,7 @@ GestionDesempeno::Application.routes.draw do
 
     match '/panorama/area/(:area)' => 'panoramas#index' , :as=>"area_panorama"
     match '/operative_objectives/area/(:area)' => 'operative_objectives#index' , :as=>"area_operative_objectives"
+    match '/operative_objectives/export/' => 'operative_objectives#export' , :as=>"export_operative_objectives"
     match '/operating_cycles/area/(:area)' => 'operating_cycles#index' , :as=>"area_operating_cycles"
     match '/projects/area/(:area)' => 'projects#index' , :as=>"area_projects"
     resources :comments, :only => [:create, :destroy]
