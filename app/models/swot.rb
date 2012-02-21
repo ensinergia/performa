@@ -19,6 +19,7 @@ class Swot < ActiveRecord::Base
   end
   
   belongs_to :company
+  has_many :comments, :as => :commentable
   
   def self.get_internals_for(company)
     swot = self.get_swot_for(company)

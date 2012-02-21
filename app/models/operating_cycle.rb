@@ -13,6 +13,7 @@ class OperatingCycle < ActiveRecord::Base
   has_many :clients, :dependent => :destroy,  :order=>"torder ASC"
   has_many :services, :dependent => :destroy,  :order=>"torder ASC"
   has_many :stages, :dependent => :destroy ,  :order=>"torder ASC"
+  has_many :comments, :as => :commentable
   has_and_belongs_to_many :strategic_lines, :uniq => true
   accepts_nested_attributes_for :clients, :stages, :services, :allow_destroy => true
   

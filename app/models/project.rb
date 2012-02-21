@@ -11,6 +11,7 @@ class Project < ActiveRecord::Base
   has_many :profits, :dependent => :destroy, :order=>"torder ASC"
   has_many :restrictions, :dependent => :destroy, :order=>"torder ASC"
   has_many :project_objectives, :dependent => :destroy, :order=>"torder ASC"
+  has_many :comments, :as => :commentable
   accepts_nested_attributes_for :project_objectives,:liabilities, :restrictions, :profits, :allow_destroy => true
   
   #*************************************************

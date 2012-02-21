@@ -370,6 +370,7 @@ es-MX:
           edit: "Cambiar"
         
     comments:
+      title: "Comentarios para :"
       commenting: "Comentando"
       attachments: 'Archivos adjuntos:'
       leave_a_comment: "Deja un comentario"

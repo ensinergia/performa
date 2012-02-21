@@ -1,0 +1,27 @@
+	<div  class=" list-item <%=(comment_counter + 1)%2==0 ? "light-gray" : "gray"  %>">
+		<div id="sl-<%= comment.id %>">
+			<div class='strategic_line_value'> 
+				<%= comment.content %>
+			</div>
+				<% unless comment.attachments.empty? %>
+		<span class="attachments"><%=t 'views.comments.attachments' %></span>
+		<% comment.attachments.each do |a| %>
+			<%= link_to a.content_identifier, "#{a.content}" %>
+		<% end %>
+	<% end %>
+		
+<div class='right_place'>
+	<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), comment_path(comment), 
+	:method => :delete, :confirm => t('views.common.messages.delete.confirm', 
+	:connector => "ésta", 
+	:model => t('activerecord.models.comment'))%>
+</div>
+
+</div>
+<div class='clear'></div> 
+</div>
+
+<div class="record_info">
+	<%= record_info_for(comment) %>
+</div>
+<br/>

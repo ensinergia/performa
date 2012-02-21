@@ -22,6 +22,7 @@ GestionDesempeno::Application.routes.draw do
     match '/operative_objectives/export/' => 'operative_objectives#export' , :as=>"export_operative_objectives"
     match '/operating_cycles/area/(:area)' => 'operating_cycles#index' , :as=>"area_operating_cycles"
     match '/projects/area/(:area)' => 'projects#index' , :as=>"area_projects"
+    match '/comments/for/(:model)/(:id)' => 'comments#show' , :as=>"show_comments"
     resources :comments, :only => [:create, :destroy]
     resources :strategic_lines, :only => [:index, :destroy, :edit, :update, :create, :new]
     resources :strategic_objectives, :except => :show

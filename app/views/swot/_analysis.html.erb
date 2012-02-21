@@ -4,11 +4,16 @@
     <div id="analysis-<%= analysis.id %>">
       <span class="inline-analysis-value"><%= analysis.content %></span>
       <div class="right-placed">
+			<div class="right-placed">
         <%= button_to('Eliminar', [:swot, analysis], :method => :delete, :confirm => delete_confirmation_for(analysis), :class => 'delete' ) %>
+		</div>
+		<div class="right-placed">
+			<%= render :partial=>'comments/comments_link',:locals=>{:obj=>analysis} %>
+		</div>	
+
       </div>
-      <!--<div class="right-placed">
-        <%= link_to analysis.comments.count, swot_analysis_comments_url(analysis), :class => 'number' %>
-      </div>-->
+	
+
 	<div class="clear"></div>
     </div>
 

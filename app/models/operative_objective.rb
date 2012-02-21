@@ -10,7 +10,7 @@ class OperativeObjective < ActiveRecord::Base
   has_and_belongs_to_many :strategic_lines, :uniq => true
   has_many :pointers , :dependent=>:destroy
   has_many :project_objectives, :dependent=>:destroy
-
+  has_many :comments, :as => :commentable
   def notify_to(users)
   end
   

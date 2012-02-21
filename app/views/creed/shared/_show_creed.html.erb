@@ -9,6 +9,7 @@
     </div>
     <div class="area-title">
       <div class="right-placed">
+		<%= render :partial=>'comments/comments_link',:locals=>{:obj=>creed} %>
         <%= link_to "", eval("edit_creed_#{creed.class.to_s.underscore.downcase}_path(creed)"), :method => :get, :id => "modify"%>
       </div>
     </div>

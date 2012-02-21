@@ -5,6 +5,7 @@
 				<%= strategic_line.content %> 
 			</div>
 			<div class='right_place'>
+				<%= render :partial=>'comments/comments_link',:locals=>{:obj=>strategic_line} %>
 				<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_strategic_line_path(strategic_line), :class => 'modify' %>
 				<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), strategic_line_path(strategic_line), 
 				:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 

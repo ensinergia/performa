@@ -1,0 +1,6 @@
+<%-comments=obj.comments%> 
+	<a href="<%= show_comments_path(:model=>obj.class.name,:id=>obj.id)%>">
+		<span class="number"><%= comments.size %></span>
+	</a>
+	
+	

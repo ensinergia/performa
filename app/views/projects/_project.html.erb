@@ -5,6 +5,7 @@
 			<%= project.name %> 
 		</div>
 		<div class='right_place'>
+			<%= render :partial=>'comments/comments_link',:locals=>{:obj=>project} %>
 			<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_project_path(project), :class => 'modify' %>
 			<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), project_path(project), 
 								:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
