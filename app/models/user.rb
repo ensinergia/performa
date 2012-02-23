@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base  
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable,:confirmable, :rememberable, :trackable, :validatable
   attr_accessible :name, :login, :last_name, :email, :password, :password_confirmation, :remember_me, :company_name,:grade,:officce_phone,:ext_phone,:celular_phone,:fax,:home_phone,:avatar,:avatar_file_name, :avatar_content_type,  :avatar_file_size, :avatar_updated_at
   # Refactor this horrible thing
   has_many :areas
