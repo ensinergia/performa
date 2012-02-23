@@ -2,4 +2,4 @@
 
 <p><%= t("views.mailer.confirm.content1") %></p>
 
-<p><%= link_to t("views.mailer.confirm.link"), user_confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p><%= link_to t("views.mailer.confirm.link"), user_confirmation_url(@resource, :confirmation_token => @resource.confirmation_token,:redirect_to => new_user_session_path) %></p>
