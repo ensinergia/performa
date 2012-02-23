@@ -13,20 +13,7 @@ es-MX:
         other: "%{count} errores ocurrieron al tratar de guardar %{resource}:"
 
   devise:
-    mailer:
-          confirm: 
-                title: "Bienvenido "
-                content: "Para confirmar tu cuenta da clic en el siguiente link:"
-          reset:
-                title: "Hola "
-                content1: "Has solicitado un link para cambiar tu contraseña, puedes hacerlo dando click en el siguiente link"
-                content2: "Si tu no has solicitado este cambio, por favor ignora este correo"
-                content3: "Tu contraseña no cambiará hasta que entres al link y crees una nueva"
-          unlock:
-                title: "Hola "
-                content1: "Tu cuenta ha sido bloqueada debido a que has llegado al limite de intentos permitidos para iniciar session"
-                content2: "Has click en el siguiente link para reactivar tu cuenta: "
-
+    
                   
     failure:
       already_authenticated: 'Ya has iniciado una sesión.'
