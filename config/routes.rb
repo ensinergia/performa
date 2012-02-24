@@ -7,6 +7,8 @@ GestionDesempeno::Application.routes.draw do
   
   devise_for :users, :skip => :registrations
   
+
+  
   constraints(Subdomain) do
     resources :accounts, :only => [:index, :update]
     match '/accounts/user_info' => 'accounts#user_info', :as => 'user_info', :via => :get
@@ -16,7 +18,9 @@ GestionDesempeno::Application.routes.draw do
     
     match '/panorama' => 'panoramas#index'
     match '/operative_objectives/order' => 'operative_objectives#order' , :as=>"order_operative_objectives"
-
+    
+    
+    
     match '/panorama/area/(:area)' => 'panoramas#index' , :as=>"area_panorama"
     match '/operative_objectives/area/(:area)' => 'operative_objectives#index' , :as=>"area_operative_objectives"
     match '/operative_objectives/export/' => 'operative_objectives#export' , :as=>"export_operative_objectives"
@@ -32,6 +36,7 @@ GestionDesempeno::Application.routes.draw do
     resources :projects
 
     match '/people/bulk_update_admin' => 'people#bulk_update_admin', :as => 'bulk_update_admin', :via => :put
+    
     resources :people, :only => [:index, :new, :edit,:create,:update,:destroy]
     
     match '/areas/admin' => 'areas#admin', :as => 'areas_admin', :via => :get
@@ -66,6 +71,7 @@ GestionDesempeno::Application.routes.draw do
     
   end  
   
+  match '/home/confirm' => 'home#confirm', :as => 'confirm', :via=>:get
   match '/panorama', :to => redirect('/users/sign_in'), :via => :get
   match '/accounts/(:action)', :to => redirect('/users/sign_in'), :via => :get
   

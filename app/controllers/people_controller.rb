@@ -8,6 +8,8 @@ class PeopleController < ApplicationController
   before_filter :verify_subdomain
   before_filter :check_permissions, :only=>[:edit,:create,:update,:destroy]
   
+  
+  
   def edit
     @user=User.find(params[:id])
   end
@@ -67,6 +69,8 @@ class PeopleController < ApplicationController
     end
   end
 
+  
+  
   def bulk_update_admin
     User.change_role_for(params[:users])
     redirect_to(areas_admin_path, :notice => I18n.t('views.people.admin.messages.successful_update'))

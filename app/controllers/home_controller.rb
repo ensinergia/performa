@@ -4,4 +4,7 @@ class HomeController < ActionController::Base
   def index
   end
   
+  def confirma
+  end  
+  
 end

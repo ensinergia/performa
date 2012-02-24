@@ -24,7 +24,7 @@
 			<%= render(:partial => 'shared/main_menu') if user_signed_in? %>
 			
 			<div class="messages">
-				<p id="notice" class="flash centered"><%= notice %></p>
+				<p id="notice" class="flash centered"><%= notice %><%=  t('views.mailer.thanks.confirm') if params[:notice]=='c' %></p>
 	    	<p id="alert" class="flash centered"><%= alert %></p>
 			</div>
 
