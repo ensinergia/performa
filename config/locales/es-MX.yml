@@ -257,6 +257,7 @@ es-MX:
       thanks:
           confirm: "Gracias por confirmar tu cuenta, ahora puedes iniciar session"    
       confirm: 
+        bad: "Es posible que está petición ya haya caducado ó La cuenta ya ha sido confirmada"
         link: "Confirmar mi cuenta"  
         title: "Bienvenido "
         content1: "Para confirmar tu cuenta da clic en el siguiente link:"
