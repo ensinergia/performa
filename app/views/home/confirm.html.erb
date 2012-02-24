@@ -1,6 +1,6 @@
 <script type="text/javascript">
 $(document).ready(function (){
-	$.get("<%= confirm_url(:id=>params[:id], :confirmation_token => params[:confirmation_token]) %>",{}, function(data){
+	$.get("<%= user_confirmation_url(:id=>params[:id], :confirmation_token => params[:confirmation_token]) %>",{}, function(data){
 		document.location.href="<%= new_user_session_url(:notice => 'c')%>";
 	});
 
