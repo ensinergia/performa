@@ -13,15 +13,21 @@
 	<body>
 		<header>
 			<% if user_signed_in? %>
-				<%= render :partial => 'layouts/header_context' %>
+				<% if params[:controller]!="home" && params[:action]!="confirm"  %>
+					<%= render :partial => 'layouts/header_context' %>
+				<% end %>	
+				<% if params[:controller]=="home" && params[:action]=="confirm"  %>
+					<h1>Performa</h1>
+				<% end %>
 			<% else %>
 				<h1>Performa</h1>
 			<% end %>
 		</header>
 		
 		<div class="main-content on-3 columns">
-			
-			<%= render(:partial => 'shared/main_menu') if user_signed_in? %>
+			<% if params[:controller]!="home" && params[:action]!="confirm"  %>
+				<%= render(:partial => 'shared/main_menu') if user_signed_in? %>
+			<% end %>
 			
 			<div class="messages">
 				<p id="notice" class="flash centered"><%= notice %></p>

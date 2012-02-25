@@ -2,7 +2,7 @@
 require 'subdomain_guards'
 class HomeController < ActionController::Base
   include SubdomainGuards
-  layout 'application_index_page'
+  layout 'application'
 
   
   
