@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html>
-	<head>
-  		<title>Oficina de Gestion de desempeño</title>
-  		    <script type="text/javascript">var base_url='<%= root_url %>';</script>
-			<%= stylesheet_link_tag :defaults, 'layout', 'app_index_pages' %>  		
-			<%= javascript_include_tag :defaults, :others %>
-			<%= yield :javascript %>
-			<%= yield :styles %>
-			
+<head>
+	<title>Oficina de Gestion de desempeño</title>
+	<script type="text/javascript">var base_url='<%= root_url %>';</script>
+	<%= stylesheet_link_tag :defaults, 'layout', 'app_index_pages' %>  		
+	<%= javascript_include_tag :defaults, :others %>
+	<%= yield :javascript %>
+	<%= yield :styles %>
 
-  		<%= csrf_meta_tag %>
-	</head>
-	<body>
-		<header>
-			<% if user_signed_in? %>
+
+	<%= csrf_meta_tag %>
+</head>
+<body>
+	<header>
+		<% if user_signed_in? %>
+			<% if params[:controller]!="home" && params[:action]!="confirm"  %>
 				<%= render :partial => 'layouts/header_context' %>
-			<% else %>
-				<h1>Performa</h1>
 			<% end %>
-		</header>
-		
-		<div class="main-content">
-			
-			<%= render(:partial => 'shared/main_menu') if user_signed_in? %>
-			
-			<div class="messages">
-				<p id="notice" class="flash centered"><%= notice %></p>
-	    	<p id="alert" class="flash centered"><%= alert %></p>
-			</div>
-			
-			<div class="box-right">
+		<% else %>
+		<h1>Performa</h1>
+		<% end %>
+	</header>
 
-				<div class="content">
-					<%= yield %>		
-				</div>
-				
-			</div>
+	<div class="main-content">
+		<% if params[:controller]!="home" && params[:action]!="confirm" %>
+			<%= render(:partial => 'shared/main_menu') if user_signed_in? %>
+		
+		<div class="messages">
+			<p id="notice" class="flash centered"><%= notice %></p>
+			<p id="alert" class="flash centered"><%= alert %></p>
 		</div>
-	</body>
+		<% end %>
+		<div class="box-right">
+
+			<div class="content">
+				<%= yield %>		
+			</div>
+
+		</div>
+	</div>
+</body>
 </html>

@@ -1,9 +1,6 @@
 <div class="box rounded-10 with-shadow with-mid-width">
-	
-	<%= render :partial => 'shared/main_title', :locals => {:title => I18n.t('views.accounts.title') } %>
-	<%= render :partial => 'menu' %>
-	
-	<%= form_for(@user, :url => account_path(@user), :html => { :method => :put,:multipart => true }) do |f| %>
+
+	<%= form_for(@user, :url => account_url(@user, :subdomain=>@user.subdomain), :html => { :method => :put,:multipart => true }) do |f| %>
 	<div class="inside-box">
 		<h1><%= I18n.t('views.accounts.sections.my_info.title') %></h1>
 
@@ -19,7 +16,7 @@
 				
 
 					<div class="field-set label-large">
-
+						
 						<div><%= f.label :name %></div>
 					  <%= f.text_field :name %>
 
@@ -45,6 +42,12 @@
 
 					  <div><%= f.label :email %></div>
 					  <%= f.email_field :email, :size => 26 %>
+					
+					  <div><%= f.label :password %>: </div>
+					  <%= f.password_field :password, :size => 20 %>
+
+					  <div><%= f.label :password_confirmation %>: </div>
+					  <%= f.password_field :password_confirmation, :size => 20 %>
 
 					  <div><%= f.label :company_name %></div>
 					  <%= f.text_field :company_name, :disabled => true %>
