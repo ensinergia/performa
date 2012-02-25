@@ -23,7 +23,7 @@ class AccountsController < ActionController::Base
   def update
     if current_user.update_attributes(params[:user])
       sign_in(current_user, :bypass => true)
-      redirect_to :back, :notice => I18n.t('views.common.messages.update.successful', :model => "Cuenta", :genre => "a")
+      render :action => :user_info, :notice => I18n.t('views.common.messages.update.successful', :model => "Cuenta", :genre => "a")
     else
       render :action => :user_info
     end
