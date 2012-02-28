@@ -69,13 +69,45 @@ class OperativeObjectivesController < ApplicationController
 
   def export
     @objectives = OperativeObjective.get_all_for(session[:area_id])  
-    file = "#{Rails.root}/public/docx/template.docx"
-    out_file = "#{Rails.root}/public/docx/#{I18n.t('views.operative_objective.card.output')}.docx"
-    w = WordXmlFile.open(file) 
-    w.update(@objectives)
-    w.save(out_file)
-    redirect_to "/docx/#{I18n.t('views.operative_objective.card.output')}.docx"
+    file=Zipped.new
+    @xml=file.update(@objectives) 
+    buffer=''
+    Zip::Archive.open_buffer(buffer, Zip::CREATE) do |archive|
+         path="#{Rails.root}/public/docx/template/*"
+         base="#{Rails.root}/public/docx/template/"
+         follow_dir(path,base,archive)
+         
+    end 
+    file_name = "export.docx"
+    send_data buffer, :type => 'application/docx', :disposition => 'attachment', :filename => file_name
+
   end
+
+  def follow_dir(path,base,archive)
+    Dir[path].each_with_index do |fl,i|
+      if fl.include?("template/_rels")
+        add_buffer(archive,base,base+"_rels/.rels")
+      end  
+      if File.directory?(fl)
+        follow_dir(fl+"/*",base,archive)
+      else  
+        add_buffer(archive,base,fl)
+      end  
+      
+    end
+  end  
+
+  def add_buffer(archive,base,fl)
+        txt=""
+        file_name=fl.gsub(base,"")
+          File.open(fl, "r") do  |f|
+            txt+=f.read
+          end
+          if file_name.include?("word/document.xml")
+              txt=@xml
+          end    
+          archive.add_buffer(file_name,txt)
+  end  
 
 
   private

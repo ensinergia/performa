@@ -1,6 +1,5 @@
 <li rel="<%=operating_cycle.id %>" >
 
-
 	<div class="<%=(operating_cycle_counter + 1)%2==0 ? "light-gray" : "gray"  %>">
 		<%= link_to "+/- ","", :class=>"head" , :rel=>"operative_#{operating_cycle.id}" %> <%= operating_cycle.name %> 
 		<div class='right_place'>
