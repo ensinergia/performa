@@ -253,6 +253,8 @@ es-MX:
         format: "%{attribute} %{message}" 
     
   views:
+    forms: 
+        select: "Selecciona uno"
     mailer:
       thanks:
           confirm: "Gracias por confirmar tu cuenta, ahora puedes iniciar session"    

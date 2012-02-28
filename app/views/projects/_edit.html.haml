@@ -26,7 +26,7 @@
 		=f.label :type,t('views.projects.new.type'), :class => 'bold'
 	.left	
 		= f.select :ptype, { t('views.projects.new.type_options.1d') => t('views.projects.new.type_options.1d'), 
-		t('views.projects.new.type_options.2d') => t('views.projects.new.type_options.2d'),t('views.projects.new.type_options.3d')=>t('views.projects.new.type_options.3d')}
+		t('views.projects.new.type_options.2d') => t('views.projects.new.type_options.2d'),t('views.projects.new.type_options.3d')=>t('views.projects.new.type_options.3d')},:include_blank => t('views.forms.select')
 	%br
 	%br
 	%br
@@ -40,14 +40,14 @@
 	.left.marginright10px
 		=f.label :leader,t('views.projects.new.leader'), :class => 'bold'
 	.left
-		= f.collection_select(:leader_id,@users, 'id', 'full_name')
+		= f.collection_select(:leader_id,@users, 'id', 'full_name',:include_blank => t('views.forms.select'))
 	%br	
 	%br
 	%br
 	.light-gray.padding_10px
 		.left.marginright10px.width_40
 			=f.label :leader,t('views.projects.objectives'), :class => 'bold'
-			= select("operative","objective", @objectives.collect {|p| [ "#{p.results} #{t('views.operative_objective.new.through')} #{p.actions}", p.id ] }, {:prompt => ''}, :style=>"width:100%")
+			= select("operative","objective", @objectives.collect {|p| [ "#{p.results} #{t('views.operative_objective.new.through')} #{p.actions}", p.id ] },{:include_blank => t('views.forms.select')},{ :style=>"width:100%"})
 		.right.align-right
 			%br
 			=t('views.projects.grade')

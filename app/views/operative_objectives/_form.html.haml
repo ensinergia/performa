@@ -28,7 +28,7 @@
 	.left
 		=t('views.operative_objective.new.perspective')
 		= f.select :perspective, { t('views.operative_objective.new.perspective_options.1d') => t('views.operative_objective.new.perspective_options.1d'), 
-		t('views.operative_objective.new.perspective_options.2d') => t('views.operative_objective.new.perspective_options.2d'),t('views.operative_objective.new.perspective_options.3d')=>t('views.operative_objective.new.perspective_options.3d'),t('views.operative_objective.new.perspective_options.4d')=>t('views.operative_objective.new.perspective_options.4d')}
+		t('views.operative_objective.new.perspective_options.2d') => t('views.operative_objective.new.perspective_options.2d'),t('views.operative_objective.new.perspective_options.3d')=>t('views.operative_objective.new.perspective_options.3d'),t('views.operative_objective.new.perspective_options.4d')=>t('views.operative_objective.new.perspective_options.4d')},:include_blank => t('views.forms.select')
 	
 	.right
 		.left.marginright10px
@@ -49,7 +49,7 @@
 	.left.marginright10px
 		=t('views.operative_objective.new.responsable')
 	.left
-		= f.collection_select(:responsable_id,@users, 'id', 'full_name')
+		= f.collection_select(:responsable_id,@users, 'id', 'full_name',:include_blank => t('views.forms.select'))
 	.clear	
 	%br
 	= render :partial => 'strategic_line'
