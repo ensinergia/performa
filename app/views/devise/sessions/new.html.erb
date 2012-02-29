@@ -1,4 +1,4 @@
-<h2>Sign in</h2>
+<h2><%=t('devise.sessions.links.forgot') %></h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <p><%= f.label :email %><br />
@@ -8,7 +8,7 @@
   <%= f.password_field :password %></p>
 
   <% if devise_mapping.rememberable? -%>
-    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+    <p><%= f.check_box :remember_me %> <%= f.label t('devise.sessions.remember') %></p>
   <% end -%>
 
   <p><%= f.submit I18n.t('views.login.controls.login') %></p>

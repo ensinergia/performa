@@ -14,6 +14,7 @@ es-MX:
 
   devise:
     
+     
                   
     failure:
       already_authenticated: 'Ya has iniciado una sesión.'
@@ -25,15 +26,30 @@ es-MX:
       timeout: 'Tu sesión expiró, por favor inicia sesión nuevamente para continuar.'
       inactive: 'Tu cuenta aún no ha sido activada.'
     sessions:
+      sign_in: "Iniciar sesión"
+      remember: "Recordarme"
+      links:
+        sign_in: "Iniciar sesión"
+        sign_up: "Registrarse"
+        send_instructions: "¿No recibiste las instrucciones para confirmar tu cuenta?"
+        send_unlock: "¿No recibiste las instrucciones para desbloquear tu cuenta?"
+        forgot: "¿Olvidaste tu contraseña?"
       link: 'Iniciar Sesión'
       signed_in: 'Sesión iniciada.'
       signed_out: 'Sesión finalizada.'
     passwords:
+      change: "Reestablecer contraseña" 
+      new_pass: "Nueva contraseña"
+      confirm_pass: "Confirmar contraseña"  
+      change_button: "Cambiar contraseña"  
+      send_button: "Enviar instrucciones"     
       link: '¿Olvidaste tu contraseña?'
       send_instructions: 'Vas a recibir un correo con instrucciones sobre cómo resetear tu contraseña en unos pocos minutos.'
       updated: 'Tu contraseña fue cambiada. Ya iniciaste sesión.'
       send_paranoid_instructions: "Si tu Correo existe en nuestra base de datos, vas a recibir un correo con instrucciones sobre cómo resetear tu contraseña en tu bandeja de entrada."
     confirmations:
+      resend: "Reenviar instrucciones para confirmar tu cuenta"
+      send_button: "Reenviar instrucciones"
       link: "¿No recibiste instrucciones de confirmación?"
       send_instructions: 'Vas a recibir un correo con instrucciones sobre cómo confirmar tu cuenta en unos pocos minutos.'
       send_paranoid_instructions: 'Si tu Correo existe en nuestra base de datos, vas a recibir un correo con instrucciones sobre cómo confirmar tu cuenta en unos pocos minutos.'
