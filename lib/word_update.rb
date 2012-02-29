@@ -3,6 +3,7 @@
 require 'rubygems'
 require 'zip/zip' # rubyzip gem
 require 'nokogiri'
+require 'date'
 
 class Zipped
   
@@ -49,15 +50,15 @@ class Zipped
     objectives.each do |objective|
       puts objective.id
       arr_obj=Hash.new
-      arr_obj["Tr1"]=objective.id
-      arr_obj["Tr2"]=objective.results+" "+I18n.t('views.operative_objective.new.through').upcase + " "+objective.actions
-      arr_obj["Tr3"]=objective.area.name
-      arr_obj["Tr4"]=objective.perspective
-      arr_obj["Tr5"]=objective.responsable.nil? ?  ""  : objective.responsable.full_name
-      arr_obj["Tr6"]=objective.init_date.strftime("%Y-%m-%d")
-      arr_obj["Tr7"]=objective.final_date.strftime("%Y-%m-%d")
+      arr_obj[0]=objective.id
+      arr_obj[1]=objective.results+" "+I18n.t('views.operative_objective.new.through').upcase + " "+objective.actions
+      arr_obj[2]=objective.area.name
+      arr_obj[3]=objective.perspective
+      arr_obj[4]=objective.responsable.nil? ?  ""  : objective.responsable.full_name
+      arr_obj[5]=objective.init_date.to_date
+      arr_obj[6]=objective.final_date.to_date
 
-      x=1
+      x=0
       body.xpath("//w:t").each do |field|
 
         case field.content
@@ -75,17 +76,11 @@ class Zipped
           field.content=I18n.t('views.operative_objective.card.'+field.content.downcase)  
         end
 
-        if field.content.include?("Tr")
-          unless field.content==""
-
-            if field.content=="Tr" and x<3
-              field.content="Tr"+(x+5).to_s    
-              x+=1
-            end    
+        if field.content.include?("Tr")  
             puts field.content
-            field.content=arr_obj[field.content]
-          end  
-
+            field.content=arr_obj[x] 
+            x+=1
+            puts "=>"+field.content
         end
 
       end
@@ -101,15 +96,15 @@ class Zipped
 
     objective=objectives.first
     arr_obj=Hash.new
-    arr_obj["Tr1"]=objective.id
-    arr_obj["Tr2"]=objective.results+" "+I18n.t('views.operative_objective.new.through').upcase + " "+objective.actions
-    arr_obj["Tr3"]=objective.area.name
-    arr_obj["Tr4"]=objective.perspective
-    arr_obj["Tr5"]=objective.responsable.nil? ?  ""  : objective.responsable.full_name
-    arr_obj["Tr6"]=objective.init_date.strftime("%Y-%m-%d")
-    arr_obj["Tr7"]=objective.final_date.strftime("%Y-%m-%d")
+      arr_obj[0]=objective.id
+      arr_obj[1]=objective.results+" "+I18n.t('views.operative_objective.new.through').upcase + " "+objective.actions
+      arr_obj[2]=objective.area.name
+      arr_obj[3]=objective.perspective
+      arr_obj[4]=objective.responsable.nil? ?  ""  : objective.responsable.full_name
+      arr_obj[5]=objective.init_date.to_date
+      arr_obj[6]=objective.final_date.to_date
 
-    x=1
+    x=0
     body.xpath("//w:t").each do |field|
 
       case field.content
@@ -127,18 +122,12 @@ class Zipped
         field.content=I18n.t('views.operative_objective.card.'+field.content.downcase)  
       end
 
-      if field.content.include?("Tr")
-        unless field.content==""
-
-          if field.content=="Tr" and x<3
-            field.content="Tr"+(x+5).to_s    
+       if field.content.include?("Tr")  
+            puts field.content
+            field.content=arr_obj[x] 
             x+=1
-          end    
-          puts field.content
-          field.content=arr_obj[field.content]
-        end  
-
-      end
+            puts "=>"+field.content
+        end
 
     end
 

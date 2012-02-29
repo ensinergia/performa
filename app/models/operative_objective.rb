@@ -17,6 +17,14 @@ class OperativeObjective < ActiveRecord::Base
    def setorder(order)
     setorder(order)
   end
+  
+   def init_sdate
+    self.init_date
+  end
+  
+  def final_sdate
+    self.init_date
+  end
 
   def self.get_all_for(area_id)
     self.where(:area_id => area_id).order("torder ASC")
