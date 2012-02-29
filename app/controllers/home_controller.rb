@@ -7,6 +7,11 @@ class HomeController < ActionController::Base
   
   
   def index
+     if current_user.nil? 
+       redirect_to new_user_session_url
+    else
+      redirect_to panorama_url
+      end   
   end
   
   def confirm
