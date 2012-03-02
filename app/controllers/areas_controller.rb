@@ -7,6 +7,7 @@ class AreasController < ApplicationController
   
   before_filter :verify_subdomain
   before_filter :get_company_users, :only => [:new, :edit]
+  before_filter :get_areas, :only => [:new, :edit, :create, :update]
   before_filter :check_permissions , :only=>[:new,:edit,:create,:uptade,:admin]
   
   def new
@@ -55,6 +56,15 @@ class AreasController < ApplicationController
   private
   def get_company_users
     @users = current_company.users
+  end
+  
+  def get_areas
+    @main=current_company.areas.first
+    if params[:id]
+      @areas = current_company.areas.where("id!=?",params[:id])
+    else
+      @areas = current_company.areas
+    end  
   end
   
   def check_permissions

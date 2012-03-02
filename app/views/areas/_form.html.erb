@@ -1,12 +1,25 @@
 <%= render :partial => 'shared/errors', 
 				 :locals => {:message_error => t('views.creed.most_views.form_errors'), :object => @area} %>
 
+<label><%= t('views.areas.name')%></label><br/>
 <%= a.text_field :name, :class => 'area_name' %>
 <br/><br/>
 <div id="clear"></div>
-<%= a.select :user_id, options_from_collection_for_select(@users, 'id', 'name', :selected => @area.user_id),{}, :class => ' left select_area' %>
+<label><%= t('views.areas.responsable')%></label><br/>
+<%= a.select :user_id, options_from_collection_for_select(@users, 'id', 'full_name', :selected => @area.user_id),{:include_blank => t('views.forms.select')}, :class => ' left select_area' %>
 <div class="clear"></div>
 <br/><br/>
+
+<div class="areas">
+	<h2 class='title_h2'><%=t 'views.areas.supported' %></h2>
+
+    <%= render :partial => 'functions/form_area', :locals => {:a => a} %>
+</div>
+
+<div class="clear"></div>
+<br/><br/>
+
+
 <div id="sesiones" class="left">
 		<h2 class='title_h2'><%=t 'views.area.shared.functions' %></h2>
 

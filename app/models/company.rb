@@ -6,7 +6,7 @@ class Company < ActiveRecord::Base
   has_one :war_cry
   
   has_many :users
-  has_many :areas, :dependent => :destroy
+  has_many :areas, :dependent => :destroy, :order=>"id ASC"
   has_many :strategic_lines, :order=>"torder ASC"
   has_many :strategic_objectives, :order=>"torder ASC"
   has_one :swot

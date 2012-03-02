@@ -1,7 +1,9 @@
+
+
 <%= a.fields_for :functions do |r| %>
 
    <div class="field">
-       <%= r.text_area :content, :id => "function-content", :class => 'textarea_function' %>
+       <%= r.text_area :content, :id => "function-content", :class => 'textarea_function', :style=>"width: 600px" %>
    </div>
   <br/>
    <span class="descartar"><%= r.link_to_remove t('views.area.new.controls.discard_function'), :class => 'button gray' %></span>

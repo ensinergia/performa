@@ -254,7 +254,7 @@ es-MX:
     
   views:
     forms: 
-        select: "Selecciona uno"
+        select: "Selecciona ..."
     mailer:
       thanks:
           confirm: "Gracias por confirmar tu cuenta, ahora puedes iniciar session"    
@@ -289,6 +289,10 @@ es-MX:
   
     areas:
       default: "Dirección General"
+      responsable: "Responsable"
+      name: "Nombre"
+      supported: "Otras Areas a las que soporta"
+      add_link: "Agregar Area"
     header:
       app_name: "Performa"
       pending_tasks: 

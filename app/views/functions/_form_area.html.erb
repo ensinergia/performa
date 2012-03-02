@@ -1,0 +1,34 @@
+<%- content_for :javascript do %>
+	<%= javascript_include_tag 'area', 'jquery-ui.min'%>
+<%- end %>	
+<%= select_tag "area_selector_inner", options_from_collection_for_select(@areas, "id", "name",session[:area_id]),{:include_blank => t('views.forms.select')}  %> <%= link_to t("views.areas.add_link"), "", :id=>"add_parent"	%>
+<br/>
+<br/>
+<div id="area_supports">
+	<ul id="area_supports_ul">
+<%-index=0%>	
+<%= a.fields_for :area_supports do |r| %>
+  <%-classs=index%2==0 ?  "gray" : "blank_bg"%>
+   <li id="<%=r.object.supported_id %>" rel="<%=index %>">
+	<div  id="<%= "area_area_supports_attributes_#{index}_div" %>" class="<%=classs %>">
+	  <div class="left" style="width:400px">	
+       	<%= r.hidden_field :supported_id %>
+		<%= r.hidden_field :torder %>
+	   	<%= r.object.supported.name %>	
+	   </div>
+	  <div class="right">						
+	<a href="" rel=<%= "area_area_supports_attributes_#{index}_div"%> class="delete" >
+	<%=image_tag("borrar_ico_up.png", :class=>"button_to_delete",:alt=>"Borrar_ico_up")%>
+	</a>
+	  </div>							
+	  <div class="clear"></div>
+	 </div>
+   </li>
+
+<% 
+	index+=1
+end 
+
+%>
+</ul>
+</div>
