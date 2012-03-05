@@ -1,5 +1,5 @@
 #encoding: utf-8
-class Creed::WarCriesController < ActionController::Base
+class Creed::WarCriesController < ApplicationController
   include SubdomainGuards
   layout 'application'
   

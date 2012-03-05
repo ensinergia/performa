@@ -1,4 +1,4 @@
-class Creed::MissionsController < ActionController::Base
+class Creed::MissionsController < ApplicationController
   include SubdomainGuards
   layout 'application'
   

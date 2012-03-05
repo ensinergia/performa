@@ -59,8 +59,8 @@ class PeopleController < ApplicationController
 
 
   def index
-    @company = current_company
-    @areas = Area.get_all_for(current_company)
+    @company = current_user.company
+    @areas = Area.get_all_for(@company)
     resource
     if @areas.empty?
       render('index_welcome')

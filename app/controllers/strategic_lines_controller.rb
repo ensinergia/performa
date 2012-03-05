@@ -1,6 +1,6 @@
 #encoding: utf-8
 require 'subdomain_guards'
-class StrategicLinesController < ActionController::Base
+class StrategicLinesController < ApplicationController
   include StrategicLinesControllerHelper
   include SubdomainGuards
   layout 'application'

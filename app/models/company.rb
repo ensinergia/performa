@@ -20,6 +20,10 @@ class Company < ActiveRecord::Base
     self.users.includes(:position).count(:conditions => ["positions.name = '#{Position.owner}'"]) == 1
   end
   
+  def main_area
+      self.areas.where(:is_root_area=>true).first
+  end  
+  
   private
   def get_default_area
     self.areas.first(:conditions => {:name => I18n.t('views.areas.default'), :is_root_area => true}) || build_default_area

@@ -59,6 +59,7 @@ class User < ActiveRecord::Base
     "#{name} #{last_name}"
   end
 
+
   def is_owner?
     return false if self.position.nil?
     self.position.name == Position.owner

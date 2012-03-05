@@ -1,5 +1,5 @@
 require 'subdomain_guards'
-class PanoramasController < ActionController::Base
+class PanoramasController < ApplicationController
   include SubdomainGuards
   layout 'application'
   

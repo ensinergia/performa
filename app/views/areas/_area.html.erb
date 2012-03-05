@@ -2,16 +2,15 @@
 	<div class="area-title">
 		<span><%= area.name %></span>
 		<div class="right-placed">
-		<% if (current_user.is_admin? || current_user.is_owner?) %>	
+		<% if (current_user.is_admin? || current_user.is_owner? || area.user==current_user) %>	
 			<%= link_to(t('views.area.index.controls.admin_list'), areas_admin_url) if area.is_root? %>
 			<%= link_to '', edit_area_path(area), :id => "modify" %>
 		<%end%>	
 		</div>
 	</div>
-
+    <br/>
 	<%= render :partial => 'users/user', :collection => area.users %>
-	
-	<% if (current_user.is_admin? || current_user.is_owner?) %>
+	<% if (current_user.is_admin? || current_user.is_owner? || area.user==current_user) %>
 	<div id="area_<%=area.id%>" class="new-user-block">
 		<%= link_to image_tag('person.png')+"<span> #{t('views.area.index.controls.add_person')}</span>".html_safe,"", :class => "new_person", :rel=>area.id %>
 		<div id="area-form-<%=area.id%>" class="area-form"></div>

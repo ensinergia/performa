@@ -1,5 +1,5 @@
 require 'subdomain_guards'
-class AccountsController < ActionController::Base
+class AccountsController < ApplicationController
   include SubdomainGuards
   layout 'application'
   

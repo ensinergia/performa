@@ -3,7 +3,6 @@ class AreaSupport < ActiveRecord::Base
   
   belongs_to :area
 
-
   def supported
     Area.find(self.supported_id)
   end 

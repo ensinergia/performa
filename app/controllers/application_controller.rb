@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include UrlHelper
 
   before_filter :default_area_selected
-
+  before_filter :get_area_access
 
   def after_sign_in_path_for(resource)
     panorama_url(:subdomain => current_user.subdomain)
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     unless current_user.nil?
 
       if session[:area_id].nil?
-        session[:area_id]=''
+        session[:area_id]=current_user.area_id
       end   
 
 
@@ -30,5 +30,29 @@ class ApplicationController < ActionController::Base
     end
 
   end   
+  
+  
+  def get_area_access
+    unless current_user.nil?
+      if @areas_allowed.nil?
+        @children=[]
+        area=current_user.area
+        @children<<area.id
+        deep_children(area)
+        @areas_allowed=Area.where("id IN (?)",@children).order("id ASC") || []
+      end
+    end
+  end 
+
+
+  def deep_children(tarea)
+    supports=@children.count==1 ? AreaSupport.where("supported_id=(?)", tarea.id)  : AreaSupport.where("supported_id=(?) and  supported_id NOT IN (?)", tarea.id.to_s, @children) 
+    supports.each do |supp|
+      narea=supp.area
+      @children<<narea.id
+      deep_children(narea)
+    end  
+  end   
+
 
 end

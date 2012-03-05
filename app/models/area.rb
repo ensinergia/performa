@@ -5,6 +5,7 @@ class Area < ActiveRecord::Base
   has_many :users
   has_many :operative_objectives
   has_many :area_supports, :order=>"torder ASC"
+  #has_one :user, :foreign_key => "responsable_id", :as=>:resonsable
   belongs_to :company
   
   
@@ -23,16 +24,10 @@ class Area < ActiveRecord::Base
   
   def notify_to(users)
   end
+    
   
-   
-  
-  def parents
-    self.area_supports
-  end  
-  
-  
-  def childs
-    supports=AreaSupport.where(:supported_id=>self.id)
+  def children
+    supports=AreaSupport.where(:supported_id=>self.id )   
   end
   
   def is_root?

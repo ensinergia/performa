@@ -48,7 +48,7 @@ class AreasController < ApplicationController
   end
   
   def select
-    session['area_id']=params['area_id'] || ""
+    session['area_id']=params['area_id'] || current_user.area_id
     redirect_to panorama_path
   end
   

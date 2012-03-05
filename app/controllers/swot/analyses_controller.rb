@@ -1,6 +1,6 @@
 #encoding: utf-8
 require 'subdomain_guards'
-class Swot::AnalysesController < ActionController::Base
+class Swot::AnalysesController < ApplicationController
   include AnalysisControllerHelper
   
   layout 'application'

@@ -1,6 +1,6 @@
 #encoding: utf-8
 require 'subdomain_guards'
-class StrategicObjectivesController < ActionController::Base
+class StrategicObjectivesController < ApplicationController
   include SubdomainGuards
   include UserAssociationsHelper
   layout 'application'
