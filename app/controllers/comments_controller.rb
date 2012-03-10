@@ -1,5 +1,5 @@
 require 'subdomain_guards'
-class CommentsController < ActionController::Base
+class CommentsController < ApplicationController
   include SubdomainGuards
   layout 'application'
   
