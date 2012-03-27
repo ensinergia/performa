@@ -1352,8 +1352,9 @@ ul.menu{
 }
 
 .pointer_input{
-	width:20px;
-	height:10px;
+	height: 10px;
+    margin: 0 10px;
+    width: 100px;
 }
 
 #area_selector{

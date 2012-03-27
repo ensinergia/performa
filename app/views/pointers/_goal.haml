@@ -1,0 +1,56 @@
+-results=results.split(",")
+-goals=goals.split(",")
+-unless init_month.nil?		
+	%table{:cellspacing=>"2",:cellpadding=>"10", :class=>"notification-box pointer_table"}
+		%tr
+			%th
+			%th
+				=t('views.pointers.new.period_goals')
+			%th
+				=t('views.pointers.new.period_sum')
+			%th
+				=t('views.pointers.new.period_results')
+			%th
+				=t('views.pointers.new.results_sum')
+		-index=0
+		-counter=0
+		-while counter < 12
+	
+			
+			- if index % period == 0		
+				-ind=init_month+(index)
+				-if ind>12 
+					-ind=ind-index 
+					-index=ind 
+				
+				
+				-res=results[counter]
+				-goal=goals[counter]
+				-counter+=1
+				-if advance_type =="Acumulado"
+					%tr	
+						%td
+							%br
+							=t('views.month_names.'+months[ind]).upcase
+						%td
+			
+						%td
+							=text_field_tag "pointer[goals][#{counter}]", goal, :class=>"pointer_input pinput"
+						%td
+			
+						%td
+							=text_field_tag "pointer[results][#{counter}]", res, :class=>"pointer_input ainput"
+				-else
+					%tr	
+						%td
+							%br
+							=t('views.month_names.'+months[ind]).upcase
+						%td
+							=text_field_tag "pointer[goals][#{counter}]", goal, :class=>"pointer_input pinput"
+						%td
+			
+						%td
+							=text_field_tag "pointer[results][#{counter}]", res, :class=>"pointer_input ainput"
+						%td
+			-index+=1		
+	

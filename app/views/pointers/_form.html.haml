@@ -95,8 +95,8 @@
 		%br
 		%br
 		=t('views.pointers.new.periodicity')
-		= f.select :periodicity, { t('views.pointers.new.periodicity_options.1d') => t('views.pointers.new.periodicity_options.1d').gsub(" ","_"), 
-		t('views.pointers.new.periodicity_options.2d') => t('views.pointers.new.periodicity_options.2d').gsub(" ","_"),t('views.pointers.new.periodicity_options.3d')=>t('views.pointers.new.periodicity_options.3d').gsub(" ","_"),t('views.pointers.new.periodicity_options.4d')=>t('views.pointers.new.periodicity_options.4d').gsub(" ","_")}
+		= f.select :periodicity, { t('views.pointers.new.periodicity_options.1d') => "4", 
+		t('views.pointers.new.periodicity_options.2d') => "3",t('views.pointers.new.periodicity_options.3d')=>"2",t('views.pointers.new.periodicity_options.4d')=>"1"}
 	.clear
 	%br
 	.left.marginright10px
@@ -159,141 +159,11 @@
 			=t('views.pointers.new.pointer_empty')
 		%br
 		
-	%table{:cellspacing=>"2",:cellpadding=>"10", :class=>"notification-box pointer_table"}
-		%tr
-			%th
-			%th
-				=t('views.month_names.jan').upcase
-			%th
-				=t('views.month_names.feb').upcase
-			%th
-				=t('views.month_names.mar').upcase
-			%th
-				=t('views.month_names.apr').upcase
-			%th
-				=t('views.month_names.may').upcase
-			%th
-				=t('views.month_names.jun').upcase
-			%th
-				=t('views.month_names.jul').upcase
-			%th
-				=t('views.month_names.aug').upcase
-			%th
-				=t('views.month_names.sep').upcase
-			%th
-				=t('views.month_names.oct').upcase
-			%th
-				=t('views.month_names.nov').upcase
-			%th
-				=t('views.month_names.dic').upcase
-		%tr	
-			%td
-				=t('views.pointers.new.period_goals')
-			%td
-				=text_field_tag :pg1, 0, :class=>"pointer_input"
-			%td
-				=text_field_tag :pg2, 0, :class=>"pointer_input"
-			%td
-				=text_field_tag :pg3, 0, :class=>"pointer_input"
-			%td
-				=text_field_tag :pg4, 0, :class=>"pointer_input"
-			%td
-				=text_field_tag :pg5, 0, :class=>"pointer_input"
-			%td
-				=text_field_tag :pg6, 0, :class=>"pointer_input"
-			%td
-				=text_field_tag :pg7, 0, :class=>"pointer_input"
-			%td
-				=text_field_tag :pg8, 0, :class=>"pointer_input"
-			%td
-				=text_field_tag :pg9, 0, :class=>"pointer_input"
-			%td
-				=text_field_tag :pg10, 0, :class=>"pointer_input"
-			%td
-				=text_field_tag :pg11, 0, :class=>"pointer_input"
-			%td
-				=text_field_tag :pg12, 0, :class=>"pointer_input"
-			
-			%tr	
-				%td
-					=t('views.pointers.new.period_sum')
-				%td
-				
-				%td
-				
-				%td
-				
-				%td
-				
-				%td
-				
-				%td
-				
-				%td
-				
-				%td
-				
-				%td
-				
-				%td
-				
-				%td
-				
-				%td
-			%tr	
-				%td
-					=t('views.pointers.new.period_results')
-				%td
-					=text_field_tag :pr1, 0, :class=>"pointer_input"
-				%td
-					=text_field_tag :pr2, 0, :class=>"pointer_input"
-				%td
-					=text_field_tag :pr3, 0, :class=>"pointer_input"
-				%td
-					=text_field_tag :pr4, 0, :class=>"pointer_input"
-				%td
-					=text_field_tag :pr5, 0, :class=>"pointer_input"
-				%td
-					=text_field_tag :pr6, 0, :class=>"pointer_input"
-				%td
-					=text_field_tag :pr7, 0, :class=>"pointer_input"
-				%td
-					=text_field_tag :pr8, 0, :class=>"pointer_input"
-				%td
-					=text_field_tag :pr9, 0, :class=>"pointer_input"
-				%td
-					=text_field_tag :pr10, 0, :class=>"pointer_input"
-				%td
-					=text_field_tag :pr11, 0, :class=>"pointer_input"
-				%td
-					=text_field_tag :pr12, 0, :class=>"pointer_input"
-				
-			%tr	
-				%td
-					=t('views.pointers.new.results_sum')
-				%td
 
-				%td
-
-				%td
-
-				%td
-
-				%td
-
-				%td
-
-				%td
-
-				%td
-
-				%td
-
-				%td
-
-				%td
-
-				%td		
+		#rows		
+			-unless f.object.init_date.nil?
+				= render :partial=>"goal", :locals=>{:init_month=>f.object.init_date.to_time.month, :period=>f.object.periodicity.to_i, :months=>@months, :advance_type=>f.object.advance_type, :results=>f.object.results,:goals=>f.object.goals}
+					
 	
 	#chart_div{:style=>"width: 600px; height: 200px;"}		
 	.notification-box

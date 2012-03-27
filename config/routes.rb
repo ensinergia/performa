@@ -27,6 +27,7 @@ GestionDesempeno::Application.routes.draw do
     match '/operating_cycles/area/(:area)' => 'operating_cycles#index' , :as=>"area_operating_cycles"
     match '/projects/area/(:area)' => 'projects#index' , :as=>"area_projects"
     match '/comments/for/(:model)/(:id)' => 'comments#show' , :as=>"show_comments"
+    match '/pointers/upgradegrid/(:format)' => 'pointers#updategrid' , :as=>"pointers_upgradegrid",:via=>:post
     resources :comments, :only => [:create, :destroy]
     resources :strategic_lines, :only => [:index, :destroy, :edit, :update, :create, :new]
     resources :strategic_objectives, :except => :show

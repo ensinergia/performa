@@ -1,6 +1,13 @@
 
 $(document).ready(function() {
+	
 	$('#pointer_init_date').dateinput({ format: 'yyyy/mm/dd'});
+	
+	$("#pointer_periodicity").change(function(){updateGrid();});
+	$("#pointer_advance_type").change(function(){updateGrid();});
+	$("#pointer_init_date").change(function(){updateGrid();});
+	
+	
 
 	$("#pointer_file").attr("size","15");
 
@@ -71,6 +78,10 @@ $(document).ready(function() {
 
 
 
+	$("#pointer_submit").click(function(){
+		$(" .no_edit_input").removeAttr("disabled");
+	});
+
 
 
 
@@ -84,6 +95,25 @@ google.load('visualization', '1', {packages: ['corechart']});
 
 
 google.setOnLoadCallback(drawVisualization);
+
+
+function updateGrid(){
+	conf=true;
+	if($(".pinput").length>0)
+		conf=confirm("Estas seguro de cambiar este campo?... Recuerda los datos ya capturados se perderán");
+	if(conf){
+		period=$("#pointer_periodicity").val();
+		advance=$("#pointer_advance_type").val();
+		init=$("#pointer_init_date").val();
+	
+		$.post('/pointers/upgradegrid/?period='+period+'&advance_type='+advance+'&init_date='+init,function(data) {
+	  		$('#rows').html(data);
+		});
+	}
+	
+	
+	
+}
 
 
 function drawVisualization() {
