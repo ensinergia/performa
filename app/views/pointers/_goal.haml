@@ -14,6 +14,11 @@
 				=t('views.pointers.new.results_sum')
 		-index=0
 		-counter=0
+		-graph="[['Mes', 'Resultados','Metas'],"
+		-sumres=0
+		-sumgoal=0
+		-antres=0
+		-antgoal=0
 		-while counter < 12
 	
 			
@@ -27,20 +32,31 @@
 				-res=results[counter]
 				-goal=goals[counter]
 				-counter+=1
+				-graph+="['#{t('views.month_names.'+months[ind]).upcase}', #{res}, #{goal}],"
 				-if advance_type =="Acumulado"
+					-unless res.class==Array || goal.class==Array				
+						-sumres=res.to_f-antres
+						-sumgoal=goal.to_f-antgoal
+					
+						-antres=res.to_f
+						-antgoal=goal.to_f
+					
 					%tr	
 						%td
 							%br
 							=t('views.month_names.'+months[ind]).upcase
 						%td
-			
+							=sumgoal
 						%td
 							=text_field_tag "pointer[goals][#{counter}]", goal, :class=>"pointer_input pinput"
 						%td
-			
+							=sumres
 						%td
 							=text_field_tag "pointer[results][#{counter}]", res, :class=>"pointer_input ainput"
 				-else
+					-unless res.class==Array || goal.class==Array				
+						-sumres+=res.to_f
+						-sumgoal+=goal.to_f
 					%tr	
 						%td
 							%br
@@ -48,9 +64,18 @@
 						%td
 							=text_field_tag "pointer[goals][#{counter}]", goal, :class=>"pointer_input pinput"
 						%td
-			
+							=sumgoal
 						%td
 							=text_field_tag "pointer[results][#{counter}]", res, :class=>"pointer_input ainput"
 						%td
-			-index+=1		
+							=sumres
+			-index+=1
+		-graph+="];"		
+-unless @pointer.nil?
+	-unless @pointer.new_record?	
+		:javascript
+			datagrid=#{graph};
+			//Google charts
+			google.load('visualization', '1', {packages: ['corechart']});
+			google.setOnLoadCallback(drawVisualization);
 	
