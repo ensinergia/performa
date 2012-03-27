@@ -1348,7 +1348,8 @@ ul.menu{
 
 .pointer_table td{
 	border:5px solid #fff;
-	padding:10px 2px;
+	padding:3px 9px;
+	text-align:center;
 }
 
 .pointer_input{

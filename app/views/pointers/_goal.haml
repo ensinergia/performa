@@ -27,6 +27,7 @@
 				-if ind>12 
 					-ind=ind-index 
 					-index=ind 
+					-year+=1
 				
 				
 				-res=results[counter]
@@ -43,8 +44,9 @@
 					
 					%tr	
 						%td
-							%br
 							=t('views.month_names.'+months[ind]).upcase
+							=" - "
+							= year
 						%td
 							=sumgoal
 						%td
@@ -59,8 +61,9 @@
 						-sumgoal+=goal.to_f
 					%tr	
 						%td
-							%br
 							=t('views.month_names.'+months[ind]).upcase
+							=" - "
+							= year
 						%td
 							=text_field_tag "pointer[goals][#{counter}]", goal, :class=>"pointer_input pinput"
 						%td

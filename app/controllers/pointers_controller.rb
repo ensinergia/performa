@@ -55,7 +55,7 @@ class PointersController < ApplicationController
 
 
   def updategrid
-    render :partial=>"goal", :locals=>{:init_month=>params[:init_date].to_time.month, :period=>params[:period].to_i, :months=>@months, :advance_type=>params[:advance_type], :results=>[],:goals=>[]} 
+    render :partial=>"goal", :locals=>{:init_month=>params[:init_date].to_time.month, :period=>params[:period].to_i, :months=>@months, :advance_type=>params[:advance_type], :results=>[],:goals=>[], :year=>params[:init_date].to_time.year} 
   end  
 
   def load_var

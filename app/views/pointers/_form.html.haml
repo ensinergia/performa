@@ -162,7 +162,7 @@
 
 		#rows		
 			-unless f.object.init_date.nil?
-				= render :partial=>"goal", :locals=>{:init_month=>f.object.init_date.to_time.month, :period=>f.object.periodicity.to_i, :months=>@months, :advance_type=>f.object.advance_type, :results=>f.object.results,:goals=>f.object.goals}
+				= render :partial=>"goal", :locals=>{:init_month=>f.object.init_date.to_time.month, :period=>f.object.periodicity.to_i, :months=>@months, :advance_type=>f.object.advance_type, :results=>f.object.results,:goals=>f.object.goals, :year=>f.object.init_date.to_time.year}
 					
 	-unless @pointer.new_record?
 		#chart_div{:style=>"width: 650px; height: 200px;"}		
