@@ -81,6 +81,9 @@ $(document).ready(function() {
 	$("#pointer_submit").click(function(){
 		$(" .no_edit_input").removeAttr("disabled");
 	});
+	
+	
+	updateInputs();
 
 });
 
@@ -98,10 +101,45 @@ function updateGrid(){
 	
 		$.post('/pointers/upgradegrid/?period='+period+'&advance_type='+advance+'&init_date='+init,function(data) {
 	  		$('#rows').html(data);
+			updateInputs();
+			drawVisualization();
 		});
 	}
 	
 	
+	
+}
+
+function updateInputs(){
+		$(".pointer_input").blur(function(){
+		a=$(".pinput");
+		length=a.length;
+		sumres=0;
+		sumgoal=0;
+		resant=0;
+		goalant=0
+		for(i=1; i<length ; i++){
+			goalval=parseFloat($("#pointer_goals_"+i).val());
+			resval=parseFloat($("#pointer_results_"+i).val());
+			
+			if ($("#pointer_advance_type").val()!="Acumulado"){	
+				sumgoal+=goalval;
+				sumres+=resval;
+			}else{
+				sumgoal=goalval-goalant;
+				sumres=resval-resant;
+				
+				goalant=goalval;
+				resant=resval;		
+			}	
+					
+			if(sumgoal!=NaN)
+				$("#sumgoal_"+i).html(sumgoal);
+			if(sumres!=NaN)	
+				$("#sumres_"+i).html(sumres);
+		}
+
+	});
 	
 }
 

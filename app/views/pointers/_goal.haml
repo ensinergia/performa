@@ -48,11 +48,13 @@
 							=" - "
 							= year
 						%td
-							=sumgoal
+							%div{:id=>"sumgoal_#{counter}"}
+								=sumgoal
 						%td
 							=text_field_tag "pointer[goals][#{counter}]", goal, :class=>"pointer_input pinput"
 						%td
-							=sumres
+							%div{:id=>"sumres_#{counter}"}
+								=sumres
 						%td
 							=text_field_tag "pointer[results][#{counter}]", res, :class=>"pointer_input ainput"
 				-else
@@ -67,11 +69,13 @@
 						%td
 							=text_field_tag "pointer[goals][#{counter}]", goal, :class=>"pointer_input pinput"
 						%td
-							=sumgoal
+							%div{:id=>"sumgoal_#{counter}"}
+								=sumgoal
 						%td
 							=text_field_tag "pointer[results][#{counter}]", res, :class=>"pointer_input ainput"
 						%td
-							=sumres
+							%div{:id=>"sumres_#{counter}"}
+								=sumres
 			-index+=1
 		-graph+="];"		
 -unless @pointer.nil?
