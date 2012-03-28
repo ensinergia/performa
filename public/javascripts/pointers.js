@@ -102,7 +102,6 @@ function updateGrid(){
 		$.post('/pointers/upgradegrid/?period='+period+'&advance_type='+advance+'&init_date='+init,function(data) {
 	  		$('#rows').html(data);
 			updateInputs();
-			drawVisualization();
 		});
 	}
 	
@@ -118,7 +117,7 @@ function updateInputs(){
 		sumgoal=0;
 		resant=0;
 		goalant=0
-		for(i=1; i<length ; i++){
+		for(i=1; i<=length ; i++){
 			goalval=parseFloat($("#pointer_goals_"+i).val());
 			resval=parseFloat($("#pointer_results_"+i).val());
 			
@@ -138,9 +137,23 @@ function updateInputs(){
 			if(sumres!=NaN)	
 				$("#sumres_"+i).html(sumres);
 		}
-
+		updateDataGraph();
 	});
 	
+}
+
+function updateDataGraph(){
+	datagrid=[];
+	months=new Array('Mes', 'Resultados','Metas');
+	a=$(".pinput");
+	length=a.length;
+	
+	for(i=length; i>0 ; i--){
+		row=new Array($("#month_"+i).html(),parseFloat($("#pointer_results_"+i).val()),parseFloat($("#pointer_goals_"+i).val()));
+		datagrid.unshift(row);
+	}
+	datagrid.unshift(months);
+	drawVisualization();
 }
 
 
@@ -151,8 +164,7 @@ function drawVisualization() {
 		var options = {
 			titlePosition: 'in',
 			title : 'Simulación de Indicadores',
-			vAxis: {title: "Valor"},
-			hAxis: {title: "Meses"},
+			hAxis: {title: "Meses",textPosition: "out"},
 			seriesType: "bars",
 			series: {1: {type: "line"}}
 		};
