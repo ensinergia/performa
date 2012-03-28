@@ -164,7 +164,7 @@
 			-unless f.object.init_date.nil?
 				= render :partial=>"goal", :locals=>{:init_month=>f.object.init_date.to_time.month, :period=>f.object.periodicity.to_i, :months=>@months, :advance_type=>f.object.advance_type, :results=>f.object.results,:goals=>f.object.goals, :year=>f.object.init_date.to_time.year}
 					
-		#chart_div{:style=>"width: 700px; height: 500px; display:none;"}		
+		#chart_div{:style=>"width: 700px; height: 500px;"}		
 	.notification-box
 		= f.label :comments, t('views.pointers.new.comments'), :class => 'bold'
 	%br	
