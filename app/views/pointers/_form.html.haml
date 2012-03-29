@@ -4,8 +4,6 @@
 - content_for :javascript do
 	= javascript_include_tag 'jquery.tools.min','https://www.google.com/jsapi','pointers'
 
-
-
 = nested_form_for @pointer, :html=>{:multipart=>true} do |f| 
 	= f.hidden_field :user_id, :value => current_user.id
 	= f.hidden_field :operative_objective_id,:value =>  params[:operative_objective_id]
@@ -114,11 +112,11 @@
 			-thres=@pointer.thresholds
 			-unless thres.nil?
 				-thresholds=thres.split(',')
-				-umb2=thresholds[0]
-				-umb4=thresholds[1]
+				-@umb2=thresholds[0]
+				-@umb4=thresholds[1]
 			-else
-				-umb2=2
-				-umb4=4
+				-@umb2=2
+				-@umb4=4	
 			%b
 				=t('views.pointers.new.thresholds')
 			%i	
@@ -128,43 +126,46 @@
 				=text_field_tag :umb1, 0,:disabled=>:disabled,:class=>"thresholds_input"
 				="%"
 				=t('views.pointers.new.to')
-				=text_field_tag :umb2, umb2, :class=>"thresholds_input"
+				=text_field_tag :umb2, @umb2, :class=>"thresholds_input"
 				="%"
 			.yellow_box.left
 				=t('views.pointers.new.from') 
-				=text_field_tag :umb3, umb2.to_i+1,:disabled=>:disabled, :class=>"thresholds_input"
+				=text_field_tag :umb3, @umb2.to_i+1,:disabled=>:disabled, :class=>"thresholds_input"
 				="%"
 				=t('views.pointers.new.to')
-				=text_field_tag :umb4, umb4, :class=>"thresholds_input"
+				=text_field_tag :umb4, @umb4, :class=>"thresholds_input"
 				="%"
 			.green_box.left
 				=t('views.pointers.new.from') 
-				=text_field_tag :umb5, umb4.to_i+1,:disabled=>:disabled, :class=>"thresholds_input"
+				=text_field_tag :umb5, @umb4.to_i+1,:disabled=>:disabled, :class=>"thresholds_input"
 				="%"
 				=t('views.pointers.new.to')
 				=text_field_tag :umb6,100,:disabled=>:disabled, :class=>"thresholds_input"
 				="%"
 			.clear	
-		%br	
 		%br
-		.left
-			=t('views.pointers.new.pointer_status')
-		.right
-			=t('views.pointers.new.advance_value')
-		.clear	
-		%input{:type=>"range", :id=>"pointer_advance",:name=>"pointer[advance]", :min=>"0", :max=>"100", :value=>"#{@pointer.advance}"}
-		.clear
 		%br
-		%i
-			=t('views.pointers.new.pointer_empty')
-		%br
+		-if thres==""
+			%i
+				=t('views.pointers.new.pointer_empty')
+			%br
 		
 
 		#rows		
 			-unless f.object.init_date.nil?
 				= render :partial=>"goal", :locals=>{:init_month=>f.object.init_date.to_time.month, :period=>f.object.periodicity.to_i, :months=>@months, :advance_type=>f.object.advance_type, :results=>f.object.results,:goals=>f.object.goals, :year=>f.object.init_date.to_time.year}
 					
-		#chart_div{:style=>"width: 700px; height: 500px;"}		
+		#chart_div{:style=>"width: 670px; height: 500px;"}	
+		.left
+			=t('views.pointers.new.pointer_status')
+			#pointer_gauge
+		.right
+			=t('views.pointers.new.advance_value')
+			=f.text_field :ini_value, :min=>"0", :max=>"100",:size=>"10"
+			-unless @sumres.nil? || @sumgoal.nil?
+				-@pointer.status=(@sumres*100)/@sumgoal 
+			=f.hidden_field :status
+		.clear	
 	.notification-box
 		= f.label :comments, t('views.pointers.new.comments'), :class => 'bold'
 	%br	
@@ -177,8 +178,39 @@
 		= f.submit t('views.pointers.new.controls.save'), :class => 'button orange as-link'
 		
 -unless @pointer.nil?
+	-if @pointer.status.nil?
+		-@pointer.status=0
+	
 	:javascript
 		datagrid=[];
 		//Google charts
+		var chart=0;
 		google.load('visualization', '1', {packages: ['corechart']});
-		google.setOnLoadCallback(drawVisualization);		
+		google.setOnLoadCallback(drawVisualization);
+		
+		
+		google.setOnLoadCallback(drawChart_pointer_gauge);
+				
+				function drawChart_pointer_gauge() {
+				    advance=parseFloat('#{'%.2f' % @pointer.status}');
+				    if (isNaN(advance))
+						advance=0;
+					var data = new google.visualization.DataTable();
+					data.addColumn('string', 'Label');
+					data.addColumn('number', 'Value');
+					data.addRows([
+						['Status', advance]
+						]);
+
+						var options = {
+							width: 450, height: 120,
+							redFrom: 0, redTo: #{@umb2},
+							yellowFrom:#{@umb2.to_i + 1}, yellowTo: #{@umb4},
+							greenFrom:#{@umb4.to_i + 1}, greenTo:100,
+							minorTicks: 5
+						};
+
+						chart = new google.visualization.Gauge(document.getElementById('pointer_gauge'));
+						chart.draw(data, options);
+					}
+				
