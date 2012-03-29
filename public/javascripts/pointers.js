@@ -3,15 +3,20 @@
 
 $(document).ready(function() {
 
+	//Initializers
+	$('.head').unbind('click');
+	$('.head').click(function() {	
+		id=$(this).attr('rel');
+		$("#"+id).toggle('slow');
+		return false;
+	});
+	$("#pointer_file").attr("size","15");
 	$('#pointer_init_date').dateinput({ format: 'yyyy/mm/dd'});
 
 	$("#pointer_periodicity").change(function(){updateGrid();});
 	$("#pointer_advance_type").change(function(){updateGrid();});
 	$("#pointer_init_date").change(function(){updateGrid();});
-
-
-
-	$("#pointer_file").attr("size","15");
+	
 
 	$('#umb2').blur(
 		function() {
@@ -90,12 +95,16 @@ $(document).ready(function() {
 	updateInputs();
 
 
-
 });
 
 
 
 google.load('visualization', '1', {packages:['gauge']});
+
+
+
+
+//Funtions 
 
 
 function updateGrid(){
@@ -106,7 +115,7 @@ function updateGrid(){
 		period=$("#pointer_periodicity").val();
 		advance=$("#pointer_advance_type").val();
 		init=$("#pointer_init_date").val();
-
+		$("#collapse_graph").show();
 		$.post('/pointers/upgradegrid/?period='+period+'&advance_type='+advance+'&init_date='+init,function(data) {
 			$('#rows').html(data);
 			updateInputs();
@@ -144,34 +153,63 @@ function updateInputs(){
 			if(!isNaN(sumres))	
 			$("#sumres_"+i).html(sumres);
 		}
+		
 		updateDataGraph();
 		getStatus();
+		
 	});
-
 	updateDataGraph();
+}
+
+function updateDataGraph(){
+	$("#collapse_graph").show();		
+	datagrid=[];
+	months=new Array('Mes', 'Resultados','Metas');
+	a=$(".pinput");
+	length=a.length;
+
+	for(i=length; i>0 ; i--){
+		row=new Array($("#month_"+i).html(),parseFloat($("#pointer_results_"+i).val()),parseFloat($("#pointer_goals_"+i).val()));
+		datagrid.unshift(row);
+	}
+	datagrid.unshift(months);
+	drawVisualization();
+	if($("#pointer_init_date").val()==""){
+		$("#collapse_graph").toggle();
+	}
 
 }
+
 
 function getStatus(){
 	a=$(".pinput");
 	length=a.length;
 	globalres=0;
 	globalgoal=0;
+	advance=0;
 	for(i=1; i<=length ; i++){
 		goalval=parseFloat($("#pointer_goals_"+i).val());
 		resval=parseFloat($("#pointer_results_"+i).val());
 
-		if(!isNaN(resval))
-		globalres+=resval;
+		if(!isNaN(resval)){
+			globalres+=resval;
+			advance+=1;
+		}
 		if(!isNaN(goalval))	
 		globalgoal+=goalval;
 
 	}
-
+	
 	status=(globalres*100)/globalgoal;
-	status=Math.round(status*100)/100
-	status=status.toFixed(2)
+	status=Math.round(status*100)/100;
+	status=status.toFixed(2);
+	
+	advance=(advance*100)/12;
+	advance=Math.round(advance*100)/100;
+	advance=advance.toFixed(2);
+	
 	$("#pointer_status").val(status);
+	$("#pointer_advance").val(advance);
 	updateGauge();
 }
 
@@ -202,19 +240,6 @@ function updateGauge(){
 	}
 
 
-	function updateDataGraph(){
-		datagrid=[];
-		months=new Array('Mes', 'Resultados','Metas');
-		a=$(".pinput");
-		length=a.length;
-
-		for(i=length; i>0 ; i--){
-			row=new Array($("#month_"+i).html(),parseFloat($("#pointer_results_"+i).val()),parseFloat($("#pointer_goals_"+i).val()));
-			datagrid.unshift(row);
-		}
-		datagrid.unshift(months);
-		drawVisualization();
-	}
 
 
 	function drawVisualization() {
@@ -228,7 +253,9 @@ function updateGauge(){
 			seriesType: "bars",
 			series: {1: {type: "line"}}
 		};
-
 		var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
 		chart.draw(data, options);
+
+		
+
 	}

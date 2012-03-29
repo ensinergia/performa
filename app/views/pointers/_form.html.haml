@@ -154,14 +154,17 @@
 		#rows		
 			-unless f.object.init_date.nil?
 				= render :partial=>"goal", :locals=>{:init_month=>f.object.init_date.to_time.month, :period=>f.object.periodicity.to_i, :months=>@months, :advance_type=>f.object.advance_type, :results=>f.object.results,:goals=>f.object.goals, :year=>f.object.init_date.to_time.year}
-					
-		#chart_div{:style=>"width: 670px; height: 500px;"}	
+		%div{:class=>"blank-box"}
+			= link_to "+/- ","", :class=>"head" , :rel=>"collapse_graph"
+			Simulaciòn de indicadores 		
+		#collapse_graph{:class=>"collapse"}			
+			#chart_div{:style=>"width: 670px; height: 500px;"}	
 		.left
 			=t('views.pointers.new.pointer_status')
 			#pointer_gauge
 		.right
 			=t('views.pointers.new.advance_value')
-			=f.text_field :ini_value, :min=>"0", :max=>"100",:size=>"10"
+			=f.text_field :advance, :min=>"0", :max=>"100",:size=>"10"
 			-unless @sumres.nil? || @sumgoal.nil?
 				-@pointer.status=(@sumres*100)/@sumgoal 
 			=f.hidden_field :status

@@ -57,7 +57,16 @@ class PointersController < ApplicationController
 
 
   def updategrid
-    render :partial=>"goal", :locals=>{:init_month=>params[:init_date].to_time.month, :period=>params[:period].to_i, :months=>@months, :advance_type=>params[:advance_type], :results=>[],:goals=>[], :year=>params[:init_date].to_time.year} 
+    
+    unless params[:init_date].to_time.nil?
+      month=params[:init_date].to_time.month
+      year=params[:init_date].to_time.year
+      render :partial=>"goal", :locals=>{:init_month=>month, :period=>params[:period].to_i, :months=>@months, :advance_type=>params[:advance_type], :results=>[],:goals=>[], :year=>year} 
+    else
+      render :text=>"Favor de especificar una fecha de inicio vàlida. "
+    end  
+     
+    
   end  
 
   def load_var
