@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301171345) do
+ActiveRecord::Schema.define(:version => 20120328223339) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(:version => 20120301171345) do
     t.datetime "updated_at"
     t.string   "unit"
     t.text     "algorithm"
+    t.float    "status"
   end
 
   create_table "positions", :force => true do |t|
