@@ -1,5 +1,5 @@
 #encoding: utf-8
-class Admin::ContextualLegendsController < ActionController::Base
+class Admin::ContextualLegendsController < ApplicationController
   include Admin::ContextualLegendsControllerHelper
   layout 'admin'
   
