@@ -55,8 +55,8 @@ class Zipped
       arr_obj[2]=objective.area.name
       arr_obj[3]=objective.perspective
       arr_obj[4]=objective.responsable.nil? ?  ""  : objective.responsable.full_name
-      arr_obj[5]=objective.init_date.to_date
-      arr_obj[6]=objective.final_date.to_date
+      arr_obj[5]=objective.init_date.to_date unless objective.init_date.nil?
+      arr_obj[6]=objective.final_date.to_date unless objective.final_date.nil?
 
       x=0
       body.xpath("//w:t").each do |field|
@@ -101,9 +101,8 @@ class Zipped
       arr_obj[2]=objective.area.name
       arr_obj[3]=objective.perspective
       arr_obj[4]=objective.responsable.nil? ?  ""  : objective.responsable.full_name
-      arr_obj[5]=objective.init_date.to_date
-      arr_obj[6]=objective.final_date.to_date
-
+      arr_obj[5]=objective.init_date.to_date unless objective.init_date.nil?
+      arr_obj[6]=objective.final_date.to_date unless objective.final_date.nil?
     x=0
     body.xpath("//w:t").each do |field|
 
