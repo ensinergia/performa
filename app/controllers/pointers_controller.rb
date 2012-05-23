@@ -21,8 +21,8 @@ class PointersController < ApplicationController
   def create
     @pointer = Pointer.new(params[:pointer])
     @pointer.thresholds="#{params[:umb2]},#{params[:umb4]}"
-    @pointer.goals=serialize(params[:pointer][:goals])
-    @pointer.results=serialize(params[:pointer][:results])
+    @pointer.goals= serialize(params[:pointer][:goals]) unless params[:pointer][:goals].nil?
+    @pointer.results= serialize(params[:pointer][:results]) unless params[:pointer][:results].nil?
     if @pointer.save
       @pointer.notify_to(params[:users])
       redirect_to(operative_objectives_url)
@@ -35,8 +35,8 @@ class PointersController < ApplicationController
     @pointer = Pointer.find(params[:id])
     @pointer.thresholds="#{params[:umb2]},#{params[:umb4]}"
     if @pointer.update_attributes(params[:pointer])
-        @pointer.goals=serialize(params[:pointer][:goals])
-        @pointer.results=serialize(params[:pointer][:results])
+        @pointer.goals=serialize(params[:pointer][:goals]) unless params[:pointer][:goals].nil?
+        @pointer.results=serialize(params[:pointer][:goals]) unless params[:pointer][:goals].nil?
         @pointer.save
       @pointer.notify_to(params[:users])
       redirect_to(operative_objectives_url)
