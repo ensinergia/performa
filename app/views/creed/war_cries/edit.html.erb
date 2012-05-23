@@ -5,17 +5,5 @@
 </div>
 
 <%= content_for :contextual_legend do %>
-	<div class="help">
-		<div class="title">
-			<p><%= t('views.help.title') %></p>
-		</div>
-		
-		<p class="subtitle"><%= t('activerecord.models.war_cry') %></p>
-		
-		<p><%= t('views.creed.help.war_cry_description.description')  %></p>
-		
-		<p class="subtitle"><%= t('views.creed.help.notifications.title') %></p>
-		
-		<p><%= t('views.creed.help.notifications.description')  %></p>
-	</div>
+	<%= render 'contextual_legends/contextual_legend' %>
 <% end %>
