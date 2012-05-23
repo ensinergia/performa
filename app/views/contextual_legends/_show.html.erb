@@ -1,16 +1,20 @@
+
 <% if @contextual_legend.nil? %>
-	<%= t 'views.help.show.empty.legend' %>
-	<br/><br/>
-	<% if can? :create, @contextual_legend %>
-	  <%= link_to t('views.help.show.controls.add'), new_admin_contextual_legend_path, :class => "contextual-link" %>
-	<% end %>
+<%= t 'views.help.show.empty.legend' %>
+<br/><br/>
+
+<% if can? :create, @contextual_legend %>
+<%= link_to t('views.help.show.controls.add'), new_admin_contextual_legend_path(:origin_route=>@origin_route,:route=>@route), :class => "contextual-link" %>
+<% end %>
+
+
 <% else %>
 
-	<%= BlueCloth.new(@contextual_legend.content).to_html.html_safe %>
-	
-	<% if can? :update, @contextual_legend %>
-		<%= link_to t('views.help.show.controls.edit'), edit_admin_contextual_legend_path(@contextual_legend), :class => "contextual-link" %>
-	<% end %>
+<%= BlueCloth.new(@contextual_legend.content).to_html.html_safe %>
+
+<% if can? :update, @contextual_legend %>
+<%= link_to t('views.help.show.controls.edit'), edit_admin_contextual_legend_path(@contextual_legend,:origin_route=>@origin_route), :class => "contextual-link" %>
+<% end %>
 <% end %>
 
 <br/>

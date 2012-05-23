@@ -36,12 +36,5 @@
 </div>
 
 <%= content_for :contextual_legend do %>
-  <div class="help">
-    <div class="title">
-      <p><%= I18n.t('views.help.title') %></p>
-    </div>
-
-    <p class="subtitle"><%=t 'views.menu.strategic_lines' %></p>
-
-  </div>
+	<%= render 'contextual_legends/contextual_legend' %>
 <% end %>

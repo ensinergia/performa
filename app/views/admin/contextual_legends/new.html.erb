@@ -7,6 +7,8 @@
 		<div id="wmd-editor" class="wmd-panel">
 			<div id="wmd-button-bar"></div>
 			<%= c.text_area :content, :class => 'wmd-input' %>
+			<%= hidden_field_tag :origin_route, params[:origin_route] %>
+			<%= c.hidden_field :url %>
 		</div>
 	
 		<%= c.submit t('views.help.shared.controls.save') %>

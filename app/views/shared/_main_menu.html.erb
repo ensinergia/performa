@@ -15,10 +15,10 @@
 <%else%>
 	<ul class="menu centered ">
 		<li ><%= link_to '<< Regresar', area_select_path, :class=>'back_menu'%></li>
-		<li class="<%= yield(:pa_menu) %>"><%= link_to '', area_panorama_url(:area=>session['area_id']), :class => "panorama-btn", :id => "panorama-menu" %></li>
-		<li class="<%= yield(:op_menu) %>"><%= link_to '', area_operative_objectives_url(:area=>session['area_id']), :class => "objective-op-btn", :id => "objetivope-menu" %></li>
-		<li class="<%= yield(:cy_menu) %>"><%= link_to '', area_operating_cycles_path(:area=>session['area_id']), :class => "ciclos-op-btn", :id => "ciclos-menu" %></li>
-		<li class="<%= yield(:proj_menu) %>"><%= link_to '', area_projects_url(:area=>session['area_id']), :class => "projects-btn", :id => "proyects-menu" %></li>
+		<li class="<%= yield(:pa_menu) %>"><%= link_to '', area_panorama_url(), :class => "panorama-btn", :id => "panorama-menu" %></li>
+		<li class="<%= yield(:op_menu) %>"><%= link_to '', area_operative_objectives_url(), :class => "objective-op-btn", :id => "objetivope-menu" %></li>
+		<li class="<%= yield(:cy_menu) %>"><%= link_to '', area_operating_cycles_path(), :class => "ciclos-op-btn", :id => "ciclos-menu" %></li>
+		<li class="<%= yield(:proj_menu) %>"><%= link_to '', area_projects_url(), :class => "projects-btn", :id => "proyects-menu" %></li>
 
 		<li class="<%= yield(:pe_menu) %>"><%= link_to '', people_url(with_current_subdomain), :class => "people-btn", :id => "people-menu" %></li>
 

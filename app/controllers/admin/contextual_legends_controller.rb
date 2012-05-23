@@ -9,7 +9,9 @@ class Admin::ContextualLegendsController < ApplicationController
   end
   
   def new
-    @contextual_legend = ContextualLegend.new
+    rootpth=root_url.chop
+    route=ActionController::Routing::Routes.recognize_path rootpth+params[:route]
+    @contextual_legend = ContextualLegend.new(:url=>route[:action]=="index" ? "/"+route[:controller] : "/"+route[:controller]+"/"+route[:action])
   end
   
   def edit
@@ -17,10 +19,10 @@ class Admin::ContextualLegendsController < ApplicationController
   end
   
   def create
-    @contextual_legend = ContextualLegend.new(params[:contextual_legend].merge(last_route))
-    
+    @contextual_legend = ContextualLegend.new(params[:contextual_legend])
     if @contextual_legend.save
-      redirect_to @contextual_legend.url, :notice => I18n.t('views.common.messages.save.successful', 
+
+      redirect_to params[:origin_route], :notice => I18n.t('views.common.messages.save.successful', 
                                           :model => t("activerecord.models.contextual_legend"), :genre => "a")
     else
       render :action => 'new'
@@ -31,7 +33,7 @@ class Admin::ContextualLegendsController < ApplicationController
     @contextual_legend = ContextualLegend.find(params[:id])
     
     if @contextual_legend.update_attributes(params[:contextual_legend])
-      redirect_to @contextual_legend.url, :notice => I18n.t('views.common.messages.update.successful', 
+      redirect_to params[:origin_route], :notice => I18n.t('views.common.messages.update.successful', 
                                           :model => t("activerecord.models.contextual_legend"), :genre => "a")
     else
       render :action => 'edit'
