@@ -3,8 +3,8 @@
 	<head>
   		<title>Oficina de Gestion de desempeño</title>
   		    <script type="text/javascript">var base_url='<%= root_url %>';</script>
-			<%= stylesheet_link_tag :defaults, 'layout', 'login' %>  		
-			<%= javascript_include_tag :defaults, 'best_in_place', :others %>
+			<%= stylesheet_link_tag :defaults, 'layout', 'login', 'jquerytools' %>  		
+			<%= javascript_include_tag :defaults, 'best_in_place','jquery.tools.min','jqueryvalidations', :others %>
 			<%= yield :javascript %>
 			<%= yield :styles %>
 
@@ -28,10 +28,13 @@
 			<% if params[:controller]!="home" && params[:action]!="confirm"  %>
 				<%= render(:partial => 'shared/main_menu') if user_signed_in? %>
 			<% end %>
-			
+				<div id="errors">
+  <h2>Hemos encontrado algunos errores!</h2>
+</div>
 			<div class="messages">
 				<p id="notice" class="flash centered"><%= notice %></p>
 	    	<p id="alert" class="flash centered"><%= alert %></p>
+	
 			</div>
 
       <div class="column fixed" style="width: 200px">

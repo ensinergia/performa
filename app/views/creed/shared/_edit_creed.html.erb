@@ -6,7 +6,7 @@
 		<h1><%= t("views.creed.edit_#{creed.class.to_s.downcase}.title") %></h1>
 	</div>
 	
-	<%= form_for([:creed, creed], :html => { :method => :put }) do |f| %>
+	<%= form_for([:creed, creed], :html => { :method => :put, :class=>"validation" }) do |f| %>
 		<%= render :partial => 'creed/shared/form', 
 						 	 :locals => {:f => f, :commit_changes_legend => t("views.creed.edit_#{creed.class.to_s.downcase}.controls.save"), :creed => creed } %>
 	<% end %>

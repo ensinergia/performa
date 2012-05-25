@@ -1,0 +1,92 @@
+/*Errors  jquerytools validations*/
+
+
+/* error message */
+.error {
+  /* supply height to ensure consistent positioning for every browser */
+  height:15px;
+  background-color:#FFFE36;
+  border:1px solid #E1E16D;
+  font-size:11px;
+  color:#000;
+  padding:3px 10px;
+  margin-left:-2px;
+ 
+
+  /* CSS3 spicing for mozilla and webkit */
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  -moz-border-radius-bottomleft:0;
+  -moz-border-radius-topleft:0;
+  -webkit-border-bottom-left-radius:0;
+  -webkit-border-top-left-radius:0;
+ 
+  -moz-box-shadow:0 0 6px #ddd;
+  -webkit-box-shadow:0 0 6px #ddd;
+}
+
+
+
+
+/* pure CSS arrow */
+.error em {
+  display:block;
+  width:0;
+  height:0;
+  border:10px solid;
+  border-color:#FFFE36 transparent transparent;
+ 
+  /* positioning */
+  position:absolute;
+  bottom:-17px;
+  left:60px;
+  }
+
+
+/* error container */
+#errors {
+	background-color:#999;
+	color:#fff;
+	width:400px;
+	padding:20px;
+	margin:5px auto;
+	display:none;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+ 
+/* title */
+#errors h2 {
+	margin:-5px 0;
+}
+
+
+
+
+/*sortable*/
+
+
+.ui-sortable li{
+	list-style:none;
+	cursor:move;
+	padding-left: 27px;
+}
+
+
+.ui-sortable li:hover{
+	background: url('../images/move.png') no-repeat;
+}
+
+.ui-sortable a{
+	text-decoration:none;
+	
+}
+
+.close {
+	vertical-align:bottom;
+}
+
+.ui-sortable{
+	margin:0;
+}
+

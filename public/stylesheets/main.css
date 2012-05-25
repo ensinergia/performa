@@ -1431,27 +1431,5 @@ ul.menu{
 
 .width1000 { width: 1000px }
 
-.ui-sortable li{
-	list-style:none;
-	cursor:move;
-	padding-left: 27px;
-}
 
-
-.ui-sortable li:hover{
-	background: url('../images/move.png') no-repeat;
-}
-
-.ui-sortable a{
-	text-decoration:none;
-	
-}
-
-.close {
-	vertical-align:bottom;
-}
-
-.ui-sortable{
-	margin:0;
-}
 

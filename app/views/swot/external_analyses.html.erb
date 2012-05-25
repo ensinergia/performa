@@ -18,7 +18,7 @@
 			</div>
 			
 			 <div id="new-opportunity" class="hidden">
-	     	<%= form_for([:swot, Analysis.new]) do |f| %>
+	     	<%= form_for([:swot, Analysis.new], :html => {:class=>"validation"}) do |f| %>
 	      	<%= render :partial => 'swot/form', :locals => {:f => f, :kind => Analysis.opportunity} %>
 	      <% end %>
 	     </div>
@@ -33,7 +33,7 @@
 				<%= link_to t('views.swot.shared_views.controls.add_risk'), 'javascript:void(0);', :class => "show-div", :id => "new-risk" %>
 			</div>
 			<div id="new-risk" class="hidden">
-        <%= form_for([:swot, Analysis.new]) do |f| %>
+        <%= form_for([:swot, Analysis.new], :html => {:class=>"validation"}) do |f| %>
           <%= render :partial => 'swot/form', :locals => {:f => f, :kind => Analysis.risk} %>
         <% end %>
       </div>

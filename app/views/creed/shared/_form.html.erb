@@ -3,7 +3,7 @@
 					 :locals => {:message_error => t('views.creed.most_views.form_errors'), :object => creed} %>
 
 <div class="creed-vision-form">
-  <%= f.text_area :description %>
+  <%= f.text_area :description, :minlength=>20, :rel=>"Descripción" %>
 </div>
 
 <%= render 'shared/notifications' %>

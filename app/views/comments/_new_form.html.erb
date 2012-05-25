@@ -1,8 +1,8 @@
 <%= javascript_include_tag 'file_upload' %>
 
 <h2><%=t 'views.comments.leave_a_comment' %></h2>
-<%= form_for(Comment.new, :html => {:multipart => true}, :method=>:put) do |f| %>
-	<%= f.text_area 'content' %>
+<%= form_for(Comment.new, :html => {:multipart => true,:class=>"validation"}, :method=>:put) do |f| %>
+	<%= f.text_area 'content', :required=>:required %>
 	<%= f.hidden_field 'commentable_id', :value => commentable.id %>
 	<%= f.hidden_field 'commentable_type', :value => commentable.class.to_s %>
 	<%# link_to t('views.comments.controls.add_a_file'), 'javascript:void();', :class => 'show-div', :id => 'upload-area' %>
