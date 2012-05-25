@@ -33,5 +33,5 @@ function update_text(){
 
 
 
-google.load('visualization', '1', {packages:['gauge']});
+//google.load('visualization', '1', {packages:['gauge']});
  

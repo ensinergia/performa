@@ -8,8 +8,8 @@
 
   <div class="inside-box">
     <div class="form-box">
-      <%= form_for @strategic_objective do |f| %>
-        <%= f.text_area :content %><br/>
+      <%= form_for @strategic_objective , :html=>{:class=>"validation"} do |f| %>
+        <%= f.text_area :content, :required=>:required, :rel=>"Descripción" %><br/>
 
       </div>
       <%= render 'shared/notifications' %>

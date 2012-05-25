@@ -10,8 +10,8 @@
   <div class="inside-box">
 
     <div class="form-box">
-      <%= form_for @strategic_objective, :html => { :method => :put } do |f| %>
-        <%= f.text_area :content %><br/>
+      <%= form_for @strategic_objective, :html => { :method => :put,:class=>"validation" } do |f| %>
+        <%= f.text_area :content, :required=>:required, :rel=>"Descripción"  %><br/>
         <span class="updated-pragma">Última actualización : <%= record_info_for(@strategic_objective) %></span>
 
         <div class="actions" style="width:260px">

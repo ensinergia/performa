@@ -2,7 +2,7 @@
 	= stylesheet_link_tag 'jquerydate'
 	
 - content_for :javascript do
-	= javascript_include_tag 'jquery.tools.min','operative_objectives'
+	= javascript_include_tag 'operative_objectives'
 
 
 #through.hidden
@@ -10,36 +10,36 @@
 		=t('views.operative_objective.new.through')
 #through_text.centered
 %br	
-= nested_form_for @operative_objective do |f|
+= nested_form_for @operative_objective, :html=>{:class=>:validation} do |f|
 	= f.hidden_field :user_id, :value => current_user.id
 	= f.hidden_field :area_id,:value =>  session[:area_id]
 	
 	.left
 		= f.label :perspective, t('views.operative_objective.new.results'), :class => 'bold'
 		%br
-		= f.text_area :results, :class => 'text_area_operative_objective', :cols=>5
+		= f.text_area :results, :class => 'text_area_operative_objective', :cols=>5, :required=>:required, :rel=>"Resultados"
 
 	.right
 		= f.label :actions, t('views.operative_objective.new.actions'), :class => 'bold'
 		%br
-		= f.text_area :actions, :class => 'text_area_operative_objective', :cols=>5
+		= f.text_area :actions, :class => 'text_area_operative_objective', :cols=>5, :required=>:required, :rel=>"Acciones"
 	.clear
 	%br
 	.left
 		=t('views.operative_objective.new.perspective')
 		= f.select :perspective, { t('views.operative_objective.new.perspective_options.1d') => t('views.operative_objective.new.perspective_options.1d'), 
-		t('views.operative_objective.new.perspective_options.2d') => t('views.operative_objective.new.perspective_options.2d'),t('views.operative_objective.new.perspective_options.3d')=>t('views.operative_objective.new.perspective_options.3d'),t('views.operative_objective.new.perspective_options.4d')=>t('views.operative_objective.new.perspective_options.4d')},:include_blank => t('views.forms.select')
+		t('views.operative_objective.new.perspective_options.2d') => t('views.operative_objective.new.perspective_options.2d'),t('views.operative_objective.new.perspective_options.3d')=>t('views.operative_objective.new.perspective_options.3d'),t('views.operative_objective.new.perspective_options.4d')=>t('views.operative_objective.new.perspective_options.4d')},{:include_blank => t('views.forms.select')},{ :required=>:required, :rel=>"Perspectiva"}
 	
 	.right
 		.left.marginright10px
 			.left
 				=t('views.operative_objective.new.init_date')
-			= f.text_field :init_date
+			= f.text_field :init_date, :required=>:required, :rel=>"Fecha Inicial"
 			
 		.right
 			.left
 				=t('views.operative_objective.new.final_date')
-			= f.text_field :final_date
+			= f.text_field :final_date, :required=>:required, :rel=>"Fecha Final"
 		.clear	
 	
 	%br
@@ -49,7 +49,7 @@
 	.left.marginright10px
 		=t('views.operative_objective.new.responsable')
 	.left
-		= f.collection_select(:responsable_id,@users, 'id', 'full_name',:include_blank => t('views.forms.select'))
+		= f.collection_select(:responsable_id,@users, 'id', 'full_name',{:include_blank => t('views.forms.select')}, {:required=>:required, :rel=>"Responsable"})
 	.clear	
 	%br
 	= render :partial => 'strategic_line'

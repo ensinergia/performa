@@ -2,34 +2,34 @@
 	= stylesheet_link_tag 'jquerydate','range_input'
 	
 - content_for :javascript do
-	= javascript_include_tag 'jquery.tools.min','https://www.google.com/jsapi','pointers'
+	= javascript_include_tag 'https://www.google.com/jsapi','pointers'
 
-= nested_form_for @pointer, :html=>{:multipart=>true} do |f| 
+= nested_form_for @pointer, :html=>{:multipart=>true, :class=>:validation} do |f| 
 	= f.hidden_field :user_id, :value => current_user.id
 	= f.hidden_field :operative_objective_id,:value =>  params[:operative_objective_id]
 
 	.left.marginright10px
 		= f.label :name, t('views.pointers.new.name'), :class => 'bold'
 	.left
-		= f.text_field :name, :size =>"80" 	
+		= f.text_field :name, :size =>"80", :required=>:required, :rel=>"Nombre"	
 	.clear
 	%br
 	.left.marginright10px
 		= f.label :description, t('views.pointers.new.description'), :class => 'bold'
 	.left	
-		= f.text_area :description, :class=>:pointer_description
+		= f.text_area :description, :class=>:pointer_description,:required=>:required, :rel=>"Descripción"
 
 	.clear	
 	%br
 	.left.width_40
 		=t('views.pointers.new.perspective')
 		= f.select :perspective, { t('views.pointers.new.perspective_options.1d') => t('views.pointers.new.perspective_options.1d').gsub(" ","_"), 
-		t('views.pointers.new.perspective_options.2d') => t('views.pointers.new.perspective_options.2d').gsub(" ","_"),t('views.pointers.new.perspective_options.3d')=>t('views.pointers.new.perspective_options.3d').gsub(" ","_"),t('views.pointers.new.perspective_options.4d')=>t('views.pointers.new.perspective_options.4d').gsub(" ","_")},{},{ :style=>"width:45%"}
+		t('views.pointers.new.perspective_options.2d') => t('views.pointers.new.perspective_options.2d').gsub(" ","_"),t('views.pointers.new.perspective_options.3d')=>t('views.pointers.new.perspective_options.3d').gsub(" ","_"),t('views.pointers.new.perspective_options.4d')=>t('views.pointers.new.perspective_options.4d').gsub(" ","_")},{:include_blank => t('views.forms.select')},{ :required=>:required, :rel=>"Perspectiva",:style=>"width:45%"}
 		%br
 		%br
 		=t('views.pointers.new.type')
 		= f.select :ptype, { t('views.pointers.new.type_options.1d') => t('views.pointers.new.type_options.1d').gsub(" ","_"), 
-		t('views.pointers.new.type_options.2d') => t('views.pointers.new.type_options.2d').gsub(" ","_"),t('views.pointers.new.type_options.3d')=>t('views.pointers.new.type_options.3d').gsub(" ","_")}
+		t('views.pointers.new.type_options.2d') => t('views.pointers.new.type_options.2d').gsub(" ","_"),t('views.pointers.new.type_options.3d')=>t('views.pointers.new.type_options.3d').gsub(" ","_")},{:include_blank => t('views.forms.select')},{ :required=>:required, :rel=>"Tipo de Indicador",:style=>"width:45%"}
 	
 	.right.notification-box.width_40
 		=t('views.pointers.new.attach')
@@ -65,41 +65,41 @@
 	.left.notification-box.align-right
 		=t('views.pointers.new.behavior')
 		= f.select :behavior, { t('views.pointers.new.behavior_options.1d') => t('views.pointers.new.behavior_options.1d').gsub(" ","_"), 
-		t('views.pointers.new.behavior_options.2d') => t('views.pointers.new.behavior_options.2d').gsub(" ","_")}
+		t('views.pointers.new.behavior_options.2d') => t('views.pointers.new.behavior_options.2d').gsub(" ","_")},{:include_blank => t('views.forms.select')},{ :required=>:required, :rel=>"Comportanmiento del Indicador",:style=>"width:45%"}
 		%br
 		%br
 		=t('views.pointers.new.advance_type')
 		= f.select :advance_type, { t('views.pointers.new.advance_type_options.1d') => t('views.pointers.new.advance_type_options.1d').gsub(" ","_"), 
-		t('views.pointers.new.advance_type_options.2d') => t('views.pointers.new.advance_type_options.2d').gsub(" ","_"),t('views.pointers.new.advance_type_options.3d')=>t('views.pointers.new.advance_type_options.3d').gsub(" ","_")}
+		t('views.pointers.new.advance_type_options.2d') => t('views.pointers.new.advance_type_options.2d').gsub(" ","_"),t('views.pointers.new.advance_type_options.3d')=>t('views.pointers.new.advance_type_options.3d').gsub(" ","_")},{:include_blank => t('views.forms.select')},{ :required=>:required, :rel=>"Tipo de Avance",:style=>"width:45%"}
 		%br
 		%br
 		.right
 			=t('views.pointers.new.unit')
-			= f.text_field :unit, :size=>3
+			= f.text_field :unit, :size=>3,:required=>:required, :rel=>"Unidad"
 		.clear
 		%br
 		%br
 		.right
 			=t('views.pointers.new.algorithm')
-			= f.text_field :algorithm
+			= f.text_field :algorithm,:required=>:required, :rel=>"Algoritmo"
 		.clear
 	
 	.right.notification-box.width46.align-right
 		.right
 			.left
 				=t('views.pointers.new.init_date')
-			= f.text_field :init_date
+			= f.text_field :init_date,:required=>:required, :rel=>"Fecha Inicial"
 		.clear	
 		%br
 		%br
 		=t('views.pointers.new.periodicity')
 		= f.select :periodicity, { t('views.pointers.new.periodicity_options.1d') => "4", 
-		t('views.pointers.new.periodicity_options.2d') => "3",t('views.pointers.new.periodicity_options.3d')=>"2",t('views.pointers.new.periodicity_options.4d')=>"1"}
+		t('views.pointers.new.periodicity_options.2d') => "3",t('views.pointers.new.periodicity_options.3d')=>"2",t('views.pointers.new.periodicity_options.4d')=>"1"},{:include_blank => t('views.forms.select')},{ :required=>:required, :rel=>"Periodicidad",:style=>"width:45%"}
 	.clear
 	%br
 	.left.marginright10px
 		= f.label :ini_value, t('views.pointers.new.ini_value'), :class => 'bold'
-		= f.text_field :ini_value, :size =>"20"
+		= f.text_field :ini_value, :size =>"20",:required=>:required, :rel=>"Valor Inicial"
 		
 	.left.marginright10px
 		= f.check_box :reajust_to_cero
@@ -159,7 +159,7 @@
 			#pointer_gauge
 		.right
 			=t('views.pointers.new.advance_value')
-			=f.text_field :advance, :min=>"0", :max=>"100",:size=>"10"
+			=f.text_field :advance, :min=>"0", :max=>"100",:size=>"10",:required=>:required, :rel=>"Avance"
 			-unless @sumres.nil? || @sumgoal.nil?
 				-@pointer.status=(@sumres*100)/@sumgoal 
 			=f.hidden_field :status

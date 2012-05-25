@@ -2,9 +2,9 @@
 	= stylesheet_link_tag 'jquerydate'
 	
 - content_for :javascript do
-	= javascript_include_tag 'jquery.tools.min','projects_edit', 'jquery-ui.min'
+	= javascript_include_tag 'projects_edit', 'jquery-ui.min'
 	
-= nested_form_for @project do |f|
+= nested_form_for @project, :html=>{:class=>:validation} do |f|
 	= f.hidden_field :user_id, :value => current_user.id
 	= f.hidden_field :company_id,:value =>  current_company.id
 	= f.hidden_field :area_id,:value =>  session[:area_id]
@@ -12,35 +12,35 @@
 		.left
 			= f.label :name, t('views.projects.new.name'), :class => 'bold'
 		.right
-			= f.text_field :name, :class => 'cycle_name'
+			= f.text_field :name, :class => 'cycle_name',:required=>:required, :rel=>"Nombre"
 	.clear
 	%br
 	%br
 	.left
 		= f.label :description, t('views.projects.new.description'), :class => 'bold'
 	.right	
-		= f.text_area :description, :class => 'text_area_operative_cycle'
+		= f.text_area :description, :class => 'text_area_operative_cycle',:required=>:required, :rel=>"Descripción"
 	.clear
 	%br
 	.left.marginright10px
 		=f.label :type,t('views.projects.new.type'), :class => 'bold'
 	.left	
 		= f.select :ptype, { t('views.projects.new.type_options.1d') => t('views.projects.new.type_options.1d'), 
-		t('views.projects.new.type_options.2d') => t('views.projects.new.type_options.2d'),t('views.projects.new.type_options.3d')=>t('views.projects.new.type_options.3d')},:include_blank => t('views.forms.select')
+		t('views.projects.new.type_options.2d') => t('views.projects.new.type_options.2d'),t('views.projects.new.type_options.3d')=>t('views.projects.new.type_options.3d')},{:include_blank => t('views.forms.select')},{ :required=>:required, :rel=>"Tipo",:style=>"width:100%"}
 	%br
 	%br
 	%br
 	= f.label :reason, t('views.projects.new.reason'), :class => 'bold'
 	%br
 	.centered
-		= f.text_area :reason, :style=>"width:100%; height:50px" 	
+		= f.text_area :reason, :style=>"width:100%; height:50px",:required=>:required, :rel=>"Razón" 	 	
 	%br	
 	%br	
 	.clear	
 	.left.marginright10px
 		=f.label :leader,t('views.projects.new.leader'), :class => 'bold'
 	.left
-		= f.collection_select(:leader_id,@users, 'id', 'full_name',:include_blank => t('views.forms.select'))
+		= f.collection_select(:leader_id,@users, 'id', 'full_name',{:include_blank => t('views.forms.select')},{ :required=>:required, :rel=>"Responsable",:style=>"width:100%"})
 	%br	
 	%br
 	%br
@@ -95,16 +95,16 @@
 			=f.label :length,t('views.projects.new.length'), :class => 'bold'
 			%br
 			%br
-			= f.text_field :length,:size=>"24"
+			= f.text_field :length,:size=>"24",:required=>:required, :rel=>"Duración"
 		.left.project_date
 			.left
 				=t('views.projects.new.init_date')
-			= f.text_field :init_date
+			= f.text_field :init_date,:required=>:required, :rel=>"Fecha Inicial"
 			
 		.left.project_date
 			.left
 				=t('views.projects.new.final_date')
-			= f.text_field :final_date
+			= f.text_field :final_date,:required=>:required, :rel=>"Fecha Final"
 		.clear
 	%br	
 	.light-gray.padding_10px
@@ -112,14 +112,14 @@
 		%br
 		%br
 		.centered
-			= f.text_area :product, :style=>"width:100%; height:50px"
+			= f.text_area :product, :style=>"width:100%; height:50px",:required=>:required, :rel=>"Producto"
 		
 	.clear	
 	%br
 	.left.marginright10px
 		=t('views.projects.new.investment')
 	.left
-		= f.text_field :investment
+		= f.text_field :investment,:required=>:required, :rel=>"Inversión"
 	.clear	
 	%br
 	= render :partial => 'childs_edit', :locals=>{:type=>'profit', :f=>f}

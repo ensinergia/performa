@@ -8,8 +8,8 @@
 
   <div class="inside-box">
     <div class="form-box">
-      <%= form_for @strategic_line do |f| %>
-        <%= f.text_area :content %><br/>
+      <%= form_for @strategic_line, :html=>{:class=>:validation} do |f| %>
+        <%= f.text_area :content, :required=>:required, :rel=>"Descripción"  %><br/>
 
 		<h2><%= t('views.strategic_lines.new.strategic_objectives') %></h2>
         <ul>
