@@ -3,7 +3,7 @@
 	<%= render :partial => 'shared/main_title', :locals => {:title => I18n.t('views.accounts.title') } %>
 	<%= render :partial => 'menu' %>
 	
-	<%= form_for(@user, :url => account_path(@user), :html => { :method => :put,:multipart => true }) do |f| %>
+	<%= form_for(@user, :url => account_path(@user), :html => { :method => :put,:multipart => true, :class=>:validation }) do |f| %>
 	<div class="inside-box">
 		<h1><%= I18n.t('views.accounts.sections.my_info.title') %></h1>
 
@@ -21,10 +21,10 @@
 					<div class="field-set label-large">
 
 						<div><%= f.label :name %></div>
-					  <%= f.text_field :name %>
+					  <%= f.text_field :name, :required=>:required, :rel=>"Nombre"  %>
 
 						<div><%= f.label :last_name %></div>
-					  	<%= f.text_field :last_name %>
+					  	<%= f.text_field :last_name , :required=>:required, :rel=>"Apellidos" %>
 					
 						<div><%= f.label :grade %></div>
 						<%= f.text_field :grade %>
@@ -44,7 +44,7 @@
 						<%= f.text_field :home_phone %>
 
 					  <div><%= f.label :email %></div>
-					  <%= f.email_field :email, :size => 26 %>
+					  <%= f.email_field :email, :size => 26 , :required=>:required, :rel=>"Email" %>
 
 					  <div><%= f.label :company_name %></div>
 					  <%= f.text_field :company_name, :disabled => true %>

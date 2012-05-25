@@ -10,17 +10,17 @@
 		<div class="unit on-2 columns">
 			<div class="column fixed" style="width: 50%">
 
-				<%= form_for(@user, :url => account_path(@user), :html => { :method => :put }) do |f| %>
+				<%= form_for(@user, :url => account_path(@user), :html => { :method => :put, :class=>:validation }) do |f| %>
 				  <div class="field-set label-small grey-colored rounded-5 with-inner-shadow">
 
 						<div><%= f.label :login %>: </div>
-					  <%= f.text_field :login, :size => 20 %>
+					  <%= f.text_field :login, :size => 20, :required=>:required, :rel=>"Login" %>
 
 						<div><%= f.label :password %>: </div>
-					  <%= f.password_field :password, :size => 20 %>
+					  <%= f.password_field :password, :size => 20, :required=>:required, :rel=>"Contraseña" %>
 
 					  <div><%= f.label :password_confirmation %>: </div>
-					  <%= f.password_field :password_confirmation, :size => 20 %>
+					  <%= f.password_field :password_confirmation, :size => 20, "data-equals"=>"user_password", :rel=>"Confirmacion de contraseña" %>
 
 					</div>
 

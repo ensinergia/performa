@@ -28,6 +28,19 @@ $.tools.validator.addEffect("wall", function(errors, event) {
  
 });
 
+   $.tools.validator.fn("[data-equals]", "La contraseña no coincide", function(input) {
+    var name = input.attr("data-equals"),
+    field = $("#"+name);
+    return input.val() == field.val() ? true : [name];
+    });
+  
+  // Regular Expression to test whether the value is valid
+    $.tools.validator.fn("[type=time]", "Propociona una fecha válida", function(input, value) {
+    return /^\d\d:\d\d$/.test(value);
+    });
+  
+
+
 // supply the language
 $.tools.validator.localize("es", {
 	'*'			: 'Corregir',
@@ -36,7 +49,8 @@ $.tools.validator.localize("es", {
 	':url' 		: 'La Url es inválida',
 	'[max]'	 	: 'Ingresa un valor menor a  $1',
 	'[min]'		: 'Ingresa un valor mayor a  $1',
-	'[required]'	: 'No puede estar vacio'
+	'[required]'	: 'No puede estar vacio',
+	'[data-equals]'	: 'Las contraseñas no coinciden'
 });
 
 $(document).ready(function(){
