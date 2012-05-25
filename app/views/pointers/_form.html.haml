@@ -160,7 +160,7 @@
 		.right
 			=t('views.pointers.new.advance_value')
 			=f.text_field :advance, :min=>"0", :max=>"100",:size=>"10",:required=>:required, :rel=>"Avance"
-			-unless @sumres.nil? || @sumgoal.nil?
+			-unless @sumres.nil? || @sumgoal.nil? || @sumgoal==0
 				-@pointer.status=(@sumres*100)/@sumgoal 
 			=f.hidden_field :status
 		.clear			

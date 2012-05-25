@@ -1,5 +1,5 @@
--results=results.split(",")
--goals=goals.split(",")
+-results=results.split(",") unless results.nil?
+-goals=goals.split(",") unless goals.nil?
 -unless init_month.nil?		
 	%table{:cellspacing=>"2",:cellpadding=>"10", :class=>"notification-box pointer_table"}
 		%tr
@@ -19,7 +19,7 @@
 		-@sumgoal=0
 		-antres=0
 		-antgoal=0
-		-while counter < 12
+		-while counter < 12 && period!=0
 	
 			
 			- if index % period == 0		
