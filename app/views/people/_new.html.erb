@@ -1,13 +1,13 @@
 <div class="clear"></div>
 <div class="inside-box-ajax">
-	<%= form_for(resource, :as => resource_name, :url => url_for(:action => :create), :remote => true) do |f| %>
+	<%= form_for(resource, :as => resource_name, :url => url_for(:action => :create), :remote => true, :html=>{:class=>:validation}) do |f| %>
 	<%= devise_error_messages! %>
 	<div class="fields-new-person">
-		<div><span><%= f.label :name %></span><%= f.text_field :name, :size => 20 %></div>
+		<div><span><%= f.label :name %></span><%= f.text_field :name, :size => 20, :required=>:required, :rel=>"Nombre" %></div>
 		<br/>
-		<div><span><%= f.label :last_name %></span><%= f.text_field :last_name, :size => 20 %></div>
+		<div><span><%= f.label :last_name %></span><%= f.text_field :last_name, :size => 20, :required=>:required, :rel=>"Apellidos" %></div>
 		<br/>
-		<div><span><%= f.label :email %></span><%= f.email_field :email,:size => 18 %></div>
+		<div><span><%= f.label :email %></span><%= f.email_field :email,:size => 18, :required=>:required, :rel=>"Email" %></div>
 		<%= f.hidden_field :company_id, :value => current_company.id %>
 		<%= f.hidden_field :area_id %>
 		<br/>

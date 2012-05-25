@@ -5,7 +5,7 @@
 
 	<div class='inside-box'>
 		<div class='inside_area'>
-			<%= nested_form_for @area do |a| %>
+			<%= nested_form_for @area, :html=>{:class=>:validation} do |a| %>
 				<h2 class='title_h2'><%=t 'views.area.new.title' %></h2>
 				<%= render :partial => 'form', :locals => {:a => a} %>
 			<% end %>
@@ -28,3 +28,5 @@
 	</div>
 
 <% end %>
+
+

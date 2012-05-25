@@ -2,11 +2,11 @@
 				 :locals => {:message_error => t('views.creed.most_views.form_errors'), :object => @area} %>
 
 <label><%= t('views.areas.name')%></label><br/>
-<%= a.text_field :name, :class => 'area_name' %>
+<%= a.text_field :name, :class => 'area_name', :required=>:required, :rel=>"Name" %>
 <br/><br/>
 <div id="clear"></div>
 <label><%= t('views.areas.responsable')%></label><br/>
-<%= a.select :user_id, options_from_collection_for_select(@users, 'id', 'full_name', :selected => @area.user_id),{:include_blank => t('views.forms.select')}, :class => ' left select_area' %>
+<%= a.select :user_id, options_from_collection_for_select(@users, 'id', 'full_name', :selected => @area.user_id),{:include_blank => t('views.forms.select')}, {:class => ' left select_area', :required=>:required, :rel=>"Responsable"} %>
 <div class="clear"></div>
 <br/><br/>
 
