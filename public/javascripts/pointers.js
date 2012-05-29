@@ -16,34 +16,6 @@ $(document).ready(function() {
 	$("#pointer_periodicity").change(function(){updateGrid();});
 	$("#pointer_advance_type").change(function(){updateGrid();});
 	$("#pointer_init_date").change(function(){updateGrid();});
-	
-
-	$('#umb2').blur(
-		function() {
-			num=parseInt($('#umb2').val());
-			if(num==100){
-				$('#umb2').val(1)
-				num=1;
-			}
-
-			$('#umb3').val(num+1);
-			updateGauge();
-		}
-	);
-
-
-	$('#umb4').blur(
-		function() {
-			num=parseInt($('#umb4').val());
-			if(num==100){
-				$('#umb4').val(parseInt($('#umb3').val())+1)
-				num=parseInt($('#umb4').val());
-			}
-
-			$('#umb5').val(num+1);
-			updateGauge();
-		}
-	);	
 
 
 	$(":range").rangeinput();
@@ -90,21 +62,134 @@ $(document).ready(function() {
 	$("#pointer_submit").click(function(){
 		$(" .no_edit_input").removeAttr("disabled");
 	});
-
-
 	updateInputs();
 
+	$("#pointer_behavior").change(function (){updateThresholds(); 	updateGauge(); });
 
 });
-
 
 
 google.load('visualization', '1', {packages:['gauge']});
 
 
 
-
 //Funtions 
+
+
+function secondThrehold(){
+
+	behavior=$("#pointer_behavior").val();
+	if (behavior=="Ascendente" || behavior=="" ){
+		num=parseInt($('#umb2').val());
+		if(num==100 || num<=$('#umb1').val()){
+			$('#umb2').val(1);
+			num=1;
+		}
+
+		$('#umb3').val(num+1);
+		thirdThrehold();
+
+	}else{
+		num=parseInt($('#umb2').val());
+		if(num== 0 || num>=$('#umb1').val()){
+			$('#umb2').val(99);
+			num=99;
+		}
+
+		$('#umb3').val(num-1);
+		thirdThrehold();
+	}		
+
+	updateGauge();
+
+}
+
+
+function thirdThrehold(){
+	behavior=$("#pointer_behavior").val();
+	if (behavior=="Ascendente" || behavior=="" ){
+		num=parseInt($('#umb3').val());
+		if(num<=$('#umb2').val()){
+			$('#umb3').val($('#umb2').val()+1)
+
+		}
+		num=parseInt($('#umb3').val());
+		if(num>=$('#umb4').val()){
+			$('#umb4').val(num+1);
+			fourthThehold();
+		}
+
+	}else{
+		num=parseInt($('#umb3').val());
+		if(num>=$('#umb2').val()){
+			$('#umb3').val($('#umb2').val()-1)
+
+		}
+
+		num=parseInt($('#umb3').val());
+		if(num<=$('#umb4').val()){
+			$('#umb4').val(num-1);
+			fourthThehold();
+		}
+
+	}		
+	updateGauge();
+}
+
+
+
+function fourthThehold(){
+	behavior=$("#pointer_behavior").val();
+	if (behavior=="Ascendente" || behavior=="" ){
+		num=parseInt($('#umb4').val());
+		if(num==100  || num<=$('#umb3').val()){
+			$('#umb4').val(parseInt($('#umb3').val())+1)
+			num=parseInt($('#umb4').val());
+		}
+
+		$('#umb5').val(num+1);
+	}else{
+		num=parseInt($('#umb4').val());
+		if(num==0  || num>=$('#umb3').val()){
+			$('#umb4').val(parseInt($('#umb3').val())-1)
+			num=parseInt($('#umb4').val());
+		}
+
+		$('#umb5').val(num-1);
+
+	}	
+	updateGauge();
+}
+
+//  its  a  mess  ,  i need  to  fix  it  out 
+
+function updateThresholds(){
+	$('#umb2').unbind('blur');
+	$('#umb4').unbind('blur');
+
+	behavior=$("#pointer_behavior").val();
+	if (behavior=="Ascendente" || behavior=="" ){
+
+		$('#umb1').val(0);
+		$('#umb6').val(100);
+		$('#umb2').val(1);
+		$('#umb4').val(4);
+		$('#umb2').blur(function (){secondThrehold()});
+		$('#umb4').blur(function (){fourthThehold()});	
+
+	}else{
+
+		$('#umb1').val(100);
+		$('#umb2').val(99);
+		$('#umb3').val(98);
+		$('#umb4').val(97);
+		$('#umb5').val(96);
+		$('#umb6').val(0);
+		$('#umb2').blur(function (){secondThrehold()});
+		$('#umb4').blur(function (){fourthThehold()});	
+
+	}	
+}
 
 
 function updateGrid(){
@@ -153,10 +238,10 @@ function updateInputs(){
 			if(!isNaN(sumres))	
 			$("#sumres_"+i).html(sumres);
 		}
-		
+
 		updateDataGraph();
 		getStatus();
-		
+
 	});
 	updateDataGraph();
 }
@@ -199,15 +284,15 @@ function getStatus(){
 		globalgoal+=goalval;
 
 	}
-	
+
 	status=(globalres*100)/globalgoal;
 	status=Math.round(status*100)/100;
 	status=status.toFixed(2);
-	
+
 	advance=(advance*100)/12;
 	advance=Math.round(advance*100)/100;
 	advance=advance.toFixed(2);
-	
+
 	$("#pointer_status").val(status);
 	$("#pointer_advance").val(advance);
 	updateGauge();
@@ -215,7 +300,7 @@ function getStatus(){
 
 
 function updateGauge(){
-
+	behavior=$("#pointer_behavior").val();
 	advance=parseFloat($('#pointer_status').val());
 	umb2=parseFloat($('#umb2').val());
 	umb4=parseFloat($('#umb4').val());
@@ -227,14 +312,27 @@ function updateGauge(){
 	data.addRows([
 		['Status', advance]
 		]);
-
-		var options = {
-			width: 450, height: 120,
-			redFrom: 0, redTo: umb2,
-			yellowFrom:umb2 + 1, yellowTo: umb4,
-			greenFrom:umb4 + 1, greenTo:100,
-			minorTicks: 5
-		};		
+		if (behavior=="Ascendente" || behavior=="" ){
+			var options = {
+				width: 450, height: 120,
+				redFrom: 0, redTo: umb2,
+				yellowFrom:umb2 + 1, yellowTo: umb4,
+				greenFrom:umb4 + 1, greenTo:100,
+				minorTicks: 5,
+				max: 100,
+				min: 0
+			};		
+		}else{
+			var options = {
+				width: 450, height: 120,
+				redFrom: 100, redTo: umb2,
+				yellowFrom:umb2 + 1, yellowTo: umb4,
+				greenFrom:umb4 + 1, greenTo:0,
+				minorTicks: 5, 
+				max: 0,
+				min: 100
+			};
+		}
 		chart.draw(data, options);
 
 	}
@@ -256,6 +354,6 @@ function updateGauge(){
 		var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
 		chart.draw(data, options);
 
-		
+
 
 	}

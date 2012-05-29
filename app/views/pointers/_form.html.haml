@@ -114,6 +114,7 @@
 				-thresholds=thres.split(',')
 				-@umb2=thresholds[0]
 				-@umb4=thresholds[1]
+				
 			-else
 				-@umb2=2
 				-@umb4=4	
@@ -123,7 +124,9 @@
 				=t('views.pointers.new.thresholds_sub')	
 			.red_box.left
 				=t('views.pointers.new.from') 
-				=text_field_tag :umb1, 0,:disabled=>:disabled,:class=>"thresholds_input"
+				-umb1= @pointer.behavior=="Ascendente" || @pointer.behavior==""  ? 0 : 100
+				-umb6= @pointer.behavior=="Ascendente" || @pointer.behavior==""  ? 100 : 0
+				=text_field_tag :umb1, umb1,:disabled=>:disabled,:class=>"thresholds_input"
 				="%"
 				=t('views.pointers.new.to')
 				=text_field_tag :umb2, @umb2, :class=>"thresholds_input"
@@ -140,7 +143,7 @@
 				=text_field_tag :umb5, @umb4.to_i+1,:disabled=>:disabled, :class=>"thresholds_input"
 				="%"
 				=t('views.pointers.new.to')
-				=text_field_tag :umb6,100,:disabled=>:disabled, :class=>"thresholds_input"
+				=text_field_tag :umb6,umb6,:disabled=>:disabled, :class=>"thresholds_input"
 				="%"
 			.clear	
 		%br
@@ -184,6 +187,31 @@
 	-if @pointer.status.nil?
 		-@pointer.status=0
 	
+	=behavior="#{@pointer.behavior}";
+	-if (behavior=="Ascendente" || behavior=="" )
+		:javascript
+			var pointerOptions = {
+				width: 450, height: 120,
+				redFrom: 0, redTo: #{@umb2},
+				yellowFrom:#{@umb2.to_i + 1}, yellowTo: #{@umb4},
+				greenFrom:#{@umb4.to_i + 1}, greenTo:100,
+				minorTicks: 5,
+				max: 100,
+				min: 0
+			};		
+	-else
+		:javascript
+			var pointerOptions = {
+				width: 450, height: 120,
+				redFrom: 100, redTo: #{@umb2},
+				yellowFrom:#{@umb2.to_i + 1}, yellowTo: #{@umb4},
+				greenFrom:#{@umb4.to_i + 1}, greenTo:0,
+				minorTicks: 5, 
+				max: 0,
+				min: 100
+			};
+							
+	
 	:javascript
 		datagrid=[];
 		//Google charts
@@ -195,7 +223,7 @@
 		google.setOnLoadCallback(drawChart_pointer_gauge);
 				
 				function drawChart_pointer_gauge() {
-				    advance=parseFloat('#{'%.2f' % @pointer.status}');
+				    advance=parseFloat('#{'%.2f' % @pointer.advance}');
 				    if (isNaN(advance))
 						advance=0;
 					var data = new google.visualization.DataTable();
@@ -204,16 +232,8 @@
 					data.addRows([
 						['Status', advance]
 						]);
-
-						var options = {
-							width: 450, height: 120,
-							redFrom: 0, redTo: #{@umb2},
-							yellowFrom:#{@umb2.to_i + 1}, yellowTo: #{@umb4},
-							greenFrom:#{@umb4.to_i + 1}, greenTo:100,
-							minorTicks: 5
-						};
-
+					
 						chart = new google.visualization.Gauge(document.getElementById('pointer_gauge'));
-						chart.draw(data, options);
+						chart.draw(data, pointerOptions);
 					}
 				
