@@ -184,7 +184,7 @@
 		= f.submit t('views.pointers.new.controls.save'), :class => 'button orange as-link'
 		
 -unless @pointer.nil?
-	-if @pointer.advance.nil?
+	-if @pointer.advance.nil? || @pointer.advance.blank?
 		-advance=0
 	-else	
 		-advance=@pointer.advance
