@@ -23,7 +23,7 @@ class PointersController < ApplicationController
     @pointer.thresholds="#{params[:umb2]},#{params[:umb4]}"
     @pointer.goals= serialize(params[:pointer][:goals]) unless params[:pointer][:goals].nil?
     @pointer.results= serialize(params[:pointer][:results]) unless params[:pointer][:results].nil?
-    @pointer.advance="#{'%.2f' % @pointer.advance}"
+    @pointer.advance="#{'%.2f' % @pointer.advance.to_f}"
     if @pointer.save
       @pointer.notify_to(params[:users])
       redirect_to(operative_objectives_url)
@@ -38,7 +38,7 @@ class PointersController < ApplicationController
     if @pointer.update_attributes(params[:pointer])
         @pointer.goals=serialize(params[:pointer][:goals]) unless params[:pointer][:goals].nil?
         @pointer.results=serialize(params[:pointer][:goals]) unless params[:pointer][:goals].nil?
-        @pointer.advance="#{'%.2f' % @pointer.advance}"
+        @pointer.advance="#{'%.2f' % @pointer.advance.to_f}"
         @pointer.save
       @pointer.notify_to(params[:users])
       redirect_to(operative_objectives_url)
