@@ -184,8 +184,8 @@
 		= f.submit t('views.pointers.new.controls.save'), :class => 'button orange as-link'
 		
 -unless @pointer.nil?
-	-if @pointer.status.nil?
-		-@pointer.status=0
+	-if @pointer.advance.nil?
+		-@pointer.advance=0
 	
 	=behavior="#{@pointer.behavior}";
 	-if (behavior=="Ascendente" || behavior=="" )
@@ -223,7 +223,7 @@
 		google.setOnLoadCallback(drawChart_pointer_gauge);
 				
 				function drawChart_pointer_gauge() {
-				    advance=parseFloat('#{'%.2f' % @pointer.advance || 0}');
+				    advance=parseFloat('#{'%.2f' % @pointer.advance}');
 				    if (isNaN(advance))
 						advance=0;
 					var data = new google.visualization.DataTable();
