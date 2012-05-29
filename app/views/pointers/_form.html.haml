@@ -185,9 +185,11 @@
 		
 -unless @pointer.nil?
 	-if @pointer.advance.nil?
-		-@pointer.advance=0
+		-advance=0
+	-else	
+		-advance=@pointer.advance
 	
-	=behavior="#{@pointer.behavior}";
+	-behavior="#{@pointer.behavior}";
 	-if (behavior=="Ascendente" || behavior=="" )
 		:javascript
 			var pointerOptions = {
@@ -223,7 +225,7 @@
 		google.setOnLoadCallback(drawChart_pointer_gauge);
 				
 				function drawChart_pointer_gauge() {
-				    advance=parseFloat('#{'%.2f' % @pointer.advance}');
+				    advance=parseFloat('#{'%.2f' % advance}');
 				    if (isNaN(advance))
 						advance=0;
 					var data = new google.visualization.DataTable();
