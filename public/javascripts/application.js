@@ -13,6 +13,14 @@ $(document).ready(function() {
 	);
 
 
+	$('.area_link').click(
+		function(){
+			console.log(base_url+'areas/select?area_id='+$(this).attr('rel'));
+			document.location=base_url+'areas/select?area_id='+$(this).attr('rel');
+			
+		}
+	);
+
 
 	$('#user_photo').attr('size','1');
 	$('#notice').delay(3500).fadeOut('slow');

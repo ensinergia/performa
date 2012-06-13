@@ -1,5 +1,5 @@
 <div class="header-contents">
-	
+
 	<div class="left-menu">
 		<ul>
 			<li><%= link_to t('views.header.controls.my_account'), accounts_path %></li>
@@ -9,21 +9,58 @@
 			<li class="last"><%= link_to t('views.header.controls.support'), '' %></li>
 		</ul>
 	</div>
-	
+
 	<div id="app-logo"></div>
-	
+
 	<div class="right-menu content on-2 columns">
-		<div class="column fixed">
+		<div class="column fixed" style="width:400px">
 			<b><%= current_user.full_name %> | <%= task_number_for(current_user) %></b>
-			
 			<%= form_tag '' do %>
-				<div class="area-selector-arrow"></div>
-				<%= select_tag "area_selector", options_from_collection_for_select(@areas_allowed, "id", "name",session[:area_id]) %>
+			<div class="area-selector-arrow"></div>
+			<div id ="menuContainer">  
+				<ul>  
+					<%-selected=@areas_allowed.find(session[:area_id]) %>
+					<%-first_level=@areas_allowed.where(:alevel=>1) %>
+					<li><a href="#" class="area_link" rel="<%=selected.id%>"><%=selected.name%></a>     
+					<ul>  
+						<%- if @areas_allowed.include?(@root_area) && @root_area!= selected 
+							first_level<< @root_area  
+					  	end
+						%>
+	
+						<%-first_level.each do |area| %>     
+						    <%-@children=[] %>
+							<%-@children=area.children_areas %>
+							<%-unless @children.empty? %>
+								<li><a href="#" class="area_link" rel="<%=area.id%>"><%=area.name%>       
+									<ul> 
+										<%-@children.each do |child| %> 
+											<%- if @areas_allowed.include?(child) %>
+											<li><a href="#" class="area_link" rel="<%=child.id%>"><%=child.name%></a></li>
+											<%-end%>        
+										<%-end%>        
+									</ul>       
+								</li>
+							<%-else%>
+								<li><a href="#" class="area_link" rel="<%=area.id%>"><%=area.name%></a></li>
+							<%-end%> 
+						<%-end%>         
+						
+				    </ul>   
+				    </li> 
+				</ul>    
+
+			</div>
+		<!--	<%= select_tag "area_selector", options_from_collection_for_select(@areas_allowed, "id", "name",session[:area_id]) %>
+		-->
 			<% end %>
+			
+
+			
+
+			<div class="column fixed right-placed">
+				<b><%= link_to t('views.header.controls.help'), '' %></b>&nbsp;|&nbsp;
+				<%= link_to t('views.header.controls.logout'), destroy_user_session_url %>
+			</div>
 		</div>
-		<div class="column fixed right-placed">
-			<b><%= link_to t('views.header.controls.help'), '' %></b>&nbsp;|&nbsp;
-			<%= link_to t('views.header.controls.logout'), destroy_user_session_url %>
-		</div>
-	</div>
-</div>	
+	</div>	

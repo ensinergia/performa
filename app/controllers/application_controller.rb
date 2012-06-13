@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
 
       if session[:main_area_id].nil?
-        mainarea=Area.where(:company_id=>current_user.company_id).order('id ASC').first
+        mainarea=Area.where(:company_id=>current_user.company_id, :is_root_area=>true).order('id ASC').first
         session[:main_area_id]=mainarea.id
       end 
 
@@ -39,9 +39,12 @@ class ApplicationController < ActionController::Base
         area=current_user.area
         @children<<area.id
         deep_children(area)
-        @areas_allowed=Area.where("id IN (?)",@children).order("id ASC") || []
+        @areas_allowed=Area.where("id IN (?)",@children).order("alevel ASC") || []
       end
+       @root_area = Area.get_all_for(current_user.company).where(:is_root_area=>true).first
+       @selected_area = Area.find(session[:area_id])
     end
+   
   end 
 
 

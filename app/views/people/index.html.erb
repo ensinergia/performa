@@ -10,10 +10,15 @@
 	</div>
 	
 	<div class="inside-box">
-
+		<%= render @root_area %>
+		
 		<% @areas.each do |area| %>
-		   
 			<%= render area %>
+			
+			<% area.children_areas.each do |subarea| %>
+			<%= render subarea %>
+			<% end %>
+			
 		<% end %>			
 		<% 
 content_for :javascript do

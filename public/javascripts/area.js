@@ -2,6 +2,27 @@ $(document).ready(function() {
 
 	dragAndDrop("area_supports","");
 
+		if ($("#area_alevel").val()=="2"){
+			$("#parent_area").show();
+			$("#area_parent_id").attr("required", "required");
+		}else{
+			$("#parent_area").hide();
+			$("#area_parent_id").val(1);
+			$("#area_parent_id").removeAttr("required");
+		}
+
+	$("#area_alevel").change(function(){
+		if ($(this).val()=="2"){
+			$("#parent_area").show();
+			$("#area_parent_id").attr("required", "required");
+		}else{
+			$("#parent_area").hide();
+			$("#area_parent_id").val(1);
+			$("#area_parent_id").removeAttr("required");
+		}
+		return false;
+	});
+
 
 	$("#add_parent").click(function(){
 		add_input('area_supports');

@@ -8,6 +8,7 @@ class AreasController < ApplicationController
   before_filter :verify_subdomain
   before_filter :get_company_users, :only => [:new, :edit]
   before_filter :get_areas, :only => [:new, :edit, :create, :update]
+  before_filter :get_parent_areas, :only => [:new, :edit, :create, :update]
   before_filter :check_permissions , :only=>[:new,:edit,:create,:uptade,:admin]
   
   def new
@@ -66,6 +67,11 @@ class AreasController < ApplicationController
       @areas = current_company.areas
     end  
   end
+  
+  def get_parent_areas
+    @parent_areas = current_company.areas.where(:alevel=>1) 
+  end
+  
   
   def check_permissions
     (!current_user.is_admin? && !current_user.is_owner?) ? redirect_to(people_path, :notice => I18n.t('views.people.access_denied')) : true

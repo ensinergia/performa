@@ -60,7 +60,8 @@ class PeopleController < ApplicationController
 
   def index
     @company = current_user.company
-    @areas = Area.get_all_for(@company)
+    @root_area = Area.get_all_for(@company).where(:is_root_area=>true)
+    @areas = Area.get_all_for(@company).where(:alevel=>1)
     resource
     if @areas.empty?
       render('index_welcome')

@@ -207,7 +207,7 @@ es-MX:
       mission: "Misión"
       vision: "Visión"
       contextual_legend: "Información Contextual"
-      operating_cycle: "Ciclo Operativo"
+      operating_cycle: "Procesos"
       operative_objective: "Objetivo Operativo"
       pointer: "Indicador"
       project: "Proyecto"
@@ -292,6 +292,10 @@ es-MX:
       responsable: "Responsable"
       name: "Nombre"
       supported: "Otras Areas a las que soporta"
+      level: "Nivel"
+      level1: "Segundo Nivel"
+      level2: "Tercer  Nivel"
+      parent: "Area Padre"
       add_link: "Agregar Area"
     header:
       app_name: "Performa"
@@ -371,7 +375,7 @@ es-MX:
         add_programmes: "Agregar Programas"
         add_areas_and_people: "Agregar Áreas y Personas"
         add_project: "Agregar Proyecto"
-        add_cycle: "Agregar Ciclo Operativo"
+        add_cycle: "Agregar Proceso"
         add_strategic_objetive: "Agregar Objetivo Operativo"
     help:
       title: "Ayuda"
@@ -436,21 +440,21 @@ es-MX:
     cycles:
       index:
         empty:
-            title: "¿Listo para agregar El primer Ciclo Operativo?"
-            description: "Esta es la descripción para un nuevo Cyclo Operativo"
+            title: "¿Listo para agregar El primer Proceso?"
+            description: "Esta es la descripción para un nuevo Proceso"
             controls:
               start: "Guardar"
         not_empty:
-            title: "Ciclos Operativos"
+            title: "Procesos"
             controls:
-              add: "Agregar un Ciclo Operativo"
+              add: "Agregar un Proceso"
       new:
-        title: "Agregando un Ciclo Operativo"
+        title: "Agregando un Proceso"
         controls:
           cancel: "Cancelar"
           save: "Guardar"
       edit:
-          title: "Modificando Ciclo Operativo"
+          title: "Modificando Proceso"
           last_updated: "Última actualización"
           controls:
             cancel: "Cancelar"
