@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120613011604) do
+ActiveRecord::Schema.define(:version => 20120614172044) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -181,6 +181,7 @@ ActiveRecord::Schema.define(:version => 20120613011604) do
     t.string   "unit"
     t.text     "algorithm"
     t.float    "status"
+    t.integer  "strategic_objective_id"
   end
 
   create_table "positions", :force => true do |t|
@@ -271,6 +272,7 @@ ActiveRecord::Schema.define(:version => 20120613011604) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "torder"
+    t.integer  "area_id"
   end
 
   create_table "strategic_objectives", :force => true do |t|
@@ -280,6 +282,7 @@ ActiveRecord::Schema.define(:version => 20120613011604) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "torder"
+    t.integer  "area_id"
   end
 
   create_table "swots", :force => true do |t|

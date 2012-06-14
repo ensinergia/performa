@@ -4,8 +4,9 @@ class Area < ActiveRecord::Base
   belongs_to :user
   has_many :users
   has_many :operative_objectives
+  has_many :strategic_lines
+  has_many :strategic_objectives
   has_many :area_supports, :order=>"torder ASC"
-  #has_one :user, :foreign_key => "responsable_id", :as=>:resonsable
   belongs_to :company
   
   

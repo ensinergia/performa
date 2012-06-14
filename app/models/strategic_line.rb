@@ -9,6 +9,7 @@ class StrategicLine < ActiveRecord::Base
   has_and_belongs_to_many :operating_cycles
   belongs_to :company
   belongs_to :user
+  belongs_to :area
 
   validates_presence_of :content
 
