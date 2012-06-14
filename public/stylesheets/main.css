@@ -560,6 +560,38 @@ ul.menu{
   background: url(../images/strategic_o_btn_up.png) no-repeat;
 }
 
+
+.menu li.selected a.strategic-l-snd-btn, .menu li.selected a.strategic-l-snd-btn:hover {
+  background: url(../images/lineas_est_esp_btn_selected.png) no-repeat;
+}
+
+.menu li a.strategic-l-snd-btn:hover {
+  background: url(../images/lineas_est_esp_btn_over.png) no-repeat;
+}
+
+.menu li a.strategic-l-snd-btn {
+  width:260px;
+  height: 32px;
+  background: url(../images/lineas_est_esp_btn_up.png) no-repeat;
+}
+
+
+.menu li.selected a.strategic-o-snd-btn, .menu li.selected a.strategic-o-snd-btn:hover {
+  background: url(../images/objetivosesp_btn_selected.png) no-repeat;
+}
+
+.menu li a.strategic-o-snd-btn:hover {
+  background: url(../images/objetivosesp_btn_over.png) no-repeat;
+}
+
+.menu li a.strategic-o-snd-btn {
+  width:180px;
+  height: 32px;
+  background: url(../images/objetivosesp_btn_up.png) no-repeat;
+}
+
+
+
 .menu li.selected a.programs-btn, .menu li.selected a.programs-btn:hover {
   background: url(../images/programs_btn_selected.png) no-repeat;
 }
