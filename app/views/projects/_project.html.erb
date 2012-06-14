@@ -1,10 +1,36 @@
 <li rel="<%=project.id %>" >
 <div class="list-item <%=(project_counter + 1)%2==0 ? "light-gray" : "gray"  %>">
 	<div id="sl-<%= project.id %>">
-		<div class='project_value'> 
+		<table width="100%" cellspadding="0" celspacing="0">
+		<tr>
+			<td width="30%" colspan="2"><%= project.name %> </td>
+			<td width="10%"><%= project.ptype %></td>
+			<td width="15%"><%= project.investment %></td>
+			<td width="20%"></td>
+			<td width="5%" align="center"><span id="priority_<%=project.id %>"><%=project_counter %></span></td>
+			<td width="15%">	<%= render :partial=>'comments/comments_link',:locals=>{:obj=>project} %>
+			<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_project_path(project), :class => 'modify' %>
+			<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), project_path(project), 
+								:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
+																								:connector => "ésta", 
+																								:model => t('activerecord.models.project'))%>
+																								</td>
+		</tr>
+		</table>
+	
+	</div>
+</div>
+</li>
+
+
+
+
+<!--
+	<div class='project_value'> 
 			<%= project.name %> 
 		</div>
 		<div class='right_place'>
+			<span id="priority_<%=project.id %>"><%=project_counter %></span>
 			<%= render :partial=>'comments/comments_link',:locals=>{:obj=>project} %>
 			<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_project_path(project), :class => 'modify' %>
 			<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), project_path(project), 
@@ -17,6 +43,5 @@
 			<div class="record_info">
 				<%= record_info_for(project) %>
 			</div>
-	</div>
-</div>
-</li>
+
+-->

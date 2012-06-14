@@ -1,27 +1,35 @@
 <%= render :partial=>"shared/drag_drop"%>
-<div class="box rounded-10 with-shadow with-mid-width">
+<div class="box rounded-10 with-shadow with-mid-width width1000">
 <%= content_for(:pro_submenu, &Proc.new { "selected" }) %>
 <%= content_for(:proj_menu, &Proc.new { "selected" }) %>
 
 <div class="title-bar rounded-10-top">
-	<ul class="items-inlined">
-		<li class="<%= yield(:pro_submenu) %>"><%= link_to t('views.projects.submenu.project'), projects_url %></li>
-		<li class="<%= yield(:plan_submenu) %>"><%= link_to t('views.projects.submenu.planning'), projects_url %></li>
-		<li class="<%= yield(:fol_submenu) %>"><%= link_to t('views.projects.submenu.follow'), projects_url %></li>
-	</ul>
+	<div class="left"><h2>Portafolio de Proyectos</h2></div>
 </div>  
 
-
-	
-	<div class="inside-box">
+		<table width="100%" cellspadding="0" celspacing="0" class="projects_table">
+		<tr>
+			<th width="5%"></th>
+			<th width="25%" style="text-align:left; padding:6px">Nombre del Proyecto</th>
+			<th width="10%">Tipo</th>
+			<th width="10%">Inversion</th>
+			<th width="15%">% Contribución a Objetivos Operativos </th>
+			<th width="10%">Prioridad</th>
+			<th width="15%"></th>
+		</tr>
+		<tr>
+			<td colspan="7">
 		<ul id="drag_ul">
 			<%= render :partial => 'project', :collection => @projects %>
 		</ul>
 		<div class='strategic_add_link'>
 			<%= link_to t('views.projects.index.not_empty.controls.add'), new_project_path %>
 		</div>
+		   </td>
+		</tr>
+	   </table>
+		
 	</div>
-</div>
 
 <%= content_for :contextual_legend do %>
 

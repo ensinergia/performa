@@ -1,29 +1,3 @@
-<!--<li rel="<%=strategic_objective.id %>" >
-	<div  class=" list-item <%=(strategic_objective_counter + 1)%2==0 ? "light-gray" : "gray"  %>">
-		<div id="sl-<%= strategic_objective.id %>">
-			<div class='strategic_line_value'> 
-				<%= strategic_objective.content %>
-			</div>
-		
-<div class='right_place'>
-	<%= render :partial=>'comments/comments_link',:locals=>{:obj=>strategic_objective} %>
-	<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_strategic_objective_path(strategic_objective), :class => 'modify' %>
-	<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), strategic_objective_path(strategic_objective), 
-	:method => :delete, :confirm => t('views.common.messages.delete.confirm', 
-	:connector => "ésta", 
-	:model => t('activerecord.models.strategic_line'))%>
-</div>
-
-</div>
-<div class='clear'></div> 
-</div>
-
-<div class="record_info">
-	<%= record_info_for(strategic_objective) %>
-</div>
-<br/>
-</li>
--->
 <li rel="<%=strategic_objective.id %>">
 	<table width="100%" cellspadding="0" celspacing="0" class="objective_table">
 		<tr>

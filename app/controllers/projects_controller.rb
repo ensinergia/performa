@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.get_all_for(session[:area_id])
-    @projects.empty? ? render('welcome', :layout => 'application_index_page') : render('index')
+    @projects.empty? ? render('welcome', :layout => 'application_index_page') : render('index',:layout => 'twocolumns')
 
   end
 

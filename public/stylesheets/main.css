@@ -1281,6 +1281,15 @@ ul.menu{
 	margin:10px 0;
 }
 
+
+.projects_table th{
+	background-color: #BBBBBB;
+	color: #fff;
+}
+
+
+
+
 .width200px{
 	width:240px;
 	margin-top:0;
