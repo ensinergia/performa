@@ -8,18 +8,25 @@ class StrategicObjectivesController < ApplicationController
   before_filter :verify_subdomain
 
   def index
-    @strategic_objectives = current_company.strategic_objectives
+    @strategic_objectives = @selected_area==@root_area ? StrategicObjective.get_all_for(current_company).where(:area_id=>nil,:area_id=>@root_area.id ) : StrategicObjective.get_all_for(current_company).where(:area_id=>session[:area_id])
 
     @strategic_objectives.blank? ? render('index_welcome', :layout => 'application_index_page') : render('index')
   end
 
   def new
     @strategic_objective = StrategicObjective.new
+    if @selected_area.alevel==1
+      @strategic_lines=@root_area.strategic_lines
+    end  
   end
 
   # GET /strategic_objectives/1/edit
   def edit
+    
     @strategic_objective = StrategicObjective.find(params[:id])
+    if @selected_area.alevel==1
+      @strategic_lines=@root_area.strategic_lines
+    end 
   end
 
   def create

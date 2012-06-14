@@ -1,4 +1,4 @@
-<li rel="<%=strategic_objective.id %>" >
+<!--<li rel="<%=strategic_objective.id %>" >
 	<div  class=" list-item <%=(strategic_objective_counter + 1)%2==0 ? "light-gray" : "gray"  %>">
 		<div id="sl-<%= strategic_objective.id %>">
 			<div class='strategic_line_value'> 
@@ -23,3 +23,130 @@
 </div>
 <br/>
 </li>
+-->
+<li rel="<%=strategic_objective.id %>">
+	<table width="100%" cellspadding="0" celspacing="0" class="objective_table">
+		<tr>
+			<th width="60%" style="text-align:left; padding:6px"> <%= link_to "+/- ","", :class=>"head" , :rel=>"operative_#{strategic_objective.id}" %>   Objetivo</th>
+			<th width="20%"></th>
+			<th width="20%"></th>
+		</tr>
+		<tr>
+			<td>
+				<%= strategic_objective.content %> 
+			</td>
+			<td><%= record_info_for(strategic_objective) %></td>
+			<td>
+				<%= render :partial=>'comments/comments_link',:locals=>{:obj=>strategic_objective} %>
+				<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_strategic_objective_path(strategic_objective), :class => 'modify' %>
+				<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), strategic_objective_path(strategic_objective), 
+				:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
+				:connector => "ésta", 
+				:model => t('activerecord.models.strategic_objective'))%>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="5">
+				<br/>
+				<div id="operative_<%=strategic_objective.id %>" class="collapse">
+					<table width="60%" cellspadding="0" celspacing="0" class="objective_table">	
+						<tr>
+							<th width="80%"><%= t('views.operative_objective.index.pointers.pointer') %></th>
+							<th width="20%"><%= t('views.operative_objective.index.pointers.advance') %></th>
+						</tr>
+						<%- 
+						pointers=strategic_objective.pointers
+						if  pointers.empty?
+							%>	
+							<tr>
+								<td class="notification-box"><%= t('views.operative_objective.index.pointers.empty') %></td>
+								<td class="notification-box"></td>
+							</tr>
+							<%else%>
+
+							<%pointers.each_with_index do |pointer,index|
+								trclass= index%2==0 ? "blank-box" : "notification-box"
+								%>
+								<tr>
+									<td class="<%=trclass%>" width="60%">
+										<div class="right">
+											<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_pointer_path(pointer,:strategic_objective_id=>strategic_objective.id), :class => 'modify' %>
+											<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), pointer_path(pointer), 
+											:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
+											:connector => "ésta", 
+											:model => t('activerecord.models.pointer'))%>
+										</div>
+										<%= pointer.name%>
+
+									</td>
+									<td class="<%=trclass%>" width="40%">
+
+										<div id='chart_div_<%=strategic_objective.id%>_<%=pointer.id%>'></div>
+										<%-
+										thres=pointer.thresholds
+										unless thres.nil?
+											thresholds=thres.split(',')
+											umb2=thresholds[0]
+											umb4=thresholds[1]
+										else
+											umb2=30
+											umb4=70
+										end	
+
+										%>
+										<script type="text/javascript">
+										google.setOnLoadCallback(drawChart_<%=strategic_objective.id%>_<%=pointer.id%>);
+
+										function drawChart_<%=strategic_objective.id%>_<%=pointer.id%>() {
+											var data = new google.visualization.DataTable();
+											data.addColumn('string', 'Label');
+											data.addColumn('number', 'Value');
+											data.addRows([
+												['Status', <%= pointer.advance || 0%>]
+												]);
+												behavior="<%=pointer.behavior%>";
+												if (behavior=="Ascendente" || behavior=="" ){
+													var options = {
+														width: 450, height: 120,
+														redFrom: 0, redTo: <%=umb2%>,
+														yellowFrom:<%=umb2%> + 1, yellowTo: <%=umb4%>,
+														greenFrom:<%=umb4%> + 1, greenTo:100,
+														minorTicks: 5,
+														max: 100,
+														min: 0
+													};		
+												}else{
+													var options = {
+														width: 450, height: 120,
+														redFrom: 100, redTo: <%=umb2%>,
+														yellowFrom:<%=umb2%> + 1, yellowTo: <%=umb4%>,
+														greenFrom:<%=umb4%> + 1, greenTo:0,
+														minorTicks: 5, 
+														max: 0,
+														min: 100
+													};
+												}
+
+												var chart = new google.visualization.Gauge(document.getElementById('chart_div_<%=strategic_objective.id%>_<%=pointer.id%>'));
+												chart.draw(data, options);
+											}
+
+											</script>
+
+										</td>
+									</td>
+								</tr>
+								<%end%>
+								<%end%>
+								<tr>
+									<td class="notification-box " colspan="2"><%= link_to t('views.operative_objective.index.pointers.add'), new_pointer_path(:strategic_objective_id=>strategic_objective.id) %></td>
+								</tr>
+
+							</table>	
+						</div>
+
+					</td>
+				</tr>
+			</table>
+		</li>

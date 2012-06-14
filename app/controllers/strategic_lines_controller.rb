@@ -10,7 +10,8 @@ class StrategicLinesController < ApplicationController
   
   
   def index
-    @strategic_lines = StrategicLine.get_all_for(current_company)
+    
+    @strategic_lines = @selected_area==@root_area ? StrategicLine.get_all_for(current_company).where(:area_id=>nil,:area_id=>@root_area.id ) : StrategicLine.get_all_for(current_company).where(:area_id=>session[:area_id])
     
     @strategic_lines.blank? ? render('index_welcome', :layout => 'application_index_page') : render('index')
   end
@@ -59,7 +60,7 @@ class StrategicLinesController < ApplicationController
   
   
   def strategic_objectives
-     @strategic_objectives = current_company.strategic_objectives
+      @strategic_objectives = @selected_area.alevel==1 ? StrategicObjective.get_all_for(current_company).where(:area_id=>session[:area_id]) : StrategicObjective.get_all_for(current_company).where(:area_id=>nil,:area_id=>@root_area.id )
   end
   
 end

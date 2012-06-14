@@ -63,7 +63,7 @@ class OperatingCyclesController < ApplicationController
 
   private
   def strategic_lines
-    @strategic_lines = current_company.strategic_lines
+    @strategic_lines = StrategicLine.get_all_for(current_company).where(:area_id=>@selected_area.parent_id)
   end
 
   def find_operating_cycle

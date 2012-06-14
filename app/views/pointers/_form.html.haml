@@ -6,7 +6,10 @@
 
 = nested_form_for @pointer, :html=>{:multipart=>true, :class=>:validation} do |f| 
 	= f.hidden_field :user_id, :value => current_user.id
-	= f.hidden_field :operative_objective_id,:value =>  params[:operative_objective_id]
+	-if  params[:operative_objective_id] 
+		= f.hidden_field :operative_objective_id,:value =>  params[:operative_objective_id]
+	-else	
+		= f.hidden_field :strategic_objective_id,:value =>  params[:strategic_objective_id]
 
 	.left.marginright10px
 		= f.label :name, t('views.pointers.new.name'), :class => 'bold'

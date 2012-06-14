@@ -10,6 +10,7 @@
     <div class="form-box">
       <%= form_for @strategic_line, :html=>{:class=>:validation} do |f| %>
         <%= f.text_area :content, :required=>:required, :rel=>"Descripción"  %><br/>
+		<%= f.hidden_field :area_id,:value=> session[:area_id]  %>
 
 		<h2><%= t('views.strategic_lines.new.strategic_objectives') %></h2>
         <ul>

@@ -10,6 +10,18 @@
     <div class="form-box">
       <%= form_for @strategic_objective , :html=>{:class=>"validation"} do |f| %>
         <%= f.text_area :content, :required=>:required, :rel=>"Descripción" %><br/>
+		<%= f.hidden_field :area_id,:value=> session[:area_id]  %>
+		<%-if @selected_area.alevel==1%>
+		<h2><%= t('views.strategic_lines.new.strategic_objectives') %></h2>
+        <ul>
+          <% @strategic_lines.each do |strategic_line| %>
+            <li>
+              <%= check_box_tag "strategic_objective[strategic_line_ids][]", strategic_line.id, strategic_objective_include_strategic_line?(f.object, strategic_line) -%>
+              <%= label_tag "strategic_objective_strategic_lines_ids_", strategic_line.content -%>
+            </li>
+          <% end %>
+        </ul>
+		<%-end%>
 
       </div>
       <%= render 'shared/notifications' %>
