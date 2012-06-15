@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614172044) do
+ActiveRecord::Schema.define(:version => 20120614233001) do
 
   create_table "analyses", :force => true do |t|
     t.string   "content"
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(:version => 20120614172044) do
     t.text     "algorithm"
     t.float    "status"
     t.integer  "strategic_objective_id"
+    t.integer  "project_id"
   end
 
   create_table "positions", :force => true do |t|

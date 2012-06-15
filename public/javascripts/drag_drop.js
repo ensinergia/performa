@@ -23,7 +23,7 @@ function dragAndDrop(type,id){
 				id=$(this).attr('rel');
 				str+=$(this).attr('rel');
 				str+=',';
-				$("#priority_"+id).html(index);
+				$("#priority_"+id).html(index+1);
 			});
 			$.ajax({
   				type: 'POST',

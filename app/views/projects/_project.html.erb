@@ -3,11 +3,11 @@
 	<div id="sl-<%= project.id %>">
 		<table width="100%" cellspadding="0" celspacing="0">
 		<tr>
-			<td width="30%" colspan="2"><%= project.name %> </td>
+			<td width="30%" colspan="2"> <%= link_to "+/- ","", :class=>"head" , :rel=>"project_#{project.id}" %><%= project.name %> </td>
 			<td width="10%"><%= project.ptype %></td>
 			<td width="15%"><%= project.investment %></td>
 			<td width="20%"></td>
-			<td width="5%" align="center"><span id="priority_<%=project.id %>"><%=project_counter %></span></td>
+			<td width="5%" align="center"><span id="priority_<%=project.id %>"><%=project_counter+1 %></span></td>
 			<td width="15%">	<%= render :partial=>'comments/comments_link',:locals=>{:obj=>project} %>
 			<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_project_path(project), :class => 'modify' %>
 			<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), project_path(project), 
@@ -16,6 +16,111 @@
 																								:model => t('activerecord.models.project'))%>
 																								</td>
 		</tr>
+		
+		
+				<tr>
+			<td colspan="7">
+				<br/>
+				<div id="project_<%=project.id %>" class="collapse">
+					<table width="60%" cellspadding="0" celspacing="0" class="objective_table">	
+						<tr>
+							<th width="80%"><%= t('views.operative_objective.index.pointers.pointer') %></th>
+							<th width="20%"><%= t('views.operative_objective.index.pointers.advance') %></th>
+						</tr>
+						<%- 
+						pointers=project.pointers
+						if  pointers.empty?
+							%>	
+							<tr>
+								<td class="notification-box"><%= t('views.operative_objective.index.pointers.empty') %></td>
+								<td class="notification-box"></td>
+							</tr>
+							<%else%>
+
+							<%pointers.each_with_index do |pointer,index|
+								trclass= index%2==0 ? "blank-box" : "notification-box"
+								%>
+								<tr>
+									<td class="<%=trclass%>" width="60%">
+										<div class="right">
+											<%= link_to (image_tag('editar_ico_up.png', :class => 'button_to_edit')), edit_pointer_path(pointer,:project_id=>project.id), :class => 'modify' %>
+											<%= link_to (image_tag('borrar_ico_up.png', :class => 'button_to_delete')), pointer_path(pointer), 
+											:method => :delete, :class=>'delete' , :confirm => t('views.common.messages.delete.confirm', 
+											:connector => "ésta", 
+											:model => t('activerecord.models.pointer'))%>
+										</div>
+										<%= pointer.name%>
+
+									</td>
+									<td class="<%=trclass%>" width="40%">
+
+										<div id='chart_div_<%=project.id%>_<%=pointer.id%>'></div>
+										<%-
+										thres=pointer.thresholds
+										unless thres.nil?
+											thresholds=thres.split(',')
+											umb2=thresholds[0]
+											umb4=thresholds[1]
+										else
+											umb2=30
+											umb4=70
+										end	
+
+										%>
+										<script type="text/javascript">
+										google.setOnLoadCallback(drawChart_<%=project.id%>_<%=pointer.id%>);
+
+										function drawChart_<%=project.id%>_<%=pointer.id%>() {
+											var data = new google.visualization.DataTable();
+											data.addColumn('string', 'Label');
+											data.addColumn('number', 'Value');
+											data.addRows([
+												['Status', <%= pointer.advance || 0%>]
+												]);
+												behavior="<%=pointer.behavior%>";
+												if (behavior=="Ascendente" || behavior=="" ){
+													var options = {
+														width: 450, height: 120,
+														redFrom: 0, redTo: <%=umb2%>,
+														yellowFrom:<%=umb2%> + 1, yellowTo: <%=umb4%>,
+														greenFrom:<%=umb4%> + 1, greenTo:100,
+														minorTicks: 5,
+														max: 100,
+														min: 0
+													};		
+												}else{
+													var options = {
+														width: 450, height: 120,
+														redFrom: 100, redTo: <%=umb2%>,
+														yellowFrom:<%=umb2%> + 1, yellowTo: <%=umb4%>,
+														greenFrom:<%=umb4%> + 1, greenTo:0,
+														minorTicks: 5, 
+														max: 0,
+														min: 100
+													};
+												}
+
+												var chart = new google.visualization.Gauge(document.getElementById('chart_div_<%=project.id%>_<%=pointer.id%>'));
+												chart.draw(data, options);
+											}
+
+											</script>
+
+										</td>
+									</td>
+								</tr>
+								<%end%>
+								<%end%>
+								<tr>
+									<td class="notification-box " colspan="2"><%= link_to t('views.operative_objective.index.pointers.add'), new_pointer_path(:project_id=>project.id) %></td>
+								</tr>
+
+							</table>	
+						</div>
+
+					</td>
+				</tr>
+		
 		</table>
 	
 	</div>

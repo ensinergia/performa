@@ -26,7 +26,16 @@ class PointersController < ApplicationController
     @pointer.advance="#{'%.2f' % @pointer.advance.to_f}"
     if @pointer.save
       @pointer.notify_to(params[:users])
-      redirect_to(operative_objectives_url)
+      if @pointer[:strategic_objective_id]
+        redirect_to(strategic_objectives_url)
+      end
+        
+      if @pointer[:operative_objective_id] 
+        redirect_to(area_operative_objectives_url) 
+      end
+      if @pointer[:project_id] 
+        redirect_to(area_projects_url)
+      end  
     else
       render :action => 'new'
     end
@@ -41,7 +50,17 @@ class PointersController < ApplicationController
         @pointer.advance="#{'%.2f' % @pointer.advance.to_f}"
         @pointer.save
       @pointer.notify_to(params[:users])
-      redirect_to(operative_objectives_url)
+
+      if @pointer[:strategic_objective_id]
+        redirect_to(strategic_objectives_url)
+      end
+        
+      if @pointer[:operative_objective_id] 
+        redirect_to(area_operative_objectives_url) 
+      end
+      if @pointer[:project_id] 
+        redirect_to(area_projects_url)
+      end  
     else
       render :action => 'edit'
     end
