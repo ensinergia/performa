@@ -346,14 +346,6 @@ input:focus, textarea:focus {
   font-size: 12px !important;
 }
 
-.header-contents .right-menu .area-selector-arrow {
-  display: inline-block;
-  background: url(../images/select_arrow.png) no-repeat;
-  height: 10px;
-  width: 10px;
-  margin-top:10px;
-  float:left;
-}
 
 .header-contents .right-menu {
   position: absolute;
@@ -362,7 +354,7 @@ input:focus, textarea:focus {
   right: 30px;
   font-size: 12px;
   color: #fff;
-  width: 380px;
+  width: 450px;
 }
 
 .header-contents .right-menu a { 
@@ -1483,80 +1475,3 @@ ul.menu{
 
 .width1000 { width: 1000px }
 
-/*------------------------------------*\
-	NAV
-\*------------------------------------*/
-#menuContainer {
-  float:left;	
-  width: 220px;
-  padding: 5px;
-}
-
-/* Link styles*/
-
-#menuContainer a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  font-size: 9pt;
-  font-family: Verdana, Arial, sans-serif;
-}
-
-#menuContainer a:hover {
-  color: #fff;
-  cursor:hand;
-}
-
-/* Hide bullets in unordered list*/
-#menuContainer ul { 
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* Set li styles*/
-
-#menuContainer li {
-  background-color: #c1b2b2;
-  border: 1px solid #ccc;
-  min-width: 10em;
-  /* this is to make the submenus position relative to this li */
-  position: relative; 
-  padding: 3px;
-  list-style: none;
-
-}
-
-/* Mouseover li style*/
-#menuContainer li:hover {
-  border: 1px solid #CC6600;   
-  background-color: #FF9933;
-}
-
-/*Initially hide second level (or higher) pop-up*/
-#menuContainer ul ul {
-  position: absolute;
-  top: 19px;
-  left:-1px;	
-  visibility: hidden;
-  z-index: 5;
-}
-
-#menuContainer ul ul ul {
-  position: absolute;
-  left:10em;
-  top: 0;
-  visibility: hidden;
-  z-index: 10;
-}
-
-#menuContainer ul ul ul li{
-    border: 1px solid #fff;  
-    background-color: #ccc;
-}
-
-
-/*Mouseover: display second level (or higher) pop-up*/
-#menuContainer li:hover > ul {
-  visibility: visible;
-}

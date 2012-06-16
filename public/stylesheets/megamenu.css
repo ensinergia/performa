@@ -1,0 +1,99 @@
+.header-contents .right-menu .area-selector-arrow {
+  background: url(../images/select_arrow.png) no-repeat;
+  height: 10px;
+  padding-right:10px;
+  width: 10px;
+  top: 2px;
+  position: relative;
+}
+
+
+#menuContainer {
+  float:left;	
+  width: 350px;
+  padding: 5px;
+  margin-top:10px;
+}
+
+
+#menuContainer{
+	color:#000 !important;
+}
+
+
+.selected_area{
+background: #fff;
+border: 1px solid #000;
+width:100%;
+padding: 4px 20px;
+margin-top:10px;
+color:#524f4f !important;
+}
+
+
+.megamenu{
+position: absolute;
+display: none;
+left: 0;
+top: 0;
+background: white;
+border: 4px solid #ccc;
+padding: 10px;
+font: normal 12px Verdana;
+z-index: 100;
+
+}
+
+.megamenu .column{
+float: left;
+width: 240px; /*width of each menu column*/
+background:#e0dcdc;
+padding: 0 5px 10px 5px;
+margin: 0 10px 10px 0;
+}
+
+.megamenu .column ul{
+margin: 0;
+padding: 0;
+list-style-type: none !important;
+}
+
+.megamenu .column ul li{
+list-style: none !important;	
+padding: 3px 10px;
+background: #e0dcdc;
+font: bold 11px Arial;
+margin: 2px 10px;
+width: 170px;
+
+}
+
+.megamenu .column h3{
+background: #b5b1b1;
+font: bold 12px Arial;
+padding:3px;
+width: 230px;
+margin:10px 0;
+
+}
+
+.megamenu .column h3 a{
+	color:#524f4f !important;
+	text-decoration:none;
+	cursor:hand;
+}
+
+.megamenu .column h3 a:hover{
+	color:white !important;
+}
+
+
+.megamenu .column ul li a{
+color:#666565;	
+text-decoration: none;
+cursor:hand;
+}
+
+.megamenu .column ul li a:hover{
+color: white;
+}

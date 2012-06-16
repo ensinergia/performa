@@ -3,8 +3,8 @@
 	<head>
   		<title>Oficina de Gestion de desempeño</title>
   			<script type="text/javascript">var base_url='<%= root_url %>';</script>
-			<%= stylesheet_link_tag :defaults, 'layout', 'login', 'jquerytools' %>  		
-			<%= javascript_include_tag :defaults, 'best_in_place','jquery.tools.min','jqueryvalidations', :others %>
+			<%= stylesheet_link_tag :defaults, 'layout', 'login', 'jquerytools','megamenu.css' %>  		
+			<%= javascript_include_tag :defaults, 'best_in_place','jquery.tools.min','jqueryvalidations','megamenu.js', :others %>
 			<%= yield :javascript %>
 			<%= yield :styles %>
 			
@@ -18,7 +18,6 @@
 				<h1>Performa</h1>
 			<% end %>
 		</header>
-		
 		<p id="notice" class="flash centered"><%= notice %></p>
     <p id="alert" class="flash centered"><%= alert %></p>
 		<div id="errors">

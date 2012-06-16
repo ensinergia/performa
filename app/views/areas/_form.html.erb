@@ -17,7 +17,7 @@
 	<%= select(:area, :alevel, [[t('views.areas.level1'), 1], [t('views.areas.level2'), 2]])  %>
 	<div id="parent_area">
 		<h2 class='title_h2'><%=t 'views.areas.parent' %></h2>
-		<%= a.select :parent_id, options_from_collection_for_select(@parent_areas, 'id', 'name', :selected => @area.parent_id),{:include_blank => t('views.forms.select')}, {:class => ' left select_area', :required=>:required, :rel=>"Area Padre"} %>
+		<%= a.select :parent_id, options_from_collection_for_select(@parent_areas, 'id', 'name', :selected => @area.parent_id),{:include_blank => t('views.forms.select')}, {:class => ' left select_area', :required=>:required, :rel=>"Area Padre", :style=>"width:70%"} %>
 		<br/>
 	</div>
 	<h2 class='title_h2'><%=t 'views.areas.supported' %></h2>

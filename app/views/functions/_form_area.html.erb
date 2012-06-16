@@ -1,7 +1,7 @@
 <%- content_for :javascript do %>
 	<%= javascript_include_tag 'area', 'jquery-ui.min'%>
 <%- end %>	
-<%= select_tag "area_selector_inner", options_from_collection_for_select(@areas, "id", "name",session[:area_id]),{:include_blank => t('views.forms.select')}  %> <%= link_to t("views.areas.add_link"), "", :id=>"add_parent"	%>
+<%= select_tag "area_selector_inner", options_from_collection_for_select(@areas, "id", "name",session[:area_id]),{:include_blank => t('views.forms.select'), :style=>"width:70%"}  %> <%= link_to t("views.areas.add_link"), "", :id=>"add_parent"	%>
 <br/>
 <br/>
 <div id="area_supports">
