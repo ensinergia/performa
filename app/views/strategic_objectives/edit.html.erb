@@ -3,7 +3,7 @@
 	<%= content_for(:so_menu, &Proc.new { "selected" }) %>
 	
 	<div class="title-bar rounded-10-top">
-    <h2><%= t('views.strategic_objectives.edit.title') %></h2>
+    <h2><%= t("views.strategic_objectives.edit.title#{@selected_area.alevel}") %></h2>
     <%= link_to 'Back', strategic_objectives_path, :class => "back" %>
   </div>
 
@@ -14,7 +14,7 @@
         <%= f.text_area :content, :required=>:required, :rel=>"Descripción"  %><br/>
 		<%= f.hidden_field :area_id,:value=> session[:area_id]  %>
 			<%-if @selected_area.alevel==1%>
-		<h2><%= t('views.strategic_lines.new.strategic_objectives') %></h2>
+		<h2><%= t("views.strategic_objectives.new.strategic_lines") %></h2>
         <ul>
           <% @strategic_lines.each do |strategic_line| %>
             <li>

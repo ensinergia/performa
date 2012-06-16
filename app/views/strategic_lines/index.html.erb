@@ -4,7 +4,7 @@
 	<%= content_for(:sl_menu, &Proc.new { "selected" }) %>
 	
 	<div class="title-bar rounded-10-top">
-		<h2><%= t('views.strategic_lines.index.not_empty.title') %></h2>
+		<h2><%= t("views.strategic_lines.index.not_empty.title#{@selected_area.alevel}") %></h2>
   </div>
 	
 	<div class="inside-box">
@@ -12,7 +12,7 @@
 		<%= render :partial => 'strategic_line', :collection => @strategic_lines %>
 		</ul>
 		<div class='strategic_add_link'>
-			<%= link_to t('views.strategic_lines.index.not_empty.controls.add'), new_strategic_line_path %>
+			<%= link_to t("views.strategic_lines.index.not_empty.controls.add#{@selected_area.alevel}"), new_strategic_line_path %>
 		</div>
 	</div>
 </div>

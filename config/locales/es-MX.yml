@@ -418,21 +418,29 @@ es-MX:
         empty:
           title: "¿Listo para agregar la primer Línea Estratégica?"
           description: "Esta es la descripción para una nueva línea estratégica"
+          title1: "¿Listo para agregar la primer Línea Estratégica Específica?"
+          description1: "Esta es la descripción para una nueva línea estratégica específica"
           controls:
-            start: "Guardar"
+            start: "Agregar Nueva"
         not_empty:
           title: "Líneas Estratégicas"
+          title1: "Líneas Estratégicas Específicas"
           controls:
             add: "Agregar una Línea Estratégica"
+            add1: "Agregar una Línea Estratégica Específica"
       new:
         title: "Agregando una Línea Estratégica"
         strategic_objectives: "Objetivos(s) Estratégico(s) a (el/los) que contribuye:"
+        title1: "Agregando una Línea Estratégica Específica"
+        strategic_objectives1: "Objetivos(s) Específico(s) a (el/los) que contribuye:"
         controls:
           cancel: "Cancelar"
           save: "Guardar"
       edit:
         title: "Modificando Línea Estratégica"
         strategic_objectives: "Expectativas a cubrir:"
+        title1: "Modificando Línea Estratégica Específica"
+        strategic_objectives1: "Expectativas a cubrir:"
         last_updated: "Última actualización"
         controls:
           cancel: "Cancelar"
@@ -657,20 +665,27 @@ es-MX:
         empty:
           title: "¿Listo para agregar el primer Objetivo Estratégico?"
           description: "Esta es la descripción para un nuevo objetivo estratégico"
+          title1: "¿Listo para agregar el primer Objetivo Especìfico?"
+          description1: "Esta es la descripción para un nuevo objetivo especìfico"
           controls:
             start: "Agregar Objetivo"
         not_empty:
           title: "Objetivos Estratégicos"
+          title1: "Objetivos Específicos"
           controls:
             add: "Agregar un Objetivo Estratégico"
+            add1: "Agregar un Objetivo Específico"
       new:
         title: "Agregando un Objetivo Estratégico"
         strategic_lines: "Linea(s) Estratégica(s) a la que contribuye:"
+        title1: "Agregando un Objetivo Específico"
+        strategic_lines1: "Linea(s) Estratégica(s) Específica(s) a la que contribuye:"
         controls:
           cancel: "Cancelar"
           save: "Guardar"
       edit:
         title: "Modificando Objetivo Estratégico"
+        title1: "Modificando Objetivo Específico"
         last_updated: "Última actualización"
         strategic_lines: "Expectativas a cubrir:"
         controls:
