@@ -7,13 +7,17 @@ $(document).ready(function() {
 	dragAndDrop("profits","");
 	dragAndDrop("project_objectives","");
 	dragAndDrop("liabilities","");
-
+	dragAndDrop("project_tasks","");
 
 	$("#add_profit").click(function(){
 		add_input('profits');
 		return false;
 	});
 
+	$("#add_project_task").click(function(){
+		add_input('project_tasks');
+		return false;
+	});
 
 	$("#add_liabilitie").click(function(){
 		add_input('liabilities');

@@ -25,7 +25,7 @@
 				<div class="field-set label-large">
 					
 					<div><%= f.label :area %> </div>
-					<%= f.select "area_id", options_from_collection_for_select(current_user.company.areas, "id", "name",@user.area_id) %>
+					<%= f.select "area_id", options_from_collection_for_select(current_user.company.areas, "id", "name",@user.area_id),{}, {:style=>"width:90%"} %>
 					
 					<div><%= f.label :position %></div>
 

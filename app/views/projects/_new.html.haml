@@ -102,6 +102,8 @@
 	%br
 	= render :partial => 'childs', :locals=>{:type=>'restriction'}
 	%br
+	%br
+	= render :partial => 'childs', :locals=>{:type=>'project_task'}
 	= render 'shared/notifications'
 	%div.actions
 		= link_to t('views.projects.new.controls.cancel'), projects_path, :class => 'button gray'
