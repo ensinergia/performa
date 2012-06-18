@@ -19,11 +19,12 @@
 			<div id ="menuContainer">  
 
 					<%-selected=@areas_allowed.find(session[:area_id]) %>
-					<%-first_level=@areas_allowed.where(:alevel=>1) %>
+					<%-first_level=@areas_allowed.where(:alevel=>1).order("name DESC") %>
 					<a href="#" class="area_link selected_area" rel="<%=selected.id%>" id="megaanchor"><span class="area-selector-arrow">&nbsp;</span><%=selected.name%></a>     
 					
 						<%- if @areas_allowed.include?(@root_area) && @root_area!= selected 
-							first_level<< @root_area  
+							first_level<<@root_area
+							first_level.reverse!
 					  	end
 						%>
 					<div id="megamenu1" class="megamenu">
