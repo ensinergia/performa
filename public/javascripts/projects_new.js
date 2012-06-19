@@ -9,6 +9,14 @@ $(document).ready(function() {
 	dragAndDrop("liabilities","");
 	dragAndDrop("project_tasks","");
 	dragAndDrop("project_areas","");
+	dragAndDrop("project_members","");
+	
+	
+	$("#add_member").click(function(){
+		add_input_member('project_members');
+		return false;
+	});
+	
 	
 	$("#add_area").click(function(){
 		add_input_people('project_areas');
@@ -225,6 +233,47 @@ function add_input_people(type){
 		
 		links='<div class="right"><a rel="project_project_areas_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 		input="<div><li rel='"+id+"'><div class="+classs+" id='project_project_areas_attributes_new_"+id+"_div'>"+text+inp+links+"</div></div>";
+
+		clear='<div class="clear"></div></li></div>';
+		$("#"+type+"_ul").append(input+clear);
+
+
+
+		$(".delete").click(function(){
+			id=$(this).attr('rel');
+			$("#"+id).remove();
+			return false;
+		});
+
+
+
+	}
+
+}
+
+
+
+function add_input_member(type){
+	id_obj=$("#"+type+"_select").val();
+	role=$("#"+type+"_type_select").val();
+	console.log(role);
+	project_id=$("#add_member").attr("rel");
+	if(id_obj!="" && role!=""){
+		id=Math.floor(Math.random()*1000)+170;
+		inputs=$("#"+type+"_ul > div > li").length;
+		if(inputs%2==0)
+		classs='gray';
+		else
+		classs='blank_bg';
+
+		text=$("#"+type+"_select  option[value='"+id_obj+"']").text();
+
+		inp1="<div class='left  hidden'><input type='text' value='"+id_obj+"' name='project[project_members_attributes][new_"+id+"][user_id]' id='project_members_attributes_new_"+id+"'><input type='text' value='"+role+"' name='project[project_members_attributes][new_"+id+"][role]' id='project_members_attributes_new_"+id+"'>";
+		inp2="<input type='hidden'  name='project[project_members_attributes][new_"+id+"][torder]' id='project_"+type+"_attributes_"+id+"_torder'><input type='text' value='"+project_id+"' name='project[project_members_attributes][new_"+id+"][project_id]' id='project_members_attributes_new_"+id+"'>"+text+"</div>";
+		inp=inp1+inp2;
+		
+		links='<div class="right" style="width:200px" ><span style="width:30px;margin-right:90px">'+role+'</span><a rel="project_project_members_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
+		input="<div><li rel='"+id+"'><div class="+classs+" id='project_project_members_attributes_new_"+id+"_div'>"+text+inp+links+"</div></div>";
 
 		clear='<div class="clear"></div></li></div>';
 		$("#"+type+"_ul").append(input+clear);

@@ -469,6 +469,10 @@ es-MX:
             save: "Guardar cambios" 
 
     projects:
+      membertype_options:
+          1d: "Patrocinador"
+          2d: "Especialista"
+          3d: "Lìder"    
       index:
         empty:
             title: "¿Listo para agregar El primer Proyecto?"

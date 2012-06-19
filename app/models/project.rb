@@ -13,10 +13,11 @@ class Project < ActiveRecord::Base
   has_many :project_objectives, :dependent => :destroy, :order=>"torder ASC"
   has_many :project_tasks, :dependent => :destroy, :order=>"torder ASC"
   has_many :project_areas, :dependent => :destroy, :order=>"torder ASC"
+  has_many :project_members, :dependent => :destroy, :order=>"role ASC"
   has_many :comments, :as => :commentable
   has_many :pointers , :dependent=>:destroy
   
-  accepts_nested_attributes_for :project_objectives,:liabilities, :restrictions, :profits, :project_tasks,:project_areas, :allow_destroy => true
+  accepts_nested_attributes_for :project_objectives,:liabilities, :restrictions, :profits, :project_tasks,:project_areas,:project_members, :allow_destroy => true
   
   #*************************************************
   #                   Instance Methods             *

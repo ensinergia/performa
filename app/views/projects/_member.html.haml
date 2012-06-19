@@ -1,0 +1,32 @@
+.light-gray.padding_10px
+	.left
+		%label
+			%strong
+				= t("views.projects.section_members")
+	.clear
+	%br
+	%br
+	= select_tag "project_members_select", options_from_collection_for_select(@users, "id", "name",session[:member_id]),{:include_blank => t('views.forms.select'), :style=>"width:50%"}
+	= select_tag "project_members_type_select",options_for_select(["#{t('views.projects.membertype_options.1d')}","#{t('views.projects.membertype_options.2d')}","#{t('views.projects.membertype_options.3d')}"]),:include_blank => t('views.forms.select'), :style=>"width:20%"
+	= link_to t("views.projects.add_member"), "", :id=>"add_member", :rel=>@project.id
+	%br
+	%br
+	#member_supports
+		%ul{:id=>"project_members_ul"}
+			-index=0	
+			= p.fields_for :project_members do |member| 
+				-classs=index%2==0 ?  "gray" : "blank_bg"
+				%li{:id=>"#{member.object.id}", :rel=>"#{index}" }
+					%div{ :id=>"project_project_members_attributes_#{member.object.id}_div_#{index}", :class=>"#{classs}" }
+						.left{:style=>"width:380px"}
+							= member.hidden_field :id
+							= member.hidden_field :torder
+							= member.object.member.name
+						.right{:style=>"width:200px"}
+							%span{:style=>"width:30px;margin-right:90px"}
+								= member.object.role
+							=link_to image_tag("borrar_ico_up.png", :class=>"button_to_delete",:alt=>"Borrar_ico_up"),"", :rel=>"project_project_members_attributes_#{member.object.id}_div_#{index}", :class=>"delete"
+							
+						.clear
+				-index+=1
+

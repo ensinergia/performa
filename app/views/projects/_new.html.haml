@@ -108,6 +108,9 @@
 	%br
 	= render :partial => "areas", :locals=>{:p=>f}
 	%br
+	%br
+	= render :partial => "member", :locals=>{:p=>f}
+	%br
 	= render 'shared/notifications'
 	%div.actions
 		= link_to t('views.projects.new.controls.cancel'), projects_path, :class => 'button gray'
