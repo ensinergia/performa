@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 
   before_filter :verify_subdomain
   before_filter :users, :only => [:new, :edit]
-  before_filter :objectives, :only => [:new, :edit]
+  before_filter :objectives, :only => [:new, :edit, :update, :create]
   before_filter :find_project, :except =>  [:new, :create, :index]
 
 
@@ -39,7 +39,6 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-   
     if @project.update_attributes(params[:project])
       @project.notify_to(params[:users])
 
@@ -68,6 +67,7 @@ class ProjectsController < ApplicationController
   def objectives
     area=Area.find(session[:area_id])
     @objectives = area.operative_objectives
+    @sibling_areas = Area.where(:parent_id=>@selected_area.parent_id)
   end
 
   def find_project

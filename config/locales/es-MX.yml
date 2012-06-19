@@ -517,6 +517,11 @@ es-MX:
       add_restriction: "Agregar Supuesto o Restricción"
       section_project_tasks: "Hitos de control"
       add_project_task: "Agregar Hito de Control"
+      section_areas: "Areas Beneficiadas"
+      add_area: "Agregar Area"
+      section_members: "Equipo de Trabajo"
+      add_member: "Agregar Miembro"
+      
       profit_increment: "Incremento de Ingresos"
       profit_decrement: "Reducción de Costos"
       objectives: "Objetivos a los que contribuye..."

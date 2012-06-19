@@ -8,6 +8,13 @@ $(document).ready(function() {
 	dragAndDrop("project_objectives","");
 	dragAndDrop("liabilities","");
 	dragAndDrop("project_tasks","");
+	dragAndDrop("project_areas","");
+	
+	$("#add_area").click(function(){
+		add_input_people('project_areas');
+		return false;
+	});
+
 
 	$("#add_profit").click(function(){
 		add_input('profits');
@@ -196,6 +203,45 @@ function add_objectives_input(){
 
 }
 
+
+
+function add_input_people(type){
+	id_obj=$("#"+type+"_select").val();
+	project_id=$("#add_area").attr("rel");
+	console.log(id_obj+".."+project_id);
+	if(id_obj!=""){
+		id=Math.floor(Math.random()*1000)+170;
+		inputs=$("#"+type+"_ul > div > li").length;
+		if(inputs%2==0)
+		classs='gray';
+		else
+		classs='blank_bg';
+
+		text=$("#"+type+"_select  option[value='"+id_obj+"']").text();
+
+		inp1="<div class='left  hidden'><input type='text' value='"+id_obj+"' name='project[project_areas_attributes][new_"+id+"][area_id]' id='project_areas_attributes_new_"+id+"'>";
+		inp2="<input type='hidden'  name='project[project_areas_attributes][new_"+id+"][torder]' id='project_"+type+"_attributes_"+id+"_torder'><input type='text' value='"+project_id+"' name='project[project_areas_attributes][new_"+id+"][project_id]' id='project_areas_attributes_new_"+id+"'>"+text+"</div>";
+		inp=inp1+inp2;
+		
+		links='<div class="right"><a rel="project_project_areas_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
+		input="<div><li rel='"+id+"'><div class="+classs+" id='project_project_areas_attributes_new_"+id+"_div'>"+text+inp+links+"</div></div>";
+
+		clear='<div class="clear"></div></li></div>';
+		$("#"+type+"_ul").append(input+clear);
+
+
+
+		$(".delete").click(function(){
+			id=$(this).attr('rel');
+			$("#"+id).remove();
+			return false;
+		});
+
+
+
+	}
+
+}
 
 
 function dragAndDrop(type,id){
