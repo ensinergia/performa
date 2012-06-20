@@ -2,48 +2,45 @@ $(document).ready(function() {
 	$('#project_init_date').dateinput({ format: 'yyyy/mm/dd'});
 	$('#project_final_date').dateinput({ format: 'yyyy/mm/dd'});
 
+		models=["restriction","profit","project_objective","liabilitie","project_task","project_area","project_member"]
 
-	dragAndDrop("restrictions","");
-	dragAndDrop("profits","");
-	dragAndDrop("project_objectives","");
-	dragAndDrop("liabilities","");
-	dragAndDrop("project_tasks","");
-	dragAndDrop("project_areas","");
-	dragAndDrop("project_members","");
-	
-	
-	$("#add_member").click(function(){
-		add_input_member('project_members');
-		return false;
-	});
-	
-	
-	$("#add_area").click(function(){
-		add_input_people('project_areas');
-		return false;
-	});
+	for(i=0; i<models.length; i++){
+		dragAndDrop(models[i]+"s","");
 
+		switch(models[i]){
+			case "project_objective":
+			$("#add_objective").click(function(){
+				add_objectives_input();
+				return false;
+			});
+			break;
+			case "project_task":
+			$("#add_project_task").click(function(){
+				add_input('project_tasks');
+				return false;
+			});
+			break;
+			case "project_area":
+			$("#add_area").click(function(){
+				add_input_people('project_areas');
+				return false;
+			});
+			break;
+			case "project_member":
+			$("#add_member").click(function(){
+				add_input_member('project_members');
+				return false;
+			});
+			break;
+			default: 
+			$("#add_"+models[i]).click(function(){	
+				add_input($(this).attr('id').split('_')[1]+"s");
+				return false;
+			});
 
-	$("#add_profit").click(function(){
-		add_input('profits');
-		return false;
-	});
+		}
 
-	$("#add_project_task").click(function(){
-		add_input('project_tasks');
-		return false;
-	});
-
-	$("#add_liabilitie").click(function(){
-		add_input('liabilities');
-		return false;
-	});
-
-
-	$("#add_restriction").click(function(){
-		add_input('restrictions');
-		return false;
-	});
+	}
 
 
 	$(".close").click(function(){
