@@ -4,7 +4,6 @@
 	[vidriloco](https://github.com/vidriloco) in charge.
 
 ### Installation
-
 Follow the usual *deployment* process amongst all rails applications (in Production using Heroku):
 
 0. heroku run bundle install / bundle update
