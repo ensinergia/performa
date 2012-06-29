@@ -8,7 +8,7 @@ class OperatingCyclesController < ApplicationController
   layout 'application'
 
   before_filter :verify_subdomain
-  before_filter :strategic_lines, :only => [:new, :edit]
+  before_filter :operative_objectives, :only => [:new, :edit, :update, :create]
   before_filter :find_operating_cycle, :except =>  [:new, :create, :index]
 
 
@@ -62,8 +62,8 @@ class OperatingCyclesController < ApplicationController
   end
 
   private
-  def strategic_lines
-    @strategic_lines = StrategicLine.get_all_for(current_company).where(:area_id=>@selected_area.parent_id)
+  def operative_objectives
+    @operative_objectives = OperativeObjective.get_all_for(@selected_area.id)
   end
 
   def find_operating_cycle

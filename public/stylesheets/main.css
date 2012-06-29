@@ -467,17 +467,17 @@ ul.menu{
 
 
 .menu li.selected a.ciclos-op-btn, .menu li.selected a.ciclos-op-btn:hover {
-  background: url(../images/ciclos_btn_selected.png) no-repeat;
+  background: url(../images/procesos_btn_selected.png) no-repeat;
 }
 
 .menu li a.ciclos-op-btn:hover {
-  background: url(../images/ciclos_btn_hover.png) no-repeat;
+  background: url(../images/procesos_btn_hover.png) no-repeat;
 }
 
 .menu li a.ciclos-op-btn {
-  width:160px;
+  width:95px;
   height: 32px;
-  background: url(../images/ciclos_btn_up.png) no-repeat;
+  background: url(../images/procesos_btn_up.png) no-repeat;
 }
 
 

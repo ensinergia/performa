@@ -1,0 +1,8 @@
+%div.form-box
+	%h2
+		= t('views.operating_cycle.operative_objectives')
+	%ul
+		- @operative_objectives.each do |operative_objective|
+			= check_box_tag 'operating_cycle[operative_objective_ids][]', operative_objective.id, @operating_cycle.operative_objectives.include?(operative_objective)
+			= label_tag :operating_cylce_operative_objective_ids_, "#{operative_objective.results} <strong>MEDIANTE</strong> #{operative_objective.actions} ".html_safe
+			%br

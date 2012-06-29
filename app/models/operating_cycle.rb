@@ -3,7 +3,7 @@ class OperatingCycle < ActiveRecord::Base
   include Order
   
   attr_accessible :name, :reason, :company_id,:area_id, :user_id, :internal_id, :clients_attributes,
-    :stages_attributes, :services_attributes, :strategic_line_ids
+    :stages_attributes, :services_attributes,:operative_objective_ids
 
   #*************************************************
   #                   Relations                    *
@@ -14,8 +14,8 @@ class OperatingCycle < ActiveRecord::Base
   has_many :services, :dependent => :destroy,  :order=>"torder ASC"
   has_many :stages, :dependent => :destroy ,  :order=>"torder ASC"
   has_many :comments, :as => :commentable
-  has_and_belongs_to_many :strategic_lines, :uniq => true
-  accepts_nested_attributes_for :clients, :stages, :services, :allow_destroy => true
+  has_and_belongs_to_many :operative_objectives, :uniq => true
+  accepts_nested_attributes_for :clients, :stages,:operative_objectives, :services, :allow_destroy => true
   
   #*************************************************
   #                   Instance Methods             *

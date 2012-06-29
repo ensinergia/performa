@@ -567,7 +567,7 @@ es-MX:
             advance: "Avance"
             empty: "No hay indicadores actualmente."
             add: "Agregar indicador"   
-      strategic_lines: "Líneas Estratégicas"           
+      strategic_lines: "Líneas Estratégicas Específicas"           
       new:
         title: "Agregando un Objetivo Operativo"
         through: "Mediante"
@@ -888,3 +888,4 @@ es-MX:
       reason: 'Razon de Ser'
       section_client: 'Clientes'
       strategic_lines: "Líneas Estratégicas"
+      operative_objectives: "Objetivos Operativos"
