@@ -7,7 +7,7 @@ module OperatingCyclesHelper
     clients=operating_cycle.clients	
     products=operating_cycle.services	
 
-    unless stages.empty? || clients.empty? || products.empty?
+    unless stages.empty? || clients.empty?
 
       clients=get_clients(operating_cycle)
       products=get_products(operating_cycle)
@@ -46,12 +46,12 @@ module OperatingCyclesHelper
             labels+='"'+x.id.to_s+'.-'+stage.id.to_s+'" [label="'+stname+'", shape= box, style=filled,color=white,fontsize=9,fixedsize=true, width=1.8,height='+height.to_s+',text-wrap= auto, margin=0];'	
 
             if index==0 && i==0
-              from_clients+='"clients" -> "'+x.id.to_s+'.-'+stage.id.to_s+'"[style=dashed];'
+              from_clients+='"clients" -> "'+x.id.to_s+'.-'+stage.id.to_s+'"[style=invis];'
             end
 
             if i==steps_arr.count-1
               to_products+='"'+x.id.to_s+'.-'+stage.id.to_s+'"'+" -> products";	
-              to_products+=	index==stages.count-1 ? "[style=dashed] ; " : "[style=invis] ; " 
+              to_products+=	index==stages.count-1 ? "[style=invis] ; " : "[style=invis] ; " 
             end
 
             if i==0
@@ -59,7 +59,7 @@ module OperatingCyclesHelper
               '"'+x.id.to_s+'.-'+stage.id.to_s+'"'	
             else
               nextt='"'+x.id.to_s+'.-'+stage.id.to_s+'"'
-              str= i==steps_arr.count-1 ?	'-> "'+x.id.to_s+'.-'+stage.id.to_s+'" ; ' : '-> "'+x.id.to_s+'.-'+stage.id.to_s+'" ; ' + nextt	
+              str= i==steps_arr.count-1 ?	'-> "'+x.id.to_s+'.-'+stage.id.to_s+'"[style=invis]  ; ' : '-> "'+x.id.to_s+'.-'+stage.id.to_s+'"[style=invis] ; ' + nextt	
 
             end	
 
@@ -69,7 +69,7 @@ module OperatingCyclesHelper
             nexts=stages[index+1].steps.first
             x=stages[index].steps.last
             unless nexts.nil?
-              follow+='"'+x.id.to_s+'.-'+stage.id.to_s+'" -> "'+nexts.id.to_s+'.-'+stages[index+1].id.to_s+'"[style=dashed] ;'
+              follow+='"'+x.id.to_s+'.-'+stage.id.to_s+'" -> "'+nexts.id.to_s+'.-'+stages[index+1].id.to_s+'"[style=invis] ;'
             end
           end	
 
@@ -95,7 +95,7 @@ module OperatingCyclesHelper
       '+from_clients+'
       "clients" [shape=box,style=filled,color="#FF7E51", label="'+clients.join+'",fontsize=9];
       '+to_products+'
-      "products" [shape=box,style=filled,color="#F9A366", label="'+products.join+'",fontsize=9];
+      "products" [shape=box,style=invis,color="#F9A366", label="'+products.join+'",fontsize=9];
       '+stages_str+'
       edge[constraint=false];
       '+follow+'
