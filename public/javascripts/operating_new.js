@@ -70,7 +70,7 @@ function add_input(type){
 		close_edit='<a rel="operating_cycle_'+type+'_attributes_new_'+id+'_name" id="operating_cycle_'+type+'_attributes_new_'+id+'_name_close" href="" class="close hidden"><img src="/images/close.png" alt="Close"></a>';
 		if (type=='stages'){
 			steps='<div id="steps_'+id+'" class="hidden"><ul></u></div>';
-			inp='<div class="clear"></div><div class="steps_container"><label><strong> Pasos </strong></label><br><br><div class="align-left left" style="width:100%"><input id="steps_'+id+'_input" style="width:80%"><a id="add_step_'+id+'" rel="'+id+'" href="" class="add_step">+ Agregar Paso</a></div><div class="clear"></div><br/>'+steps+'</div>';
+			inp='<div class="clear"></div><div class="steps_container"><label><strong> Productos y/o Servicios </strong></label><br><br><div class="align-left left" style="width:100%"><input id="steps_'+id+'_input" style="width:60%"><a id="add_step_'+id+'" rel="'+id+'" href="" class="add_step">+ Agregar Producto y/o Servicio</a></div><div class="clear"></div><br/>'+steps+'</div>';
 
 			class_delete='delete'
 			collapse="<a rel='operating_cycle_"+type+"_attributes_new_"+id+"_div' href=''class='head'>+/-</a>";
