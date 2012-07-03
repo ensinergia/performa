@@ -207,7 +207,7 @@ es-MX:
       mission: "Misión"
       vision: "Visión"
       contextual_legend: "Información Contextual"
-      operating_cycle: "Procesos"
+      operating_cycle: "Ciclo Operativos"
       operative_objective: "Objetivo Operativo"
       pointer: "Indicador"
       project: "Proyecto"
@@ -375,7 +375,7 @@ es-MX:
         add_programmes: "Agregar Programas"
         add_areas_and_people: "Agregar Áreas y Personas"
         add_project: "Agregar Proyecto"
-        add_cycle: "Agregar Proceso"
+        add_cycle: "Agregar Ciclo Operativo"
         add_strategic_objetive: "Agregar Objetivo Operativo"
     help:
       title: "Ayuda"
@@ -448,21 +448,21 @@ es-MX:
     cycles:
       index:
         empty:
-            title: "¿Listo para agregar El primer Proceso?"
-            description: "Esta es la descripción para un nuevo Proceso"
+            title: "¿Listo para agregar El primer Ciclo Operativo?"
+            description: "Esta es la descripción para un nuevo Ciclo Operativo"
             controls:
               start: "Guardar"
         not_empty:
-            title: "Procesos"
+            title: "Ciclo Operativos"
             controls:
-              add: "Agregar un Proceso"
+              add: "Agregar un Ciclo Operativo"
       new:
-        title: "Agregando un Proceso"
+        title: "Agregando un Ciclo Operativo"
         controls:
           cancel: "Cancelar"
           save: "Guardar"
       edit:
-          title: "Modificando Proceso"
+          title: "Modificando Ciclo Operativo"
           last_updated: "Última actualización"
           controls:
             cancel: "Cancelar"

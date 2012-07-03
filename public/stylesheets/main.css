@@ -467,17 +467,17 @@ ul.menu{
 
 
 .menu li.selected a.ciclos-op-btn, .menu li.selected a.ciclos-op-btn:hover {
-  background: url(../images/procesos_btn_selected.png) no-repeat;
+  background: url(../images/ciclos_btn_selected.png) no-repeat;
 }
 
 .menu li a.ciclos-op-btn:hover {
-  background: url(../images/procesos_btn_hover.png) no-repeat;
+  background: url(../images/ciclos_btn_hover.png) no-repeat;
 }
 
 .menu li a.ciclos-op-btn {
-  width:95px;
+  width:158px;
   height: 32px;
-  background: url(../images/procesos_btn_up.png) no-repeat;
+  background: url(../images/ciclos_btn_up.png) no-repeat;
 }
 
 
@@ -1302,7 +1302,7 @@ ul.menu{
 }
 
 .objective_table td{
-	margin:10px 0;
+	padding:8px 5px;
 }
 
 
