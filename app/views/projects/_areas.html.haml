@@ -21,7 +21,7 @@
 							= area.hidden_field :id
 							= area.hidden_field :torder
 							= area.object.area.name
-						.right
+						.right.action{:id=>"action_project_areas_#{index}"}
 							=link_to image_tag("borrar_ico_up.png", :class=>"button_to_delete",:alt=>"Borrar_ico_up"),"", :rel=>"project_project_areas_attributes_#{area.object.id}_div_#{index}", :class=>"delete"
 							
 						.clear

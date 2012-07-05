@@ -6,10 +6,9 @@
 	.clear
 	%br
 	%br
-	.align-right.left{:style=>"width:95%"}
-		%input{:id=>"#{type}s_input", :style=>"width:100%"}		
-		%br
-		= link_to t("views.projects.add_#{type}"), "", :id=>"add_#{type}"
+	.left{:style=>"width:95%"}
+		%input{:id=>"#{type}s_input", :style=>"width:80%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}"}		
+		=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
 	.clear	
 	%br
 	%div{:id=>"#{type}s"}
@@ -38,7 +37,7 @@
 								%a{:id=>"project_#{type}s_attributes_#{index}_name_close",:rel=>"project_#{type}s_attributes_#{index}_name",:class=>"close hidden",  :href=>""}
 									=image_tag "close.png"
 
-						.right
+						.right.action{:id=>"action_#{type}s_#{index}"}
 							%a{:rel=>"project_#{type}s_attributes_#{index}_name",:class=>"modify",  :href=>""}
 								=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"	
 							%a{:rel=>"project_#{type}s_attributes_#{client.object.id}_div_#{index}",:class=>"delete",  :href=>""}

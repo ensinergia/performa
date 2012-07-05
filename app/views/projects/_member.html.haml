@@ -22,9 +22,10 @@
 							= member.hidden_field :id
 							= member.hidden_field :torder
 							= member.object.member.name
-						.right{:style=>"width:200px"}
-							%span{:style=>"width:30px;margin-right:90px"}
+							%span{:style=>"width:30px;margin-left:100px"}
 								= member.object.role
+							%br	
+						.right.action{:id=>"action_project_members_#{index}",:style=>"width:200px"}
 							=link_to image_tag("borrar_ico_up.png", :class=>"button_to_delete",:alt=>"Borrar_ico_up"),"", :rel=>"project_project_members_attributes_#{member.object.id}_div_#{index}", :class=>"delete"
 							
 						.clear

@@ -2,10 +2,20 @@ $(document).ready(function() {
 	$('#project_init_date').dateinput({ format: 'yyyy/mm/dd'});
 	$('#project_final_date').dateinput({ format: 'yyyy/mm/dd'});
 
-		models=["restriction","profit","project_objective","liabilitie","project_task","project_area","project_member"]
+		models=["restriction","profit","project_objective","liabilitie","project_task","project_area","project_member"];
+		models_es=["Supuesto o Restricción","Beneficio","Objetivo","Riesgo","Hito de Control","project_area","project_member"];
 
 	for(i=0; i<models.length; i++){
 		dragAndDrop(models[i]+"s","");
+        $("#"+models[i]+"s_input").click(
+			function(){	
+				type=$(this).attr("rel");
+				$("#add_"+type).removeClass("hidden");
+				$(this).removeClass("add_input");		
+				$(this).val("");		
+			}
+		);
+
 
 		switch(models[i]){
 			case "project_objective":
@@ -103,7 +113,7 @@ function add_input(type){
 		
 		close='<a rel="project_'+type+'_attributes_new_'+id+'_name" id="project_'+type+'_attributes_new_'+id+'_name_close" href="" class="close hidden"><img src="/images/close.png" alt="Close"></a>';
 		input="<div> <li rel='"+id+"'><div class='"+classs+"' id='project_"+type+"_attributes_new_"+id+"_div'><div class='left'><input type='text' size='"+size+"' name='project["+type+"_attributes][new_"+id+"][name]' id='project_"+type+"_attributes_new_"+id+"_name' class='no_edit_input ' value='"+value+"'>"+ptype+close+"</div><input type='hidden'  name='project["+type+"_attributes][new_"+id+"][torder]' id='project_"+type+"_attributes_"+id+"_torder' value='"+inputs+"'>"+inp;
-		links='<div class="right"><a class="modify" href="" rel="project_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="project_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
+		links='<div class="right action" id="action_'+type+'_'+id+'"><a class="modify" href="" rel="project_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="project_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 		clear='<div class="clear"></div></div></li></div>';
 		$("#"+type+"_ul ").append(input+links+clear);
 		$("#"+type).removeClass("hidden");
@@ -148,6 +158,19 @@ function add_input(type){
 
 
 	}
+	
+
+	 model_es="_"
+	for(i=0; i<models.length; i++){
+		if(models[i]==type.slice(0, -1)){
+			model_es=models_es[i];
+		}
+	}
+
+    $("#"+type+"_input").val("Agregar " + model_es);
+	$("#"+type+"_input").addClass("add_input");
+	$("#add_"+type.slice(0, -1)).addClass("hidden");
+	listHover(type);
 
 }
 
@@ -174,7 +197,7 @@ function add_objectives_input(){
 		inp=inp1+inp2;
 
 		input="<div><li rel='"+id+"'><div class='"+classs+"' id='project_project_objectives_attributes_new_"+id+"_div'> <div class='left marginright10px'><div class='left width_60'> "+text+" </div>"+inp+"<span class='marginright10px'>&nbsp;</span> <strong>porcentaje</strong> <input type='text' class='no_edit_input align-right' value='"+percent+"'  name='project[project_objectives_attributes][new_"+id+"][percent]' id='project_project_objectives_attributes_new_"+id+"_percent' size='2'>%<input type='hidden'  name='project["+type+"_attributes][new_"+id+"][torder]' id='project_"+type+"_attributes_"+id+"_torder' value='"+inputs+"'>";
-		links='<div class="right"><a class="modify" href="" rel="project_project_objectives_attributes_new_'+id+'_percent"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="project_project_objectives_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
+		links='<div class="right action" id="action_'+type+'_'+id+'""><a class="modify" href="" rel="project_project_objectives_attributes_new_'+id+'_percent"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="project_project_objectives_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 		clear='</div><div class="clear"></div></li></div>';
 		$("#project_objectives_ul").append(input+links+clear);
 		$("#objectives").removeClass("hidden");
@@ -205,6 +228,8 @@ function add_objectives_input(){
 
 
 	}
+	
+
 
 }
 
@@ -228,7 +253,7 @@ function add_input_people(type){
 		inp2="<input type='hidden'  name='project[project_areas_attributes][new_"+id+"][torder]' id='project_"+type+"_attributes_"+id+"_torder'><input type='text' value='"+project_id+"' name='project[project_areas_attributes][new_"+id+"][project_id]' id='project_areas_attributes_new_"+id+"'>"+text+"</div>";
 		inp=inp1+inp2;
 		
-		links='<div class="right"><a rel="project_project_areas_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
+		links='<div class="right action" id="action_'+type+'_'+id+'"><a rel="project_project_areas_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 		input="<div><li rel='"+id+"'><div class="+classs+" id='project_project_areas_attributes_new_"+id+"_div'>"+text+inp+links+"</div></div>";
 
 		clear='<div class="clear"></div></li></div>';
@@ -245,6 +270,9 @@ function add_input_people(type){
 
 
 	}
+	
+		listHover(type);
+
 
 }
 
@@ -269,7 +297,7 @@ function add_input_member(type){
 		inp2="<input type='hidden'  name='project[project_members_attributes][new_"+id+"][torder]' id='project_"+type+"_attributes_"+id+"_torder'><input type='text' value='"+project_id+"' name='project[project_members_attributes][new_"+id+"][project_id]' id='project_members_attributes_new_"+id+"'>"+text+"</div>";
 		inp=inp1+inp2;
 		
-		links='<div class="right" style="width:200px" ><span style="width:30px;margin-right:90px">'+role+'</span><a rel="project_project_members_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
+		links='<div class="right action" id="action_'+type+'_'+id+'"><span style="width:30px;margin-right:90px">'+role+'</span><a rel="project_project_members_attributes_new_'+id+'_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
 		input="<div><li rel='"+id+"'><div class="+classs+" id='project_project_members_attributes_new_"+id+"_div'>"+text+inp+links+"</div></div>";
 
 		clear='<div class="clear"></div></li></div>';
@@ -287,10 +315,13 @@ function add_input_member(type){
 
 	}
 
+		listHover(type);
+
 }
 
 
 function dragAndDrop(type,id){
+ listHover(type);	
 	$("#"+type+"_ul").sortable({ opacity: 0.6, cursor: 'move', update: function(){
 		$("#"+type+"_ul > div > li").each(function(index){
 			id=$(this).attr('rel');	
@@ -299,4 +330,15 @@ function dragAndDrop(type,id){
 	}
 });
 
+}
+
+
+
+function listHover(type){
+	$(".action").hide();
+		$("#"+type+"_ul > div > li").each(function(index){		
+				$(this).hover(function(){id=$(this).attr('rel');$("#action_"+type+"_"+id).show();});
+				$(this).mouseleave(function(){id=$(this).attr('rel');$("#action_"+type+"_"+id).hide();});
+			});
+	
 }

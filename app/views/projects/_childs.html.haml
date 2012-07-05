@@ -6,10 +6,9 @@
 	.clear		
 	%br
 	%br
-	.align-right.left{:style=>"width:95%"}
-		%input{:id=>"#{type}s_input", :style=>"width:100%"}		
-		%br
-		= link_to t("views.projects.add_#{type}"), "", :id=>"add_#{type}"
+	.left{:style=>"width:95%"}
+		%input{:id=>"#{type}s_input", :style=>"width:80%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}"}
+		= link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
 	.clear
 	%br	
 	%div{:id=>"#{type}s", :class=>"hidden"}

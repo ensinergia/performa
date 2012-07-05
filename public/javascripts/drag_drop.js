@@ -17,6 +17,15 @@ $(document).ready(function() {
 
 function dragAndDrop(type,id){
 
+		$(".actions").hide();
+
+		$("#"+type+"_ul li").each(function(index){		
+				$(this).hover(function(){id=$(this).attr('rel');$("#actions_"+id).show();});
+				$(this).mouseleave(function(){id=$(this).attr('rel');$("#actions_"+id).hide();});
+			});
+	
+
+
 	$("#"+type+"_ul").sortable({ opacity: 0.6, cursor: 'move', update: function(){
 			str="";
 			$("#"+type+"_ul li").each(function(index){		
@@ -24,6 +33,7 @@ function dragAndDrop(type,id){
 				str+=$(this).attr('rel');
 				str+=',';
 				$("#priority_"+id).html(index+1);
+	
 			});
 			$.ajax({
   				type: 'POST',
@@ -33,6 +43,10 @@ function dragAndDrop(type,id){
  						}
 			});
 	}
+	
+	
+	
+	
 });
 
 

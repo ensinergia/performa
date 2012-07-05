@@ -1425,6 +1425,13 @@ ul.menu{
 		border:none;
 		background:none;
 		}	
+		
+		
+.add_input{
+		border:none;
+		background:none;
+		border: 1px solid #ccc;
+		}			
 
 #clients{
 	margin:10px;
