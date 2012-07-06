@@ -92,3 +92,25 @@
 	margin:0;
 }
 
+
+
+
+
+.add_element_ul{
+	margin:0;
+}
+
+.add_element_ul li{
+	list-style:none;
+	cursor:move;
+	padding-left: 27px;
+}
+
+
+.add_element_ul a{
+	text-decoration:none;
+
+}
+
+
+

@@ -6,18 +6,7 @@
 	.clear
 	%br
 	%br
-	-if type=="project_task"
-		.left{:style=>"width:95%"}
-			%input{:id=>"#{type}s_input", :style=>"width:60%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}"}
-			%input{:id=>"#{type}s_date_input", :style=>"width:20%", :class=>"add_input date_input", :value=>"Fecha", :type=>:date}		
-			=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
-	-else		
-		.left{:style=>"width:95%"}
-			%input{:id=>"#{type}s_input", :style=>"width:80%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}"}		
-			=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
-
-	.clear	
-	%br
+	
 	%div{:id=>"#{type}s"}
 		-index=0
 		%ul{:id=>"#{type}s_ul"}
@@ -56,3 +45,16 @@
 								=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
 						.clear	
 				-index=index+1	
+		%ul{:class=>"add_element_ul"}
+			%li
+				-if type=="project_task"
+					.left{:style=>"width:95%"}
+						%input{:id=>"#{type}s_input", :style=>"width:60%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}"}
+						%input{:id=>"#{type}s_date_input", :style=>"width:20%", :class=>"add_input date_input", :value=>"Fecha", :type=>:date}		
+						=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
+				-else		
+					.left{:style=>"width:95%"}
+						%input{:id=>"#{type}s_input", :style=>"width:80%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}"}		
+						=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
+
+				.clear		
