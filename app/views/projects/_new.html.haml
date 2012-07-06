@@ -2,7 +2,7 @@
 	= stylesheet_link_tag 'jquerydate'
 	
 - content_for :javascript do
-	= javascript_include_tag 'projects_new', 'jquery-ui.min'
+	= javascript_include_tag 'projects_common','projects_new', 'jquery-ui.min'
 	
 = nested_form_for @project, :html=>{:class=>:validation} do |f|
 	= f.hidden_field :user_id, :value => current_user.id

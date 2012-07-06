@@ -1,9 +1,14 @@
 $(document).ready(function() {
+	
 	$('#project_init_date').dateinput({ format: 'yyyy/mm/dd'});
 	$('#project_final_date').dateinput({ format: 'yyyy/mm/dd'});
+	
+	dateBehavior('#project_tasks_date_input');
 
 		models=["restriction","profit","project_objective","liabilitie","project_task","project_area","project_member"];
 		models_es=["Supuesto o Restricción","Beneficio","Objetivo","Riesgo","Hito de Control","project_area","project_member"];
+
+		
 
 	for(i=0; i<models.length; i++){
 		dragAndDrop(models[i]+"s","");
@@ -110,6 +115,15 @@ function add_input(type){
 				size="55";
 			}
 			
+			
+				
+		if(type=="project_tasks"){
+			date_value=$("#project_tasks_date_input").val();
+			date_value= date_value=="Fecha" ? "" : date_value; 
+			ptype="<input type='date' size='10%' name='project["+type+"_attributes][new_"+id+"][date]' id='project_"+type+"_attributes_new_"+id+"_date' class='add_input date_input' value='"+date_value+"'>";
+			size="55"
+		}
+			
 		
 		close='<a rel="project_'+type+'_attributes_new_'+id+'_name" id="project_'+type+'_attributes_new_'+id+'_name_close" href="" class="close hidden"><img src="/images/close.png" alt="Close"></a>';
 		input="<div> <li rel='"+id+"'><div class='"+classs+"' id='project_"+type+"_attributes_new_"+id+"_div'><div class='left'><input type='text' size='"+size+"' name='project["+type+"_attributes][new_"+id+"][name]' id='project_"+type+"_attributes_new_"+id+"_name' class='no_edit_input ' value='"+value+"'>"+ptype+close+"</div><input type='hidden'  name='project["+type+"_attributes][new_"+id+"][torder]' id='project_"+type+"_attributes_"+id+"_torder' value='"+inputs+"'>"+inp;
@@ -170,7 +184,9 @@ function add_input(type){
     $("#"+type+"_input").val("Agregar " + model_es);
 	$("#"+type+"_input").addClass("add_input");
 	$("#add_"+type.slice(0, -1)).addClass("hidden");
+	id_date="#project_"+type+"_attributes_new_"+id+"_date";
 	listHover(type);
+	dateBehavior(id_date);
 
 }
 
@@ -229,7 +245,7 @@ function add_objectives_input(){
 
 	}
 	
-
+		listHover(type);
 
 }
 
@@ -317,28 +333,4 @@ function add_input_member(type){
 
 		listHover(type);
 
-}
-
-
-function dragAndDrop(type,id){
- listHover(type);	
-	$("#"+type+"_ul").sortable({ opacity: 0.6, cursor: 'move', update: function(){
-		$("#"+type+"_ul > div > li").each(function(index){
-			id=$(this).attr('rel');	
-			$("#project_"+type+"_attributes_"+id+"_torder").val(index);
-		});
-	}
-});
-
-}
-
-
-
-function listHover(type){
-	$(".action").hide();
-		$("#"+type+"_ul > div > li").each(function(index){		
-				$(this).hover(function(){id=$(this).attr('rel');$("#action_"+type+"_"+id).show();});
-				$(this).mouseleave(function(){id=$(this).attr('rel');$("#action_"+type+"_"+id).hide();});
-			});
-	
 }

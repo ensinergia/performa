@@ -6,9 +6,16 @@
 	.clear
 	%br
 	%br
-	.left{:style=>"width:95%"}
-		%input{:id=>"#{type}s_input", :style=>"width:80%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}"}		
-		=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
+	-if type=="project_task"
+		.left{:style=>"width:95%"}
+			%input{:id=>"#{type}s_input", :style=>"width:60%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}"}
+			%input{:id=>"#{type}s_date_input", :style=>"width:20%", :class=>"add_input date_input", :value=>"Fecha", :type=>:date}		
+			=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
+	-else		
+		.left{:style=>"width:95%"}
+			%input{:id=>"#{type}s_input", :style=>"width:80%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}"}		
+			=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
+
 	.clear	
 	%br
 	%div{:id=>"#{type}s"}
@@ -23,10 +30,15 @@
 								-size= "85"
 								-if type=="restriction"
 									-size="70" 
-								-if type=="profit"
+								-if type=="profit"  ||  type=="project_task"
 									-size="55" 
 										
 								= client.text_field :name, :class => 'no_edit_input', :size=>size
+								-if type=="project_task"
+									= client.text_field :date, :class => 'add_input date_input', :id=>"date_input_#{client.object.id}",:size=>"10%", :type=>:date
+									%script
+										dateBehavior("#date_input_#{client.object.id}");
+									
 								-if type=="restriction" 
 									= client.select :ptype, {"Supuesto"=>"supuesto","Restricción"=>"restriccion"},{}, :disabled=>:disabled,:class => 'no_edit_input'	
 									
