@@ -49,7 +49,7 @@
 			%li
 				-if type=="project_task"
 					.left{:style=>"width:95%"}
-						%input{:id=>"#{type}s_input", :style=>"width:60%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}"}
+						%input{:id=>"#{type}s_input",:name=>"project[#{type}s_attributes][0][name]", :style=>"width:60%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}"}
 						%input{:id=>"#{type}s_date_input", :style=>"width:20%", :class=>"add_input date_input", :value=>"Fecha", :type=>:date}		
 						=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
 				-else		
