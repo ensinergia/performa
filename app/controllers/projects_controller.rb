@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   before_filter :verify_subdomain
   before_filter :users, :only => [:new, :edit]
   before_filter :objectives, :only => [:new, :edit, :update, :create]
-  before_filter :find_project, :except =>  [:new, :create, :index]
+  before_filter :find_project, :except =>  [:new, :create, :index, :childs]
 
 
   def index
@@ -57,6 +57,10 @@ class ProjectsController < ApplicationController
     redirect_to(area_projects_url(session[:area_id]))
 
   end
+
+  def childs
+    render :partial => "projects/children/child_#{params[:ptype]}", :layout=>false
+  end  
 
   private
   def users

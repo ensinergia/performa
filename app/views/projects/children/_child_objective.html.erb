@@ -1,0 +1,22 @@
+<div>
+	<li rel='<%=params[:id] %>'>
+		<div class='<%= params[:classs]%>' id='project_project_objectives_attributes_new_<%= params[:id]%>_div'> 
+			<div class='left marginright10px'><div class='left width_60'> <%=params[:text]%> </div><div class='left  hidden'>
+				<input type='text' value='<%=params[:id_obj]%>' name='project[project_objectives_attributes][new_<%= params[:id]%>][operative_objective_id]' id='project_operative_objectives_attributes_new_<%= params[:id]%>_objective'>
+				
+			</div>
+			<span class='marginright10px'>&nbsp;</span> <strong>porcentaje</strong> 
+			<input type='text' class='no_edit_input align-right' value='<%= params[:percent]%>'  name='project[project_objectives_attributes][new_<%= params[:id]%>][percent]' id='project_project_objectives_attributes_new_<%= params[:id]%>_percent' size='2'>%<input type='hidden'  name='project[<%= params[:type]%>_attributes][new_<%= params[:id]%>][torder]' id='project_<%= params[:type]%>_attributes_<%= params[:id]%>_torder' value='<%= params[:inputs]%>'>
+	
+			<div class="right action" id="action_<%= params[:type]%>_<%= params[:id]%>">
+				<a class="modify" href="" rel="project_project_objectives_attributes_new_<%= params[:id]%>_percent">
+					<img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up">
+				</a>
+				<a rel="project_project_objectives_attributes_new_<%=params[:id]%>_div" data-method="delete" class="delete" href="">
+				<img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up">
+				</a>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</li>
+</div>

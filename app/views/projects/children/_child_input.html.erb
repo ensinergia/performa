@@ -1,0 +1,48 @@
+<%-
+type=params[:type]
+
+ if type=="restrictions" || type=="profits"
+	size="55"
+ else
+	size="70"	
+	
+ end	
+
+
+-%>
+
+<div> 
+	<li rel='<%= params[:id]-%>'>
+		<div class='<%=params[:classs]%>' id='project_<%= params[:type]%>_attributes_new_<%= params[:id]-%>_div'>
+			<div class='left'>
+				<input type='text' size='<%=size%>' name='project[<%= params[:type]%>_attributes][new_<%= params[:id]-%>][name]' id='project_<%= params[:type]%>_attributes_new_<%= params[:id]-%>_name' class='no_edit_input ' value='<%=params[:value]%>'>
+
+				<%- if type=="restrictions" %> 
+					<select name="project[restrictions_attributes][new_<%= params[:id] %>][ptype]" id="project_restrictions_attributes_new_<%= params[:id]-%>_ptype" disabled="disabled" class="no_edit_input"><option value="restriccion">Restricción</option><option value="supuesto">Supuesto</option></select>
+
+					<%-end %>
+					
+					<%- if type=="profits" %>
+						<select name="project[profits_attributes][new_<%= params[:id] %>][ptype]" id="project_profits_attributes_new_<%= params[:id]-%>_ptype" disabled="disabled" class="no_edit_input"><option value="incremento">Incremento de Ingresos</option><option value="reduccion">Reducción de Costos</option></select>
+
+						<%-end %>
+
+						<%- if type=="project_tasks"%>				
+
+							<input type='date' size='10%' name='project[<%= params[:type]%>_attributes][new_<%= params[:id] %>][date]' id='project_<%= params[:type]%>_attributes_new_<%= params[:id]-%>_date' class='add_input date_input' value='<%=params[:date_value] %>'>
+
+							<%-end %>
+
+				</div>
+				<input type='hidden'  name='project[<%= params[:type]%>_attributes][new_<%= params[:id]-%>][torder]' id='project_<%= params[:type]%>_attributes_<%= params[:id]-%>_torder' value='<%=params[:inputs]%>'>
+				<a rel="project_<%= params[:type]-%>_attributes_new_<%= params[:id]-%>_name" id="project_<%= params[:type]-%>_attributes_new_<%= params[:id]-%>_name_close" href="" class="close hidden"><img src="/images/close.png" alt="Close"></a>
+
+				<div class="right action" id="action_<%= params[:type]-%>_<%= params[:id]-%>"><a class="modify" href="" rel="project_<%= params[:type]-%>_attributes_new_<%= params[:id]-%>_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="project_<%= params[:type]-%>_attributes_new_<%= params[:id]-%>_div" data-method="delete" class="delete" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>
+
+
+				<div class="clear"></div>
+			</div>
+		</li>
+</div>
+
+

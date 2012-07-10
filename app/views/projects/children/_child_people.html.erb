@@ -1,0 +1,18 @@
+<div>
+	<li rel='<%= params[:id]%>'>
+		<div class="<%= params[:classs]%>" id='project_project_areas_attributes_new_<%= params[:id]%>_div'>
+			<%= params[:text] %>
+			<div class='left  hidden'>
+				<input type='text' value='<%= params[:id_obj]%>' name='project[project_areas_attributes][new_<%= params[:id]%>][area_id]' id='project_areas_attributes_new_<%= params[:id]%>'>
+				<input type='hidden'  name='project[project_areas_attributes][new_<%= params[:id]%>][torder]' id='project_"+type+"_attributes_<%= params[:id]%>_torder'>
+				<input type='text' value='<%= params[:project_id]%>' name='project[project_areas_attributes][new_<%= params[:id]%>][project_id]' id='project_areas_attributes_new_<%= params[:id]%>'><%= params[:type]%>
+			</div>
+			<div class="right action" id="action_<%= params[:type]%>_<%= params[:id]%>">
+				<a rel="project_project_areas_attributes_new_<%= params[:id]%>_div" data-method="delete" class="delete" href="">
+					<img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up">
+				</a>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</li>
+</div>

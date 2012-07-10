@@ -35,7 +35,8 @@ GestionDesempeno::Application.routes.draw do
     resources :operative_objectives
     resources :pointers
     resources :projects
-
+    
+    match '/project/childs' => 'projects#childs', :as => 'projects_childs', :via => :get
     match '/people/bulk_update_admin' => 'people#bulk_update_admin', :as => 'bulk_update_admin', :via => :put
     
     resources :people, :only => [:index, :new, :edit,:create,:update,:destroy]
