@@ -12,14 +12,23 @@ $(document).ready(function() {
 	for(i=0; i<models.length; i++){
 		dragAndDrop(models[i]+"s","");
 		$("#"+models[i]+"s_input").click(
-			function(){	
-				type=$(this).attr("rel");
-				$("#add_"+type).removeClass("hidden");
+			function(){
 				$(this).removeClass("add_input");		
 				$(this).val("");		
 			}
 		);
-
+		
+		// show the "add someting" when the user type in the inputs
+		$("#"+models[i]+"s_input").keyup(
+			function(){
+				type = $(this).attr("rel");
+				if($.trim($(this).val()).length > 0){
+					$("#add_" + type).removeClass("hidden");
+				}else{
+					$("#add_" + type).addClass("hidden");
+				} //end if 
+			} // end function
+		); //end keyup
 
 		switch(models[i]){
 			case "project_objective":
