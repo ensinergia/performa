@@ -45,7 +45,7 @@
 	%br
 	%br
 	%br
-	.light-gray.padding_10px
+	.light-gray.padding_10px#project_objective
 		.left.marginright10px.width_40
 			=f.label :leader,t('views.projects.objectives'), :class => 'bold'
 			= select("operative","objective", @objectives.collect {|p| [ "#{p.results} #{t('views.operative_objective.new.through')} #{p.actions}", p.id ] },{:include_blank => t('views.forms.select')},{:style=>"width:90%"})
