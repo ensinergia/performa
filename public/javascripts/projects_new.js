@@ -22,7 +22,7 @@ $(document).ready(function() {
 		$("#"+models[i]+"s_input").keyup(
 			function(){
 				type = $(this).attr("rel");
-				if($.trim($(this).val()).length > 0){
+				if($.trim($(this).val()).length){
 					$("#add_" + type).removeClass("hidden");
 				}else{
 					$("#add_" + type).addClass("hidden");

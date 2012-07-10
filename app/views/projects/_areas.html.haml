@@ -6,7 +6,7 @@
 	.clear
 	%br
 	%br
-	= select_tag "project_areas_select", options_from_collection_for_select(@sibling_areas, "id", "name",session[:area_id]),{:include_blank => t('views.forms.select'), :style=>"width:70%"}
+	= select_tag "project_areas_select", options_from_collection_for_select(@sibling_areas, "id", "name",session[:area_id]),{:include_blank => t('views.forms.select'), :style=>"width:70%", :name => 'project[project_areas_attributes][new_007][area_id]'}
 	= link_to t("views.projects.add_area"), "", :id=>"add_area", :rel=>@project.id
 	%br
 	%br
