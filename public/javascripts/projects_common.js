@@ -244,7 +244,72 @@ function add_input_member(type){
 
 
 	}
+}
 
 
 
+function add_input_profit(type){
+	id_profit = $("#profits_input").val();
+ 	profit_option_selected = $("#project_profit_options").val();
+
+	if(id_profit != "" && profit_option_selected != ""){
+		id = Math.floor(Math.random()*1000);
+		inputs = $("#objectives .no_edit_input").length;
+		
+		if(inputs % 2 == 0)
+			classs='gray';
+		else
+			classs='blank_bg';
+
+		text = $("#profits_input  option[value='"+ id_profit + "']").text();
+		//debugger
+		$.get('/project/childs',{ id:id, type:type, classs:classs, ptype:"input", profit_option:profit_option_selected, value:id_profit }, function(data) {
+			$("#"+type+"_ul ").append(data);
+			$("#"+type).removeClass("hidden");
+			
+			$(".modify").click(function(){
+				id=$(this).attr('rel');
+				id2_array=id.split("_");
+				id2_array[id2_array.length-1]="ptype";
+				id2=id2_array.join("_");
+				$("#"+id).addClass('editable');
+				$("#"+id+"_close").removeClass('hidden');
+				var my_id = id.match(/\d*/)[0];
+				$("#project_restrictions_attributes_new_" + my_id + "_ptype").removeAttr('disabled');
+				$("#project_restrictions_attributes_new_" + my_id + "_ptype").addClass('editable');
+				$("#project_restrictions_attributes_new_" + my_id + "_ptype").removeClass('hidden');
+				$("#"+id).removeAttr('disabled');
+				$("#"+id2).addClass('editable');
+				$("#"+id2).removeAttr('disabled');
+				return false;
+			});
+
+			$(".close").click(function(){
+				id=$(this).attr('rel');
+				id2_array=id.split("_");
+				id2_array[id2_array.length-1]="ptype";
+				id2=id2_array.join("_");
+				$("#"+id).removeClass('editable');
+				$(this).addClass('hidden');
+				$("#"+id2).removeClass('editable');
+				$("#"+id).attr('disabled','disabled');
+				$("#"+id2).attr('disabled','disabled');
+				return false;
+			});
+
+			$(".delete").click(function(){
+				id=$(this).attr('rel');
+				$("#"+id).remove();
+				return false;
+			});
+			
+				
+			
+			$("#"+type+"_input").val("Agregar otro");
+			$("#"+type+"_input").addClass("add_input");
+			$("#add_"+type.slice(0, -1)).addClass("hidden");
+			listHover(type);
+			return false;
+		});
+	}
 }

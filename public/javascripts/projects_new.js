@@ -8,13 +8,17 @@ $(document).ready(function() {
 	models=["restriction","profit","project_objective","liabilitie","project_task","project_area","project_member"];
 
 
-
 	for(i=0; i<models.length; i++){
 		dragAndDrop(models[i]+"s","");
 		$("#"+models[i]+"s_input").click(
 			function(){
-				$(this).removeClass("add_input");		
-				$(this).val("");		
+				$(this).removeClass("add_input");
+				$(this).val("");
+				//enable_select_box();
+				var type_model = $(this).attr("rel");
+				var selector = "#project_" + type_model + "_options";
+				$(selector).removeAttr("disabled");
+				$(selector).removeClass('no_edit_input');
 			}
 		);
 		
@@ -35,6 +39,7 @@ $(document).ready(function() {
 			$("#add_objective").unbind("click");
 			$("#add_objective").bind("click",function(){
 				add_objectives_input();
+				alert("project_objectiv");
 				return false;
 			});
 			break;
@@ -42,13 +47,13 @@ $(document).ready(function() {
 			$("#add_project_task").unbind("click");
 			$("#add_project_task").click(function(){
 				add_input('project_tasks');
+				alert("project_task");
 				return false;
 			});
 			break;
 			case "project_area":
 			$("#add_area").unbind("click");
 			$("#add_area").click(function(){
-				add_input_people('project_areas');
 				return false;
 			});
 			break;
@@ -59,7 +64,14 @@ $(document).ready(function() {
 				return false;
 			});
 			break;
-			default: 
+			case "profit":
+			$("#add_"+models[i]).unbind("click");
+			$("#add_"+models[i]).click(function(){	
+				add_input_profit('profits');
+				return false;
+			});
+			break;
+			default:
 			$("#add_"+models[i]).unbind("click");
 			$("#add_"+models[i]).click(function(){	
 				add_input($(this).attr('id').split('_')[1]+"s");

@@ -17,21 +17,18 @@ type=params[:type]
 			<div class='left'>
 				<input type='text' size='<%=size%>' name='project[<%= params[:type]%>_attributes][new_<%= params[:id]-%>][name]' id='project_<%= params[:type]%>_attributes_new_<%= params[:id]-%>_name' class='no_edit_input ' value='<%=params[:value]%>'>
 
-				<%- if type=="restrictions" %> 
+				<%- if type=="restrictions" %>
 					<select name="project[restrictions_attributes][new_<%= params[:id] %>][ptype]" id="project_restrictions_attributes_new_<%= params[:id]-%>_ptype" disabled="disabled" class="no_edit_input"><option value="restriccion">Restricción</option><option value="supuesto">Supuesto</option></select>
 
-					<%-end %>
+				<%-end %>
 					
 					<%- if type=="profits" %>
-						<select name="project[profits_attributes][new_<%= params[:id] %>][ptype]" id="project_profits_attributes_new_<%= params[:id]-%>_ptype" disabled="disabled" class="no_edit_input"><option value="incremento">Incremento de Ingresos</option><option value="reduccion">Reducción de Costos</option></select>
+						<%= select_tag("project_restrictions_attributes_new_#{params[:id]}_ptype", options_for_select([['Incremento de Ingresos', 'incremento'], [ 'Reducción de Costos', 'reduccion']], params[:profit_option]), {:disabled => true, :class => :no_edit_input, :name => "project[restrictions_attributes][new_#{params[:id]}][ptype]"})%>
+					<%-end %>
 
-						<%-end %>
-
-						<%- if type=="project_tasks"%>				
-
-							<input type='date' size='10%' name='project[<%= params[:type]%>_attributes][new_<%= params[:id] %>][date]' id='project_<%= params[:type]%>_attributes_new_<%= params[:id]-%>_date' class='add_input date_input' value='<%=params[:date_value] %>'>
-
-							<%-end %>
+					<%- if type=="project_tasks"%>				
+						<input type='date' size='10%' name='project[<%= params[:type]%>_attributes][new_<%= params[:id] %>][date]' id='project_<%= params[:type]%>_attributes_new_<%= params[:id]-%>_date' class='add_input date_input' value='<%=params[:date_value] %>'>
+					<%-end %>
 
 				</div>
 				<input type='hidden'  name='project[<%= params[:type]%>_attributes][new_<%= params[:id]-%>][torder]' id='project_<%= params[:type]%>_attributes_<%= params[:id]-%>_torder' value='<%=params[:inputs]%>'>

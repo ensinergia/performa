@@ -1,3 +1,4 @@
+-#TODO Refactor this view
 .light-gray.padding_10px
 	.left
 		%label
@@ -7,7 +8,6 @@
 	%br
 	%div{:id=>"#{type}s"}
 		%ul{:id=>"#{type}s_ul"}
-		
 		%ul{:class=>"add_element_ul"}
 			%li
 				-if type=="project_task"
@@ -16,7 +16,20 @@
 						%input{:id=>"#{type}s_date_input", :style=>"width:20%", :class=>"add_input date_input", :value=>"Fecha", :type=>:date, :name=>"project[#{type}s_attributes][new_007][date]"}
 						%br	
 						=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
-				-else		
+				-elsif type.eql?('restriction')
+					.left{:style=>"width:95%"}
+						%input{:id=>"#{type}s_input", :style=>"width:60%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}", :name=>"project[#{type}s_attributes][new_007][name]"}
+						= select_tag("project_restriction_options", options_for_select([['Restricción', 'restriction'], [ 'Supuesto', 'supuesto']]), {:disabled => true, :class => :no_edit_input, :name => 'project[restrictions_attributes][new_007][restriction]'})
+						%br
+						=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
+				
+				-elsif type.eql?('profit')
+					.left{:style=>"width:95%"}
+						%input{:id=>"#{type}s_input", :style=>"width:60%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}", :name=>"project[#{type}s_attributes][new_007][name]"}
+						= select_tag("project_profit_options", options_for_select([['Incremento de Ingresos', 'incremento'], [ 'Reducción de Costos', 'reduccion']]), {:disabled => true, :class => :no_edit_input, :name => 'project[profits_attributes][new_007][profit]'})
+						%br
+						=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
+				-else
 					.left{:style=>"width:95%"}
 						%input{:id=>"#{type}s_input", :style=>"width:80%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}", :name=>"project[#{type}s_attributes][new_007][name]"}
 						%br
