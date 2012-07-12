@@ -19,14 +19,14 @@
 				-elsif type.eql?('restriction')
 					.left{:style=>"width:95%"}
 						%input{:id=>"#{type}s_input", :style=>"width:60%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}", :name=>"project[#{type}s_attributes][new_007][name]"}
-						= select_tag("project_restriction_options", options_for_select([['Restricción', 'restriction'], [ 'Supuesto', 'supuesto']]), {:disabled => true, :class => :no_edit_input, :name => 'project[restrictions_attributes][new_007][restriction]'})
+						= select_tag("project_restriction_options", options_for_select([['Restricción', 'restriction'], [ 'Supuesto', 'supuesto']]), {:disabled => true, :class => :no_edit_input, :name => 'project[restrictions_attributes][new_007][ptype]'})
 						%br
 						=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
 				
 				-elsif type.eql?('profit')
 					.left{:style=>"width:95%"}
 						%input{:id=>"#{type}s_input", :style=>"width:60%", :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}", :name=>"project[#{type}s_attributes][new_007][name]"}
-						= select_tag("project_profit_options", options_for_select([['Incremento de Ingresos', 'incremento'], [ 'Reducción de Costos', 'reduccion']]), {:disabled => true, :class => :no_edit_input, :name => 'project[profits_attributes][new_007][profit]'})
+						= select_tag("project_profit_options", options_for_select([['Incremento de Ingresos', 'incremento'], [ 'Reducción de Costos', 'reduccion']]), {:disabled => true, :class => :no_edit_input, :name => 'project[profits_attributes][new_007][ptype]'})
 						%br
 						=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
 				-else

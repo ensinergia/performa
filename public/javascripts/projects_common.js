@@ -248,22 +248,23 @@ function add_input_member(type){
 
 
 
-function add_input_profit(type){
-	id_profit = $("#profits_input").val();
- 	profit_option_selected = $("#project_profit_options").val();
+function add_input_with_select(type){
+	id_value = $("#" + type + "_input").val();
+	if(type == 'profits')
+		option_selected = $("#project_profit_options").val();
+	else
+		option_selected = $("#project_restriction_options").val();
 
-	if(id_profit != "" && profit_option_selected != ""){
+	if(id_value != "" && option_selected != ""){
 		id = Math.floor(Math.random()*1000);
-		inputs = $("#objectives .no_edit_input").length;
+		inputs = $("#" + type + " .no_edit_input").length;
 		
 		if(inputs % 2 == 0)
 			classs='gray';
 		else
 			classs='blank_bg';
 
-		text = $("#profits_input  option[value='"+ id_profit + "']").text();
-		//debugger
-		$.get('/project/childs',{ id:id, type:type, classs:classs, ptype:"input", profit_option:profit_option_selected, value:id_profit }, function(data) {
+		$.get('/project/childs',{ id:id, type:type, classs:classs, ptype:"input", option_selected:option_selected, value:id_value }, function(data) {
 			$("#"+type+"_ul ").append(data);
 			$("#"+type).removeClass("hidden");
 			
@@ -301,9 +302,15 @@ function add_input_profit(type){
 				id=$(this).attr('rel');
 				$("#"+id).remove();
 				return false;
-			});
+			});	
 			
-				
+			if(type == 'profits'){
+				$("#project_profit_options").attr('disabled', 'disabled');
+				$("#project_profit_options").addClass('no_edit_input');
+			}else{
+				$("#project_restriction_options").attr('disabled', 'disabled');
+				$("#project_restriction_options").addClass('no_edit_input');
+			}  
 			
 			$("#"+type+"_input").val("Agregar otro");
 			$("#"+type+"_input").addClass("add_input");

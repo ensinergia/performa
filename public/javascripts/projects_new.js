@@ -67,7 +67,14 @@ $(document).ready(function() {
 			case "profit":
 			$("#add_"+models[i]).unbind("click");
 			$("#add_"+models[i]).click(function(){	
-				add_input_profit('profits');
+				add_input_with_select('profits');
+				return false;
+			});
+			break;
+			case "restriction":
+			$("#add_"+models[i]).unbind("click");
+			$("#add_"+models[i]).click(function(){	
+				add_input_with_select('restrictions');
 				return false;
 			});
 			break;

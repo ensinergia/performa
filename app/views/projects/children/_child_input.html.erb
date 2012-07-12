@@ -18,12 +18,12 @@ type=params[:type]
 				<input type='text' size='<%=size%>' name='project[<%= params[:type]%>_attributes][new_<%= params[:id]-%>][name]' id='project_<%= params[:type]%>_attributes_new_<%= params[:id]-%>_name' class='no_edit_input ' value='<%=params[:value]%>'>
 
 				<%- if type=="restrictions" %>
-					<select name="project[restrictions_attributes][new_<%= params[:id] %>][ptype]" id="project_restrictions_attributes_new_<%= params[:id]-%>_ptype" disabled="disabled" class="no_edit_input"><option value="restriccion">Restricción</option><option value="supuesto">Supuesto</option></select>
+					<%= select_tag("project_restrictions_attributes_new_#{params[:id]}_ptype", options_for_select([['Restricción', 'restriction'], [ 'Supuesto', 'supuesto']], params[:option_selected]), {:disabled => true, :class => :no_edit_input, :name => "project[restrictions_attributes][new_#{params[:id]}][ptype]"})%>
 
 				<%-end %>
 					
 					<%- if type=="profits" %>
-						<%= select_tag("project_restrictions_attributes_new_#{params[:id]}_ptype", options_for_select([['Incremento de Ingresos', 'incremento'], [ 'Reducción de Costos', 'reduccion']], params[:profit_option]), {:disabled => true, :class => :no_edit_input, :name => "project[restrictions_attributes][new_#{params[:id]}][ptype]"})%>
+						<%= select_tag("project_profits_attributes_new_#{params[:id]}_ptype", options_for_select([['Incremento de Ingresos', 'incremento'], [ 'Reducción de Costos', 'reduccion']], params[:option_selected]), {:disabled => true, :class => :no_edit_input, :name => "project[profits_attributes][new_#{params[:id]}][ptype]"})%>
 					<%-end %>
 
 					<%- if type=="project_tasks"%>				
