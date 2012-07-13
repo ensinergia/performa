@@ -8,7 +8,7 @@
 	%br
 	= select_tag "project_members_select", options_from_collection_for_select(@users, "id", "name",session[:member_id]),{:include_blank => t('views.forms.select'), :style=>"width:50%", :name => 'project[project_members_attributes][new_007][user_id]'}
 	= select_tag "project_members_type_select",options_for_select(["#{t('views.projects.membertype_options.1d')}","#{t('views.projects.membertype_options.2d')}","#{t('views.projects.membertype_options.3d')}"]),:include_blank => t('views.forms.select'), :style=>"width:20%", :name => 'project[project_members_attributes][new_007][role]'
-	%br
+	%br	
 	= link_to t("views.projects.add_member"), "", :id=>"add_member", :rel=>@project.id
 	%br
 	%br
@@ -22,7 +22,7 @@
 						.left{:style=>"width:380px"}
 							= member.hidden_field :id
 							= member.hidden_field :torder
-							= member.object.member.name
+							= member.object.member.try(:name)
 							%span{:style=>"width:30px;margin-left:30px"}
 								= member.object.role
 							%br	

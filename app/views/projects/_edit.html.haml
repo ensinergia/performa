@@ -122,7 +122,7 @@
 		= f.text_field :investment,:required=>:required, :rel=>"Inversión"
 	.clear	
 	%br
-	= render :partial => 'childs_edit', :locals=>{:type=>'profit', :f=>f}
+	= render :partial => 'childs_edit', :locals => {:type=>'profit', :f=>f}
 	%br
 	%br
 	= render :partial => 'childs_edit', :locals=>{:type=>'liabilitie', :f=>f}

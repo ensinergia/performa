@@ -39,7 +39,6 @@ $(document).ready(function() {
 			$("#add_objective").unbind("click");
 			$("#add_objective").bind("click",function(){
 				add_objectives_input();
-				alert("project_objectiv");
 				return false;
 			});
 			break;
@@ -47,13 +46,13 @@ $(document).ready(function() {
 			$("#add_project_task").unbind("click");
 			$("#add_project_task").click(function(){
 				add_input('project_tasks');
-				alert("project_task");
 				return false;
 			});
 			break;
 			case "project_area":
 			$("#add_area").unbind("click");
 			$("#add_area").click(function(){
+				add_input_people('project_areas');
 				return false;
 			});
 			break;
@@ -80,11 +79,10 @@ $(document).ready(function() {
 			break;
 			default:
 			$("#add_"+models[i]).unbind("click");
-			$("#add_"+models[i]).click(function(){	
+			$("#add_"+models[i]).click(function(){
 				add_input($(this).attr('id').split('_')[1]+"s");
 				return false;
 			});
-
 		}
 
 	}
