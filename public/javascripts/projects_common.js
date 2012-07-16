@@ -33,7 +33,6 @@ function dateBehavior(id){
 
 
 function add_input(type){
-
 	value=$("#"+type+"_input").val();
 	if(value!=""){
 		id=Math.floor(Math.random()*1000)
@@ -190,21 +189,19 @@ function add_input_people(type){
 				$("#"+id).remove();
 				return false;
 			});
-
+			
+			if(type=="project_areas"){
+				$("#project_areas_select").addClass('hidden');
+				$("#project_areas_select").val('');
+				$("#add_area").addClass('hidden');
+				$("#areas_input").show();
+			}
 
 			listHover(type);
-
 			return false;
 
-
 		});	
-
-
 	}
-
-
-
-
 }
 
 
@@ -236,9 +233,15 @@ function add_input_member(type){
 				$("#"+id).remove();
 				return false;
 			});
+	
+			$("#project_members_type_select").addClass('hidden');
+			$("#project_members_select").addClass('hidden');
+			$("#project_members_type_select").val('');
+			$("#project_members_select").val('');
+			$("#add_member").addClass('hidden');
+			$("#member_input").show();
 
 			listHover(type);
-
 		});
 
 

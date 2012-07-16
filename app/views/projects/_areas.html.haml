@@ -6,9 +6,10 @@
 	.clear
 	%br
 	%br
-	= select_tag "project_areas_select", options_from_collection_for_select(@sibling_areas, "id", "name",session[:area_id]),{:include_blank => t('views.forms.select'), :style=>"width:70%", :name => 'project[project_areas_attributes][new_007][area_id]'}
+	%input{:id=>"areas_input", :style=>"width:60%", :class=>:add_input, :value => t("views.projects.add_area"), :rel=>"area", :name=>"project[project_areas_attributes][new_007][area_id]"}
+	= select_tag "project_areas_select", options_from_collection_for_select(@sibling_areas, "id", "name"),{:include_blank => t('views.forms.select'), :style=>"width:70%", :class => :hidden,  :name => 'project[project_areas_attributes][new_007][area_id]'}
 	%br
-	= link_to t("views.projects.add_area"), "", :id=>"add_area", :rel=>@project.id
+	= link_to t("views.projects.add_area"), "", :id=>"add_area", :rel=>@project.id, :class => :hidden
 	%br
 	%br
 	#area_supports
