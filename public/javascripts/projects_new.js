@@ -14,7 +14,6 @@ $(document).ready(function() {
 			function(){
 				$(this).removeClass("add_input");
 				$(this).val("");
-				//enable_select_box();
 				var type_model = $(this).attr("rel");
 				var selector = "#project_" + type_model + "_options";
 				$(selector).removeAttr("disabled");
@@ -28,6 +27,7 @@ $(document).ready(function() {
 				type = $(this).attr("rel");
 				if($.trim($(this).val()).length){
 					$("#add_" + type).removeClass("hidden");
+					$("#project_" + type +"_options").removeClass('hidden');
 				}else{
 					$("#add_" + type).addClass("hidden");
 				} //end if 
@@ -117,6 +117,9 @@ $(document).ready(function() {
 		return false;
 	});
 	
+	$("#project_submit").click(function(){
+		$(" .no_edit_input").removeAttr("disabled");
+	});
 	$("#areas_input").click(function(){
 		$("#areas_input").hide();
 		$("#project_areas_select").removeClass('hidden');
@@ -134,6 +137,17 @@ $(document).ready(function() {
 	
 	$("#project_members_type_select").change(function(){
 		$("#add_member").removeClass('hidden');
+	});
+	
+	$("#operative_objective").change(function(){
+		$("#div_objective").removeClass('hidden');
+	});
+	
+	$("#objectives_input").keyup(function(){
+		if($.trim($(this).val()).length)
+			$("#add_objective").removeClass('hidden');
+		else
+			$("#add_objective").addClass('hidden');
 	});
 
 });

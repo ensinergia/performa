@@ -151,7 +151,9 @@ function add_objectives_input(){
 			}	
 
 			listHover(type);
-
+			$("#div_objective").addClass('hidden');
+			$("#operative_objective").val('');
+			$("#add_objective").removeClass('hidden');
 			return false;
 
 
@@ -310,9 +312,11 @@ function add_input_with_select(type){
 			if(type == 'profits'){
 				$("#project_profit_options").attr('disabled', 'disabled');
 				$("#project_profit_options").addClass('no_edit_input');
+				$("#project_profit_options").addClass('hidden');
 			}else{
 				$("#project_restriction_options").attr('disabled', 'disabled');
 				$("#project_restriction_options").addClass('no_edit_input');
+				$("#project_restriction_options").addClass('hidden');
 			}  
 			
 			$("#"+type+"_input").val("Agregar otro");

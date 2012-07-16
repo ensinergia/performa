@@ -12,12 +12,28 @@ $(document).ready(function() {
 		dragAndDrop(models[i]+"s","");
 		$("#"+models[i]+"s_input").click(
 			function(){	
-				type=$(this).attr("rel");
-				$("#add_"+type).removeClass("hidden");
-				$(this).removeClass("add_input");		
-				$(this).val("");		
+				$(this).removeClass("add_input");
+				$(this).val("");
+				var type_model = $(this).attr("rel");
+				var selector = "#project_" + type_model + "_options";
+				$(selector).removeAttr("disabled");
+				$(selector).removeClass('no_edit_input');	
 			}
 		);
+		
+		// show the "add someting" when the user type in the inputs
+			$("#"+models[i]+"s_input").keyup(
+				function(){
+					type = $(this).attr("rel");
+					if($.trim($(this).val()).length){
+						$("#add_" + type).removeClass("hidden");
+						$("#project_" + type +"_options").removeClass('hidden');
+					}else{
+						$("#add_" + type).addClass("hidden");
+					} //end if 
+				} // end function
+			); //end keyup
+		
 		switch(models[i]){
 			case "project_objective":
 			$("#add_objective").click(function(){

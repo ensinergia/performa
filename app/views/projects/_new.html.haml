@@ -49,13 +49,13 @@
 		.left.marginright10px.width_40
 			=f.label :leader,t('views.projects.objectives'), :class => 'bold'
 			= select("operative","objective", @objectives.collect {|p| [ "#{p.results} #{t('views.operative_objective.new.through')} #{p.actions}", p.id ] },{:include_blank => t('views.forms.select')},{:style=>"width:90%"})
-		.right.align-right
+		.right.align-righth.hidden#div_objective
 			%br
 			=t('views.projects.grade')
 			%input{:id=>"objectives_input"}	
 			="%"
 			%br
-			= link_to t("views.projects.add_objective"), "", :id=>"add_objective"	
+			= link_to t("views.projects.add_objective"), "", :id=>"add_objective", :class => 'right hidden'
 		.clear	
 		%br
 		#objectives
