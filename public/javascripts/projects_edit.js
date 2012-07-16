@@ -109,6 +109,23 @@ $(document).ready(function() {
 	$("#project_submit").click(function(){
 		$(" .no_edit_input").removeAttr("disabled");
 	});
-
+	$("#areas_input").click(function(){
+		$("#areas_input").hide();
+		$("#project_areas_select").removeClass('hidden');
+	});
+	
+	$("#project_areas_select").change(function(){
+		$("#add_area").removeClass('hidden');
+	});
+	
+	$("#member_input").click(function(){
+		$("#member_input").hide();
+		$("#project_members_type_select").removeClass('hidden');
+		$("#project_members_select").removeClass('hidden');
+	});
+	
+	$("#project_members_type_select").change(function(){
+		$("#add_member").removeClass('hidden');
+	});
 
 });
