@@ -1,4 +1,4 @@
-= nested_form_for @operating_cycle, :html=>{:class=>:validation} do |f|
+= nested_form_for @operating_cycle, :html => {:class => 'validation edit_operating_cycle'} do |f|
 	= f.hidden_field :user_id, :value => current_user.id
 	= f.hidden_field :company_id,:value =>  current_company.id
 	= f.hidden_field :area_id,:value =>  session[:area_id]

@@ -1503,7 +1503,7 @@ ul.menu{
 	color:#999999;
 }
 
-#new_operating_cycle a {
+#new_operating_cycle a, .edit_operating_cycle a{
 	color:#999999;
 }
 
