@@ -149,6 +149,11 @@ $(document).ready(function() {
 		else
 			$("#add_objective").addClass('hidden');
 	});
+	$("#operative_objective_input").click(function(){
+		$("#operative_objective").removeClass('hidden');
+		$("#operative_objective_input").hide();
+	});
+	
 
 });
 

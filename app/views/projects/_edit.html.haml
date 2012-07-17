@@ -47,14 +47,15 @@
 	.light-gray.padding_10px
 		.left.marginright10px.width_40
 			=f.label :leader,t('views.projects.objectives'), :class => 'bold'
-			= select("operative","objective", @objectives.collect {|p| [ "#{p.results} #{t('views.operative_objective.new.through')} #{p.actions}", p.id ] },{:include_blank => t('views.forms.select')},{ :style=>"width:100%"})
-		.right.align-right
+			%input{:id => :operative_objective_input, :style=>"width:60%", :class => :add_input, :value =>'Agregar objetivos'}
+			= select("operative","objective", @objectives.collect {|p| [ "#{p.results} #{t('views.operative_objective.new.through')} #{p.actions}", p.id ] },{:include_blank => t('views.forms.select')},{ :style=>"width:100%", :class => :hidden})
+		.right.align-right.hidden#div_objective
 			%br
 			=t('views.projects.grade')
 			%input{:id=>"objectives_input"}	
 			="%"
 			%br
-			= link_to t("views.projects.add_objective"), "", :id=>"add_objective"	
+			= link_to t("views.projects.add_objective"), "", :id=>"add_objective", :class => ' right hidden', :style => "color:#999999"
 		.clear	
 		%br
 		#objectives

@@ -4,7 +4,8 @@
 %br
 %br
 .align-right.right{:style=>"width:100%"}
-	%input{:id=>"services_input", :style=>"width:100%"}		
+	%input{:id=>"services_input", :style=>"width:60%;float:left;"}
+	= select_tag("project_profit_options", options_for_select([['Incremento de Ingresos', 'incremento'], [ 'Reducción de Costos', 'reduccion']]), {:disabled => true, :class => :no_edit_input, :name => 'project[profits_attributes][new_007][ptype]'})
 	%br
 	= link_to t('views.operating_cycle.add_service'), "", :id=>"add_service"
 .clear	

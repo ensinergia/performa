@@ -59,6 +59,20 @@ $(document).ready(function() {
 				return false;
 			});
 			break;
+			case "profit":
+			$("#add_"+models[i]).unbind("click");
+			$("#add_"+models[i]).click(function(){	
+				add_input_with_select('profits');
+				return false;
+			});
+			break;
+			case "restriction":
+			$("#add_"+models[i]).unbind("click");
+			$("#add_"+models[i]).click(function(){	
+				add_input_with_select('restrictions');
+				return false;
+			});
+			break;
 			default: 
 			$("#add_"+models[i]).click(function(){	
 				add_input($(this).attr('id').split('_')[1]+"s");
@@ -143,5 +157,21 @@ $(document).ready(function() {
 	$("#project_members_type_select").change(function(){
 		$("#add_member").removeClass('hidden');
 	});
+	
+	$("#operative_objective").change(function(){
+		$("#div_objective").removeClass('hidden');
+	});
+	
+	$("#objectives_input").keyup(function(){
+		if($.trim($(this).val()).length)
+			$("#add_objective").removeClass('hidden');
+		else
+			$("#add_objective").addClass('hidden');
+	});
+	$("#operative_objective_input").click(function(){
+		$("#operative_objective").removeClass('hidden');
+		$("#operative_objective_input").hide();
+	});
+	
 
 });

@@ -16,7 +16,7 @@
 							.left
 								-size= "85"
 								-if type=="restriction"
-									-size="70" 
+									-size="55" 
 								-if type=="profit"  ||  type=="project_task"
 									-size="55" 
 										
@@ -53,15 +53,15 @@
 			
 				-elsif type.eql?('restriction')
 					.left{:style=>"width:95%"}
-						%input{:id=>"#{type}s_input", :size => '72', :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}", :name=>"project[#{type}s_attributes][new_007][name]"}
-						= select_tag("project_restriction_options", options_for_select([['Restricción', 'restriction'], [ 'Supuesto', 'supuesto']]), {:disabled => true, :class => :no_edit_input, :name => 'project[restrictions_attributes][new_007][ptype]'})
+						%input{:id=>"#{type}s_input", :size => '55', :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}", :name=>"project[#{type}s_attributes][new_007][name]"}
+						= select_tag("project_restriction_options", options_for_select([['Restricción', 'restriction'], [ 'Supuesto', 'supuesto']]), {:disabled => true, :class => :no_edit_input, :name => 'project[restrictions_attributes][new_007][ptype]', :class => :hidden})
 						%br
 						=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
 
 				-elsif type.eql?('profit')
 					.left{:style=>"width:95%"}
 						%input{:id=>"#{type}s_input", :size => '55', :class=>:add_input, :value=>t("views.projects.add_#{type}"), :rel=>"#{type}", :name=>"project[#{type}s_attributes][new_007][name]"}
-						= select_tag("project_profit_options", options_for_select([['Incremento de Ingresos', 'incremento'], [ 'Reducción de Costos', 'reduccion']]), {:disabled => true, :class => :no_edit_input, :name => 'project[profits_attributes][new_007][ptype]'})
+						= select_tag("project_profit_options", options_for_select([['Incremento de Ingresos', 'incremento'], [ 'Reducción de Costos', 'reduccion']]), {:disabled => true, :class => :no_edit_input, :name => 'project[profits_attributes][new_007][ptype]', :class => :hidden})
 						%br
 						=link_to "Agregar otro", "", :id=>"add_#{type}", :class=>"hidden"
 				-else
