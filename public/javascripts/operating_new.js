@@ -3,12 +3,18 @@ $(document).ready(function(){
 
 	$("#add_client").click(function(){
 		add_input('clients');
+		$('#clients_input').val('+ Agregar Cliente');
+		$(this).addClass('hidden');
+		$('#clients_input').addClass('grey_input');
 		return false;
 	});
 
 
 	$("#add_stage").click(function(){
 		add_input('stages');
+		$("#stages_input").val('+ Agregar Proceso');
+		$(this).addClass('hidden');
+		$("#stages_input").addClass('grey_input');
 		return false;
 	});
 
@@ -53,9 +59,9 @@ function add_input(type){
 		id=Math.floor(Math.random()*1000)
 		inputs=$("#"+type+" .no_edit_input").length;
 		if(inputs%2==0)
-		classs='gray';
+			classs='gray';
 		else
-		classs='light-gray';
+			classs='light-gray';
 
 		inp='';
 		class_delete='delete '
@@ -70,7 +76,7 @@ function add_input(type){
 		close_edit='<a rel="operating_cycle_'+type+'_attributes_new_'+id+'_name" id="operating_cycle_'+type+'_attributes_new_'+id+'_name_close" href="" class="close hidden"><img src="/images/close.png" alt="Close"></a>';
 		if (type=='stages'){
 			steps='<div id="steps_'+id+'" class="hidden"><ul></u></div>';
-			inp='<div class="clear"></div><div class="steps_container"><label><strong> Productos y/o Servicios </strong></label><br><br><div class="align-left left" style="width:100%"><input id="steps_'+id+'_input" style="width:60%"><a id="add_step_'+id+'" rel="'+id+'" href="" class="add_step">+ Agregar Producto y/o Servicio</a></div><div class="clear"></div><br/>'+steps+'</div>';
+			inp='<div class="clear"></div><div class="steps_container"><label><strong> Productos y/o Servicios </strong></label><br><br><div class="align-left left" style="width:100%"><input id="steps_'+id+'_input" style="width:60%" class="input_services grey_input" value="+ Agregar Producto y/o Servicio"><br/><a id="add_step_'+id+'" rel="'+id+'" href="" class="add_step left hidden">+ Agregar Producto y/o Servicio</a></div><div class="clear"></div><br/>'+steps+'</div>';
 
 			class_delete='delete'
 			collapse="<a rel='operating_cycle_"+type+"_attributes_new_"+id+"_div' href=''class='head'>+/-</a>";

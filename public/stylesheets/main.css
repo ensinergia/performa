@@ -1502,3 +1502,11 @@ ul.menu{
 #profits a, #liabilities a, #restrictions a, #project_tasks a, #project_members a, #project_areas a, #project_objective a, #add_objective a{
 	color:#999999;
 }
+
+#new_operating_cycle a {
+	color:#999999;
+}
+
+.grey_input{
+	background-color:#CCCCCC;
+}

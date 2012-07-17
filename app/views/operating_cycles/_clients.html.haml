@@ -4,9 +4,9 @@
 %br
 %br
 .align-right.right{:style=>"width:100%"}
-	%input{:id=>"clients_input", :style=>"width:100%"}		
+	%input{:id=>"clients_input", :style=>"width:100%", :class => 'grey_input', :value => t('views.operating_cycle.add_client'), :rel => :client}	
 	%br
-	= link_to t('views.operating_cycle.add_client'), "", :id=>"add_client"
+	= link_to t('views.operating_cycle.add_client'), "", :id=>"add_client", :class => 'hidden left'
 .clear	
 #clients.hidden
 	%ul{:id=>"clients_ul"}
