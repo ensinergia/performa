@@ -16,12 +16,18 @@ $(document).ready(function(){
 
 	$("#add_client").click(function(){
 		add_input('clients');
+		$('#clients_input').val('+ Agregar Cliente');
+		$(this).addClass('hidden');
+		$('#clients_input').addClass('grey_input');
 		return false;
 	});
 
 
 	$("#add_stage").click(function(){
 		add_input('stages');
+		$("#stages_input").val('+ Agregar Proceso');
+		$(this).addClass('hidden');
+		$("#stages_input").addClass('grey_input');
 		return false;
 	});
 
