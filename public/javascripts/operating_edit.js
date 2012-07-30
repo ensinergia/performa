@@ -13,12 +13,12 @@ $(document).ready(function(){
 	dragAndDrop("services","");
 	dragAndDrop("clients","");
 
-
+	
 	$("#add_client").click(function(){
 		add_input('clients');
 		$('#clients_input').val('Agregar Cliente');
 		$(this).addClass('hidden');
-		$('#clients_input').addClass('grey_input');
+		$("#clients_input").addClass('add_input');
 		return false;
 	});
 
@@ -27,12 +27,14 @@ $(document).ready(function(){
 		add_input('stages');
 		$("#stages_input").val('Agregar Proceso');
 		$(this).addClass('hidden');
-		$("#stages_input").addClass('grey_input');
+		$("#stages_input").addClass('add_input');
+
 		return false;
 	});
 
 	$("#add_service").click(function(){
 		add_input('services');
+		$("#services_input").addClass('add_input');
 		return false;
 	});
 
@@ -110,6 +112,16 @@ $(document).ready(function(){
 	});
 
 
+	
+	$("#clients_input").click(function(){
+		$("#clients_input").removeClass('add_input');
+	});
+
+	$("#stages_input").click(function(){
+		$("#stages_input").removeClass('add_input');
+	});
+
+
 	$("#operating_cycle_submit").click(function(){
 		$(" .no_edit_input").removeAttr("disabled");
 	});
@@ -142,14 +154,6 @@ function add_input(type){
 
 			$("#"+type+"_ul ").append(data);
 			$("#"+type).removeClass("hidden");
-
-			$("#"+type+"_input").val("");
-
-
-
-
-			$("#"+type+"_input").val("");
-
 
 			$(".modify").click(function(){
 				id=$(this).attr('rel');

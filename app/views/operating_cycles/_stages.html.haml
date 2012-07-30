@@ -1,13 +1,14 @@
-%label
-	%strong
-		= t('views.operating_cycle.stages')
-%br
-%br
-.align-right.right{:style=>"width:100%"}
-	%input{:id=>"stages_input", :style=>"width:100%", :class => :grey_input, :value => t('views.operating_cycle.add_stage'), :rel => :stage}		
+.light-gray.padding_10px
+	%label
+		%strong
+			= t('views.operating_cycle.stages')
 	%br
-	= link_to t('views.operating_cycle.add_stage'), "", :id=>"add_stage", :class => 'hidden left'
-.clear
-#stages.hidden
-	#stages_container
-		%ul{:id=>"stages_ul"}
+	#stages
+		#stages_container
+			%ul{:id=>"stages_ul"}
+			%ul{:class=>"add_element_ul"}
+				%li
+					%input{:id=>"stages_input", :style=>"width:100%", :class => :add_input, :value => t('views.operating_cycle.add_stage'), :rel => :stage}		
+					%br
+					= link_to t('views.operating_cycle.add_stage'), "", :id=>"add_stage", :class => 'hidden left'
+			

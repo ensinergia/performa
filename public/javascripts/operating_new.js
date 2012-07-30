@@ -5,7 +5,7 @@ $(document).ready(function(){
 		add_input('clients');
 		$('#clients_input').val('Agregar Cliente');
 		$(this).addClass('hidden');
-		$('#clients_input').addClass('grey_input');
+		$('#clients_input').addClass('add_input');
 		return false;
 	});
 
@@ -14,7 +14,7 @@ $(document).ready(function(){
 		add_input('stages');
 		$("#stages_input").val('Agregar Proceso');
 		$(this).addClass('hidden');
-		$("#stages_input").addClass('grey_input');
+		$("#stages_input").addClass('add_input');
 		return false;
 	});
 
@@ -40,6 +40,13 @@ $(document).ready(function(){
 
 	});
 
+	$("#clients_input").click(function(){
+		$("#clients_input").removeClass('add_input');
+	});
+	
+	$("#stages_input").click(function(){
+		$("#stages_input").removeClass('add_input');
+	});
 
 
 	dragAndDrop("stages","");
@@ -77,7 +84,6 @@ function add_input(type){
 			$("#"+type+"_ul ").append(data);
 			$("#"+type).removeClass("hidden");
 
-			$("#"+type+"_input").val("");
 
 			$('.head').unbind('click');
 			$('.head').click(function() {	
@@ -163,8 +169,6 @@ function add_steps_input(id){
 
 			$("#steps_"+id+ " ul").append(data);
 			$("#steps_"+id).removeClass("hidden");
-			$("#steps_"+id+"_input").val("");
-
 
 			dragAndDrop("steps",id);	
 

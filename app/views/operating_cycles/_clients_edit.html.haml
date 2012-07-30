@@ -1,29 +1,31 @@
-%label
-	%strong
-		= t('views.operating_cycle.section_client')
-%br
-%br
-.align-right.right{:style=>"width:100%"}
-	%input{:id=>"clients_input", :style=>"width:100%", :class => :grey_input, :value => t('views.operating_cycle.add_client'), :rel => :client}		
+.light-gray.padding_10px
+	%label
+		%strong
+			= t('views.operating_cycle.section_client')
 	%br
-	= link_to t('views.operating_cycle.add_client'), "", :id=>"add_client", :class => 'left hidden'
-.clear	
-#clients
-	%ul{:id=>"clients_ul"}
-		-index=0
-		= f.fields_for :clients do |client|
-			-classs = (index % 2) == 0 ? "blank_bg" : "gray" 
-			%li{:rel=>"#{index}"}	
-				%div{:id=>"operating_cycle_clients_attributes_#{client.object.id}_div_#{index}", :class=>"#{classs}"}
-					.left
-						= client.text_field :name, :class => 'no_edit_input', :disabled=>:disabled, :size=>"80"
-						= client.hidden_field :torder
-						%a{:id=>"operating_cycle_clients_attributes_#{index}_name_close",:rel=>"operating_cycle_clients_attributes_#{index}_name",:class=>"close hidden",  :href=>""}
-							=image_tag "close.png"
-					.right
-						%a{:rel=>"operating_cycle_clients_attributes_#{index}_name",:class=>"modify",  :href=>""}
-							=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"	
-						%a{:rel=>"operating_cycle_clients_attributes_#{client.object.id}_div_#{index}",:class=>"delete",  :href=>""}
-							=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
-					.clear	
-				-index=index+1	
+	#clients
+		%ul{:id=>"clients_ul"}
+			-index=0
+			= f.fields_for :clients do |client|
+				-classs = (index % 2) == 0 ? "blank_bg" : "gray" 
+				%li{:rel=>"#{index}"}	
+					%div{:id=>"operating_cycle_clients_attributes_#{client.object.id}_div_#{index}", :class=>"#{classs}"}
+						.left
+							= client.text_field :name, :class => 'no_edit_input', :disabled=>:disabled, :size=>"80"
+							= client.hidden_field :torder
+							%a{:id=>"operating_cycle_clients_attributes_#{index}_name_close",:rel=>"operating_cycle_clients_attributes_#{index}_name",:class=>"close hidden",  :href=>""}
+								=image_tag "close.png"
+						.right
+							%a{:rel=>"operating_cycle_clients_attributes_#{index}_name",:class=>"modify",  :href=>""}
+								=image_tag "editar_ico_up.png", :class=>"button_to_edit", :alt=>"Borrar_ico_up"	
+							%a{:rel=>"operating_cycle_clients_attributes_#{client.object.id}_div_#{index}",:class=>"delete",  :href=>""}
+								=image_tag "borrar_ico_up.png", :class=>"button_to_delete", :alt=>"Borrar_ico_up"
+						.clear	
+					-index=index+1	
+		%ul{:class=>"add_element_ul"}
+			%li
+				%input{:id=>"clients_input", :style=>"width:98%", :class => :add_input, :value => t('views.operating_cycle.add_client'), :rel => :client}		
+				%br
+				= link_to t('views.operating_cycle.add_client'), "", :id=>"add_client", :class => 'left hidden'
+%br					
+				

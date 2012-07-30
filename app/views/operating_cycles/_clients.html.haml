@@ -1,12 +1,13 @@
-%label
-	%strong
-		= t('views.operating_cycle.section_client')
-%br
-%br
-.align-right.right{:style=>"width:100%"}
-	%input{:id=>"clients_input", :style=>"width:100%", :class => 'grey_input', :value => t('views.operating_cycle.add_client'), :rel => :client}	
+.light-gray.padding_10px
+	%label
+		%strong
+			= t('views.operating_cycle.section_client')
 	%br
-	= link_to t('views.operating_cycle.add_client'), "", :id=>"add_client", :class => 'hidden left'
-.clear	
-#clients.hidden
-	%ul{:id=>"clients_ul"}
+
+	#clients
+		%ul{:id=>"clients_ul"}
+		%ul{:class=>"add_element_ul"}
+			%li
+				%input{:id=>"clients_input", :style=>"width:98%", :class => 'add_input', :value => t('views.operating_cycle.add_client'), :rel => :client}	
+				%br
+				= link_to t('views.operating_cycle.add_client'), "", :id=>"add_client", :class => 'hidden left'
