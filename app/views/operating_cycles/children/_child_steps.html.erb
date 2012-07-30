@@ -1,0 +1,20 @@
+<li rel='<%= params[:id]%>,<%= params[:id2]%>'>
+	<div class='<%= params[:classs]%>' id='operating_cycle_steps_attributes_new_<%= params[:id]%>_<%= params[:id2]%>_div'> 
+		<div class='left'>
+			<input type='text' disabled='disabled' size='70' name='operating_cycle[stages_attributes][<%= params[:id]%>][steps_attributes][new_<%= params[:id2]%>][name]' id='operating_cycle_steps_attributes_new_<%= params[:id]%>_<%= params[:id2]%>_name' class='no_edit_input' value='<%= params[:value]%>'>
+			<input type='hidden' name='operating_cycle[stages_attributes][<%= params[:id]%>][steps_attributes][new_<%= params[:id2]%>][torder]' id='operating_cycle_stages_attributes_<%= params[:id]%>_steps_attributes_<%= params[:id2]%>_torder' value='<%= params[:inputs]%>' >
+			<a rel="operating_cycle_steps_attributes_new_<%= params[:id]%>_<%= params[:id2]%>_name" id="operating_cycle_steps_attributes_new_<%= params[:id]%>_<%= params[:id2]%>_name_close" href="" class="close hidden">
+				<img src="/images/close.png" alt="Close">
+			</a>
+		</div>
+		<div class="right">
+			<a class="modify modify_step" href="" rel="operating_cycle_steps_attributes_new_<%= params[:id]%>_<%= params[:id2]%>_name">
+				<img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up">
+			</a>
+			<a rel="operating_cycle_steps_attributes_new_<%= params[:id]%>_<%= params[:id2]%>_div" data-method="delete" class="delete delete_step" href="">
+			<img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up">
+			</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+</li>

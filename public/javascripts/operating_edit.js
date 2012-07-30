@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 	$("#add_client").click(function(){
 		add_input('clients');
-		$('#clients_input').val('+ Agregar Cliente');
+		$('#clients_input').val('Agregar Cliente');
 		$(this).addClass('hidden');
 		$('#clients_input').addClass('grey_input');
 		return false;
@@ -25,7 +25,7 @@ $(document).ready(function(){
 
 	$("#add_stage").click(function(){
 		add_input('stages');
-		$("#stages_input").val('+ Agregar Proceso');
+		$("#stages_input").val('Agregar Proceso');
 		$(this).addClass('hidden');
 		$("#stages_input").addClass('grey_input');
 		return false;
@@ -125,7 +125,7 @@ function add_input(type){
 		id=Math.floor(Math.random()*1000);
 		inputs=$("#"+type+" .no_edit_input").length;
 		if(inputs%2==0)
-		classs='light-gray';
+		classs='blank_bg';
 		else
 		classs='gray';
 
@@ -136,113 +136,84 @@ function add_input(type){
 		li_open="";
 		li_close="";
 
+		ptype= type=="stages" ? "stages" : "input";
 
+		$.get('/cycles/childs',{ id: id, value:value, type:type, classs:classs, ptype:ptype }, function(data) {
 
-
-		close_edit='<a rel="operating_cycle_'+type+'_attributes_new_'+id+'_name" id="operating_cycle_'+type+'_attributes_new_'+id+'_name_close" href="" class="close hidden"><img src="/images/close.png" alt="Close"></a>';
-		if (type=='stages'){
-			steps='<div id="steps_'+id+'" class="hidden"><ul></u></div>';
-			inp='<div class="clear"></div><div class="steps_container"><label><strong> Productos y/o Servicios </strong></label><br><br><div class="align-left left" style="width:100%"><input id="steps_'+id+'_input" style="width:60%" value="+ Agregar Producto y/o Servicio" class="grey_input input_services"><br/><a id="add_step_'+id+'" rel="'+id+'" href="" class="add_step left hidden">+ Agregar Producto y/o Servicio</a></div><div class="clear"></div><br/>'+steps+'</div>';
-
-			class_delete='delete'
-			collapse="<a rel='operating_cycle_"+type+"_attributes_new_"+id+"_div' href=''class='head'>+/-</a>";
-			li_open="<div><li rel='"+id+"'><input type='hidden' name='operating_cycle["+type+"_attributes]["+id+"][torder]' id='operating_cycle_"+type+"_attributes_"+id+"_torder'>";
-			li_close='</li></div>';
-
-			input=li_open+"<div class='"+classs+"'><div class='left'>"+collapse+"<input type='text' size='85' disabled='disabled' name='operating_cycle["+type+"_attributes]["+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input' value='"+value+"'>"+close_edit+"</div>";
-			links='<div class="right"><a class="modify" href="" rel="operating_cycle_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="'+class_delete+'" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
-			clear='<div class="clear"></div></div><div class="'+classs+'" id="operating_cycle_'+type+'_attributes_new_'+id+'_div"> '+inp+' </div>'+li_close;
-
-			$("#stages_container >  ul").append(input+links+clear);
-			$("#stages_container").removeClass("hidden");
-		}else{
-
-
-			ptype="";
-			size="85";
-			if(type=="services"){
-				ptype='<select name="operating_cycle[services_attributes]['+id+'][ptype]" id="operating_cycle_services_attributes_'+id+'_ptype" disabled="disabled" class="no_edit_input"><option value="Service">Servicio</option><option value="Product">Producto</option></select>';
-				size="75";
-			}
-
-			class_delete='delete'
-			li_open="<div><li rel='"+id+"'><input type='hidden' name='operating_cycle["+type+"_attributes]["+id+"][torder]' id='operating_cycle_"+type+"_attributes_"+id+"_torder'>";
-			li_close='</li></div>';
-
-			input=li_open+"<div class='"+classs+"'><div class='left'><input type='text' size='"+size+"' disabled='disabled' name='operating_cycle["+type+"_attributes]["+id+"][name]' id='operating_cycle_"+type+"_attributes_new_"+id+"_name' class='no_edit_input' value='"+value+"'>"+ptype+""+close_edit+"</div>";
-			links='<div class="right"><a class="modify" href="" rel="operating_cycle_'+type+'_attributes_new_'+id+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_'+type+'_attributes_new_'+id+'_div" data-method="delete" class="'+class_delete+'" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
-			clear='<div class="clear"></div></div><div class="'+classs+'" id="operating_cycle_'+type+'_attributes_new_'+id+'_div"> '+inp+' </div>'+li_close;
-
-			$("#"+type+"_ul").append(input+links+clear);
+			$("#"+type+"_ul ").append(data);
 			$("#"+type).removeClass("hidden");
-		}
+
+			$("#"+type+"_input").val("");
 
 
 
-		$("#"+type+"_input").val("");
+
+			$("#"+type+"_input").val("");
 
 
-		$(".modify").click(function(){
-			id=$(this).attr('rel');
-			id2_array=id.split("_");
-			id2_array[id2_array.length-1]="ptype";
-			id2=id2_array.join("_");
-			$("#"+id).addClass('editable');
-			$("#"+id+"_close").removeClass('hidden');
-			$("#"+id).removeAttr('disabled');
-			$("#"+id2).addClass('editable');
-			$("#"+id2).removeAttr('disabled');
-			return false;
+			$(".modify").click(function(){
+				id=$(this).attr('rel');
+				id2_array=id.split("_");
+				id2_array[id2_array.length-1]="ptype";
+				id2=id2_array.join("_");
+				$("#"+id).addClass('editable');
+				$("#"+id+"_close").removeClass('hidden');
+				$("#"+id).removeAttr('disabled');
+				$("#"+id2).addClass('editable');
+				$("#"+id2).removeAttr('disabled');
+				return false;
+			});
+
+
+
+
+			$(".close").click(function(){
+				id=$(this).attr('rel');
+				id2_array=id.split("_");
+				id2_array[id2_array.length-1]="ptype";
+				id2=id2_array.join("_");
+				$("#"+id).removeClass('editable');
+				$(this).addClass('hidden');
+				$("#"+id2).removeClass('editable');
+				$("#"+id).attr('disabled','disabled');
+				$("#"+id2).attr('disabled','disabled');
+				return false;
+			});
+
+
+			$(".delete").click(function(){
+				id=$(this).attr('rel');
+				$("#"+id).prev().addClass('hidden');
+				$("#"+id).parent().remove();
+				$("#"+id).remove();
+				return false;
+			});
+			
+			
+			$('.add_step').unbind('click');
+			$(".add_step").click(function(){
+				id=$(this).attr('rel');
+				add_steps_input(id);
+				return false;
+			});
+			$('.head').unbind('click');
+			$('.head').click(function() {	
+				id=$(this).attr('rel');
+				$("#"+id).toggle('slow');
+
+				return false;
+			});
+
+			$(".close").click(function(){
+				id=$(this).attr('rel');
+				$("#"+id).removeClass('editable');
+				$(this).addClass('hidden');
+				$("#"+id).attr('disabled','disabled');
+				return false;
+			});
+
+			dragAndDrop("stages",id);
 		});
-
-
-
-
-		$(".close").click(function(){
-			id=$(this).attr('rel');
-			id2_array=id.split("_");
-			id2_array[id2_array.length-1]="ptype";
-			id2=id2_array.join("_");
-			$("#"+id).removeClass('editable');
-			$(this).addClass('hidden');
-			$("#"+id2).removeClass('editable');
-			$("#"+id).attr('disabled','disabled');
-			$("#"+id2).attr('disabled','disabled');
-			return false;
-		});
-
-
-	$(".delete").click(function(){
-			id=$(this).attr('rel');
-			$("#"+id).prev().addClass('hidden');
-			$("#"+id).parent().remove();
-			$("#"+id).remove();
-			return false;
-		});
-
-		$(".add_step").click(function(){
-			id=$(this).attr('rel');
-			add_steps_input(id);
-			return false;
-		});
-		$('.head').unbind('click');
-		$('.head').click(function() {	
-			id=$(this).attr('rel');
-			$("#"+id).toggle('slow');
-
-			return false;
-		});
-
-		$(".close").click(function(){
-			id=$(this).attr('rel');
-			$("#"+id).removeClass('editable');
-			$(this).addClass('hidden');
-			$("#"+id).attr('disabled','disabled');
-			return false;
-		});
-
-		dragAndDrop("stages",id);
-
 
 	}	
 
@@ -256,59 +227,57 @@ function add_steps_input(id){
 		if(inputs%2==0)
 		classs='gray';
 		else
-		classs='light-gray';
+		classs='blank_bg';
 		id2=Math.floor(Math.random()*1000)+160;
-		close_edit='<a rel="operating_cycle_steps_attributes_new_'+id+'_'+id2+'_name" id="operating_cycle_steps_attributes_new_'+id+'_'+id2+'_name_close" href="" class="close hidden"><img src="/images/close.png" alt="Close"></a>';
-		input="<li rel='"+id+","+id2+"'><div class='"+classs+"' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_div'> <div class='left'><input type='text' size='75' disabled='disabled' name='operating_cycle[stages_attributes]["+id+"][steps_attributes][new_"+id2+"][name]' id='operating_cycle_steps_attributes_new_"+id+"_"+id2+"_name' class='no_edit_input' value='"+value+"'><input type='hidden' name='operating_cycle[stages_attributes]["+id+"][steps_attributes][new_"+id2+"][torder]' id='operating_cycle_stages_attributes_"+id+"_steps_attributes_"+id2+"_torder'>"+close_edit+"</div>"
-		links='<div class="right"><a class="modify modify_step" href="" rel="operating_cycle_steps_attributes_new_'+id+'_'+id2+'_name"><img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up"></a><a rel="operating_cycle_steps_attributes_new_'+id+'_'+id2+'_div" data-method="delete" class="delete delete_step" href=""><img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up"></a></div>';
-		clear='<div class="clear"></div></div></li>';
+		$.get('/cycles/childs',{ id: id,id2:id2, value:value, type:"steps", classs:classs, ptype:"steps" }, function(data) {
 
-		$("#steps_"+id+ " ul").append(input+links+clear);
-		$("#steps_"+id).removeClass("hidden");
-		$("#steps_"+id+"_input").val("");
+			$("#steps_"+id+ " ul").append(data);
+			$("#steps_"+id).removeClass("hidden");
+			$("#steps_"+id+"_input").val("");
 
+			dragAndDrop("steps",id);
 
-		dragAndDrop("steps",id);
+			$(".modify").click(function(){
+				id=$(this).attr('rel');
+				$("#"+id).addClass('editable');
+				$("#"+id+"_close").removeClass('hidden');
+				$("#"+id).removeAttr('disabled');
+				return false;
+			});
 
-		$(".modify").click(function(){
-			id=$(this).attr('rel');
-			$("#"+id).addClass('editable');
-			$("#"+id+"_close").removeClass('hidden');
-			$("#"+id).removeAttr('disabled');
-			return false;
-		});
-
-		$(".close").click(function(){
-			id=$(this).attr('rel');
-			$("#"+id).removeClass('editable');
-			$(this).addClass('hidden');
-			$("#"+id).attr('disabled','disabled');
-			return false;
-		});
+			$(".close").click(function(){
+				id=$(this).attr('rel');
+				$("#"+id).removeClass('editable');
+				$(this).addClass('hidden');
+				$("#"+id).attr('disabled','disabled');
+				return false;
+			});
 
 			$(".delete").click(function(){
-			id=$(this).attr('rel');
-			$("#"+id).prev().addClass('hidden');
-			$("#"+id).remove();
-			return false;
+				id=$(this).attr('rel');
+				$("#"+id).prev().addClass('hidden');
+				$("#"+id).remove();
+				return false;
+			});
+
+			$(".delete_step").click(function(){
+				div=$(this).attr('rel');
+				st=div.split('_');
+				if(st[4]=='new'){
+					$("#"+div).remove();
+				}else{
+
+					id=st[4];
+					id2=st[6];
+					des="<input type='text' name='operating_cycle[stages_attributes]["+id+"][steps_attributes]["+id2+"][_destroy]' id='operating_cycle_"+id+"_attributes_new_"+id2+"_destroy' class='hidden' value='1'>"
+					$("#"+div).append(des);
+					$("#"+div).addClass('hidden');
+				}
+				return false;
+			});
+
+
 		});
-
-		$(".delete_step").click(function(){
-			div=$(this).attr('rel');
-			st=div.split('_');
-			if(st[4]=='new'){
-				$("#"+div).remove();
-			}else{
-
-				id=st[4];
-				id2=st[6];
-				des="<input type='text' name='operating_cycle[stages_attributes]["+id+"][steps_attributes]["+id2+"][_destroy]' id='operating_cycle_"+id+"_attributes_new_"+id2+"_destroy' class='hidden' value='1'>"
-				$("#"+div).append(des);
-				$("#"+div).addClass('hidden');
-			}
-			return false;
-		});
-
 
 	}
 

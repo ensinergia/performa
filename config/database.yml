@@ -6,6 +6,7 @@ development:
   encoding: utf8
   pool: 5
   timeout: 5000
+  host: localhost
 
 
 
@@ -24,7 +25,7 @@ test:
 production:
   adapter: postgresql
   database: gestion_production
-  username: base_user
+  username: postgres
   password: 
   encoding: utf8
   pool: 5

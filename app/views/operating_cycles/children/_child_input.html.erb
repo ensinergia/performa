@@ -1,0 +1,42 @@
+<%-
+type=params[:type]
+
+if type=="services"
+	size="75"
+else
+	size="80"	
+
+end	
+
+
+-%>
+
+
+
+
+
+<div>
+	<li rel='<%= params[:id]%>'>
+		<input type='hidden' name='operating_cycle[<%= params[:type]%>_attributes][<%= params[:id]%>][torder]' id='operating_cycle_<%= params[:type]%>_attributes_<%= params[:id]%>_torder' value='<%= params[:inputs]%>'>
+		<div class='<%= params[:classs]%>'>
+			<div class='left'>
+				<input type='text' size='<%= size%>' class='no_edit_input' disabled='disabled' name='operating_cycle[<%= params[:type]%>_attributes][<%= params[:id]%>][name]' id='operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_name'  value='<%= params[:value]%>'>
+				<a rel="operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_name" id="operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_name_close" href="" class="close hidden"><img src="/images/close.png" alt="Close"></a>
+			</div>
+
+		<div class="right">
+			<a class="modify" href="" rel="operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_name">
+				<img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up">
+			</a>
+			<a rel="operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_div" data-method="delete" class="delete" href="">
+				<img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up">
+			</a>
+		</div>
+	    <div class="clear"></div>
+	</div>
+	<div class="<%= params[:classs]%>" id="operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_div">    
+	</div>
+ </li>
+
+</div>
+

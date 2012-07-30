@@ -12,11 +12,11 @@
 	%ul{:id=>"clients_ul"}
 		-index=0
 		= f.fields_for :clients do |client|
-			-classs = (index % 2) == 0 ? "light-gray" : "gray" 
+			-classs = (index % 2) == 0 ? "blank_bg" : "gray" 
 			%li{:rel=>"#{index}"}	
 				%div{:id=>"operating_cycle_clients_attributes_#{client.object.id}_div_#{index}", :class=>"#{classs}"}
 					.left
-						= client.text_field :name, :class => 'no_edit_input', :disabled=>:disabled, :size=>"88"
+						= client.text_field :name, :class => 'no_edit_input', :disabled=>:disabled, :size=>"80"
 						= client.hidden_field :torder
 						%a{:id=>"operating_cycle_clients_attributes_#{index}_name_close",:rel=>"operating_cycle_clients_attributes_#{index}_name",:class=>"close hidden",  :href=>""}
 							=image_tag "close.png"

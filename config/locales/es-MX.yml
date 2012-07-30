@@ -873,13 +873,13 @@ es-MX:
       stages: "Procesos"    
       steps: 'Productos y/o Servicios'    
       client: 'Clientes'
-      add_client: '+ Agregar Cliente'
-      add_stage: "+ Agregar Proceso"
-      add_step: "+ Agregar Producto y/o Servicio"
+      add_client: 'Agregar Cliente'
+      add_stage: "Agregar Proceso"
+      add_step: "Agregar Producto y/o Servicio"
       services: 'Productos y/o Servicios'
-      add_service: ' + Agregar Producto y/o Servicio'
+      add_service: 'Agregar Producto y/o Servicio'
       key_activities: 'Actividades Clave'
-      add_key_activity: ' + Agregar Actividad Clave'
+      add_key_activity: 'Agregar Actividad Clave'
       cancel: 'Cancelar'
       submit: 'Guardar'
       internal_id: 'ID'

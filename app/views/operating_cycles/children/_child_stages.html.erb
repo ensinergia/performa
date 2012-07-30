@@ -1,0 +1,42 @@
+		<li rel='<%= params[:id]%>'>
+			<div class='<%= params[:classs]%>'>
+				<div class='left'>
+					<a rel='operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_div' href=''class='head'>+/-</a>
+					<input type='text' disabled='disabled' size='85' name='operating_cycle[<%= params[:type]%>_attributes][<%= params[:id]%>][name]' id='operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_name' class='no_edit_input' value='<%= params[:value]%>'>
+					<input type='hidden'name='operating_cycle[<%= params[:type]%>_attributes][<%= params[:id]%>][torder]' id='operating_cycle_<%= params[:type]%>_attributes_<%= params[:id]%>_torder' value='<%= params[:inputs]%>'>
+					<a rel="operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_name" id="operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_name_close" href="" class="close hidden">
+							<img src="/images/close.png" alt="Close">
+					</a>
+				</div>
+				<div class="right">
+					<a class="modify" href="" rel="operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_name">
+						<img src="/images/editar_ico_up.png?" class="button_to_edit" alt="Editar_ico_up">
+					</a>
+					<a rel="operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_div" data-method="delete" class="'delete" href="">
+						<img src="/images/borrar_ico_up.png" class="button_to_delete" alt="Borrar_ico_up">
+					</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="<%= params[:classs]%>" id="operating_cycle_<%= params[:type]%>_attributes_new_<%= params[:id]%>_div"> 
+				
+			<div class="clear"></div>
+			
+			<div class="steps_container">
+				<label><strong> Productos y/o Servicios </strong></label>
+				<br><br>
+				<div class="align-left left" style="width:100%">
+					<input id="steps_<%= params[:id]%>_input" style="width:60%" class="input_services grey_input" value=" Agregar Producto y/o Servicio">
+					<br/>
+					<a id="add_step_<%= params[:id]%>" rel="<%= params[:id]%>" href="" class="add_step left hidden"> Agregar Producto y/o Servicio</a>
+				</div>
+				<div class="clear"></div>
+				<br/>
+				<div id="steps_<%= params[:id]%>" class="hidden">
+					<ul></u>
+				</div>
+			</div>
+				
+	</div>
+
+</li>

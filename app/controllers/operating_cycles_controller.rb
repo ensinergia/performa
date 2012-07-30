@@ -9,7 +9,7 @@ class OperatingCyclesController < ApplicationController
 
   before_filter :verify_subdomain
   before_filter :operative_objectives, :only => [:new, :edit, :update, :create]
-  before_filter :find_operating_cycle, :except =>  [:new, :create, :index]
+  before_filter :find_operating_cycle, :except =>  [:new, :create, :index, :childs]
 
 
   def index
@@ -60,6 +60,10 @@ class OperatingCyclesController < ApplicationController
     redirect_to(area_operating_cycles_url(session[:area_id]))
 
   end
+
+    def childs
+    render :partial => "operating_cycles/children/child_#{params[:ptype]}", :layout=>false
+  end   
 
   private
   def operative_objectives
