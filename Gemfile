@@ -28,6 +28,7 @@ gem 'best_in_place', "~> 0.2.0"
 
 # Test environment
 group :test, :development do
+  gem 'taps'
   gem 'capybara'#, :git => "git://github.com/jnicklas/capybara.git"
   gem 'database_cleaner'
   gem 'rspec-rails', "~> 2.6.0"
