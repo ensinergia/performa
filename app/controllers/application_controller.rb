@@ -29,9 +29,6 @@ class ApplicationController < ActionController::Base
 
     end
 
-    debugger
-    puts "cd"
-
   end   
   
   
