@@ -24,7 +24,7 @@ It is suggested to use spork for launching a testing server which loads the rail
 3. watch tests pass or fail and then repair/implement existent/new features
 
 
-##Domain management
+###Domain management
 
 This application handle subdomains, You  could  see this article  to configure  your local  enviroment:
 http://railscasts.com/episodes/221-subdomains-in-rails-3?view=asciicast
