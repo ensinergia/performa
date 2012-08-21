@@ -106,13 +106,6 @@ ActiveRecord::Schema.define(:version => 20120705234159) do
     t.datetime "updated_at"
   end
 
-  create_table "key_activities", :force => true do |t|
-    t.string   "name"
-    t.integer  "operating_cycle_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "liabilities", :force => true do |t|
     t.integer  "project_id"
     t.string   "name"
