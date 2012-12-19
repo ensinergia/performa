@@ -80,3 +80,8 @@ We decided to go for Steak as a DSL (Domain Specific Language) for acceptance te
 It the case of this project using Cucumber provides no extra value, as we are not having meetings with clients where they tell us the features on the application explicitly, instead we are being guided by a set of mocks previously agreed upon.
 
 For more information about **Steak** see [here](http://jeffkreeftmeijer.com/2010/steak-because-cucumber-is-for-vegetarians/)
+
+### Remote Dot and Graphviz
+
+We use the follow implementation  : 
+https://github.com/jstepien/remote_dot
